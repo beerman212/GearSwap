@@ -20,10 +20,10 @@ beta_examples_and_information/*
 data/instructions.txt
 libs/Mote-*
 libs/rev1/*
-*_Gear.lua
-*_Crafting.lua
-*-Items.lua
-*-Globals.lua
+#*_Gear.lua
+#*_Crafting.lua
+#*-Items.lua
+#*-Globals.lua
 data/export/*
 data/common/*
 data/User/*
