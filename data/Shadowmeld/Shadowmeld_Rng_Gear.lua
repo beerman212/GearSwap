@@ -44,7 +44,7 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	sets.precast.JA['Bounty Shot'] = set_combine(sets.TreasureHunter, {hands="Amini Glove. +1"})
 	sets.precast.JA['Camouflage'] = {body="Orion Jerkin +2"}
-	sets.precast.JA['Scavenge'] = {feet="Orion Socks +1"}
+	sets.precast.JA['Scavenge'] = {feet="Orion Socks +2"}
 	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +2"}
 	sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +2"}
 	sets.precast.JA['Double Shot'] = {back=gear.da_jse_back}
@@ -74,7 +74,7 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		head="Orion Beret +2",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+		head="Orion Beret +3",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
 		body=gear.herculean_vest_agiwsd,hands="Meg. Gloves +2",ring1="Epaminondas's Ring",ring2="Dingir Ring",
 		back=gear.agi_wsd_jse_back,waist="Fotia Belt",legs="Meg. Chausses +2",feet=gear.herculean_boots_agiwsd}
 
@@ -105,7 +105,7 @@ function init_gear_sets()
 		back=gear.crit_ranged_jse_back,legs="Darraigner's Brais",feet="Adhe. Gamashes +1"
 	})
 	sets.precast.WS["Jishnu's Radiance"].Acc = set_combine(sets.precast.WS["Jishnu's Radiance"], {
-		head="Orion Beret +2",legs=gear.herculean_trousers_ranged_crit,feet="Meg. Jam. +2"})
+		head="Orion Beret +3",legs=gear.herculean_trousers_ranged_crit,feet="Meg. Jam. +2"})
 	
 	sets.precast.WS["Refulgent Arrow"] = set_combine(sets.precast.WS, {})
 	sets.precast.WS["Refulgent Arrow"].Acc = set_combine(sets.precast.WS["Refulgent Arrow"], {})

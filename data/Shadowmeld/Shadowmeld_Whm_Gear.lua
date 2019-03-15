@@ -81,7 +81,7 @@ function init_gear_sets()
     sets.precast.JA.Benediction = {body="Piety Briault +2"}
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {head="Nahtirah Hat",body="Piety Briault +1",hands="Telchine Gloves"}
+    sets.precast.Waltz = {head="Nahtirah Hat",body="Piety Briault +2",hands="Telchine Gloves"}
 
     -- Weaponskill sets
 
@@ -210,7 +210,7 @@ function init_gear_sets()
 	sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {main="Yagrush",sub="Genmei Shield",
 		neck="Malison Medallion",
 		body="Ebers Bliaud +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
-		back=gear.fc_jse_cape,legs="Th. Pant. +2",feet="Vanya Clogs"})
+		back=gear.fc_jse_cape,legs="Th. Pantaloons +2",feet="Vanya Clogs"})
 
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {main="Yagrush",sub="Genmei Shield"})
 
@@ -226,10 +226,10 @@ function init_gear_sets()
 
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
 
-	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {main="Bolelabunga",head="Inyanga Tiara +2",body="Piety Briault +2",hands="Ebers Mitts +1",legs="Th. Pant. +2",})
+	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {main="Bolelabunga",head="Inyanga Tiara +2",body="Piety Briault +2",hands="Ebers Mitts +1",legs="Th. Pantaloons +2",})
 	
-	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",feet="Piety Duckbills +1"})
-	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",feet="Piety Duckbills +1"})
+	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",feet="Piety Duckbills"})
+	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",feet="Piety Duckbills"})
 	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",legs="Piety Pantaln. +1"})
 	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",legs="Piety Pantaln. +1"})
 	
@@ -237,7 +237,7 @@ function init_gear_sets()
 	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {main="Benificus",
 		head="Ebers Cap +1",
 		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
-		legs="Piety Pantaln. +1",feet="Ebers Boots +1"})
+		legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"})
 		
 	sets.midcast['Elemental Magic'] = {main=gear.gada_enfeeble,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
@@ -280,7 +280,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {main=gear.gada_enfeebling,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Theophany Briault +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.fc_jse_cape,waist="Luminary Sash",legs=gear.chironic_hose_enfeeble,feet="Theo. Duckbills +2"}
+		back=gear.fc_jse_cape,waist="Luminary Sash",legs=gear.chironic_hose_enfeeble,feet="Theo. Duckbills +3"}
 
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 		

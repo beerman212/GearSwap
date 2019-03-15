@@ -68,6 +68,6 @@ gear.valorous_mail_strwsd = {name = "Valorous Mail", augments = {'Accuracy+27','
 gear.valorous_mail_da = {name = "Valorous Mail", augments = {'Accuracy+15 Attack+15','"Dbl.Atk."+4','STR+8','Accuracy+5','Attack+10',}}
 gear.valorous_mitts_vitwsd = {name = "Valorous Mitts", augments = {'Accuracy+24','Weapon skill damage +4%','VIT+5','Attack+10',}}
 gear.valorous_mitts_da = {name = "Valorous Mitts", augments = {'Accuracy+25 Attack+25','"Dbl.Atk."+4','Accuracy+14','Attack+10',}}
-gear.valorous_hose_critdamage = {name = "Valor. Hose", augments = {'Accuracy+24 Attack+24','Weapon skill damage +2%','DEX+9','Accuracy+13','Attack+14',}}
-gear.valorous_hose_dexwsd = {name = "Valor. Hose", augments = {'Accuracy+15','Crit. hit damage +5%','Attack+10',}}
+gear.valorous_hose_dexwsd = {name = "Valor. Hose", augments = {'Accuracy+24 Attack+24','Weapon skill damage +2%','DEX+9','Accuracy+13','Attack+14',}}
+gear.valorous_hose_critdamage = {name = "Valor. Hose", augments = {'Accuracy+15','Crit. hit damage +5%','Attack+10',}}
 gear.valorous_greaves_strwsd = {name = "Valorous Greaves", augments = {'Accuracy+26','Weapon skill damage +3%','STR+10','Attack+9',}}

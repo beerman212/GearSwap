@@ -1,6 +1,6 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal','Acc', 'Crit')
+	state.OffenseMode:options('Normal','Acc', 'FullAcc','Crit')
 	state.RangedMode:options('Normal', 'Acc')
 	state.WeaponskillMode:options('Match','Normal', 'Acc','Proc')
 	state.CastingMode:options('Normal', 'Resistant')
@@ -58,13 +58,13 @@ function init_gear_sets()
 	sets.precast.JA['Triple Shot'] = {body="Chasseur's Frac +1"}
 	sets.precast.JA['Snake Eye'] = {legs="Lanun Trews"}
 	sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
-	sets.precast.JA['Random Deal'] = {body="Lanun Frac +1"}
+	sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
 	sets.precast.FoldDoubleBust = {hands="Lanun Gants +1"}
 
 	sets.precast.CorsairRoll = {
 		range="Compensator",
 		head="Lanun Tricorne +2",neck="Regal Necklace",ear2="Genmei Earring",
-		body="Meg. Cuirie +2",hands="Chasseur's Gants +1",ring1="Defending Ring",ring2="Dark Ring",
+		body="Meg. Cuirie +2",hands="Chasseur's Gants",ring1="Defending Ring",ring2="Dark Ring",
 		back=gear.stp_melee_jse_back,waist="Flume Belt",legs="Mummu Kecks +2",feet="Ahosi Leggings"}
 
 	sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
@@ -78,7 +78,7 @@ function init_gear_sets()
 	sets.precast.CorsairShot = {ammo=gear.QDbullet,
 		head=gear.herculean_helm_magical,neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
 		body="Mummu Jacket +2",hands="Leyline Gloves",ring1="Ilabrat Ring",ring2="Petrov Ring",
-		back=gear.stp_ranged_jse_back,waist="Kwahu Kachina Belt",legs="Chas. Culottes +1",feet="Carmine Greaves +1"}
+		back=gear.stp_ranged_jse_back,waist="Kwahu Kachina Belt",legs="Chas. Culottes",feet="Carmine Greaves +1"}
 		
 	sets.precast.CorsairShot.Damage = set_combine(sets.precast.CorsairShot, {
 		neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
@@ -143,7 +143,7 @@ function init_gear_sets()
 	sets.precast.WS.Proc = set_combine(sets.precast.WS, {
 		head="Carmine Mask +1",ear2="Digni. Earring",
 		body="Mummu Jacket +2",hands="Floral Gauntlets",ring1="Ilabrat Ring",ring2="Ramuh Ring",
-		back=gear.stp_melee_jse_back,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +2"})
+		back=gear.stp_melee_jse_back,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"})
 		
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
@@ -202,17 +202,11 @@ function init_gear_sets()
 	sets.MaxTP = {ear1="Telos Earring",ear2="Ishvara Earring"}
 	sets.AccMaxTP = {ear1="Telos Earring",ear2="Digni. Earring"}
 	
-	sets['Last Stand'] = {}
-	sets['Last Stand'].MaxTP = {ear1="Telos Earring",ear2="Ishvara Earring"}
-	sets['Last Stand'].AccMaxTP = {ear1="Telos Earring",ear2="Envervating Earring"}
+	sets.MagicalMaxTP = {ear2="Hecate's Earring"}
+	sets.MagicalAccMaxTP = {ear2="Digni. Earring"}
 	
-	sets['Leaden Salute'] = {}
-	sets['Leaden Salute'].MaxTP = {ear2="Hecate's Earring"}
-	sets['Leaden Salute'].AccMaxTP = {ear2="Digni. Earring"}
-	
-	sets['Wildfire'] = {}
-	sets['Wildfire'].MaxTP = sets['Leaden Salute'].MaxTP
-	sets['Wildfire'].AccMaxTP = sets['Leaden Salute'].AccMaxTP
+	sets.RangedMaxTP = {ear1="Telos Earring",ear2="Ishvara Earring"}
+	sets.RangedAccMaxTP = {ear1="Telos Earring",ear2="Enervating Earring"}
         
 	-- Midcast Sets
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
@@ -234,7 +228,7 @@ function init_gear_sets()
 	sets.midcast.RA = {ammo=gear.RAbullet,
 		head="Meghanada Visor +2",neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
 		body="Oshosi Vest",hands=gear.adhemar_wrist_path_c,ring1="Dingir Ring",ring2="Ilabrat Ring",
-		back=gear.stp_ranged_jse_back,waist="Yemaya Belt",legs="Adhemar Kecks",feet="Adhe Gamashes +1"}
+		back=gear.stp_ranged_jse_back,waist="Yemaya Belt",legs="Adhemar Kecks",feet="Adhe. Gamashes +1"}
 
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
 		body="Laksa. Frac +3",ring2="Mummu Ring",waist="Kwahu Kachina Belt",legs="Mummu Kecks +2",feet="Meg. Jam. +2"})
@@ -270,11 +264,11 @@ function init_gear_sets()
 	sets.defense.MEVA = {
 		head="Mummu Bonnet +2",neck="Loricate Torque +1",
 		body="Mummu Jacket +2",hands="Mummu Wrists +2",ring1="Defending Ring",ring2="Dark Ring",
-		back=gear.da_jse_back,waist="Flume Belt",legs="Mumm Kecks +2",feet="Ahosi Leggings"}
+		back=gear.da_jse_back,waist="Flume Belt",legs="Mummu Kecks +2",feet="Ahosi Leggings"}
 
 	sets.Kiting = {legs="Carmine Cuisses +1"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	sets.DWMax = {ear1="Suppanomimi Earring",body="Adhemar Jacket +1",hands="Floral Gauntlets",legs="Carmine Cuisses +1",feet="Rawhide Boots"}
+	sets.DWMax = {ear1="Suppanomimi",body="Adhemar Jacket +1",hands="Floral Gauntlets",legs="Carmine Cuisses +1",feet="Rawhide Boots"}
 	
 	-- Resting sets
 	sets.resting = sets.idle
@@ -324,13 +318,13 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     if player.sub_job == 'NIN' then
-        set_macro_page(2, 11)
+        set_macro_page(1, 6)
     elseif player.sub_job == 'DNC' then
-		set_macro_page(1, 11)
+		set_macro_page(1, 6)
     elseif player.sub_job == 'RNG' then
-        set_macro_page(9, 11)
+        set_macro_page(1, 6)
     else
-        set_macro_page(10, 11)
+        set_macro_page(1, 6)
     end   
 
 
