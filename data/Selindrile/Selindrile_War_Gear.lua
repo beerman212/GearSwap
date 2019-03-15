@@ -141,14 +141,18 @@ function init_gear_sets()
     sets.precast.WS["King's Justice"].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
     sets.precast.WS["King's Justice"].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
-	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Lugra Earring",}
-	sets.AccMaxTP = {ear1="Zennaroi Earring",ear2="Telos Earring"}
-	sets.AccDayMaxTPWSEars = {ear1="Zennaroi Earring",ear2="Telos Earring"}
-	sets.DayMaxTPWSEars = {ear1="Ishvara Earring",ear2="Brutal Earring",}
-	sets.AccDayWSEars = {ear1="Zennaroi Earring",ear2="Telos Earring"}
-	sets.DayWSEars = {ear1="Brutal Earring",ear2="Moonshade Earring"}
+	-- Swap to these on Moonshade using WS if at 3000 TP	
+	sets.WSMaxTP = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.WSAccMaxTP = {ear1="Zennaroi Earring",ear2="Telos Earring"}
+	sets.WSDayMaxTP = {ear1="Brutal Earring",ear2="Telos Earring"}
+	sets.WSAccDayMaxTP = {ear1="Zennaroi Earring",ear2="Telos Earring"}
+	sets.WSDay = {ear1="Brutal Earring",ear2="Moonshade Earring"}
+	sets.WSAccDay = {ear1="Zennaroi Earring",ear2="Telos Earring"}
 
+	sets.WSMaxTP["King's Justice"] = {ear1="Lugra Earring +1",ear2="Ishvara Earring"}
+	sets.WSDayMaxTP["King's Justice"] = {ear1="Brutal Earring",ear2="Ishvara Earring"}
+	sets.WSDay["King's Justice"] = {ear1="Brutal Earring",ear2="Telos Earring"}
+	
      -- Sets to return to when not performing an action.
            
      -- Resting sets

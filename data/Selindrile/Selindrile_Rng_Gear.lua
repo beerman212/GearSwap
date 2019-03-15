@@ -86,18 +86,23 @@ function init_gear_sets()
         back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
 		
     sets.precast.WS['Trueflight'] = {
-        head=gear.herculean_nuke_head,neck="Baetyl Pendant",ear1="Crematio Earring",ear2="Friomisi Earring",
+        head=gear.herculean_nuke_head,neck="Baetyl Pendant",ear1="Moonshade Earring",ear2="Friomisi Earring",
         body="Samnuha Coat",hands="Carmine Fin. Ga. +1",ring1="Regal Ring",ring2="Dingir Ring",
         back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
 
     sets.precast.WS['Trueflight'].Acc = {
-        head=gear.herculean_nuke_head,neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Friomisi Earring",
+        head=gear.herculean_nuke_head,neck="Sanctity Necklace",ear1="Moonshade Earring",ear2="Friomisi Earring",
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Regal Ring",ring2="Dingir Ring",
         back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
 		
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {}
-	sets.AccMaxTP = {}
+	sets.WSMaxTP = {}
+	sets.WSAccMaxTP = {}
+	sets.WSRangedMaxTP = {ear1="Ishvara Earring",ear2="Telos Earring"}
+	sets.WSRnagedAccMaxTP = {ear1="Enervating Earring",ear2="Telos Earring"}
+	
+	sets.WSRangedMaxTP['Trueflight'] = {ear1="Crematio Earring",ear2="Friomisi Earring"}
+	sets.WSRnagedAccMaxTP['Trueflight'] = {ear1="Digni. Earring",ear2="Gwati Earring"}
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
