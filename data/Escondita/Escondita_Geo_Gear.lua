@@ -202,7 +202,7 @@ function init_gear_sets()
 
 	sets.idle = {main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
 		head="Befouled Crown",neck="Twilight Torque",ear1="Enchntr. Earring +1",ear2="Eabani Earring",
-		body="Jhakri Robe +2",hands=gear.merlinic_dastanas_refresh,ring1="Defending Ring",ring2="Dark Ring",
+		body="Jhakri Robe +2",hands=gear.merlinic_dastanas_refresh,ring1="Defending Ring",ring2="Warden's Ring",
 		back=gear.idle_jse_back,waist="Fucho-no-Obi",legs="Assid. Pants +1",feet=gear.merlinic_crackows_refresh}
 		
 	sets.idle.PDT = set_combine(sets.idle, 
@@ -232,12 +232,12 @@ function init_gear_sets()
 	
 	sets.defense.PDT = set_combine(sets.idle.PDT, {})
 
-	sets.defense.MDT = set_combine(sets.defense.PDT, {})
-		
-    sets.defense.MEVA = set_combine(sets.defense.MDT, {})
-		
+	sets.defense.MDT = set_combine(sets.defense.PDT, {ring2="Purity Ring"})
+
+	sets.defense.MEVA = set_combine(sets.defense.MDT, {})
+
 	sets.defense.PetPDT = sets.idle.PDT.Pet
-		
+
 	sets.defense.NukeLock = sets.midcast['Elemental Magic']
 	
 	sets.defense.GeoLock = sets.midcast.Geomancy.Indi
