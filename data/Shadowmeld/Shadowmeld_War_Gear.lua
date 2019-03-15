@@ -216,7 +216,7 @@ function init_gear_sets()
 	sets.DayWSEars = {ear1="Ishvara Earring",ear2="Moonshade Earring"}
 
 	-- Sets to return to when not performing an action.
-           
+
 	-- Idle sets
 	sets.idle = {ammo="Staunch Tathlum",
 		head=gear.valorous_mask_strwsd,neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
