@@ -319,15 +319,15 @@ function init_gear_sets()
 	sets.NightIdle = {}
 
 	-- Gear for learning spells: +skill and AF hands.
-	sets.Learning = {hands="Assim. Bazu. +3"}
+	sets.Learning = {hands="Magus Bazubands"}
 
 	-- Idle sets
 	sets.idle = {ammo="Staunch Tathlum",
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
-		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		body="Jhakri Robe +2",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
-	sets.idle.PDT = set_combine(sets.idle, {head="Aya. Zucchetto +2"})
+	sets.idle.PDT = set_combine(sets.idle, {head="Aya. Zucchetto +2",body="Ayanmo Corazza +2"})
 
 	-- Resting sets
 	sets.resting = sets.idle
