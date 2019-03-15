@@ -10,7 +10,7 @@
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('Sequence','KajaTP','KajaSTP','MagicWeapons','None')
 
-	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
+	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 
 	gear.da_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
 	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
@@ -19,7 +19,7 @@
 	gear.mab_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 
 	gear.obi_cure_waist = "Luminary Sash"
-	gear.obi_nuke_waist = "Yamabuki-no-Obi"
+	gear.obi_nuke_waist = "Eschan Stone"
 
 	-- Additional local binds
 	send_command('bind ^` input /ja "Chain Affinity" <me>')
@@ -47,16 +47,16 @@ function init_gear_sets()
 	-- Start defining the sets
 	--------------------------------------
 
-	sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +1"}
-	sets.buff['Chain Affinity'] = {feet="Assim. Charuqs +2"}
-	sets.buff.Convergence = {head="Luh. Keffiyeh +1"}
-	sets.buff.Diffusion = {feet="Luhlaza Charuqs +1"}
+	sets.buff['Burst Affinity'] = {}
+	sets.buff['Chain Affinity'] = {}
+	sets.buff.Convergence = {}
+	sets.buff.Diffusion = {}
 	sets.buff.Enchainment = {}
-	sets.buff.Efflux = {back=gear.da_jse_back,legs="Hashishin Tayt +1"}
+	sets.buff.Efflux = {back=gear.da_jse_back}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
-	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendicant's Earring",ear2="Evans Earring",
-		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
+	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendi. Earring",ear2="Evans Earring",
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Mephitas's Ring",
 		legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
 	-- Precast Sets
@@ -369,33 +369,48 @@ function init_gear_sets()
 		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_a,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.da_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta}
 
-	sets.engaged.Acc = set_combine(sets.engaged, {head="Carmine Mask +1",ring1="Chirich Ring"})
+	sets.engaged.Acc = set_combine(sets.engaged, {head="Dampening Tam",ring1="Chirich Ring"})
 
-	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {neck="Lissome Necklace",ear2="Cessance Earring",waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"})
+	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {head="Carmine Mask +1",neck="Lissome Necklace",ear2="Cessance Earring",waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"})
 
 	sets.engaged.Fodder = set_combine(sets.engaged, {})
 
 	sets.engaged.DTLite = set_combine(sets.engaged, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring_dt,waist="Flume Belt"})
 
-	sets.engaged.PDT = set_combine(sets.engaged.DTLite, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.PDT = set_combine(sets.engaged.DTLite, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
+		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
-	sets.engaged.MDT = set_combine(sets.engaged, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",ear1="Etiolation Earring",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2=gear.dark_ring_dt,waist="Flume Belt",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.MDT = set_combine(sets.engaged, {ammo="Staunch Tathlum",
+		head="Aya. Zucchetto +2",ear1="Etiolation Earring",ear2="Eabani Earring",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Purity Ring",
+		waist="Flume Belt",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
 	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring_dt,waist="Flume Belt"})
 
-	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
+		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
-	sets.engaged.Acc.MDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",ear1="Etiolation Earring",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2=gear.dark_ring_dt,waist="Flume Belt",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.Acc.MDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",ear1="Etiolation Earring",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Purity Ring",
+		waist="Flume Belt",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
 	sets.engaged.FullAcc.DTLite = set_combine(sets.engaged.FullAcc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring_dt,waist="Flume Belt"})
 
-	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.FullAcc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.FullAcc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
+		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
-	sets.engaged.FullAcc.MDT = set_combine(sets.engaged.FullAcc, {ammo="Staunch Tathlum",ear1="Etiolation Earring",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2=gear.dark_ring_dt,legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.FullAcc.MDT = set_combine(sets.engaged.FullAcc, {ammo="Staunch Tathlum",ear1="Etiolation Earring",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Purity Ring",
+		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
 	sets.engaged.Fodder.DTLite = set_combine(sets.engaged.Fodder, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring_dt,waist="Flume Belt"})
 
-	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
+		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
 	sets.engaged.Fodder.MDT = set_combine(sets.engaged.Fodder, {})
 
@@ -406,7 +421,7 @@ function init_gear_sets()
 	sets.Healing_DWClub = {}
 	sets.Cure_Received = {waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
-	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1",ring1="Mujin Band",ring2="Locus Ring"}
+	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1",ring1="Mujin Band",ring2="Locus Ring",feet="Jhakri Pigaches +2"}
 
 end
 
