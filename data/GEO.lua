@@ -12,6 +12,7 @@ end
 function job_setup()
 
 	state.Buff.Entrust = buffactive.Entrust or false
+	state.Buff['Blaze of Glory'] = buffactive['Blaze of Glory'] or false
 
     LowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder',
         'Stone II', 'Water II', 'Aero II', 'Fire II', 'Blizzard II', 'Thunder II',
@@ -27,6 +28,7 @@ function job_setup()
 	autogeo = 'Frailty'
 	last_indi = ''
 	last_geo = ''
+	blazelocked = false
 	
 	state.ShowDistance = M(true, 'Show Geomancy Buff/Debuff distance')
 	state.AutoEntrust = M(false, 'AutoEntrust Mode')
@@ -123,7 +125,16 @@ function job_precast(spell, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, spellMap, eventArgs)
-
+	if spell.type == 'WeaponSkill' then
+		local WSset = standardize_set(get_precast_set(spell, spellMap))
+		
+		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
+			-- Replace Moonshade Earring if we're at cap TP
+			if sets.MaxTP and get_effective_player_tp(spell, WSset) > 3200 then
+				equip(sets.MaxTP[spell.english] or sets.MaxTP)
+			end
+		end
+	end
 end
 
 function job_post_midcast(spell, spellMap, eventArgs)
@@ -168,13 +179,13 @@ function job_post_midcast(spell, spellMap, eventArgs)
 		end
 
     elseif spell.skill == 'Geomancy' then
-        for buff,active in pairs(state.Buff) do
-            if active and sets.buff[buff] then
-                equip(sets.buff[buff])
-            end
-        end
-		
-		if state.Buff.Entrust and spell.english:startswith('Indi-') then
+		if spell.english:startswith('Geo-') then
+			if state.buff['Blaze of Glory'] and sets.buff['Blaze of Glory'] then
+				equip(sets.buff['Blaze of Glory'])
+				disable('head')
+				blazelocked = true
+			end
+		elseif state.Buff.Entrust and spell.english:startswith('Indi-') then
 			if sets.midcast.Geomancy.main == 'Idris' and item_available('Solstice') then
 				equip({main="Solstice"})
 			end
@@ -288,6 +299,14 @@ function job_update(cmdParams, eventArgs)
         classes.CustomIdleGroups:append('Indi')
     end
 
+end
+
+-- Function that watches pet gain and loss.
+function job_pet_change(pet, gain)
+    if blazelocked then
+		enable('head')
+		blazelocked = false
+	end
 end
 
 -- Function to display the current relevant user state when doing an update.
