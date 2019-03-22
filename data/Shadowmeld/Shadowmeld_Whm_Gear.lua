@@ -234,7 +234,7 @@ function init_gear_sets()
 	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",legs="Piety Pantaln. +1"})
 	
 	-- Need to find 8 more skill
-	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {main="Benificus",
+	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {main="Beneficus",
 		head="Ebers Cap +1",
 		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
 		legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"})
