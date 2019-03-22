@@ -180,7 +180,7 @@ function job_post_midcast(spell, spellMap, eventArgs)
 
     elseif spell.skill == 'Geomancy' then
 		if spell.english:startswith('Geo-') then
-			if state.buff['Blaze of Glory'] and sets.buff['Blaze of Glory'] then
+			if state.Buff['Blaze of Glory'] and sets.buff['Blaze of Glory'] then
 				equip(sets.buff['Blaze of Glory'])
 				disable('head')
 				blazelocked = true
