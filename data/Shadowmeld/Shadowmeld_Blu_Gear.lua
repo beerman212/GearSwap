@@ -12,11 +12,13 @@
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 
-	gear.da_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
 	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
 	gear.crit_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
 	gear.wsd_jse_back = {name="Rosmerta's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-	gear.mab_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+	gear.mab_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+	
+	gear.enhancing_duration_colada = {name="Colada", augments={}}
+	gear.stp_colada = {name="Colada", augments={}}
 
 	gear.obi_cure_waist = "Luminary Sash"
 	gear.obi_nuke_waist = "Eschan Stone"
@@ -52,7 +54,7 @@ function init_gear_sets()
 	sets.buff.Convergence = {}
 	sets.buff.Diffusion = {}
 	sets.buff.Enchainment = {}
-	sets.buff.Efflux = {back=gear.da_jse_back}
+	sets.buff.Efflux = {back=gear.stp_jse_back}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendi. Earring",ear2="Evans Earring",
@@ -73,7 +75,7 @@ function init_gear_sets()
 	sets.precast.Step = {ammo="Falcon Eye",
 		head="Dampening Tam",neck="Combatant's Torque",ear1="Regal Earring",ear2="Telos Earring",
 		body="Assim. Jubbah +3",hands="Assim. Bazu. +3",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-		back=gear.da_jse_back,waist="Olseni Belt",legs="Carmine Cuisses +1",feet=gear.herculean_acc_feet}
+		back=gear.stp_jse_back,waist="Olseni Belt",legs="Carmine Cuisses +1",feet=gear.herculean_acc_feet}
 
 	sets.precast.Flourish1 = {ammo="Falcon Eye",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
@@ -82,7 +84,7 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {main="Vampirism",sub="Colada",ammo="Impatiens",
+	sets.precast.FC = {main="Colada",sub="Vampirism",ammo="Impatiens",
 		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Samnuha Coat",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
@@ -97,7 +99,7 @@ function init_gear_sets()
 	sets.precast.WS = {ammo="Ginsen",
 		head=gear.herculean_helm_strwsd,neck="Fotia Gorget",ear1="Telos Earring",ear2="Cessance Earring",
 		body=gear.herculean_vest_dexwsd,hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
-		back=gear.da_jse_back,waist="Fotia Belt",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"}
+		back=gear.wsd_jse_back,waist="Fotia Belt",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"}
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",legs="Carmine Cuisses +1"})
 	sets.precast.WS.FullAcc = set_combine(sets.precast.WS.Acc, {head="Carmine Mask +1"})
@@ -111,7 +113,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
 
-	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Hetairoi Ring",back=gear.crit_jse_back,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
+	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Hetairoi Ring",back=gear.stp_jse_back,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS.Acc, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",hands=gear.adhemar_wrist_path_a,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].FullAcc = set_combine(sets.precast.WS.FullAcc, {ear2="Moonshade Earring",ring2="Ayanmo Ring",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -367,7 +369,7 @@ function init_gear_sets()
 	sets.engaged = {ammo="Ginsen",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Suppanomimi",
 		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_a,ring1="Petrov Ring",ring2="Epona's Ring",
-		back=gear.da_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta}
+		back=gear.stp_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta}
 
 	sets.engaged.Acc = set_combine(sets.engaged, {head="Dampening Tam",ring1="Chirich Ring"})
 
