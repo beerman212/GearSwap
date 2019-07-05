@@ -8,7 +8,7 @@
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Sequence','KajaTP','KajaSTP','MagicWeapons','None')
+	state.Weapons:options('Sequence','KajaTP','KajaSTP','MagicWeapons','Learning','None')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 
@@ -72,15 +72,15 @@ function init_gear_sets()
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = {}
 
-	sets.precast.Step = {ammo="Falcon Eye",
-		head="Dampening Tam",neck="Combatant's Torque",ear1="Regal Earring",ear2="Telos Earring",
-		body="Assim. Jubbah +3",hands="Assim. Bazu. +3",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-		back=gear.stp_jse_back,waist="Olseni Belt",legs="Carmine Cuisses +1",feet=gear.herculean_acc_feet}
+	sets.precast.Step = {ammo="Ginsen",
+		head="Dampening Tam",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
+		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_a,ring1="Chirich Ring",ring2="Ayanmo Ring",
+		back=gear.stp_jse_back,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet=gear.herculean_boots_ta}
 
-	sets.precast.Flourish1 = {ammo="Falcon Eye",
+	sets.precast.Flourish1 = {ammo="Ginsen",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Stikini Ring",
-		back="Cornflower Cape",waist="Olseni Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Etana Ring",
+		back=gear.mab_jse_back,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
 	-- Fast cast sets for spells
 
@@ -113,7 +113,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
 
-	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Hetairoi Ring",back=gear.stp_jse_back,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
+	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Epona's Ring",back=gear.stp_jse_back,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS.Acc, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",hands=gear.adhemar_wrist_path_a,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].FullAcc = set_combine(sets.precast.WS.FullAcc, {ear2="Moonshade Earring",ring2="Ayanmo Ring",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -156,7 +156,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Ramuh Ring",
 		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet=gear.herculean_boots_ta}
 
-	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'], {sub="Colada",ammo="Ginsen",head="Jhakri Coronal +2",ear2="Digni. Earring",feet="Jhakri Pigaches +2"})
+	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'], {sub=gear.stp_colada,ammo="Ginsen",head="Jhakri Coronal +2",ear2="Digni. Earring",feet="Jhakri Pigaches +2"})
 	
 	sets.midcast['Blue Magic'].Physical.Fodder = set_combine(sets.midcast['Blue Magic'].Physical, {})
 
@@ -363,6 +363,7 @@ function init_gear_sets()
 	sets.weapons.KajaTP = {main="Kaja Sword",sub=gear.stp_colada}
 	sets.weapons.KajaSTP = {main="Kaja Sword",sub="Sequence"}
 	sets.weapons.MagicWeapons = {main="Kaja Sword",sub=gear.enhancing_duration_colada}
+	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
 
@@ -373,7 +374,7 @@ function init_gear_sets()
 
 	sets.engaged.Acc = set_combine(sets.engaged, {head="Dampening Tam",ring1="Chirich Ring"})
 
-	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {head="Carmine Mask +1",neck="Lissome Necklace",ear2="Cessance Earring",waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"})
+	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {head="Carmine Mask +1",neck="Lissome Necklace",ear2="Digni. Earring",waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"})
 
 	sets.engaged.Fodder = set_combine(sets.engaged, {})
 

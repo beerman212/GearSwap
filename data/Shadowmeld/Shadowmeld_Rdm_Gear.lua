@@ -7,7 +7,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None','Sequence','DualWeapons')
+	state.Weapons:options('None','SequenceAmmurapi','SequenceGenmei','NaeglingAmmurapi','NaeglingGenmei','DualSequence','DualNaegling')
 	
 	gear.stp_jse_cape = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
 	gear.str_wsd_jse_cape = {name = "Sucellos's Cape", augments = {'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
@@ -88,9 +88,9 @@ function init_gear_sets()
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {ammo="Regal Gem",
-		ear1="Telos Earring",ring1="Stikini Ring"})
+		ear1="Regal Earring",ring1="Stikini Ring"})
 		
-	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {ammo="Regal Gem",ear1="Telos Earring",ring1="Ilabrat Ring",ring2="Jhakri Ring"})
+	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {ammo="Regal Gem",ear1="Regal Earring",ring1="Ilabrat Ring",ring2="Jhakri Ring"})
 	
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {ammo="Yetshila",
 		head="Aya. Zucchetto +2",ear1="Telos Earring",
@@ -108,9 +108,21 @@ function init_gear_sets()
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body=gear.merlinic_jubbah_magical,hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Archon Ring",
+		body=gear.merlinic_jubbah_magical,hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
 		back=gear.int_matk_jse_cape,waist="Eshcan Stone",legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical}
 
+	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS['Chant du Cygne'], {})
+	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Chant du Cygne'].Acc, {})
+	
+	sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {})
+	sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS.Acc, {})
+	
+	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {ammo="Pemphredo Tathlum",
+		head="Jhakri Coronal +2", neck="Sanctity Necklace",ear1="Regal Earring", ear2="Friomisi Earring",
+		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		back=gear.int_matk_jse_cape,waist="Refoccilation Stone",legs=gear.merlinic_shalwar_magical,feet="Jhakri Pigaches +2"})
+	
+	sets.precast.WS['Energy Drain'] = set_combine(sets.precast.WS['Sanguine Blade'], {ammo="Regal Gem",})
 	
 	-- Midcast Sets
 
@@ -120,7 +132,7 @@ function init_gear_sets()
 	sets.RecoverMP = {}
 	
 	-- Gear for Magic Burst mode.
-    sets.MagicBurst = {head="Ea Hat",neck="Mizu. Kubikazari",body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mujin Band",legs="Ea Slops",feet="Jhakri Pigaches +2"}
+	sets.MagicBurst = {head="Ea Hat",neck="Mizu. Kubikazari",body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mujin Band",legs="Ea Slops",feet="Jhakri Pigaches +2"}
 	
 	sets.RecoverBurst = set_combine(sets.MagicBurst, {})
 	
@@ -128,19 +140,20 @@ function init_gear_sets()
 	sets.element.Wind = {}
 	sets.element.Ice = {}
 	sets.element.Earth = {}
+	sets.element.Dark = {head="Pixie Hairpin +1",ring2="Archon Ring"}
 
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {hands="Leyline Gloves"})
 
-    sets.midcast.Cure = {ammo="Regal Gem",
+	sets.midcast.Cure = {ammo="Regal Gem",
 		head="Vanya Hood",neck="Incanter's Torque",ear1="Enchntr. Earring +1",ear2="Mendi. Earring",
 		body="Viti. Tabard +3",hands="Kaykaus Cuffs",ring2="Lebeche Earring",
 		back=gear.mnd_fc_jse_cape,waist="Luminary Sash",legs="Atrophy Tights +2",feet="Vanya Clogs"}
-		
-    sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Chatoyant Staff",sub="Enki Strap",
+	
+	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Chatoyant Staff",sub="Enki Strap",
 		hands="Leyline Gloves",back="Twilight Cape",waist="Hachirin-no-Obi",})
-		
-		--Cureset for if it's not light weather but is light day.
-    sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, {back="Twilight Cape",waist="Hachirin-no-Obi"})
+	
+	--Cureset for if it's not light weather but is light day.
+	sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, {back="Twilight Cape",waist="Hachirin-no-Obi"})
 		
 	sets.midcast.Cursna =  set_combine(sets.midcast.FastRecast, {neck="Malison Medallion",body="Viti. Tabard +3",ring1="Ephedra Ring",ring2="Sirona's Ring",legs="Atrophy Tights +2",feet="Vanya Clogs"})
 		
@@ -150,6 +163,7 @@ function init_gear_sets()
 	sets.Self_Healing = {waist="Gishdubar Sash"}
 	sets.Cure_Received = {waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
+	sets.Self_Phalanx = {}
 
 	sets.midcast['Enhancing Magic'] = {main=gear.colada_enhancing,sub="Ammurapi Shield",
 		head=gear.telchine_cap_enhancing_duration,neck="Duelist's Torque",ear1="Andoaa Earring",
@@ -214,14 +228,14 @@ function init_gear_sets()
 	sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +1",waist="Chaac Belt"})
+	sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +2",waist="Chaac Belt"})
 	
 	sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 
-	sets.midcast['Slow II'] = set_combine(sets.midcast.MndEnfeebles, {head="Viti. Chapeau +1"})
-	sets.midcast['Slow II'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {head="Viti. Chapeau +1"})
+	sets.midcast['Slow II'] = set_combine(sets.midcast.MndEnfeebles, {head="Viti. Chapeau +2"})
+	sets.midcast['Slow II'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {head="Viti. Chapeau +2"})
 	
 	sets.midcast['Paralyze II'] = set_combine(sets.midcast.MndEnfeebles, {feet="Vitiation Boots +1"})
 	sets.midcast['Paralyze II'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {feet="Vitiation Boots +1"})
@@ -231,16 +245,16 @@ function init_gear_sets()
 	sets.midcast['Poison II'] = set_combine(sets.midcast.IntEnfeebles, {})
 	sets.midcast['Poison II'].Resistant = set_combine(sets.midcast.IntEnfeebles.Resistant, {})
 	
-    sets.midcast['Elemental Magic'] = {main=gear.grioavolr_nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {main=gear.grioavolr_nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic_hood_magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body=gear.merlinic_jubbah_magical,hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.int_matk_jse_cape,waist="Refoccilation Stone",legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical}
 		
-    sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
-		
-    sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
+	
+	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 
-    sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast.FastRecast, {})
+	sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast.FastRecast, {})
 		
 	sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
 		
@@ -252,7 +266,7 @@ function init_gear_sets()
 		body="Atrophy Tabard +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
 		back=gear.int_matk_jse_cape,waist="Luminary Sash",legs=gear.chironic_hose_enfeeble,feet=gear.merlinic_crackows_magical}
 
-    sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi",feet=gear.merlinic_crackows_drain})
+  sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi",feet=gear.merlinic_crackows_drain})
 
 	sets.midcast.Aspir = sets.midcast.Drain
 		
@@ -298,7 +312,7 @@ function init_gear_sets()
 		
 	sets.defense.MDT = set_combine(sets.idle.MDT, {})
 		
-    sets.defense.MEVA = set_combine(sets.defense.MDT, {head="Ea Hat",body="Ea Houppelande"})
+	sets.defense.MEVA = set_combine(sets.defense.MDT, {head="Ea Hat",body="Ea Houppelande"})
 		
 	sets.idle.TPEat = set_combine(sets.idle, {
 		--neck="Chrys. Torque"
@@ -310,8 +324,13 @@ function init_gear_sets()
 	sets.NightIdle = {}
 	
 	-- Weapons sets
-	sets.weapons.Sequence = {main="Sequence",sub="Ammurapi Shield"}
-	sets.weapons.DualWeapons = {main="Sequence",sub="Ternion Dagger +1"}
+	sets.weapons.SequenceAmmurapi = {main="Sequence",sub="Ammurapi Shield"}
+	sets.weapons.SequenceGenmei = {main="Sequence",sub="Genmei Shield"}
+	sets.weapons.NaeglingAmmurapi = {main="Kaja Sword",sub="Ammurapi Shield"}
+	sets.weapons.NaeglingGenmei = {main="Kaja Sword",sub="Genmei Shield"}
+	sets.weapons.DualSequence = {main="Sequence",sub="Ternion Dagger +1"}
+	sets.weapons.DualNaegling = {main="Kaja Sword",sub="Ternion Dagger +1"}
+	sets.weapons.DualTauret = {main="Tauret",sub="Ternion Dagger +1"}
 
 	-- Engaged sets
 
@@ -347,6 +366,71 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring_dt})
 
 end
+
+buff_spell_lists = {
+	Auto = {
+		{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
+		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
+		{Name='Phalanx',		Buff='Phalanx'	SpellID=106,	When='Always'},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		When='Always'},
+		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
+	},
+	
+	Default = {
+		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	Reapply=false},
+		{Name='Haste II',		Buff='Haste',		SpellID=511,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
+		{Name='Shell V',		Buff='Shell',		SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',		SpellID=47,		Reapply=false},
+	},
+
+	MageBuff = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-INT',		Buff='INT Boost',		SpellID=490,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,		Reapply=false}
+	},
+	
+	MeleeBuffCygne = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-DEX',		Buff='DEX Boost',		SpellID=487,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+		{Name='Enthunder',	Buff='Enthunder',	SpellID=104,	Reapply=false},
+		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
+		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
+		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
+	},
+	
+	MeleeBuffSavage = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-STR',		Buff='STR Boost',		SpellID=486,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+		{Name='Enthunder',	Buff='Enthunder',	SpellID=104,	Reapply=false},
+		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
+		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
+		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
+	},
+}
 
 -- Select default macro book on initial load or subjob change.
 -- Default macro set/book
