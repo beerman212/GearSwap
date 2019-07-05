@@ -17,8 +17,8 @@
 	gear.wsd_jse_back = {name="Rosmerta's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.mab_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	
-	gear.enhancing_duration_colada = {name="Colada", augments={}}
-	gear.stp_colada = {name="Colada", augments={}}
+	gear.enhancing_duration_colada = {name="Colada", augments={'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
+	gear.stp_colada = {name="Colada", augments={'"Store TP"+5','DEX+6','Accuracy+18','Attack+8','DMG:+12',}}
 
 	gear.obi_cure_waist = "Luminary Sash"
 	gear.obi_nuke_waist = "Eschan Stone"
@@ -200,7 +200,7 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Kaja Sword",sub="Vampirism",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Magical = {main="Kaja Sword",sub=gear.enhancing_duration_colada,ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.mab_jse_back,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
@@ -219,7 +219,7 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].MagicAccuracy = set_combine(sets.midcast['Blue Magic'].Magical, {sub="Sequence",ring2="Stikini Ring",waist="Luminary Sash"})
 
-	sets.midcast['Enfeebling Magic'] = {main="Kaja Sword",sub="Colada",ammo="Pemphredo Tathlum",
+	sets.midcast['Enfeebling Magic'] = {main="Kaja Sword",sub=gear.enhancing_duration_colada,ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ayanmo Ring",ring2="Stikini Ring",
 		back=gear.mab_jse_back,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Skaoi Boots"}
@@ -229,7 +229,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Evanescense Ring",ring2="Archon Ring",
 		back=gear.mab_jse_back,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
-	sets.midcast['Enhancing Magic'] = {main="Colada",
+	sets.midcast['Enhancing Magic'] = {main=gear.enhancing_duration_colada,
 		head=gear.telchine_cap_enhancing_duration,neck="Incanter's Torque",ear1="Andoaa Earring",ear2="Gifted Earring",
 		body=gear.telchine_chas_enhancing_duration,hands=gear.telchine_gloves_enhancing_duration,ring2="Stikini Ring",
 		waist="Olympus Sash",legs=gear.telchine_braconi_enhancing_duration,feet=gear.telchine_pigaches_enhancing_duration}
@@ -252,7 +252,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring2="Stikini Ring",
 		back=gear.mab_jse_back,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
-	sets.midcast['Elemental Magic'] = {main="Kaja Sword",sub="Colada",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {main="Kaja Sword",sub=gear.enhancing_duration_colada,ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.mab_jse_back,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
@@ -305,7 +305,7 @@ function init_gear_sets()
 		body="Assim. Jubbah +3",hands="Rawhide Gloves",ring1="Stikini Ring",ring2="Stikini Ring",
 		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs +1"}
 
-	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub="Vampirism",ammo="Mavi Tathlum",
+	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub=gear.enhancing_duration_colada,ammo="Mavi Tathlum",
 		head="Luh. Keffiyeh +1",neck="Incanter's Torque",ear1="Gifted Earring",ear2="Loquac. Earring",
 		body="Assim. Jubbah +3",hands="Hashi. Bazu. +1",ring1="Kishar Ring",ring2="Dark Ring",
 		back="Aurist's Cape +1",waist="Witful Belt",legs="Lengo Pants",feet="Carmine Greaves +1"}
@@ -327,7 +327,7 @@ function init_gear_sets()
 	sets.idle = {ammo="Staunch Tathlum",
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
+		back=gear.stp_jse_back,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
 	sets.idle.PDT = set_combine(sets.idle, {head="Aya. Zucchetto +2",body="Ayanmo Corazza +2"})
 
@@ -359,10 +359,10 @@ function init_gear_sets()
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
 	-- Weapons sets
-	sets.weapons.Sequence = {main="Sequence",sub="Colada"}
-	sets.weapons.KajaTP = {main="Kaja Sword",sub="Colada"}
+	sets.weapons.Sequence = {main="Sequence",sub=gear.stp_colada}
+	sets.weapons.KajaTP = {main="Kaja Sword",sub=gear.stp_colada}
 	sets.weapons.KajaSTP = {main="Kaja Sword",sub="Sequence"}
-	sets.weapons.MagicWeapons = {main="Kaja Sword",sub="Vampirism"}
+	sets.weapons.MagicWeapons = {main="Kaja Sword",sub=gear.enhancing_duration_colada}
 
 	-- Engaged sets
 
@@ -469,3 +469,18 @@ function check_trust()
 	end
 	return false
 end
+
+buff_spell_lists.Cleave = {
+	{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},
+	{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	Reapply=false},
+	{Name='Refresh',			Buff='Refresh',			SpellID=109,	Reapply=false},
+	{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	Reapply=false},
+	{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	Reapply=false},
+	{Name='Stoneskin',			Buff='Stoneskin',		SpellID=54,		Reapply=false},
+	{Name='Diamondhide',		Buff='Stoneskin',		SpellID=632,	Reapply=false},
+	{Name='Occultation',		Buff='Blink',			SpellID=679,	Reapply=false},
+	{Name='Blink',				Buff='Blink',			SpellID=53,		Reapply=false},
+	{Name='Carcharian Verve',	Buff='Aquaveil',		SpellID=745,	Reapply=false},
+	{Name='Aquaveil', 			Buff='Aquaveil',		SpellID=55,		Reapply=false},
+	{Name='Memento Mori',		Buff='Magic Atk. Boost',SpellID=538,	Reapply=false},
+}
