@@ -93,7 +93,7 @@ function init_gear_sets()
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {ammo="Regal Gem",ear1="Regal Earring",ring1="Ilabrat Ring",ring2="Jhakri Ring"})
 	
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {ammo="Yetshila",
-		head="Aya. Zucchetto +2",ear1="Telos Earring",
+		head="Aya. Zucchetto +2",ear1="Mache Earring +1",
 		hands="Taeon Gloves",ring1="Ilabrat Ring",ring2="Ramuh Ring",
 		back=gear.dex_crit_jse_cape,legs="Taeon Tights",feet="Aya. Gambieras +2"})
 		
@@ -177,8 +177,8 @@ function init_gear_sets()
 		
 	--Red Mage enhancing sets are handled in a different way from most, layered on due to the way Composure works
 	--Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
-	sets.midcast.Refresh = {body="Atrophy Tabard +2",legs="Leth. Fuseau +1"}
-	sets.midcast.Aquaveil = {}
+	sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +2",legs="Leth. Fuseau +1"}
+	sets.midcast.Aquaveil = {head="Amalric Coif +1"}
 	sets.midcast.BarElement = {}
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
 	sets.midcast.Protect = {ring2="Sheltered Ring"}
@@ -247,10 +247,10 @@ function init_gear_sets()
 	
 	sets.midcast['Elemental Magic'] = {main=gear.grioavolr_nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic_hood_magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body=gear.merlinic_jubbah_magical,hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.int_matk_jse_cape,waist="Refoccilation Stone",legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical}
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		back=gear.int_matk_jse_cape,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 		
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main="Kaja Sword",sub="Ammurapi Shield",body=gear.merlinic_jubbah_magical,legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical})
 	
 	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 
@@ -264,9 +264,9 @@ function init_gear_sets()
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Atrophy Tabard +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
-		back=gear.int_matk_jse_cape,waist="Luminary Sash",legs=gear.chironic_hose_enfeeble,feet=gear.merlinic_crackows_magical}
+		back=gear.int_matk_jse_cape,waist="Luminary Sash",legs=gear.chironic_hose_enfeeble,feet=gear.merlinic_crackows_drain}
 
-  sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi",feet=gear.merlinic_crackows_drain})
+	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi",feet=gear.merlinic_crackows_drain})
 
 	sets.midcast.Aspir = sets.midcast.Drain
 		
@@ -371,7 +371,7 @@ buff_spell_lists = {
 	Auto = {
 		{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
 		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-		{Name='Phalanx',		Buff='Phalanx'	SpellID=106,	When='Always'},
+		{Name='Phalanx',		Buff='Phalanx',	SpellID=106,	When='Always'},
 		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		When='Always'},
 		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
 	},

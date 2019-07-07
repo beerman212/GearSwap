@@ -65,7 +65,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {main=gear.grioavolr_damage,sub="Clerisy Strap",ammo="Impatiens",
-		head="Nahtirah Hat",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Anhur Robe",hands=gear.telchine_gloves_enhancing_duration,ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_drain}
 
@@ -73,7 +73,7 @@ function init_gear_sets()
 
 	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
 
-	sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb",ear2="Barkaro. Earring",ring1="Defending Ring",ring2="Kishar Ring",back=gear.int_matk_jse_back,waist="Channeler's Stone"})
+	sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ear2="Barkaro. Earring",ring1="Defending Ring",ring2="Kishar Ring",back=gear.int_matk_jse_back,waist="Channeler's Stone"})
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {main="Serenity",sub="Clerisy Strap +1",body="Heka's Kalasiris"})
 
@@ -189,10 +189,10 @@ function init_gear_sets()
 
 	sets.midcast['Elemental Magic'] = {main="Lathi",sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic_hood_magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body=gear.merlinic_jubbah_magical,hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.int_matk_jse_back,waist=gear.ElementalObi,legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical}
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		back=gear.int_matk_jse_back,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main=gear.grioavolr_nuke})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main=gear.grioavolr_nuke,body=gear.merlinic_jubbah_magical,legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical})
 
 	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 
