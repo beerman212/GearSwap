@@ -220,7 +220,7 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle = {ammo="Staunch Tathlum",
 		head=gear.valorous_mask_strwsd,neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
-		body="Souv. Cuirass +1",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.dex_da_jse_back,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"}
 		
 	sets.idle.Weak = set_combine(sets.idle, {
@@ -274,7 +274,7 @@ function init_gear_sets()
 	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {body="Pumm. Lorica +3"})
 	sets.engaged.Fodder = set_combine(sets.engaged, {feet="Flam. Gambieras +2"})
 	
-	sets.engaged.DTLite = set_combine(sets.engaged, {body="Souv. Cuirass +1",hands="Souv. Handsch +1",ring1="Moonbeam Ring"})
+	sets.engaged.DTLite = set_combine(sets.engaged, {head="Hjarrandi Helm",body="Souv. Cuirass +1",hands="Flam. Manopolas +2",ring1="Moonbeam Ring"})
 	sets.engaged.DTLite.Acc = set_combine(sets.engaged.DTLite, {neck="Lissome Necklace"})
 	sets.engaged.DTLite.FullAcc = set_combine(sets.engaged.DTLite.Acc, {})
 	sets.engaged.DTLite.Fodder = set_combine(sets.engaged.DTLite, {feet="Flam. Gambieras +2"})

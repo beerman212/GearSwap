@@ -8,7 +8,7 @@
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Sequence','KajaTP','KajaSTP','MagicWeapons','Learning','None')
+	state.Weapons:options('Sequence','NaeglingTP','MaxtentiusTP','MagicWeapons','Learning','None')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 
@@ -200,7 +200,7 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Kaja Sword",sub=gear.enhancing_duration_colada,ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Magical = {main="Kaja Rod",sub="Kaja Sword",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.mab_jse_back,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
@@ -219,7 +219,7 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].MagicAccuracy = set_combine(sets.midcast['Blue Magic'].Magical, {sub="Sequence",ring2="Stikini Ring",waist="Luminary Sash"})
 
-	sets.midcast['Enfeebling Magic'] = {main="Kaja Sword",sub=gear.enhancing_duration_colada,ammo="Pemphredo Tathlum",
+	sets.midcast['Enfeebling Magic'] = {main="Kaja Rod",sub="Kaja Sword",ammo="Pemphredo Tathlum",
 		head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ayanmo Ring",ring2="Stikini Ring",
 		back=gear.mab_jse_back,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Skaoi Boots"}
@@ -252,7 +252,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring2="Stikini Ring",
 		back=gear.mab_jse_back,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
-	sets.midcast['Elemental Magic'] = {main="Kaja Sword",sub=gear.enhancing_duration_colada,ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {main="Kaja Rod",sub="Kaja Sword",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.mab_jse_back,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
@@ -360,9 +360,9 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.Sequence = {main="Sequence",sub=gear.stp_colada}
-	sets.weapons.KajaTP = {main="Kaja Sword",sub=gear.stp_colada}
-	sets.weapons.KajaSTP = {main="Kaja Sword",sub="Sequence"}
-	sets.weapons.MagicWeapons = {main="Kaja Sword",sub=gear.enhancing_duration_colada}
+	sets.weapons.NaeglingTP = {main="Kaja Sword",sub=gear.stp_colada}
+	sets.weapons.MaxtentiusTP = {main="Kaja Rod",sub="gear.stp_colada}
+	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Kaja Sword"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
