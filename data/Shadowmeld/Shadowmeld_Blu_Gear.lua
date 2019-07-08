@@ -16,6 +16,7 @@
 	gear.crit_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
 	gear.wsd_jse_back = {name="Rosmerta's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.mab_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+	gear.mnd_atk_jse_cape = {name="Rosmerta's Cape",augments={}}
 	
 	gear.enhancing_duration_colada = {name="Colada", augments={'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
 	gear.stp_colada = {name="Colada", augments={'"Store TP"+5','DEX+6','Accuracy+18','Attack+8','DMG:+12',}}
@@ -106,21 +107,37 @@ function init_gear_sets()
 	sets.precast.WS.Fodder =  set_combine(sets.precast.WS, {})
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {head="Jhakri Coronal +2",ear2="Regal Earring",body="Jhakri Robe +2",ring1="Ilabrat Ring",legs="Jhakri Slops +2"})
-	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {head="Jhakri Coronal +2",ear2="Regal Earring",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"})
-	sets.precast.WS['Requiescat'].FullAcc = set_combine(sets.precast.WS.FullAcc, {ear2="Regal Earring"})
+	sets.precast.WS['Requiescat'] = {
+		ammo="Ginsen",
+		head="Jhakri Coronal +2",neck="Fotial Gorget",ear1="Moonshade Earring",ear2="Regal Earring",
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Epona's Ring",
+		back=gear.mnd_atk_jse_cape,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
+	
+	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ring2="Chirich Ring"})
+	sets.precast.WS['Requiescat'].FullAcc = set_combine(sets.precast.WS['Requiescat'].Acc, {ear1="Telos Earring"})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 
-	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
-
-	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {ammo="Jakukik Feather",head="Adhemar Bonnet +1",ear1="Mache Earring +1",ear2="Moonshade Earring",body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Epona's Ring",back=gear.stp_jse_back,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
-	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS.Acc, {head="Adhemar Bonnet +1",ear2="Moonshade Earring",hands=gear.adhemar_wrist_path_a,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
-	sets.precast.WS['Chant du Cygne'].FullAcc = set_combine(sets.precast.WS.FullAcc, {ear2="Moonshade Earring",ring2="Ayanmo Ring",feet="Aya. Gambieras +2"})
+	sets.precast.WS['Chant du Cygne'] = {
+		ammo="Jakukik Feather",
+		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Mache Earring +1",
+		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Hetairoi Ring",
+		back=gear.crit_jse_back,waist="Fotia Gorget",legs="Samnuha Tights",feet="Aya. Gambieras +2"
+	}
+	
+	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {body="Adhemar Jacket +1"})
+	sets.precast.WS['Chant du Cygne'].FullAcc = set_combine(sets.precast.WS['Chant du Cygne'].Acc, {head="Carmine Mask +1",ring2="Chirich Ring",feet="Carmine Greaves +1"})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
 
-	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",waist="Grunfeld Rope"})
-	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS.Acc, {neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",waist="Grunfeld Rope"})
-	sets.precast.WS['Savage Blade'].FullAcc = set_combine(sets.precast.WS.FullAcc, {neck="Caro Necklace",ear1="Telos Earring",ear2="Moonshade Earring",waist="Grunfeld Rope"})
+	sets.precast.WS['Savage Blade'] = {
+		ammo="Ginsen",
+		head=gear.herculean_helm_strwsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		body=gear.herculean_vest_dexwsd,hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"
+	}
+
+	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {})
+	sets.precast.WS['Savage Blade'].FullAcc = set_combine(sets.precast.WS['Savage Blade'].Acc, {})
 	sets.precast.WS['Savage Blade'].Fodder = set_combine(sets.precast.WS['Savage Blade'], {})
 
 	sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -133,16 +150,31 @@ function init_gear_sets()
 	sets.precast.WS['Expiacion'].FullAcc = set_combine(sets.precast.WS['Savage Blade'].FullAcc, {})
 	sets.precast.WS['Expiacion'].Fodder = set_combine(sets.precast.WS['Expiacion'], {})
 
-	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
+	sets.precast.WS['Sanguine Blade'] = {
+		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
-		back=gear.mab_jse_back,waist="Eschan Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+		back=gear.mab_jse_back,waist="Eschan Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"
+	}
 
+	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
+	sets.precast.WS['Black Halo'] = sets.precast.WS['Savage Blade']
+	sets.precast.WS['Judgement'] = sets.precast.WS['Black Halo']
 	sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'], {ring2="Epaminondas's Ring"})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Telos Earring",ear2="Cessance Earring"}
 	sets.AccMaxTP = {ear1="Telos Earring",ear2="Regal Earring"}
+	
+	sets.MaxTP["Requiescat"] = {ear1="Telos Earring",ear2="Regal Earring"}
+	sets.AccMaxTP["Requiescat"] = {ear1="Mache Earring +1",ear2="Regal Earring"}
+	sets.MaxTP["Savage Blade"] = {ear1="Ishvara Earring",ear2="Regal Earring"}
+	sets.AccMaxTP["Savage Blade"] = {ear1="Telos Earring",ear2="Mache Earring +1"}
+	sets.MaxTP["Expiacion"] = {ear1="Ishvara Earring",ear2="Regal Earring"}
+	sets.AccMaxTP["Expiacion"] = {ear1="Mache Earring +1",ear2="Regal Earring"}
+	
+	sets.MaxTP["Realmrazer"] = {}
+	sets.AccMaxTP["Realmrazer"] = {}
 
 	-- Midcast Sets
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
