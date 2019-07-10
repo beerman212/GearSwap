@@ -52,10 +52,10 @@ function init_gear_sets()
 
 	sets.buff['Burst Affinity'] = {}
 	sets.buff['Chain Affinity'] = {}
-	sets.buff.Convergence = {}
-	sets.buff.Diffusion = {}
+	sets.buff.Convergence = {head="Mirage Keffiyeh +2"}
+	sets.buff.Diffusion = {feet="Mirage Charuqs +2"}
 	sets.buff.Enchainment = {}
-	sets.buff.Efflux = {back=gear.stp_jse_back}
+	sets.buff.Efflux = {back=gear.stp_jse_back,legs="Hashishin Tayt +1"}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendi. Earring",ear2="Evans Earring",
@@ -65,7 +65,7 @@ function init_gear_sets()
 	-- Precast Sets
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Azure Lore'] = {hands="Luh. Bazubands +1"}
+	sets.precast.JA['Azure Lore'] = {hands="Mrg. Bazubands +2"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {legs="Dashing Subligar"}
@@ -393,7 +393,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Sequence = {main="Sequence",sub=gear.stp_colada}
 	sets.weapons.NaeglingTP = {main="Kaja Sword",sub=gear.stp_colada}
-	sets.weapons.MaxtentiusTP = {main="Kaja Rod",sub="gear.stp_colada}
+	sets.weapons.MaxtentiusTP = {main="Kaja Rod",sub=gear.stp_colada}
 	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Kaja Sword"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 

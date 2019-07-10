@@ -136,7 +136,7 @@ function init_gear_sets()
 		back=gear.dex_wsd_jse_back,waist="Grunfeld Rope",legs="Lustr. Subligar +1",feet="Lustra.Leggings +1"
 	}
 	
-	sets.precast.WS["Rudra's Storm"].Acc = set_combine(ets.precast.WS["Rudra's Storm"], {ear1="Mache Earring +1"})
+	sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {ear1="Mache Earring +1"})
 	sets.precast.WS["Rudra's Storm"].FullAcc = set_combine(sets.precast.WS["Rudra's Storm"].Acc, {body="Pillager's Vest +2",legs="Pill. Culottes +2"})
 	sets.precast.WS["Rudra's Storm"].Fodder = set_combine(sets.precast.WS["Rudra's Storm"], {})
 	sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Fodder, {ammo="Yetshila",body="Meg. Cuirie +2",legs="Pill. Culottes +2"})
