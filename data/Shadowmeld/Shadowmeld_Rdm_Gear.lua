@@ -12,8 +12,8 @@ function user_setup()
 	gear.stp_jse_cape = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
 	gear.str_wsd_jse_cape = {name = "Sucellos's Cape", augments = {'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 	gear.dex_crit_jse_cape = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
-	gear.int_matk_jse_cape = {name = "Sucellos's Cape", augments = {'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
-	gear.mnd_fc_jse_cape = {name = "Sucellos's Cape", augments = {'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+	gear.mnd_fc_jse_cape = {name = "Sucellos's Cape", augments = {'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
+	gear.int_matk_jse_cape = {name = "Sucellos's Cape", augments = {'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 	
 	gear.colada_enhancing = {name = "Colada", augments = {'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
 	gear.colada_refresh = {}
@@ -87,24 +87,35 @@ function init_gear_sets()
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {ammo="Regal Gem",
-		ear1="Regal Earring",ring1="Stikini Ring"})
+	sets.precast.WS['Requiescat'] = {
+		ammo="Regal Gem",
+		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Regal Earring",ear2="Moonshade Earring",
+		body="Viti. Tabard +3",hands="Atrophy Gloves +2",ring1="Hetairoi Ring",ring2="Shukuyu Ring",
+		back=gear.mnd_fc_jse_cape,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Carmine Greaves +1"
+	}
 		
-	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {ammo="Regal Gem",ear1="Regal Earring",ring1="Ilabrat Ring",ring2="Jhakri Ring"})
-	
-	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {ammo="Yetshila",
-		head="Aya. Zucchetto +2",ear1="Mache Earring +1",
-		hands="Taeon Gloves",ring1="Ilabrat Ring",ring2="Ramuh Ring",
-		back=gear.dex_crit_jse_cape,legs="Taeon Tights",feet="Aya. Gambieras +2"})
+	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ammo="Ginsen",head="Carmine Mask +1",ring1="Chirich Ring",ring2="Ilabrat Ring",back=gear.stp_jse_cape})
+	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 		
-	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {
-		hands="Aya. Manopolas +2",legs="Aya. Cosciales +2"})
-
-	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {ammo="Regal Gem",
-		neck="Caro Necklace",ear1="Moonshade Earring",waist="Grunfeld Rope"})
+	sets.precast.WS['Chant du Cygne'] = {
+		ammo="Yetshila",
+		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Mache Earring +1",
+		body="Viti. Tabard +3",hands=gear.taeon_gloves_ta,ring1="Hetairoi Ring",ring2="Ilabrat Ring",
+		back=gear.dex_crit_jse_cape,waist="Fotia Belt",legs=gear.taeon_tights_ta,feet="Aya. Gambieras +2"
+	}
+		
+	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Ginsen",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
+	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
+		
+	sets.precast.WS['Savage Blade'] = {
+		ammo="Regal Gem",
+		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		back=gear.str_wsd_jse_cape,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
 	
-	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
-		ring2="Ilabrat Ring"})
+	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {ear1="Regal Earring",ear2="Moonshade Earring",hands="Atrophy Gloves +2",ring2="Ilabrat Ring",legs="Carmine Cuisses +1"})
+	sets.precast.WS['Savage Blade'].Fodder = set_combine(sets.precast.WS['Savage Blade'], {})
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
