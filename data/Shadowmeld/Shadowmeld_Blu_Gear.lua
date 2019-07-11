@@ -12,11 +12,11 @@
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 
-	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
 	gear.crit_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
 	gear.wsd_jse_back = {name="Rosmerta's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.mab_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
-	gear.mnd_atk_jse_cape = {name="Rosmerta's Cape",augments={}}
+	gear.mnd_atk_jse_cape = {name="Rosmerta's Cape",augments={'MND+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
 	
 	gear.enhancing_duration_colada = {name="Colada", augments={'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
 	gear.stp_colada = {name="Colada", augments={'"Store TP"+5','DEX+6','Accuracy+18','Attack+8','DMG:+12',}}
@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 
 	sets.precast.WS['Chant du Cygne'] = {
-		ammo="Jakukik Feather",
+		ammo="Jukukik Feather",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Mache Earring +1",
 		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Hetairoi Ring",
 		back=gear.crit_jse_back,waist="Fotia Gorget",legs="Samnuha Tights",feet="Aya. Gambieras +2"
@@ -132,7 +132,7 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Ginsen",
 		head=gear.herculean_helm_strwsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body=gear.herculean_vest_dexwsd,hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
 		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"
 	}
 
@@ -334,7 +334,7 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].SkillBasedBuff = {main="Iris",sub="Iris",ammo="Mavi Tathlum",
 		head="Mirage Keffiyeh +2",neck="Incanter's Torque",ear2="Loquac. Earring",
-		body="Assim. Jubbah +1",hands="Rawhide Gloves",ring2="Stikini Ring",
+		body="Assim. Jubbah +2",hands="Rawhide Gloves",ring2="Stikini Ring",
 		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs +1"}
 
 	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub=gear.enhancing_duration_colada,ammo="Mavi Tathlum",
