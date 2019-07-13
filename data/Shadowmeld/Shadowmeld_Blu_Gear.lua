@@ -1,10 +1,10 @@
-	function user_setup()
+function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Fodder','Normal','MinAcc','SomeAcc','Acc','HighAcc','FullAcc')
+	state.OffenseMode:options('Fodder','Normal','Acc','FullAcc')
 	state.HybridMode:options('Normal','DTLite','PDT','MDT')
-	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','HighAcc','FullAcc','Fodder')
+	state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
 	state.CastingMode:options('Normal','Resistant','Fodder','Proc')
-	state.IdleMode:options('Normal','Sphere','PDT','DTHippo')
+	state.IdleMode:options('Normal','PDT')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
@@ -37,9 +37,9 @@
 	send_command('bind @f8 gs c toggle AutoNukeMode')
 	send_command('bind !@^f7 gs c toggle AutoWSMode')
 	send_command('bind !r gs c weapons MagicWeapons;gs c update')
-	send_command('bind @q gs c weapons MaccWeapons;gs c update')
-	send_command('bind ^q gs c weapons Almace;gs c update')
-	send_command('bind !q gs c weapons HybridWeapons;gs c update')
+	send_command('bind @q gs c weapons NaeglingTP;gs c update')
+	send_command('bind ^q gs c weapons MaxtentiusTP;gs c update')
+	send_command('bind !q gs c weapons Learning;gs c update')
 
 	select_default_macro_book()
 end
@@ -121,7 +121,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Jukukik Feather",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Mache Earring +1",
-		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Ilabrat Ring",ring2="Hetairoi Ring",
+		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Begrudging Ring",ring2="Epona's Ring",
 		back=gear.crit_jse_back,waist="Fotia Gorget",legs="Samnuha Tights",feet="Aya. Gambieras +2"
 	}
 	
@@ -353,7 +353,7 @@ function init_gear_sets()
 	sets.NightIdle = {}
 
 	-- Gear for learning spells: +skill and AF hands.
-	sets.Learning = {hands="Magus Bazubands"}
+	sets.Learning = {hands="Assim. Bazu."}
 
 	-- Idle sets
 	sets.idle = {main="Bolelabunga",ammo="Staunch Tathlum",

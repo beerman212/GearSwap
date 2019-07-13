@@ -6,7 +6,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None','DualWeapons','MeleeWeapons')
+	state.Weapons:options('None','IzcalliAmmurapi','IzcalliGenmei','MaxentiusAmmurapi','MaxentiusGenmei','DualIzcalli','DualMaxentiusAcc','DualMaxentius','DualMagian','DualMagianAcc')
 	
 	gear.stp_jse_cape = {name = "Alaunus's Cape", augments = {'MND+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 	gear.mnd_wsd_jse_cape = {name = "Alaunus's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Damage taken-5%',}}
@@ -46,8 +46,15 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Weapons sets
-	sets.weapons.MeleeWeapons = {main="Izcalli",sub="Ammurapi Shield"}
-	sets.weapons.DualWeapons = {main="Izcalli",sub="Sindri"}
+	sets.weapons.IzcalliAmmurapi = {main="Izcalli",sub="Ammurapi Shield"}
+	sets.weapons.IzcalliGenmei = {main="Izcalli",sub="Genmei Shield"}
+	sets.weapons.DualIzcalli = {main="Izcalli",sub="Sindri"}
+	sets.weapons.MaxentiusAmmurapi = {main="Maxentius",sub="Ammurapi Shield"}
+	sets.weapons.MaxentiusGenmei = {main="Maxentius",sub="Genmei Shield"}
+	sets.weapons.DualMaxentius = {main="Maxentius",sub="Izcalli"}
+	sets.weapons.DualMaxentiusAcc = {main="Maxentius",sub="Sindri"}
+	sets.weapons.DualMagian = {main="Yagrush",sub="Izcalli"}
+	sets.weapons.DualMagianAcc = {main="Yagrush",sub="Sindri"}
 	
 	-- Precast Sets
 

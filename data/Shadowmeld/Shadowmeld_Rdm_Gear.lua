@@ -1,10 +1,10 @@
 function user_setup()
 	-- Options: Override default values
-    state.OffenseMode:options('Normal','Acc')
-    state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
+	state.OffenseMode:options('Normal','Acc','Fodder')
+	state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
 	state.CastingMode:options('Normal', 'Resistant', 'Fodder', 'Proc')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'TPEat','DTHippo')
-    state.PhysicalDefenseMode:options('PDT', 'NukeLock')
+	state.IdleMode:options('Normal', 'PDT', 'MDT')
+	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('None','SequenceAmmurapi','SequenceGenmei','NaeglingAmmurapi','NaeglingGenmei','DualSequence','DualNaegling')
@@ -99,9 +99,9 @@ function init_gear_sets()
 		
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Yetshila",
-		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Mache Earring +1",
+		head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
 		body="Viti. Tabard +3",hands=gear.taeon_gloves_ta,ring1="Hetairoi Ring",ring2="Ilabrat Ring",
-		back=gear.dex_crit_jse_cape,waist="Fotia Belt",legs=gear.taeon_tights_ta,feet="Aya. Gambieras +2"
+		back=gear.dex_crit_jse_cape,waist="Fotia Belt",legs=gear.taeon_tights_ta,feet="Jhakri Pigaches +2"
 	}
 		
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Ginsen",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
@@ -109,7 +109,7 @@ function init_gear_sets()
 		
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Regal Gem",
-		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",
 		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
 		back=gear.str_wsd_jse_cape,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
 	}
@@ -119,8 +119,8 @@ function init_gear_sets()
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body=gear.merlinic_jubbah_magical,hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
-		back=gear.int_matk_jse_cape,waist="Eshcan Stone",legs=gear.merlinic_shalwar_magical,feet=gear.merlinic_crackows_magical}
+		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
+		back=gear.int_matk_jse_cape,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS['Chant du Cygne'], {})
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Chant du Cygne'].Acc, {})
@@ -134,6 +134,12 @@ function init_gear_sets()
 		back=gear.int_matk_jse_cape,waist="Refoccilation Stone",legs=gear.merlinic_shalwar_magical,feet="Jhakri Pigaches +2"})
 	
 	sets.precast.WS['Energy Drain'] = set_combine(sets.precast.WS['Sanguine Blade'], {ammo="Regal Gem",})
+	
+	sets.MaxTP = {}
+	sets.AccMaxTP = {}
+	
+	sets.MaxTP["Savage Blade"] = {ear1="Regal Earring",ear2="Ishvara Earring"}
+	sets.AccMaxTP["Savage Blade"] = {ear1="Regal Earring",ear2="Telos Earring"}
 	
 	-- Midcast Sets
 
@@ -351,15 +357,12 @@ function init_gear_sets()
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 	
 	-- Normal melee group
---	sets.engaged = {ammo="Ginsen",
---		head="Aya. Zucchetto +2",neck="Asperity Necklace",ear1="Cessance Earring",ear2="Brutal Earring",
---		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Petrov Ring",ring2="Ilabrat Ring",
---		back="Bleating Mantle",waist="Windbuffet Belt +1",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"}
-
-	sets.engaged = {ammo="Ginsen",
+	sets.engaged = {
+		ammo="Ginsen",
 		head="Aya. Zucchetto +2",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
 		body="Ayanmo Corazza +2",hands="Taeon Gloves",ring1="Petrov Ring",ring2="Ilabrat Ring",
-		back=gear.stp_jse_cape,waist="Windbuffet Belt +1",legs="Taeon Tights",feet="Carmine Greaves +1"}
+		back=gear.stp_jse_cape,waist="Windbuffet Belt +1",legs="Taeon Tights",feet="Carmine Greaves +1"
+	}
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		head="Carmine Mask +1",neck="Lissome Torque",
