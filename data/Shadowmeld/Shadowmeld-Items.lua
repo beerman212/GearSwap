@@ -30,13 +30,16 @@ gear.chironic_hose_refresh = {name = "Chironic Hose", augments = {'"Store TP"+1'
 gear.herculean_helm_strwsd = {name = "Herculean Helm", augments = {'Attack+9','Weapon skill damage +4%','STR+15','Accuracy+15',}}
 gear.herculean_helm_magical = {name = "Herculean Helm", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','Enmity-2','MND+10','Mag. Acc.+4','"Mag.Atk.Bns."+15',}}
 gear.herculean_helm_agiwsd = {name = "Herculean Helm", augments = {'Accuracy+15','Weapon skill damage +4%','AGI+6','Rng.Acc.+10',}}
+gear.herculean_helm_TH = {name = "Herculean Helm", augments = {'"Conserve MP"+2','Accuracy+8','"Treasure Hunter"+2','Accuracy+7 Attack+7',}}
 gear.herculean_vest_dexwsd = {name="Herculean Vest", augments={'Accuracy+9','Weapon skill damage +3%','DEX+15','Attack+8',}}
 gear.herculean_vest_agiwsd = {name = "Herculean Vest", augments = {'Rng.Acc.+20','Weapon skill damage +4%','AGI+5',}}
 gear.herculean_gloves_magical = {name = "Herculean Gloves", augments = {'Mag. Acc.+17 "Mag.Atk.Bns."+17','"Dbl.Atk."+1','Mag. Acc.+9','"Mag.Atk.Bns."+11',}}
+gear.herculean_gloves_refresh = {name="Herculean Gloves", augments={'Pet: INT+8','Accuracy+1 Attack+1','"Refresh"+2','Mag. Acc.+8 "Mag.Atk.Bns."+8',}}
 gear.herculean_trousers_strwsd = {name = "Herculean Trousers", augments = {'Accuracy+28','Weapon skill damage +4%','STR+11','Attack+1',}}
 gear.herculean_trousers_magical = {name = "Herculean Trousers", augments = {'Mag. Acc.+18 "Mag.Atk.Bns."+18','Magic burst dmg.+6%','MND+9','Mag. Acc.+14','"Mag.Atk.Bns."+15',}}
 gear.herculean_trousers_ranged_crit = {name = "Herculean Trousers", augments = {'Rng.Acc.+25 Rng.Atk.+25','Crit. hit damage +3%','STR+3','Rng.Acc.+11','Rng.Atk.+12',}}
 gear.herculean_boots_ta = {name = "Herculean Boots", augments = {'Accuracy+23 Attack+23','"Triple Atk."+3','AGI+9',}}
+gear.herculean_boots_ta_low_acc = {name = "Herculean Boots", augments = {'"Triple Atk."+4','Accuracy+10',}}
 gear.herculean_boots_magical = {name = "Herculean Boots", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','MND+9','Mag. Acc.+13','"Mag.Atk.Bns."+7',}}
 gear.herculean_boots_agiwsd = {name = "Herculean Boots", augments = {'Rng.Acc.+27','Weapon skill damage +4%','STR+7','Rng.Atk.+12',}}
 

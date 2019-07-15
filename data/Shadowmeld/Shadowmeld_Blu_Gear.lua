@@ -10,7 +10,7 @@ function user_setup()
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('Sequence','NaeglingTP','MaxtentiusTP','MagicWeapons','Learning','None')
 
-	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
+	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','TreasureHunter'}
 
 	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
 	gear.crit_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
@@ -50,7 +50,7 @@ function init_gear_sets()
 	-- Start defining the sets
 	--------------------------------------
 
-	sets.buff['Burst Affinity'] = {}
+	sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +1"}
 	sets.buff['Chain Affinity'] = {}
 	sets.buff.Convergence = {head="Mirage Keffiyeh +2"}
 	sets.buff.Diffusion = {feet="Mirage Charuqs +2"}
@@ -175,11 +175,13 @@ function init_gear_sets()
 	
 	sets.MaxTP["Realmrazer"] = {}
 	sets.AccMaxTP["Realmrazer"] = {}
+	sets.MaxTP["Black Halo"] = {ear1="Ishvara Earring",ear2="Regal Earring"}
+	sets.AccMaxTP["Black Halo"] = {ear1="Telos Earring",ear2="Regal Earring"}
 
 	-- Midcast Sets
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
 
-	sets.midcast['Blue Magic'] = {}
+	sets.midcast['Blue Magic'] = set_combine(sets.midcast.FastRecast, {hands="Hashi. Bazu. +1"})
 
 	-- Physical Spells --
 
@@ -249,7 +251,11 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical, {})
 	sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical, {})
 
-	sets.midcast['Blue Magic'].MagicAccuracy = set_combine(sets.midcast['Blue Magic'].Magical, {sub="Sequence",ring2="Stikini Ring",waist="Luminary Sash"})
+	sets.midcast['Blue Magic'].MagicAccuracy = set_combine(sets.midcast['Blue Magic'].Magical, {
+		head="Amalric Coif +1",neck="Mirage Stole +1",ear2="Digni. Earring",
+		hands="Aya. Manopolas +2",ring1="Kishar Ring",ring2="Stikini Ring",
+		waist="Luminary Sash",legs="Aya. Cosciales +2",feet="Jhakri Pigaches +2"
+	})
 
 	sets.midcast['Enfeebling Magic'] = {main="Kaja Rod",sub="Kaja Sword",ammo="Pemphredo Tathlum",
 		head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
@@ -333,9 +339,9 @@ function init_gear_sets()
 	sets.NonElementalCure = {back="Tempered Cape +1",waist="Luminary Sash"}
 
 	sets.midcast['Blue Magic'].SkillBasedBuff = {main="Iris",sub="Iris",ammo="Mavi Tathlum",
-		head="Mirage Keffiyeh +2",neck="Incanter's Torque",ear2="Loquac. Earring",
+		head="Luhlaza Keffiyeh",neck="Mirage Stole +1",ear2="Loquac. Earring",
 		body="Assim. Jubbah +2",hands="Rawhide Gloves",ring2="Stikini Ring",
-		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs +1"}
+		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Mirage Charuqs +2"}
 
 	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub=gear.enhancing_duration_colada,ammo="Mavi Tathlum",
 		head="Luh. Keffiyeh +1",neck="Incanter's Torque",ear1="Gifted Earring",ear2="Loquac. Earring",
@@ -353,12 +359,12 @@ function init_gear_sets()
 	sets.NightIdle = {}
 
 	-- Gear for learning spells: +skill and AF hands.
-	sets.Learning = {hands="Assim. Bazu."}
+	sets.Learning = {hands="Assim. Bazu. +1"}
 
 	-- Idle sets
 	sets.idle = {main="Bolelabunga",ammo="Staunch Tathlum",
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
-		body="Jhakri Robe +2",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		body="Jhakri Robe +2",hands=gear.herculean_gloves_refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.stp_jse_back,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
 	sets.idle.PDT = set_combine(sets.idle, {head="Aya. Zucchetto +2",body="Ayanmo Corazza +2"})
@@ -387,7 +393,7 @@ function init_gear_sets()
 	sets.SuppaBrutal = {}
 	sets.DWEarrings = {}
 	sets.DWMax = {ear1="Suppanomimi Earring",ear2="Eabani Earring",body="Adhemar Jacket +1",legs="Carmine Cuisses +1"}
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean_helm_TH})
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
 	-- Weapons sets
@@ -402,9 +408,9 @@ function init_gear_sets()
 	sets.engaged = {ammo="Ginsen",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Suppanomimi",
 		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_a,ring1="Petrov Ring",ring2="Epona's Ring",
-		back=gear.stp_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta}
+		back=gear.stp_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta_low_acc}
 
-	sets.engaged.Acc = set_combine(sets.engaged, {head="Dampening Tam",ring1="Chirich Ring"})
+	sets.engaged.Acc = set_combine(sets.engaged, {head="Dampening Tam",ring1="Chirich Ring",feet=gear.herculean_boots_ta})
 
 	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {head="Carmine Mask +1",neck="Lissome Necklace",ear2="Digni. Earring",waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"})
 
