@@ -51,9 +51,9 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +1"}
-	sets.buff['Chain Affinity'] = {}
+	sets.buff['Chain Affinity'] = {feet="Assim. Charuqs +2"}
 	sets.buff.Convergence = {head="Mirage Keffiyeh +2"}
-	sets.buff.Diffusion = {feet="Mirage Charuqs +2"}
+	sets.buff.Diffusion = {feet="Luhlaza Charuqs"}
 	sets.buff.Enchainment = {}
 	sets.buff.Efflux = {back=gear.stp_jse_back,legs="Hashishin Tayt +1"}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
@@ -87,7 +87,7 @@ function init_gear_sets()
 
 	sets.precast.FC = {main="Colada",sub="Vampirism",ammo="Impatiens",
 		head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body="Samnuha Coat",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
+		body="Luhlaza Jubbah +1",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -120,9 +120,9 @@ function init_gear_sets()
 
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Jukukik Feather",
-		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Mache Earring +1",
+		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Mache Earring +1",ear2="Mache Earring +1",
 		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Begrudging Ring",ring2="Epona's Ring",
-		back=gear.crit_jse_back,waist="Fotia Gorget",legs="Samnuha Tights",feet="Aya. Gambieras +2"
+		back=gear.crit_jse_back,waist="Fotia Belt",legs="Samnuha Tights",feet="Thereoid Greaves"
 	}
 	
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {body="Adhemar Jacket +1"})
@@ -131,8 +131,8 @@ function init_gear_sets()
 
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Ginsen",
-		head=gear.herculean_helm_strwsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		head=gear.herculean_helm_strwsd,neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Rufescent Ring",
 		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"
 	}
 
@@ -158,7 +158,18 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
-	sets.precast.WS['Black Halo'] = sets.precast.WS['Savage Blade']
+	
+	sets.precast.WS['Black Halo'] = {
+		ammo="Ginsen",
+		head=gear.herculean_helm_strwsd,neck="Mirage Stole +1",ear1="Regal Earring",ear2="Moonshade Earring",
+		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Rufescent Ring",
+		back=gear.mnd_atk_jse_cape,waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Carmine Cuisses +1"
+	}
+	
+	sets.precast.WS['Black Halo'].Acc = set_combine(sets.precast.WS['Black Halo'], {})
+	sets.precast.WS['Black Halo'].FullAcc = set_combine(sets.precast.WS['Black Halo'].Acc, {})
+	sets.precast.WS['Black Halo'].Fodder = set_combine(sets.precast.WS['Black Halo'], {})
+	
 	sets.precast.WS['Judgement'] = sets.precast.WS['Black Halo']
 	sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'], {ring2="Epaminondas's Ring"})
 
@@ -335,13 +346,15 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].Healing = set_combine(sets.midcast['Blue Magic']['White Wind'], {})
 
+	sets.midcast['Blue Magic']['Sheep Song'] = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, {head=gear.herculean_helm_TH,feet=gear.herculean_boots_TH})
+	
 	--Overwrite certain spells with these peices even if the day matches, because of resource inconsistancies.
-	sets.NonElementalCure = {back="Tempered Cape +1",waist="Luminary Sash"}
+	sets.NonElementalCure = {back="Solemnity Cape",waist="Luminary Sash"}
 
 	sets.midcast['Blue Magic'].SkillBasedBuff = {main="Iris",sub="Iris",ammo="Mavi Tathlum",
 		head="Luhlaza Keffiyeh",neck="Mirage Stole +1",ear2="Loquac. Earring",
 		body="Assim. Jubbah +2",hands="Rawhide Gloves",ring2="Stikini Ring",
-		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Mirage Charuqs +2"}
+		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs"}
 
 	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub=gear.enhancing_duration_colada,ammo="Mavi Tathlum",
 		head="Luh. Keffiyeh +1",neck="Incanter's Torque",ear1="Gifted Earring",ear2="Loquac. Earring",
@@ -359,7 +372,7 @@ function init_gear_sets()
 	sets.NightIdle = {}
 
 	-- Gear for learning spells: +skill and AF hands.
-	sets.Learning = {hands="Assim. Bazu. +1"}
+	sets.Learning = {hands="Assim. Bazu. +2"}
 
 	-- Idle sets
 	sets.idle = {main="Bolelabunga",ammo="Staunch Tathlum",
@@ -375,7 +388,7 @@ function init_gear_sets()
 	-- Defense sets
 	sets.defense.PDT = {ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
-		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		body="Ayanmo Corazza +2",hands="Assim. Bazu. +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {})

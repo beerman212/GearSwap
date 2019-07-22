@@ -39,9 +39,10 @@ gear.herculean_trousers_strwsd = {name = "Herculean Trousers", augments = {'Accu
 gear.herculean_trousers_magical = {name = "Herculean Trousers", augments = {'Mag. Acc.+18 "Mag.Atk.Bns."+18','Magic burst dmg.+6%','MND+9','Mag. Acc.+14','"Mag.Atk.Bns."+15',}}
 gear.herculean_trousers_ranged_crit = {name = "Herculean Trousers", augments = {'Rng.Acc.+25 Rng.Atk.+25','Crit. hit damage +3%','STR+3','Rng.Acc.+11','Rng.Atk.+12',}}
 gear.herculean_boots_ta = {name = "Herculean Boots", augments = {'Accuracy+23 Attack+23','"Triple Atk."+3','AGI+9',}}
-gear.herculean_boots_ta_low_acc = {name = "Herculean Boots", augments = {'"Triple Atk."+4','Accuracy+10',}}
+gear.herculean_boots_ta_low_acc = {name = "Herculean Boots", augments = {'Accuracy+7','"Triple Atk."+4',}}
 gear.herculean_boots_magical = {name = "Herculean Boots", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','MND+9','Mag. Acc.+13','"Mag.Atk.Bns."+7',}}
 gear.herculean_boots_agiwsd = {name = "Herculean Boots", augments = {'Rng.Acc.+27','Weapon skill damage +4%','STR+7','Rng.Atk.+12',}}
+gear.herculean_boots_TH = {name = "Herculean Boots", augments = {'Potency of "Cure" effect received+1%','Attack+20','"Treasure Hunter"+2','Mag. Acc.+2 "Mag.Atk.Bns."+2',}}
 
 gear.merlinic_hood_magical = {name = "Merlinic Hood", augments = {'Mag. Acc.+18 "Mag.Atk.Bns."+18','Magic Damage +3','INT+7','Mag. Acc.+12','"Mag.Atk.Bns."+14',}}
 gear.merlinic_jubbah_magical = {name = "Merlinic Jubbah", augments = {'Mag. Acc.+24 "Mag.Atk.Bns."+24','Enmity-5','INT+5','Mag. Acc.+15','"Mag.Atk.Bns."+8',}}
