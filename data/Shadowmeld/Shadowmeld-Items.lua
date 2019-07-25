@@ -21,6 +21,7 @@ gear.grioavolr_enfeeble = {name = "Grioavolr", augments = {'Enfb.mag. skill +8',
 gear.dark_ring_dt = {name = "Dark Ring", augments = {'Magic dmg. taken -4%','Phys. dmg. taken -5%',}}
 
 gear.adhemar_wrist_path_a = {name = "Adhemar Wrist. +1", augments = {'DEX+12','AGI+12','Accuracy+20',}}
+gear.adhemar_wrist_path_b = {name = "Adhemar Wrist. +1", augments = {'STR+12','DEX+12','Attack+20',}}
 gear.adhemar_wrist_path_c = {name = "Adhemar Wrist. +1", augments = {'AGI+12','Rng.Acc.+20','Rng.Atk.+20',}}
 
 gear.chironic_gloves_refresh = {name = "Chironic Gloves", augments = {'DEX+8','Crit.hit rate+1','"Refresh"+2','Mag. Acc.+9 "Mag.Atk.Bns."+9',}}
