@@ -56,11 +56,17 @@ gear.merlinic_crackows_refresh = {name = "Merlinic Crackows", augments = {'VIT+1
 gear.odyssean_gauntlets_vitwsd = {name = "Odyssean Gauntlets", augments = {'Mag. Acc.+18','Weapon skill damage +5%','VIT+10','Attack+8',}}
 gear.odyssean_cuisses_stp = {name = "Odyssean Cuisses", augments = {'Accuracy+25 Attack+25','"Store TP"+3','DEX+9','Attack+6',}}
 
+gear.taeon_chapeau_phalanx = {name="Taeon Chapeau",augments={'Spell interruption rate down -10%','Phalanx +3',}}
 gear.taeon_chapeau_snapshot = { name = "Taeon Chapeau", augments = {'"Snapshot"+4','"Snapshot"+5',}}
 gear.taeon_chapeau_ta = {name = "Taeon Chapeau", augments = {'Accuracy+19 Attack+19','"Triple Atk."+1','Crit. hit damage +3%',}}
+gear.taeon_tabard_fc = {name="Taeon Tabard",augments={'Mag. Evasion+16','"Fast Cast"+5','"Regen" potency+3',}}
+gear.taeon_tabard_phalanx = {name="Taeon Tabard",augments={'Spell interruption rate down -9%','Phalanx +3',}}
 gear.taeon_tabard_snapshot = {name = "Taeon Tabard", augments = {'"Snapshot"+5','"Snapshot"+5',}}
+gear.taeon_gloves_phalanx = {name = "Taeon Gloves", augments = {'Phalanx +2',}}
 gear.taeon_gloves_ta = {name = "Taeon Gloves", augments = {'Accuracy+19 Attack+19','"Triple Atk."+2','Crit. hit damage +3%',}}
+gear.taeon_tights_phalanx = {name = "Taeon Tights", augments = {'Phalanx +3',}}
 gear.taeon_tights_ta = {name = "Taeon Tights", augments = {'Accuracy+19 Attack+19','"Triple Atk."+2','Weapon skill damage +3%',}}
+gear.taeon_boots_phalanx = {name="Taeon Boots",augments={'Mag. Evasion+18','Spell interruption rate down -8%','Phalanx +3',}}
 
 gear.telchine_cap_enhancing_duration = {name = "Telchine Cap", augments = {'Enh. Mag. eff. dur. +10',}}
 gear.telchine_chas_enhancing_duration = {name = "Telchine Chas.", augments = {'"Cure" spellcasting time -2%','Enh. Mag. eff. dur. +9',}}

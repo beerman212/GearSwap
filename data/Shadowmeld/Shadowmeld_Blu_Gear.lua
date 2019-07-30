@@ -87,7 +87,7 @@ function init_gear_sets()
 
 	sets.precast.FC = {main="Colada",sub="Vampirism",ammo="Impatiens",
 		head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body="Luhlaza Jubbah +1",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
+		body=gear.taeon_tabard_fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -132,7 +132,7 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Ginsen",
 		head=gear.herculean_helm_strwsd,neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Rufescent Ring",
+		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Rufescent Ring",
 		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"
 	}
 
@@ -288,6 +288,7 @@ function init_gear_sets()
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1"})
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
+	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {head=gear.taeon_chapeau_phalanx,body=gear.taeon_tabard_phalanx,hands=gear.taeon_gloves_phalanx,legs=gear.taeon_tights_phalanx,feet=gear.taeon_boots_phalanx})
 
 	sets.midcast.BarElement = set_combine(sets.precast.FC['Enhancing Magic'], {})
 	
