@@ -217,7 +217,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.mab_jse_back,waist=gear.ElementalObi,legs=gear.herculean_trousers_magical,feet="Amalric Nails"}
 					 
-	sets.midcast['Blue Magic'].Magical.Proc = set_combine(sets.midcast['Blue Magic'].Magical, sets.micast.FastRecast, {})
+	sets.midcast['Blue Magic'].Magical.Proc = set_combine(sets.midcast['Blue Magic'].Magical, sets.midcast.FastRecast, {})
 					 
 	sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,
 		{hands="Jhakri Cuffs +2",ring2="Stikini Ring",waist="Eschan Stone"})
