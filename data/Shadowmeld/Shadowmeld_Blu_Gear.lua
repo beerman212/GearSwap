@@ -11,6 +11,8 @@ function user_setup()
 	state.Weapons:options('Sequence','NaeglingTP','MaxtentiusTP','MagicWeapons','Learning','None')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','TreasureHunter'}
+	
+	info.th_ma_ids = S{33, 34, 584}
 
 	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
 	gear.crit_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
@@ -376,7 +378,7 @@ function init_gear_sets()
 	sets.Learning = {hands="Assim. Bazu. +2"}
 
 	-- Idle sets
-	sets.idle = {main="Bolelabunga",ammo="Staunch Tathlum",
+	sets.idle = {main="Bolelabunga",sub="Medeina Kilij",ammo="Staunch Tathlum",
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.herculean_gloves_refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.stp_jse_back,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
