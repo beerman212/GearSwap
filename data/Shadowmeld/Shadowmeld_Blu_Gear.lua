@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Sequence','NaeglingTP','MaxtentiusTP','MagicWeapons','Learning','None')
+	state.Weapons:options('Sequence','MaxtentiusTP','NaeglingTP','MagicWeapons','Learning','None')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','TreasureHunter'}
 	
@@ -77,7 +77,7 @@ function init_gear_sets()
 
 	sets.precast.Step = {ammo="Ginsen",
 		head="Dampening Tam",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_a,ring1="Chirich Ring",ring2="Ayanmo Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_b,ring1="Chirich Ring",ring2="Ayanmo Ring",
 		back=gear.stp_jse_back,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet=gear.herculean_boots_ta}
 
 	sets.precast.Flourish1 = {ammo="Ginsen",
@@ -101,7 +101,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Ginsen",
 		head=gear.herculean_helm_strwsd,neck="Fotia Gorget",ear1="Telos Earring",ear2="Cessance Earring",
-		body=gear.herculean_vest_dexwsd,hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		body=gear.herculean_vest_dexwsd,hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Ilabrat Ring",
 		back=gear.wsd_jse_back,waist="Fotia Belt",legs=gear.herculean_trousers_strwsd,feet="Jhakri Pigaches +2"}
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",legs="Carmine Cuisses +1"})
@@ -123,7 +123,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Jukukik Feather",
 		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Mache Earring +1",ear2="Mache Earring +1",
-		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_a,ring1="Begrudging Ring",ring2="Epona's Ring",
+		body="Abnoba Kaftan",hands=gear.adhemar_wrist_path_b,ring1="Begrudging Ring",ring2="Epona's Ring",
 		back=gear.crit_jse_back,waist="Fotia Belt",legs="Samnuha Tights",feet="Thereoid Greaves"
 	}
 	
@@ -342,7 +342,7 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic']['White Wind'] = {ammo="Mavi Tathlum",
 		head="Carmine Mask +1",neck="Sanctity Necklace",ear2="Mendi. Earring",
-		body="Vedic Coat",hands="Telchine Gloves",ring1="Supershear Ring",ring2="Lebeche Ring",
+		body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Supershear Ring",ring2="Lebeche Ring",
 		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Skaoi Boots"}
 					
 	sets.midcast['Blue Magic']['Healing Breeze'] = sets.midcast['Blue Magic']['White Wind']
@@ -409,11 +409,11 @@ function init_gear_sets()
 	sets.SuppaBrutal = {}
 	sets.DWEarrings = {}
 	sets.DWMax = {ear1="Suppanomimi Earring",ear2="Eabani Earring",body="Adhemar Jacket +1",legs="Carmine Cuisses +1"}
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean_helm_TH})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean_helm_TH,feet=gear.herculean_boots_TH})
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
 	-- Weapons sets
-	sets.weapons.Sequence = {main="Sequence",sub=gear.stp_colada}
+	sets.weapons.Sequence = {main="Sequence",sub="Kaja Sword"}
 	sets.weapons.NaeglingTP = {main="Kaja Sword",sub=gear.stp_colada}
 	sets.weapons.MaxtentiusTP = {main="Kaja Rod",sub=gear.stp_colada}
 	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Kaja Sword"}
@@ -423,7 +423,7 @@ function init_gear_sets()
 
 	sets.engaged = {ammo="Ginsen",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Suppanomimi",
-		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_a,ring1="Petrov Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_b,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.stp_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta_low_acc}
 
 	sets.engaged.Acc = set_combine(sets.engaged, {head="Dampening Tam",ring1="Chirich Ring",feet=gear.herculean_boots_ta})
