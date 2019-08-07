@@ -16,7 +16,7 @@ function user_setup()
 	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10',}}
 	gear.ogma.da = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
 	gear.ogma.resolution = {name="Ogma's Cape",augments={}}
-	gear.ogma.dimidiation = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +9%',}}
+	gear.ogma.dimidiation = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 
 	-- Additional local binds
 	send_command('bind !` gs c SubJobEnmity')
@@ -235,13 +235,13 @@ function init_gear_sets()
 
 	sets.midcast.Cure = {ammo="Staunch Tathlum",
 		neck="Incanter's Torque",ear1="Mendi. Earring",ear2="Gwati Earring",
-		ring1="Sirona's Ring",ring2="Lebeche Ring",
+		body="Vrikodara Jupon",ring1="Sirona's Ring",ring2="Lebeche Ring",
 		back="Solemnity Cape",waist="Luminary Sash",feet="Skaoi Boots"}
 		
 	sets.midcast['Wild Carrot'] = set_combine(sets.midcast.Cure, {})
 		
-	sets.Self_Healing = {waist="Gishdubar Sash"}
-	sets.Cure_Received = {waist="Gishdubar Sash"}
+	sets.Self_Healing = {hands="Buremte Gloves",waist="Gishdubar Sash"}
+	sets.Cure_Received = {hands="Buremte Gloves",waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
 
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
@@ -323,7 +323,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
         head="Erilaz Galea +1",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
         body="Runeist's Coat +1",hands="Erilaz Gauntlets",ring1="Purity Ring",
-        back="Solemnity Cape",waist="Engraved Belt",legs="Rune. Trousers +1",feet="Erilaz Greaves +1"
+        back=gear.ogma.enmity,waist="Engraved Belt",legs="Rune. Trousers +1",feet="Erilaz Greaves +1"
 	}
 	
 	sets.defense.MEVA_HP = {ammo="Staunch Tathlum",

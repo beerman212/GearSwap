@@ -390,13 +390,13 @@ function init_gear_sets()
 
 	-- Defense sets
 	sets.defense.PDT = {ammo="Staunch Tathlum",
-		head="Aya. Zucchetto +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
+		head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Ayanmo Corazza +2",hands="Assim. Bazu. +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
+		back=gear.stp_jse_back,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
-	sets.defense.MDT = set_combine(sets.defense.PDT, {})
+	sets.defense.MDT = set_combine(sets.defense.PDT, {ring2="Purity Ring"})
 
-	sets.defense.MEVA = set_combine(sets.defense.MDT, {})
+	sets.defense.MEVA = set_combine(sets.defense.MDT, {neck="Warder's Charm +1",ear2="Eabani Earring"})
 
 	sets.defense.NukeLock = sets.midcast['Blue Magic'].Magical
 
@@ -471,13 +471,13 @@ function init_gear_sets()
 
 	sets.engaged.Fodder.MDT = set_combine(sets.engaged.Fodder, {})
 
-	sets.Self_Healing = {waist="Gishdubar Sash"}
-	sets.Self_Healing_Club = {waist="Gishdubar Sash"}
-	sets.Self_Healing_DWClub = {waist="Gishdubar Sash"}
+	sets.Self_Healing = {hands="Buremte Gloves",waist="Gishdubar Sash"}
+	sets.Self_Healing_Club = {hands="Buremte Gloves",waist="Gishdubar Sash"}
+	sets.Self_Healing_DWClub = {hands="Buremte Gloves",waist="Gishdubar Sash"}
 	sets.Healing_Club = {}
 	sets.Healing_DWClub = {}
-	sets.Cure_Received = {waist="Gishdubar Sash"}
-	sets.Self_Refresh = {waist="Gishdubar Sash"}
+	sets.Cure_Received = {hands="Buremte Gloves",waist="Gishdubar Sash"}
+	sets.Self_Refresh = {hands="Buremte Gloves",waist="Gishdubar Sash"}
 	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1",ring1="Mujin Band",ring2="Locus Ring",feet="Jhakri Pigaches +2"}
 
 end

@@ -92,7 +92,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Knobkierrie",
 		head="Agoge Mask +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Pumm. Lorica +3",hands=gear.odyssean_gauntlets_vitwsd,ring1="Epaminondas's Ring",ring2="Niqmaddu Ring",
+		body="Pumm. Lorica +3",hands=gear.odyssean_gauntlets_vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
 		back=gear.str_wsd_jse_back,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 	
@@ -101,8 +101,13 @@ function init_gear_sets()
 	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
-	sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
-		back=vit_wsd_jse_back,waist="Caudata Belt"})
+	sets.precast.WS['Upheaval'] = {
+		ammo="Knobkierrie",
+		head="Agoge Mask +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
+		body="Pumm. Lorica +3",hands=gear.odyssean_gauntlets_vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
+		back=gear.vit_wsd_jse_back,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2",
+	}
+	
 	sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS.Acc, {hands="Flam. Manopolas +2",ring1="Flamma Ring"})
 	sets.precast.WS['Upheaval'].FullAcc = set_combine(sets.precast.WS.FullAcc, {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring"})
 	sets.precast.WS['Upheaval'].Fodder = set_combine(sets.precast.WS.Fodder, {})
@@ -214,6 +219,13 @@ function init_gear_sets()
 	sets.DayMaxTPWSEars = {ear1="Telos Earring",ear2="Ishvara Earring",}
 	sets.AccDayWSEars = {ear1="Telos Earring",ear2="Moonshade Earring"}
 	sets.DayWSEars = {ear1="Ishvara Earring",ear2="Moonshade Earring"}
+	
+	sets.MaxTP["Upheaval"] = {}
+	sets.AccMaxTP["Upheaval"] = {}
+	sets.DayMaxTPWSEars["Upheaval"] = {}
+	sets.AccDayMaxTPWSEars["Upheaval"] = {}
+	sets.DayWSEars["Upheaval"] = {}
+	sets.AccDayWSEars["Upheaval"] = {}
 
 	-- Sets to return to when not performing an action.
 

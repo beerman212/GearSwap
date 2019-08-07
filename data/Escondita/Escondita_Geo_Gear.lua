@@ -131,14 +131,14 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
 	sets.midcast['Elemental Magic'].HighTierNuke.Fodder = set_combine(sets.midcast['Elemental Magic'].Fodder, {})
 		
-    sets.midcast['Dark Magic'] = {head="Geo. Galero +2",neck="Erra Pendant",ear2="Regal Earring",
+	sets.midcast['Dark Magic'] = {head="Geo. Galero +2",neck="Erra Pendant",ear2="Regal Earring",
 		body="Geomancy Tunic +2",hands="Geo. Mitaines +2",ring1="Evanescence Ring",
 		back=gear.nuke_jse_back,waist="Luminary Sash",legs="Azimuth Tights",feet="Geo. Sandals +2"}
-		
-    sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], 
+
+	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], 
 		{head="Pixie Hairpin +1",ring1="Evanescence Ring",ring2="Archon Ring",waist="Fucho-no-Obi",feet=gear.merlinic_crackows_drain})
-    
-    sets.midcast.Aspir = sets.midcast.Drain
+
+	sets.midcast.Aspir = sets.midcast.Drain
 		
 	sets.midcast.Stun = set_combine(sets.midcast.FastRecast, {})
 		
@@ -149,13 +149,13 @@ function init_gear_sets()
 		
 	sets.midcast['Enfeebling Magic'] = {
 		head="Geo. Galero +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Barkaro. Earring",
-		body="Geomancy Tunic +2",hands="Geo. Mitaines +2",ring1="Jhakri Ring",ring2="Kishar Ring",
+		body="Geomancy Tunic +2",hands="Regal Cuffs",ring1="Jhakri Ring",ring2="Kishar Ring",
 		back=gear.nuke_jse_back,waist="Luminary Sash",legs="Psycloth Lappas",feet="Geo. Sandals +2"}
 		
-	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {hands="Geo. Mitaines +2"})
 		
-    sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {hands="Amalric Gages +1"})
-    sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {hands="Amalric Gages +1"})
+	sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {hands="Amalric Gages +1"})
+	sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {hands="Amalric Gages +1"})
 	
 	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {range=empty,ammo="Pemphredo Tathlum"})
 	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {range=empty,head="Pemphredo Tathlum"})
@@ -180,7 +180,7 @@ function init_gear_sets()
 	
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {})
 	
-	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
+	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {hands="Regal Cuffs"})
 	
 	sets.midcast.BarElement = set_combine(sets.precast.FC['Enhancing Magic'], {})
 	
