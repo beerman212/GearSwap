@@ -159,6 +159,8 @@ function init_gear_sets()
 		ring2="Sirona's Ring",
 		back="Tempered Cape +1",feet="Vanya Clogs"}
 		
+	sets.midcast.Curaga = sets.midcast.Cure
+		
 	sets.Self_Healing = {waist="Gishdubar Sash"}
 	sets.Cure_Received = {waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}

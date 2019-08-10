@@ -236,7 +236,7 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Assim. Keffiyeh +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Hermetic Earring",
-		body="Assim. Jubba +3",hands="Jhakri Cuffs +2",ring1="Etana Ring",ring2="Stikini Ring",
+		body="Assim. Jubba +3",hands="Regal Cuffs",ring1="Etana Ring",ring2="Stikini Ring",
 		back=gear.mab_jse_back,waist="Luminary Sash",legs="Psycloth Lappas",feet="Aya. Gambieras +2"}
 
 	sets.midcast['Dark Magic'] = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
@@ -251,7 +251,7 @@ function init_gear_sets()
 
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash"})
 
-	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
+	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {hands="Regal Cuffs"})
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 

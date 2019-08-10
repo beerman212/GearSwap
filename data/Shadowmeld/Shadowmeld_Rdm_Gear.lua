@@ -177,10 +177,10 @@ function init_gear_sets()
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 		
 	sets.midcast.Curaga = sets.midcast.Cure
-	sets.Self_Healing = {waist="Gishdubar Sash"}
-	sets.Cure_Received = {waist="Gishdubar Sash"}
+	sets.Self_Healing = {body="Vrikodara Jupon",hands="Buremte Gloves",waist="Gishdubar Sash"}
+	sets.Cure_Received = {hands="Buremte Gloves",waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
-	sets.Self_Phalanx = {}
+	sets.Self_Phalanx = {head=gear.taeon_chapeau_phalanx,body=gear.taeon_tabard_phalanx,hands=gear.taeon_gloves_phalanx,legs=gear.taeon_tights_phalanx,feet=gear.taeon_boots_phalanx}
 
 	sets.midcast['Enhancing Magic'] = {main=gear.colada_enhancing,sub="Ammurapi Shield",
 		head=gear.telchine_cap_enhancing_duration,neck="Duelist's Torque",ear1="Andoaa Earring",
