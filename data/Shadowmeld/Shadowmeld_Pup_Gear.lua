@@ -171,6 +171,7 @@ function init_gear_sets()
     sets.midcast.Pet.Cure = {}
 	sets.midcast.Pet['Enfeebling Magic'] = {}
     sets.midcast.Pet['Elemental Magic'] = {}
+    sets.midcast.Pet.PetEnmityGear = {}
 	sets.midcast.Pet.PetWSGear = {}
 	
     sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})

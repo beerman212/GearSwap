@@ -63,7 +63,7 @@ function init_gear_sets()
 	sets.precast.FC = {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",
 		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back=gear.alaunus.fc,waist="Channeler's Stone",legs="Aya. Cosciales +2",feet="Navon Crackows"}
+		back=gear.alaunus.fc,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Navon Crackows"}
 	
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {})
 
@@ -96,7 +96,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Telos Earring",ear2="Ishvara Earring",
-		body="Piety Briault +2",hands="Aya. Manopolas +2",ring1="Epaminondas's Ring",ring2="Ayanmo Ring",
+		body="Piety Briault +2",hands="Aya. Manopolas +2",ring1="Shukuyu Ring",ring2="Ayanmo Ring",
 		back=gear.alaunus.stp,waist="Fotia Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 		
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -117,7 +117,7 @@ function init_gear_sets()
 		
 	sets.precast.WS['Flash Nova'] = {ammo="Pemphredo Tathlum",
 		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body="Vedic Coat",hands="Theophany Mitts +2",
+		body="Vedic Coat",hands="Theophany Mitts +2",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.alaunus.fc,waist="Refoccilation Stone",legs=gear.chironic.hose.enfeeble,feet="Navon Crackows"}
 
     sets.precast.WS['Mystic Boon'] = set_combine(sets.precast.WS, {head="Inyanga Tiara +2",feet="Theo. Duckbills +3"})
@@ -164,13 +164,13 @@ function init_gear_sets()
 		
 	sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaud +1"})
 
-	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Chatoyant Staff",sub="Enki Strap",ring2="Lebeche Ring"})
+	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Chatoyant Staff",sub="Enki Strap",ring2="Lebeche Ring",back="Twilight Cape",waist="Hachirin-no-Obi"})
 
 	sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.LightWeatherCure, {ammo="Psilomene",body="Ebers Bliaud +1",waist="Hachirin-no-Obi"})
 		
 	sets.midcast.LightDayCureSolace = set_combine(sets.midcast.CureSolace, {waist="Hachirin-no-Obi"})
 
-	sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, {waist="Hachirin-no-Obi"})
+	sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, {back="Twilight Cape",waist="Hachirin-no-Obi"})
 
 	sets.midcast.Curaga = sets.midcast.Cure
 		
@@ -339,11 +339,11 @@ function init_gear_sets()
 		back=gear.alaunus.wsd,legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 
 	sets.defense.MDT = {ammo="Staunch Tathlum",
-		head="Inyanga Tiara +2",neck="Loricate Torque +1",
-		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Inyanga Ring",
+		head="Inyanga Tiara +2",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Purity Ring",ring2="Inyanga Ring",
 		back=gear.alaunus.fc,feet="Inyan. Crackows +2"}
 
-	sets.defense.MEVA = set_combine(sets.defense.MDT, {ear1="Etiolation Earring"})
+	sets.defense.MEVA = set_combine(sets.defense.MDT, {})
 		
 	-- Gear for specific elemental nukes.
 	sets.element.Wind = {}
@@ -361,7 +361,7 @@ function init_gear_sets()
 	sets.engaged = {ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",neck="Lissome Necklace",ear1="Telos Earring",ear2="Cessance Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Petrov Ring",Ring2="Ilabrat Ring",
-		back=gear.alaunus.wsd,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
+		back=gear.alaunus.stp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 
 	sets.engaged.Acc = set_combine(sets.engaged, {})
 

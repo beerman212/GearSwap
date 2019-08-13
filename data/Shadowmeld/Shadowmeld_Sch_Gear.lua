@@ -141,7 +141,7 @@ function init_gear_sets()
 	-- Custom spell classes
 
 	sets.midcast['Enfeebling Magic'] = {main=gear.gada.enfeebling,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head=gear.merlinic.hood.magical,neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body=gear.merlinic.jubbah.magical,hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.lugh.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"}
 
@@ -164,10 +164,12 @@ function init_gear_sets()
 
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 
-	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-	head=gear.merlinic.hood.magical,neck="Erra Pendant",ear1="Regal Earring",ear2="Barkaro. Earring",
-	body=gear.merlinic.jubbah.magical,hands="Kaykaus Cuffs",ring1="Evanescence Ring",ring2="Stikini Ring",
-	back=gear.lugh.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.magical}
+	sets.midcast['Dark Magic'] = {
+		main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Barkaro. Earring",
+		body=gear.merlinic.jubbah.magical,hands="Kaykaus Cuffs",ring1="Evanescence Ring",ring2="Stikini Ring",
+		back=gear.lugh.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.magical
+	}
 
 	sets.midcast.Kaustra = set_combine(sets.midcast['Dark Magic'], {head="Pixie Hairpin +1",ring2="Archon Ring"})
 
@@ -182,18 +184,19 @@ function init_gear_sets()
 
 	sets.midcast.Stun = set_combine(sets.midcast.FastRecast, {})
 
-	sets.midcast.Stun.Resistant = {main="Oranyan",sub="Enki Strap",ammo="Pemphredo Tathlum",
-	head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Barkaro. Earring",
-	body="Zendik Robe",hands=gear.chironic_enfeeble_hands,ring1="Stikini Ring",ring2="Stikini Ring",
-	back=gear.lugh.mab,waist="Acuity Belt +1",legs="Chironic Hose",feet=gear.merlinic_aspir_feet}
+	sets.midcast.Stun.Resistant = sets.midcast.Stun
 
 	-- Elemental Magic sets are default for handling low-tier nukes.
-	sets.midcast['Elemental Magic'] = {main=gear.grioavolr.nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {
+		main=gear.grioavolr.nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body=gear.merlinic.jubbah.magical,hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.lugh.mab,waist=gear.ElementalObi,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical}
+		body="Amalric Jacket +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
+		back=gear.lugh.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"
+	}
 
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
+		legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical
+	})
 
 	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 
