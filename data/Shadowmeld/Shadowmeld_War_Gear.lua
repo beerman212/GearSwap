@@ -11,10 +11,13 @@ function user_setup()
 	state.Passive = M{['description'] = 'Passive Mode','None','Twilight'}
 	state.Weapons:options('Chango','Zulfiqar','KajaSword','KajaSwordDW')
 
-	gear.dex_da_jse_back = {name = "Cichol's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	gear.str_da_jse_back = {name = "Cichol's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
-	gear.str_wsd_jse_back = {name = "Cichol's Mantle", augments = {'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
-	gear.vit_wsd_jse_back = {name = "Cichol's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.cichol = {}
+	gear.cichol.tp = {name = "Cichol's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	gear.cichol.reso = {name = "Cichol's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+
+	gear.cichol.wsd = {}
+	gear.cichol.wsd.str = {name = "Cichol's Mantle", augments = {'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+	gear.cichol.wsd.vit = {name = "Cichol's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
 	-- Additional local binds
 	send_command('bind ^` input /ja "Hasso" <me>')
@@ -35,14 +38,14 @@ function init_gear_sets()
 	sets.Enmity = {ammo="Sapience Orb",
 		head="Pummeler's Mask +2",ear1="Friomisi Earring",
 		body="Souveran Cuirass",hands="Souv. Handsch. +1",ring1="Petrov Ring",ring2="Supershear Ring",
-		legs=gear.odyssean_cuisses_stp,feet="Souveran Schuhs +1"}
+		legs=gear.odyssean.cuisses.stp,feet="Souveran Schuhs +1"}
 	sets.Knockback = {}
 	sets.passive.Twilight = {
 		--head="Twilight Helm",body="Twilight Mail"
 	}
 	
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Berserk'] = {body="Pumm. Lorica +3",back=gear.dex_da_jse_back,feet="Agoge Calligae +1"}
+	sets.precast.JA['Berserk'] = {body="Pumm. Lorica +3",back=gear.cichol.tp,feet="Agoge Calligae +1"}
 	sets.precast.JA['Warcry'] = {head="Agoge Mask +2"}
 	sets.precast.JA['Defender'] = {}
 	sets.precast.JA['Aggressor'] = {head="Pummeler's Mask +2",body="Agoge Lorica +1"}
@@ -70,13 +73,13 @@ function init_gear_sets()
 	sets.precast.FC = {ammo="Impatiens",
 		neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Odyss. Chestplate",hands="Leyline Gloves",ring1="Defending Ring",ring2="Lebeche Ring",
-		back=gear.dex_da_jse_back,waist="Flume Belt",legs="Arjuna Breeches",feet="Odyssean Greaves"}
+		back=gear.cichol.tp,waist="Flume Belt",legs="Arjuna Breeches",feet="Odyssean Greaves"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
 	-- Midcast Sets
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {
-		ammo="Staunch Tathlum",ring2=gear.dark_ring_dt,
+		ammo="Staunch Tathlum",ring2=gear.dark_ring.dt,
 		--ring2="Evanescence Ring",
 		--legs="Carmine Cuisses +1",feet="Odyssean Greaves"
 	})
@@ -92,8 +95,8 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Knobkierrie",
 		head="Agoge Mask +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Pumm. Lorica +3",hands=gear.odyssean_gauntlets_vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
-		back=gear.str_wsd_jse_back,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
+		body="Pumm. Lorica +3",hands=gear.odyssean.gauntlets.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
+		back=gear.cichol.wsd.str,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {legs="Pumm. Cuisses +3"})
@@ -104,8 +107,8 @@ function init_gear_sets()
 	sets.precast.WS['Upheaval'] = {
 		ammo="Knobkierrie",
 		head="Agoge Mask +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Pumm. Lorica +3",hands=gear.odyssean_gauntlets_vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
-		back=gear.vit_wsd_jse_back,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2",
+		body="Pumm. Lorica +3",hands=gear.odyssean.gauntlets.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
+		back=gear.cichol.wsd.vit,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2",
 	}
 	
 	sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS.Acc, {hands="Flam. Manopolas +2",ring1="Flamma Ring"})
@@ -147,7 +150,7 @@ function init_gear_sets()
 	sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
 		head="Flam. Zucchetto +2",
 		body="Argosy Hauberk +1",hands="Argosy Mufflers +1",ring1="Flamma Ring",
-		back=gear.str_da_jse_back,legs="Argosy Breeches +1",feet="Pumm. Calligae +3"})
+		back=gear.cichol.reso,legs="Argosy Breeches +1",feet="Pumm. Calligae +3"})
 	sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Resolution'].FullAcc = set_combine(sets.precast.WS.FullAcc, {body="Pumm. Lorica +3"})
 	sets.precast.WS['Resolution'].Fodder = set_combine(sets.precast.WS.Fodder, {})
@@ -168,7 +171,7 @@ function init_gear_sets()
 	sets.precast.WS['Herculean Slash'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
 		head="Agoge Mask +2",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
 		ring1="Supershear Ring",
-		back=gear.vit_wsd_jse_back,waist="Escha Stone",legs="Agoge Cuisses +2",feet="Pumm. Calligae +3"})
+		back=gear.cichol.wsd.vit,waist="Escha Stone",legs="Agoge Cuisses +2",feet="Pumm. Calligae +3"})
 	sets.precast.WS['Herculean Slash'].Acc = {}
 	sets.precast.WS['Herculean Slash'].FullAcc = {}
 	sets.precast.WS['Herculean Slash'].Fodder = {}
@@ -195,8 +198,8 @@ function init_gear_sets()
 	sets.precast.WS['Sanguine Blade'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
-		ear1="Telos Earring",ear2="Lugra Earring +1",hands=gear.valorous_mitts_da,ring1="Stikini Ring",
-		back=gear.str_da_jse_back,feet="Pumm. Calligae +3"})
+		ear1="Telos Earring",ear2="Lugra Earring +1",hands=gear.valorous.mitts.da,ring1="Stikini Ring",
+		back=gear.cichol.reso,feet="Pumm. Calligae +3"})
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {ring1="Chirich Ring"})
 	sets.precast.WS['Requiescat'].FullAcc = set_combine(sets.precast.WS.FullAcc, {head="Pummeler's Mask +2",ring1="Chirich Ring"})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS.Fodder, {})
@@ -231,9 +234,9 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {ammo="Staunch Tathlum",
-		head=gear.valorous_mask_strwsd,neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
+		head=gear.valorous.mask.strwsd,neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back=gear.dex_da_jse_back,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"}
+		back=gear.cichol.tp,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"}
 		
 	sets.idle.Weak = set_combine(sets.idle, {
 		--head="Twilight Helm",body="Twilight Mail"
@@ -261,7 +264,7 @@ function init_gear_sets()
 	sets.defense.MDT = {ammo="Staunch Tathlum",
 		head="Founder's Corona",neck="Loricate Torque +1",ear2="Etiolation Earring",
 		body="Souv. Cuirass +1",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
-		waist="Asklepian Belt",feet=gear.valorous_greaves_strwsd}
+		waist="Asklepian Belt",feet=gear.valorous.greaves.strwsd}
 		
 	sets.defense.MDTMaxHP = set_combine(sets.defense.MDT, {feet="Souveran Schahs +1"})
 		
@@ -279,8 +282,8 @@ function init_gear_sets()
             -- Engaged sets
 	sets.engaged = {ammo="Ginsen",
 		head="Flam. Zucchetto +2",neck="Ainia Collar",ear1="Telos Earring",ear2="Brutal Earring",
-		body=gear.valorous_mail_da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
-		back=gear.dex_da_jse_back,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"}
+		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"}
 	
 	sets.engaged.Acc = set_combine(sets.engaged, {neck="Lissome Necklace",hands="Flam. Manopolas +2",ring1="Chirich Ring"})
 	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {body="Pumm. Lorica +3"})
@@ -291,7 +294,7 @@ function init_gear_sets()
 	sets.engaged.DTLite.FullAcc = set_combine(sets.engaged.DTLite.Acc, {})
 	sets.engaged.DTLite.Fodder = set_combine(sets.engaged.DTLite, {feet="Flam. Gambieras +2"})
 
-	sets.engaged.DW = set_combine(sets.engaged, {head="Pummeler's Mask +2",ear2="Suppanomimi",hands=gear.valorous_mitts_da,waist="Patentia Sash"})
+	sets.engaged.DW = set_combine(sets.engaged, {head="Pummeler's Mask +2",ear2="Suppanomimi",hands=gear.valorous.mitts.da,waist="Patentia Sash"})
 	
 	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {ammo="Seeth. Bomblet +1",neck="Lissome Necklace",hands="Flam. Manopolas +2",ring1="Flamma Ring"})
 	sets.engaged.DW.FullAcc = set_combine(sets.engaged.DW.Acc, {body="Pumm. Lorica +3"})

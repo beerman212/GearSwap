@@ -10,8 +10,9 @@ function user_setup()
 	state.IdleMode:options('Normal', 'Reraise')
 	state.Weapons:options('Dojikiri','ProcWeapon')
 
-	gear.str_ws_jse_back = {name = "Smertrios's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-	gear.dex_da_jse_back = {name = "Smertrios's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	gear.smertrios = {}
+	gear.smertrios.wsd = {name = "Smertrios's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.smertrios.da = {name = "Smertrios's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	
 	-- Additional local binds
 	send_command('bind ^` input /ja "Hasso" <me>')
@@ -34,7 +35,7 @@ function init_gear_sets()
 	
 	-- Precast Sets
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Meditate = {head="Wakido Kabuto +3",hands="Sakonji Kote",back=gear.str_ws_jse_back}
+	sets.precast.JA.Meditate = {head="Wakido Kabuto +3",hands="Sakonji Kote",back=gear.smertrios.wsd}
 	sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +3"}
 	sets.precast.JA['Blade Bash'] = {hands="Sakonji Kote"}
 	sets.precast.JA['Sekkanoki'] = {hands="Kasuga Kote +1"}
@@ -44,12 +45,12 @@ function init_gear_sets()
 		ammo="Ginsen",
 		head="Wakido Kabuto +3",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Digni. Earring",
 		body="Wakido Domaru +3",hands="Wakido Kote +3",ring1="Flamma Ring",ring2="Chirich Ring",
-		back=gear.dex_da_jse_back,waist="Grunfeld Rope",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
+		back=gear.smertrios.da,waist="Grunfeld Rope",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
 	sets.precast.JA['Violent Flourish'] = {
 		ammo="Pemphredo Tathlum",
 		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
 		body="Sakonji Domaru +3",hands="Flam. Manopolas +2",ring1="Flamma Ring",ring2="Chirich Ring",
-		back=gear.str_ws_jse_back,waist="Eschan Stone",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
+		back=gear.smertrios.wsd,waist="Eschan Stone",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {--[[
@@ -76,9 +77,9 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head=gear.valorous_mask_wsd,neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Sakonji Domaru +3",hands=gear.valorous_mitts_wsd,ring1="Epaminondas's Ring",ring2="Niqmaddu Ring",
-		back=gear.str_ws_jse_back,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous_greaves_wsd}
+		head=gear.valorous.mask.wsd,neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
+		body="Sakonji Domaru +3",hands=gear.valorous.mitts.wsd,ring1="Epaminondas's Ring",ring2="Niqmaddu Ring",
+		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.wsd}
 		
 	sets.precast.WS.MidAcc = set_combine(sets.precast.WS, {head="Wakido Kabuto +3"})
 	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {
@@ -90,7 +91,7 @@ function init_gear_sets()
 	sets.precast.WS.Proc = {ammo="Hasty Pinion +1",
 		head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Cessance Earring",
 		body="Wakido Domaru +3",hands="Flam. Manopolas +2",ring1="Flamma Ring",ring2="Chirich Ring",
-		back=gear.dex_da_jse_back,waist="Fotia Belt",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
+		back=gear.smertrios.da,waist="Fotia Belt",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {})
@@ -100,7 +101,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
 		head="Flam. Zucchetto +2",
-		hands=gear.valorous_mitts_da,ring1="Flamma Ring"})
+		hands=gear.valorous.mitts.da,ring1="Flamma Ring"})
 	sets.precast.WS['Tachi: Shoha'].MidAcc = set_combine(sets.precast.WS.MidAcc, {feet="Flam. Gambieras +2"})
 	sets.precast.WS['Tachi: Shoha'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
 	sets.precast.WS['Tachi: Shoha'].Fodder = set_combine(sets.precast.WS.Fodder, {})
@@ -108,7 +109,7 @@ function init_gear_sets()
 	sets.precast.WS['Tachi: Rana'] = set_combine(sets.precast.WS, {
 		ammo="Paeapua",
 		head="Flam. Zucchetto +2",neck="Caro Necklace",ear2="Cessance Earring",
-		body="Ken. Samue +1",hands=gear.valorous_mitts_da,ring1="Flamma Ring",
+		body="Ken. Samue +1",hands=gear.valorous.mitts.da,ring1="Flamma Ring",
 		waist="Grunfeld Rope",legs="Ken. Hakama +1",feet="Flam. Gambieras +2",
 	})
 	sets.precast.WS['Tachi: Rana'].MidAcc = set_combine(sets.precast.WS.MidAcc, {})
@@ -200,8 +201,8 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Staunch Tathlum",
 		head="Wakido Kabuto +3",neck="Loricate Torque +1",ear1="Enchntr. Earring +1",ear2="Genmei Earring",
-		body="Wakido Domaru +3",hands=gear.valorous_mitts_da,ring1="Defending Ring",ring2="Dark Ring",
-		back=gear.dex_da_jse_back,waist="Flume Belt",legs="Ryuo Hakama",feet=gear.valorous_greaves_strwsd}
+		body="Wakido Domaru +3",hands=gear.valorous.mitts.da,ring1="Defending Ring",ring2="Dark Ring",
+		back=gear.smertrios.da,waist="Flume Belt",legs="Ryuo Hakama",feet=gear.valorous.greaves.strwsd}
 		
 	sets.idle.Reraise = set_combine(sets.idle, sets.Reraise)
 
@@ -220,15 +221,15 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		neck="Loricate Torque +1",ear2="Genmei Earring",
 		body="Wakido Domaru +3",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.dex_da_jse_back,waist="Flume Belt",legs="Ryuo Hakama",feet=gear.valorous_greaves_wsd}
+		back=gear.smertrios.da,waist="Flume Belt",legs="Ryuo Hakama",feet=gear.valorous.greaves.wsd}
 
   sets.defense.PDTReraise = set_combine(sets.defense.PDT, sets.Reraise)
 		
 	sets.defense.MDT = {
 		ammo="Staunch Tathlum",
 		neck="Loricate Torque +1",
-		body="Wakido Domaru +3",hands="Leyline Gloves",ring1="Defending Ring",ring2=gear.dark_ring_dt,
-		back="Solemnity Cape",legs="Ken. Hakama +1",feet=gear.valorous_greaves_wsd}
+		body="Wakido Domaru +3",hands="Leyline Gloves",ring1="Defending Ring",ring2=gear.dark_ring.dt,
+		back="Solemnity Cape",legs="Ken. Hakama +1",feet=gear.valorous.greaves.wsd}
 		
 	sets.defense.MDTReraise = set_combine(sets.defense.MDT, sets.Reraise)
 	
@@ -248,8 +249,8 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Ginsen",
 		head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Kasuga Domaru +1",hands=gear.valorous_mitts_da,ring1="Petrov Ring",ring2="Niqmaddu Ring",
-		back=gear.dex_da_jse_back,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"}
+		body="Kasuga Domaru +1",hands=gear.valorous.mitts.da,ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		back=gear.smertrios.da,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"}
 	sets.engaged.Zanhasso = set_combine(sets.engaged, {})
 	sets.engaged.Kenhasso = set_combine(sets.engaged, {body="Ken. Samue +1",legs="Ken. Hakama +1",})
 	sets.engaged.TripleAttack = set_combine(sets.engaged, {

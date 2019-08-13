@@ -51,9 +51,9 @@ function init_gear_sets()
 
 	sets.Enmity.SIRD = {
 		ammo="Staunch Tathlum",
-		head=gear.taeon_chapeau_phalanx,neck="Moonbeam Necklace",ear1="Halasz Earring",ear2="Friomisi Earring",
-		bocy=gear.taeon_tabard_phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
-		back=gear.ogma.enmity,waist="Rumination Sash",legs="Carmine Cuisses +1",feet=gear.taeon_boots_phalanx
+		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Halasz Earring",ear2="Friomisi Earring",
+		bocy=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
+		back=gear.ogma.enmity,waist="Rumination Sash",legs="Carmine Cuisses +1",feet=gear.taeon.boots.phalanx
 	}
 
 	sets.Enmity.DT = {ammo="Staunch Tathlum",
@@ -109,9 +109,9 @@ function init_gear_sets()
 		
 	sets.precast.JA['Lunge'] = {
 		ammo="Seeth. Bomblet +1",
-		head=gear.herculean_helm_magical,neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
+		head=gear.herculean.helm.magical,neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
 		body="Samnuha Coat",hands="Carmine Fin. Ga. +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back="",waist="Eschan Stone",legs=gear.herculean_trousers_magical,feet=gear.herculean_boots_magical
+		back="",waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.magical
 	}
 
 	sets.precast.JA['Swipe'] = sets.precast.JA['Lunge']
@@ -147,7 +147,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	sets.precast.FC = {ammo="Impatiens",
 		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body=gear.taeon_tabard_fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
+		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {})
@@ -159,9 +159,9 @@ function init_gear_sets()
 	-- Weaponskill sets
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head=gear.herculean_helm_strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-		body=gear.herculean_vest_dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
-		back="",waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Lustra. Leggings +1"
+		head=gear.herculean.helm.strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
+		back="",waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
 	}
 	
 	sets.precast.WS.SomeAcc = {}
@@ -172,7 +172,7 @@ function init_gear_sets()
 	sets.precast.WS['Resolution'] = {
 		ammo="Knobkierrie",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back=gear.ogma.da,waist="Fotia Belt",legs="Samnuha Tights",feet="Lustra. Leggings +1"
 	}
 
@@ -182,8 +182,8 @@ function init_gear_sets()
 
 	sets.precast.WS['Dimidiation'] = {
 		ammo="Knobkierrie",
-		head=gear.herculean_helm_strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-		body=gear.herculean_vest_dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
+		head=gear.herculean.helm.strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
 		back=gear.ogma.dimidiation,waist="Grunfeld Rope",legs="Lustr. Subligar +1",feet="Lustra. Leggings +1"
 	}
 	
@@ -193,9 +193,9 @@ function init_gear_sets()
 	
 	sets.precast.WS['Ground Strike'] = {
 		ammo="Knobkierrie",
-		head=gear.herculean_helm_strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-		body=gear.herculean_vest_dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
-		back="",waist="Grunfeld Rope",legs=gear.herculean_trousers_strwsd,feet="Lustra. Leggings +1"
+		head=gear.herculean.helm.strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
+		back="",waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
 	}
 	
 	sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS.Acc,{})
@@ -215,15 +215,15 @@ function init_gear_sets()
 	
 	sets.midcast.FastRecast = {ammo="Sapience Orb",
 		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
-		body=gear.taeon_tabard_fc,hands="Leyline Gloves",ring1="Kishar Ring",
+		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",
 		back="",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
 	}
 
 	sets.midcast.FastRecast.DT = set_combine(sets.midcast.FastRecast, {neck="Loricate Torque +1",ring1="Defending Ring",ring2="Moonlight Ring"})
 
 	sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,{head="Erilaz Galea +1",neck="Incanter's Torque",ear1="Andoaa Earring",hands="Runeist Mitons",waist="Olympus Sash",legs="Futhark Trousers +1"})
-	sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'],{head="Fu. Bandeau +1",body=gear.taeon_tabard_phalanx,hands=gear.taeon_gloves_phalanx,legs=gear.taeon_tights_phalanx,feet=gear.taeon_boots_phalanx})
-	sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Rune. Bandeau +1",body=gear.taeon_tabard_fc}) 
+	sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'],{head="Fu. Bandeau +1",body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx})
+	sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Rune. Bandeau +1",body=gear.taeon.tabard.fc}) 
 	sets.midcast['Refresh'] = set_combine(sets.midcast['Enhancing Magic'],{}) 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 	sets.midcast.Flash = set_combine(sets.midcast.FastRecast, sets.Enmity, {})
@@ -255,7 +255,7 @@ function init_gear_sets()
 
 	sets.idle = {ammo='Homiliary',
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Eabani Earring",ear2="Ethereal Earring",
-		body="Runeist Coat +1",hands=gear.herculean_gloves_refresh,ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Runeist Coat +1",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Moonbeam Ring",
 		back="Solemnity Cape",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
 	}
 		
@@ -281,7 +281,7 @@ function init_gear_sets()
     -- Extra defense sets.  Apply these on top of melee or defense sets.
 	sets.Knockback = {}
 	sets.MP = {ear2="Ethereal Earring",body="Erilaz Surcoat +1",waist="Flume Belt"}
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean_helm_TH,feet=gear.herculean_boots_TH})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
 	
 	-- Weapons sets
 	sets.weapons.Aettir = {main="Aettir",sub="Utu Grip"}
@@ -351,8 +351,8 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Yamarang",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Brutal Earring",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar_wrist_path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
-		back=gear.ogma.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_ta_low_acc
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
+		back=gear.ogma.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	
 	sets.engaged.SomeAcc = set_combine(sets.engaged, {head="Dampening Tam",ear1="Telos Earring"})

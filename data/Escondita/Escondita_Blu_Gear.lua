@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Almace','MagicWeapons','KajaSavage')
+	state.Weapons:options('Almace', 'Naegling','MagicWeapons','Learning','None')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
@@ -346,7 +346,7 @@ function init_gear_sets()
 	sets.idle = {ammo="Staunch Tathlum",
 		head=gear.herculean_helm_refresh,neck="Twilight Torque",ear1="Etiolation Earring",
 		body="Jhakri Robe +2",hands=gear.herculean_gloves_refresh,ring1="Defending Ring",ring2="Warden's Ring",
-		back=gear.stp_jse_back,waist="Flume Belt +1",legs="Samnuha Tights",feet=gear.herculean_boots_refresh}
+		back=gear.stp_jse_back,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet=gear.herculean_boots_refresh}
 
 	sets.idle.Sphere = set_combine(sets.idle, {})
 
@@ -359,20 +359,11 @@ function init_gear_sets()
 
 
 	-- Defense sets
-	sets.defense.PDT = {main="Terra's Staff",sub="Umbra Strap",ammo="Staunch Tathlum",
-		head="Dampening Tam",neck="Loricate Torque +1",ear1="Suppanomimi", ear2="Brutal Earring",
-		body="Ayanmo Corazza +2",hands="Assim. Bazu. +3",ring1="Defending Ring",ring2="Dark Ring",
-		back="Moonlight Cape",waist="Windbuffet Belt +1",legs=gear.herculean_dt_legs,feet=gear.herculean_dt_feet}
+	sets.defense.PDT = {}
 
-	sets.defense.MDT = {main="Bolelabunga",sub="Genmei Shield",ammo="Staunch Tathlum",
-		head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring", ear2="Sanare Earring",
-		body="Ayanmo Corazza +2",hands="Hagondes Cuffs +1",ring1="Defending Ring",ring2="Dark Ring",
-		back="Engulfer Cape +1",waist="Flax Sash",legs="Hagondes Pants +1",feet="Ahosi Leggings"}
+	sets.defense.MDT = {}
 
-	sets.defense.MEVA = {main="Bolelabunga",sub="Genmei Shield",ammo="Staunch Tathlum",
-		head="Amalric Coif +1",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Sanare Earring",
-		body="Hashishin Mintan +1",hands="Leyline Gloves",ring1="Vengeful Ring",ring2="Purity Ring",
-		back=gear.mab_jse_back,waist="Luminary Sash",legs="Telchine Braconi",feet="Ahosi Leggings"}
+	sets.defense.MEVA = {}
 
 	sets.defense.NukeLock = sets.midcast['Blue Magic'].Magical
 
@@ -385,13 +376,15 @@ function init_gear_sets()
 	sets.SuppaBrutal = {ear1="Suppanomimi", ear2="Brutal Earring"}
 	sets.DWEarrings = {ear1="Suppanomimi",ear2="Eabani Earring"}
 	sets.DWMax = {ear1="Suppanomimi",ear2="Eabani Earring",body="Adhemar Jacket +1"}
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {feet=gear.herculean_boots_th})
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
-	-- Weapons sets	
-	sets.weapons.Almace = {main="Almace",sub="Colada"}
+	-- Weapons sets
+	sets.weapons.Almace = {main="Almace",sub="Kaja Sword"}
+	sets.weapons.Naegling = {main="Kaja Sword",sub="Thibron"}
+	sets.weapons.NaeglingAcc = {main="Kaja Sword",sub="Almace"}
 	sets.weapons.MagicWeapons = {main="Kaja Sword",sub="Nibiru Cudgel"}
-	sets.weapons.KajaSavage = {main="Kaja Sword",sub="Almace"}
+	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
 
