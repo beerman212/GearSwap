@@ -192,7 +192,7 @@ function init_gear_sets()
     }
 	
     sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})
-	sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {})
+	sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
 	sets.midcast.Pet.PetWSGear.Tank = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.LightTank = set_combine(sets.midcast.Pet.PetWSGear, {})
     sets.midcast.Pet.PetWSGear.Magic = set_combine(sets.midcast.Pet.PetWSGear, {})
@@ -227,7 +227,7 @@ function init_gear_sets()
     }
 
     sets.idle.Pet.Engaged.Ranged = set_combine(sets.idle.Pet.Engaged, {})
-	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {})
+	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
 	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.LightTank = set_combine(sets.idle.Pet.Engaged, {})
     sets.idle.Pet.Engaged.Magic = set_combine(sets.idle.Pet.Engaged, {})
