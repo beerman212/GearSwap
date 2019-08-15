@@ -5,7 +5,8 @@ function user_setup()
     state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
     state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal','PDT','Refresh')
-	state.Weapons:options('None','Ohtas','Denouments')
+    state.Weapons:options('None','Ohtas','Denouments')
+    state.PetMode:options('None','Melee','Ranged','HybridRanged','Tank','LightTank','Magic','Heal','Nuke','Overdrive')
 
     -- Default/Automatic maneuvers for each pet mode.  Define at least 3.
 	defaultManeuvers = {
@@ -50,7 +51,13 @@ function user_setup()
 			{Name='Dark Maneuver',	  Amount=1},
 			{Name='Water Maneuver',	  Amount=0},
 			{Name='Earth Maneuver',	  Amount=0},
-		},
+        },
+        Overdrive = {
+            {Name='Wind Maneuver', 	  Amount=1},
+			{Name='Fire Maneuver',	  Amount=1},
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+        },
 	}
 
     deactivatehpp = 100
@@ -83,12 +90,17 @@ function init_gear_sets()
 
     
     -- Precast sets to enhance JAs
-    sets.precast.JA['Overdrive'] = {}
+    sets.precast.JA['Overdrive'] = {body="Pantin Tobe +2"}
     sets.precast.JA['Tactical Switch'] = {}
-    sets.precast.JA['Repair'] = {ammo="Automat. Oil +3"}
+    sets.precast.JA['Repair'] = {ammo="Automat. Oil +3",body="Foire Tobe +1",feet="Foire Bab. +1"}
 	sets.precast.JA['Maintenance'] = {ammo="Automat. Oil +3"}
 
-    sets.precast.JA.Maneuver = {main="Midnights",neck="Bfn. Collar +1",body="Karagoz Farsetto",back=gear.visucius_mantle.pet_engaged}
+    sets.precast.JA.Maneuver = {
+        main="Midnights",
+        neck="Bfn. Collar +1",ear1="Burana Earring",
+        body="Karagoz Farsetto",hands="Foire Dastanas +1",
+        back=gear.visucius_mantle.pet_engaged
+    }
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {}     
@@ -172,7 +184,12 @@ function init_gear_sets()
 	sets.midcast.Pet['Enfeebling Magic'] = {}
     sets.midcast.Pet['Elemental Magic'] = {}
     sets.midcast.Pet.PetEnmityGear = {}
-	sets.midcast.Pet.PetWSGear = {}
+	sets.midcast.Pet.PetWSGear = {
+        range="Animator P",ammo="Automat. Oil +3",
+        head="Tali'ah Turban +1",neck="Empathy Necklace",ear1="Rimeice Earring",ear2="Enmerkar Earring",
+        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",
+        back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
+    }
 	
     sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {})
@@ -180,10 +197,13 @@ function init_gear_sets()
 	sets.midcast.Pet.PetWSGear.LightTank = set_combine(sets.midcast.Pet.PetWSGear, {})
     sets.midcast.Pet.PetWSGear.Magic = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.Heal = set_combine(sets.midcast.Pet.PetWSGear, {})
-	sets.midcast.Pet.PetWSGear.Nuke = set_combine(sets.midcast.Pet.PetWSGear, {})
+    sets.midcast.Pet.PetWSGear.Nuke = set_combine(sets.midcast.Pet.PetWSGear, {})
+    sets.midcast.Pet.PetWSGear.Overdrive = set_combine(sets.midcast.Pet.PetWSGear, {
+        head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup
+    })
     
 	-- Currently broken, preserved in case of future functionality.
-	sets.midcast.Pet.WeaponSkill = {}
+	-- sets.midcast.Pet.WeaponSkill = {}
 
     -- Sets to return to when not performing an action.
     
@@ -196,23 +216,26 @@ function init_gear_sets()
 	sets.idle.Refresh = {}
 		
     -- Set for idle while pet is out (eg: pet regen gear)
-    sets.idle.Pet = {main="Denouments"}
+    sets.idle.Pet = {main="Midnights",head="Pantin Taj +2",neck="Empath Necklace",ear1="Burana Earring"}
 
     -- Idle sets to wear while pet is engaged
     sets.idle.Pet.Engaged = {
-        main="Ohtas",
-        head="Tali'ah Turban +1",ear1="Rimeice Earring",ear2="Enmerkar Earring",
+        main="Ohtas",range="Animator P",ammo="Automat. Oil +3",
+        head="Tali'ah Turban +1",neck="Empath Necklace",ear1="Rimeice Earring",ear2="Enmerkar Earring",
         body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",
-        back=gear.visucius_mantle.pet_engaged,waist="Klouskap Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
+        back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
     }
 
     sets.idle.Pet.Engaged.Ranged = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {})
-	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {legs="Tali'ah Sera. +1"})
+	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.LightTank = set_combine(sets.idle.Pet.Engaged, {})
     sets.idle.Pet.Engaged.Magic = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.Heal = sets.idle.Pet.Engaged.Magic
-	sets.idle.Pet.Engaged.Nuke = sets.idle.Pet.Engaged.Magic
+    sets.idle.Pet.Engaged.Nuke = sets.idle.Pet.Engaged.Magic
+    sets.idle.Pet.Engaged.Overdrive = set_combine(sets.idle.Pet.Engaged, {
+        main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup
+    })
 
 
     -- Defense sets
@@ -250,6 +273,7 @@ function init_gear_sets()
 	-- Weapons sets
     sets.weapons.Ohtas = {main="Ohtas",range="Animator P"}
     sets.weapons.Denouments = {main="Denouments",range="Animator P"}
+    sets.weapons.Midnights = {main="Midnights",range="Animator P"}
 end
 
 -- Select default macro book on initial load or subjob change.
