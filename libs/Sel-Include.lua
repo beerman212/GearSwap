@@ -1393,12 +1393,7 @@ function get_idle_set(petStatus)
 
         if petStatus == 'Engaged' and idleSet.Engaged then
             idleSet = idleSet.Engaged
-			mote_vars.set_breadcrumbs:append('Engaged')
-			
-			if state.PetMode.value and idleSet[state.PetMode.value] then
-				idleSet = idleSet[state.PetMode.value]
-				mote_vars.set_breadcrumbs:append(state.PetMode.value)
-			end
+            mote_vars.set_breadcrumbs:append('Engaged')
         end
     end
 
