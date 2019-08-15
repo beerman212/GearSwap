@@ -5,7 +5,7 @@ function user_setup()
     state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
     state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal','PDT','Refresh')
-    state.Weapons:options('None','Ohtas','Denouments')
+    state.Weapons:options('None','Ohtas','Denouements')
     state.PetMode:options('None','Melee','Ranged','HybridRanged','Tank','LightTank','Magic','Heal','Nuke','Overdrive')
 
     -- Default/Automatic maneuvers for each pet mode.  Define at least 3.
@@ -193,7 +193,7 @@ function init_gear_sets()
 	
     sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
-	sets.midcast.Pet.PetWSGear.Tank = set_combine(sets.midcast.Pet.PetWSGear, {})
+	sets.midcast.Pet.PetWSGear.Tank = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
 	sets.midcast.Pet.PetWSGear.LightTank = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
     sets.midcast.Pet.PetWSGear.Magic = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.Heal = set_combine(sets.midcast.Pet.PetWSGear, {})
@@ -216,7 +216,7 @@ function init_gear_sets()
 	sets.idle.Refresh = {}
 		
     -- Set for idle while pet is out (eg: pet regen gear)
-    sets.idle.Pet = {main="Midnights",head="Pantin Taj +2",neck="Empath Necklace",ear1="Burana Earring"}
+    sets.idle.Pet = {main="Denouements",head="Pantin Taj +2",neck="Empath Necklace",ear1="Burana Earring"}
 
     -- Idle sets to wear while pet is engaged
     sets.idle.Pet.Engaged = {
@@ -228,7 +228,7 @@ function init_gear_sets()
 
     sets.idle.Pet.Engaged.Ranged = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
-	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {})
+	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
 	sets.idle.Pet.Engaged.LightTank = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
     sets.idle.Pet.Engaged.Magic = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.Heal = sets.idle.Pet.Engaged.Magic
@@ -272,7 +272,7 @@ function init_gear_sets()
 		
 	-- Weapons sets
     sets.weapons.Ohtas = {main="Ohtas",range="Animator P"}
-    sets.weapons.Denouments = {main="Denouments",range="Animator P"}
+    sets.weapons.Denouements = {main="Denouements",range="Animator P"}
     sets.weapons.Midnights = {main="Midnights",range="Animator P"}
 end
 
