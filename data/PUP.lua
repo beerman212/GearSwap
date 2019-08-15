@@ -178,23 +178,23 @@ function job_get_spell_map(spell, default_spell_map)
 	end	
 end
 
-function job_customize_idle_set(idleSet)
-	if pet.isvalid and pet.status == 'Engaged' and sets.midcast.Pet then
-		if state.PetWSGear.value and pet.tp and pet.tp > 999 then
-			if sets.midcast.Pet.PetWSGear and sets.midcast.Pet.PetWSGear[state.PetMode.value] then
-				idleSet = set_combine(idleSet, sets.midcast.Pet.PetWSGear[state.PetMode.value])
-			elseif sets.midcast.Pet.PetWSGear then
-				idleSet = set_combine(idleSet, sets.midcast.Pet.PetWSGear)
-			end
-		elseif state.PetEnmityGear.value then
-			local now = os.clock()
-			if sets.midcast.Pet.PetEnmityGear and ((PupFlashReady < now and buffactive['Light Maneuver']) or (PupVokeReady < now and buffactive['Fire Maneuver'])) then
-				idleSet = set_combine(idleSet, sets.midcast.Pet.PetEnmityGear)
-			end
-		end
-	end
-	return idleSet
-end
+-- function job_customize_idle_set(idleSet)
+-- 	if pet.isvalid and pet.status == 'Engaged' and sets.midcast.Pet then
+-- 		if state.PetWSGear.value and pet.tp and pet.tp > 999 then
+-- 			if sets.midcast.Pet.PetWSGear and sets.midcast.Pet.PetWSGear[state.PetMode.value] then
+-- 				idleSet = set_combine(idleSet, sets.midcast.Pet.PetWSGear[state.PetMode.value])
+-- 			elseif sets.midcast.Pet.PetWSGear then
+-- 				idleSet = set_combine(idleSet, sets.midcast.Pet.PetWSGear)
+-- 			end
+-- 		elseif state.PetEnmityGear.value then
+-- 			local now = os.clock()
+-- 			if sets.midcast.Pet.PetEnmityGear and ((PupFlashReady < now and buffactive['Light Maneuver']) or (PupVokeReady < now and buffactive['Fire Maneuver'])) then
+-- 				idleSet = set_combine(idleSet, sets.midcast.Pet.PetEnmityGear)
+-- 			end
+-- 		end
+-- 	end
+-- 	return idleSet
+-- end
 
 function job_customize_melee_set(meleeSet)
 	if pet.isvalid and state.PetWSGear.value and pet.tp and pet.tp > 999 and player.tp > 999 and sets.midcast.Pet then
