@@ -16,7 +16,7 @@ function user_setup()
 	gear.sucellos.enfeeble = {name = "Sucellos's Cape", augments = {'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
 	gear.sucellos.mab = {name = "Sucellos's Cape", augments = {'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 
-	
+	gear.colada = {}
 	gear.colada.enhancing = {name = "Colada", augments = {'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
 	gear.colada.refresh = {}
 	
