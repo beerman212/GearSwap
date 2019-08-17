@@ -38,15 +38,15 @@ gear.taeon.chapeau = {}
 gear.taeon.chapeau.pup = {name="Taeon Chapeau",augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+3','Pet: Damage taken -3%',}}
 
 gear.taeon.tabard = {}
-gear.taeon.tabard.pup = {name="Taeon Tabard",augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: Crit.hit rate +4','Pet: Haste+3',}}
+gear.taeon.tabard.pup = {name="Taeon Tabard",augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+4','Pet: Damage taken -4%',}}
 
 gear.taeon.gloves = {}
-gear.taeon.gloves.pup = {name="Taeon Gloves",augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+2','Pet: Damage taken -1%',}}
+gear.taeon.gloves.pup = {name="Taeon Gloves",augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+2','Pet: Damage taken -4%',}}
 
 gear.taeon.tights = {}
 
 gear.taeon.boots = {}
-gear.taeon.boots.pup = {name="Taeon Boots",augments={'Pet: Attack+20 Pet: Rng.Atk.+20','Pet: Crit.hit rate +3','Pet: Haste+4',}}
+gear.taeon.boots.pup = {name="Taeon Boots",augments={'Pet: Attack+20 Pet: Rng.Atk.+20','Pet: "Dbl. Atk."+3','Pet: Damage taken -3%',}}
 
 gear.telchine_cap_enhancing_duration = {name = "Telchine Cap", augments = {'Enh. Mag. eff. dur. +6',}}
 gear.telchine_chas_enhancing_duration = {name = "Telchine Chasuble", augments = {'Enh. Mag. eff. dur. +7',}}

@@ -6,7 +6,6 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal','PDT','Refresh')
     state.Weapons:options('None','Ohtas','Denouements')
-    state.PetMode:options('None','Melee','Ranged','HybridRanged','Tank','LightTank','Magic','Heal','Nuke','Overdrive')
 
     -- Default/Automatic maneuvers for each pet mode.  Define at least 3.
 	defaultManeuvers = {
@@ -63,7 +62,7 @@ function user_setup()
     deactivatehpp = 100
     
     gear.visucius_mantle = {}
-    gear.visucius_mantle.pet_engaged = {name="Visucius's Mantle",augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+17 Attack+17','Pet: Haste+10',}}
+    gear.visucius_mantle.pet_engaged = {name="Visucius's Mantle",augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+17 Attack+17','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}}
     gear.visucius_mantle.pet_casting = {name="Visucius's Mantle",augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Accuracy+20 Attack+20','Pet: Haste+10',}}
     gear.visucius_mantle.pet_idle = {name="Visucius's Mantle",augments={}}
     gear.visucius_mantle.master_tp = {name="Visucius's Mantle",augments={}}
@@ -90,15 +89,15 @@ function init_gear_sets()
 
     
     -- Precast sets to enhance JAs
-    sets.precast.JA['Overdrive'] = {body="Pantin Tobe +2"}
-    sets.precast.JA['Tactical Switch'] = {}
-    sets.precast.JA['Repair'] = {ammo="Automat. Oil +3",body="Foire Tobe +1",feet="Foire Bab. +1"}
+    sets.precast.JA['Overdrive'] = {body="Pitre Tobe"}
+    sets.precast.JA['Tactical Switch'] = {feet=""}
+    sets.precast.JA['Repair'] = {ammo="Automat. Oil +3",body="Foire Tobe +1",feet="Naga Kyahan"}
 	sets.precast.JA['Maintenance'] = {ammo="Automat. Oil +3"}
 
     sets.precast.JA.Maneuver = {
         main="Midnights",
         neck="Bfn. Collar +1",ear1="Burana Earring",
-        body="Karagoz Farsetto",hands="Foire Dastanas +1",
+        body="Kara. Farsetto +1",hands="Foire Dastanas +1",
         back=gear.visucius_mantle.pet_engaged
     }
 
@@ -192,9 +191,9 @@ function init_gear_sets()
     }
 	
     sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})
-	sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
+	sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.Tank = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
-	sets.midcast.Pet.PetWSGear.LightTank = set_combine(sets.midcast.Pet.PetWSGear, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
+	sets.midcast.Pet.PetWSGear.LightTank = set_combine(sets.midcast.Pet.PetWSGear, {})
     sets.midcast.Pet.PetWSGear.Magic = set_combine(sets.midcast.Pet.PetWSGear, {})
 	sets.midcast.Pet.PetWSGear.Heal = set_combine(sets.midcast.Pet.PetWSGear, {})
     sets.midcast.Pet.PetWSGear.Nuke = set_combine(sets.midcast.Pet.PetWSGear, {})
@@ -216,7 +215,7 @@ function init_gear_sets()
 	sets.idle.Refresh = {}
 		
     -- Set for idle while pet is out (eg: pet regen gear)
-    sets.idle.Pet = {main="Denouements",head="Pantin Taj +2",neck="Empath Necklace",ear1="Burana Earring"}
+    sets.idle.Pet = {main="Denouements",head="Pitre Taj",neck="Empath Necklace",ear1="Burana Earring"}
 
     -- Idle sets to wear while pet is engaged
     sets.idle.Pet.Engaged = {
@@ -227,15 +226,12 @@ function init_gear_sets()
     }
 
     sets.idle.Pet.Engaged.Ranged = set_combine(sets.idle.Pet.Engaged, {})
-	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
-	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
-	sets.idle.Pet.Engaged.LightTank = set_combine(sets.idle.Pet.Engaged, {main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
+	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {})
+	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup})
+	sets.idle.Pet.Engaged.LightTank = set_combine(sets.idle.Pet.Engaged, {})
     sets.idle.Pet.Engaged.Magic = set_combine(sets.idle.Pet.Engaged, {})
 	sets.idle.Pet.Engaged.Heal = sets.idle.Pet.Engaged.Magic
     sets.idle.Pet.Engaged.Nuke = sets.idle.Pet.Engaged.Magic
-    sets.idle.Pet.Engaged.Overdrive = set_combine(sets.idle.Pet.Engaged, {
-        main="Midnights",head=gear.taeon.chapeau.pup,body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,feet=gear.taeon.boots.pup
-    })
 
 
     -- Defense sets
