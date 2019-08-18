@@ -185,9 +185,9 @@ function init_gear_sets()
     sets.midcast.Pet.PetEnmityGear = {}
 	sets.midcast.Pet.PetWSGear = {
         range="Animator P",ammo="Automat. Oil +3",
-        head="Tali'ah Turban +1",neck="Empathy Necklace",ear1="Rimeice Earring",ear2="Enmerkar Earring",
-        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",
-        back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
+        head="Karagoz Capello +1",neck="Empathy Necklace",ear1="Rimeice Earring",ear2="Enmerkar Earring",
+        body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,
+        back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet=gear.taeon.boots.pup
     }
 	
     sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})
@@ -251,7 +251,9 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee group
-    sets.engaged = {}
+    sets.engaged = {
+		
+	}
     sets.engaged.Acc = {}
     sets.engaged.FullAcc = {}
     sets.engaged.Fodder = {}
@@ -261,7 +263,12 @@ function init_gear_sets()
     sets.engaged.FullAcc.DT = {}
     sets.engaged.Fodder.DT = {}
     
-    sets.engaged.Pet = {}
+    sets.engaged.Pet = {
+		head="Tali'ah Turban +1",neck="Empath Necklace",ear1="Cessance Earring",ear2="Enmerkar Earring",
+        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",ring1="Petrov Ring",ring2="Epona's Ring"
+        back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
+	}
+	
     sets.engaged.Acc.Pet = {}
     sets.engaged.FullAcc.Pet = {}
     sets.engaged.Fodder.Pet = {}
