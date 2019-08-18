@@ -265,7 +265,7 @@ function init_gear_sets()
     
     sets.engaged.Pet = {
 		head="Tali'ah Turban +1",neck="Empath Necklace",ear1="Cessance Earring",ear2="Enmerkar Earring",
-        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",ring1="Petrov Ring",ring2="Epona's Ring"
+        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",ring1="Petrov Ring",ring2="Epona's Ring",
         back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
 	}
 	
