@@ -15,8 +15,8 @@ function user_setup()
 	gear.ogma = {}
 	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10',}}
 	gear.ogma.da = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
-	gear.ogma.resolution = {name="Ogma's Cape",augments={}}
-	gear.ogma.dimidiation = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+	gear.ogma.resolution = {name="Ogma's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+	gear.ogma.dimidiation = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 
 	-- Additional local binds
 	send_command('bind !` gs c SubJobEnmity')
@@ -173,7 +173,7 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
-		back=gear.ogma.da,waist="Fotia Belt",legs="Samnuha Tights",feet="Lustra. Leggings +1"
+		back=gear.ogma.resolution,waist="Fotia Belt",legs="Samnuha Tights",feet="Lustra. Leggings +1"
 	}
 
 	sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'],{})
