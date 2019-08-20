@@ -80,13 +80,13 @@ send_command('bind ^@!f12 gs reload') --Reloads gearswap.
 send_command('bind pause gs c update user') --Runs a quick check to make sure you have the right gear on and checks variables.
 send_command('bind ^@!pause gs org') --Runs organizer.
 send_command('bind ^@!backspace gs c buffup') --Buffup macro because buffs are love.
-send_command('bind ^r gs c weapons Default') --Requips weapons and gear.
+--send_command('bind ^r gs c weapons Default') --Requips weapons and gear.
 send_command('bind ^z gs c toggle Capacity') --Keeps capacity mantle on and uses capacity rings.
 send_command('bind ^y gs c toggle AutoCleanupMode') --Uses certain items and tries to clean up inventory.
 send_command('bind ^t gs c cycle treasuremode') --Toggles hitting htings with your treasure hunter set.
 send_command('bind !t input /target <bt>') --Targets the battle target.
 send_command('bind ^o fillmode') --Lets you see through walls.
-send_command('bind @m gs c mount Omega')
+send_command('bind @m gs c mount Fenrir')
 
 NotifyBuffs = S{'doom','petrification'}
 

@@ -68,7 +68,7 @@ function user_setup()
     gear.visucius_mantle.master_tp = {name="Visucius's Mantle",augments={}}
     gear.visucius_mantle.master_ws = {name="Visucius's Mantle",augments={}}
 
-    sets.TreasureHunter = set_combine(sets.TreasureHunter, {feet=gear.herculean_boots_th})
+    sets.TreasureHunter = set_combine(sets.TreasureHunter, {feet=gear.herculean.boots.th})
 	
     select_default_macro_book()
 	
@@ -134,7 +134,9 @@ function init_gear_sets()
 	sets.precast.WS['Asuran Fists'].FullAcc = {}
 	sets.precast.WS['Asuran Fists'].Fodder = {}
 	
-    sets.precast.WS['Dragon Kick'] = {} -- 1x Hit, 50% STR/VIT, ftp/tp
+    sets.precast.WS['Dragon Kick'] = {
+        feet=gear.herculean.boots.wsd
+    } -- 1x Hit, 50% STR/VIT, ftp/tp
     sets.precast.WS['Dragon Kick'].Acc = {}
 	sets.precast.WS['Dragon Kick'].FullAcc = {}
 	sets.precast.WS['Dragon Kick'].Fodder = {}
