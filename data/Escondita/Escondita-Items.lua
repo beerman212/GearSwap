@@ -3,11 +3,21 @@
 sets.Sheltered = {ring2="Sheltered Ring"}
 sets.Capacity = {back="Mecisto. Mantle"}
 
-sets.buff.Doom = {waist="Gishdubar Sash"}
+sets.buff.Doom = {ring2="Purity Ring",waist="Gishdubar Sash"}
 sets.TreasureHunter = {waist="Chaac Belt"}
 
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
+
+sets.weapons.ProcSword = {main="",sub=empty}
+sets.weapons.ProcClub = {main="",sub=empty}
+sets.weapons.ProcKatana = {main="",sub=empty}
+sets.weapons.ProcDagger = {main="",sub=empty}
+sets.weapons.ProcStaff = {main="",sub=empty}
+sets.weapons.ProcSpear = {main="",sub=empty}
+sets.weapons.ProcGreatsword = {main="",sub=empty}
+sets.weapons.ProcScythe = {main="",sub=empty}
+sets.weapons.ProcGreatKatana = {main="",sub=empty}
 
 --Augmented items that you'll use among multiple jobs.
 gear.grioavolr = {}
@@ -53,6 +63,10 @@ gear.merlinic.crackows = {}
 gear.merlinic.crackows.drain = { name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+23','"Drain" and "Aspir" potency +10','Mag. Acc.+9',}}
 gear.merlinic.crackows.refresh = { name="Merlinic Crackows", augments={'Attack+8','"Cure" potency +3%','"Refresh"+1','Accuracy+18 Attack+18','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
 
+gear.odyssean = {}
+gear.odyssean.helm = {}
+gear.odyssean.helm.wsd = {name="Odyssean Helm",augments={'Accuracy+24','Weapon skill damage +2%','STR+11','Attack+12',}}
+
 gear.taeon = {}
 gear.taeon.chapeau = {}
 gear.taeon.chapeau.pup = {name="Taeon Chapeau",augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+3','Pet: Damage taken -3%',}}
@@ -83,3 +97,13 @@ gear.telchine.braconi.enhancing = {name = "Telchine Braconi", augments = {'Enh. 
 
 gear.telchine.pigaches = {}
 gear.telchine.pigaches.enhancing = {name = "Telchine Pigaches", augments = {'Enh. Mag. eff. dur. +4',}}
+
+gear.valorous = {}
+gear.valorous.mask = {}
+gear.valorous.mask.crit = {name="Valorous Mask",augments={'Accuracy+21 Attack+21','Crit. hit damage +3%','DEX+9','Accuracy+6',}}
+
+gear.valorous.mail = {}
+gear.valorous.mail.tp = {name="Valorous Mail",augments={'Accuracy+24 Attack+24','"Store TP"+4','DEX+4',}}
+
+gear.valorous.hose = {}
+gear.valorous.hose.mab = {name="Valor. Hose",augments={'"Store TP"+2','Rng.Acc.+20','Accuracy+16 Attack+16','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
