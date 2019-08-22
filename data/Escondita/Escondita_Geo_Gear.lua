@@ -174,7 +174,7 @@ function init_gear_sets()
 		
 	sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast, {ammo="Pemphredo Tathlum",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Mendi. Earring",
-		body=gear.telchine.chas.enhancing,hands=gear.telchine.gloves.enhancing,
+		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,
 		waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing})
 		
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
