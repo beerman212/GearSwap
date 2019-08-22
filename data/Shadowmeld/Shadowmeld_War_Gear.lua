@@ -2,14 +2,14 @@ function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal','Acc','FullAcc','Fodder')
 	state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
-	state.HybridMode:options('Normal','DTLite')
+	state.HybridMode:options('Normal','Hybrid','Hybrid_HPUp')
 	state.PhysicalDefenseMode:options('PDT','PDTMaxHP')
 	state.MagicalDefenseMode:options('MDT','MDTMaxHP')
-	state.ResistDefenseMode:options('MEVA')
-	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
-	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MaxDW'}
-	state.Passive = M{['description'] = 'Passive Mode','None','Twilight'}
-	state.Weapons:options('Chango','Zulfiqar','KajaSword','KajaSwordDW')
+	state.ResistDefenseMode:options('MEVA','MEVA_Charm','MEVA_Death')
+	state.IdleMode:options('Normal', 'PDT')
+	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
+	state.Passive = M{['description'] = 'Passive Mode','None',}
+	state.Weapons:options('Chango','Zulfiqar','Naegling','NaeglingDW')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name = "Cichol's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -35,14 +35,20 @@ function init_gear_sets()
 	--------------------------------------
 	-- Precast Sets
 	
-	sets.Enmity = {ammo="Sapience Orb",
-		head="Pummeler's Mask +2",ear1="Friomisi Earring",
+	sets.Enmity = {
+		ammo="Aqreqaq Bomblet",
+		head="Pummeler's Mask +2",neck="Moonbeam Necklace",ear1="Friomisi Earring",
 		body="Souveran Cuirass",hands="Souv. Handsch. +1",ring1="Petrov Ring",ring2="Supershear Ring",
-		legs=gear.odyssean.cuisses.stp,feet="Souveran Schuhs +1"}
-	sets.Knockback = {}
-	sets.passive.Twilight = {
-		--head="Twilight Helm",body="Twilight Mail"
+		legs=gear.odyssean.cuisses.stp,feet="Souveran Schuhs +1"
 	}
+	sets.SIRD = {
+		ammo="Staunch Tathlum",
+		--[[head="Souv. Schaller +1",]]neck="Moonbeam Necklace",
+		--[[hands="Eschite Gauntlets",]]
+		legs="Founder's Cuisses",feet="Souveran Schuhs +1"
+	}
+	sets.Knockback = {}
+	sets.passive.Twilight = {--[[head="Twilight Helm",body="Twilight Mail"]]}
 	
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Berserk'] = {body="Pumm. Lorica +3",back=gear.cichol.tp,feet="Agoge Calligae +1"}
@@ -78,13 +84,9 @@ function init_gear_sets()
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
 	-- Midcast Sets
-	sets.midcast.FastRecast = set_combine(sets.precast.FC, {
-		ammo="Staunch Tathlum",ring2=gear.dark_ring.dt,
-		--ring2="Evanescence Ring",
-		--legs="Carmine Cuisses +1",feet="Odyssean Greaves"
-	})
+	sets.midcast.FastRecast = set_combine(sets.precast.FC, sets.SIRD, {})
 	
-	sets.midcast.Utsusemi = set_combine(sets.midcast.FastRecast, {})
+	sets.midcast.Utsusemi = set_combine(sets.FastRecast, {})
 	
 	sets.midcast.Cure = {}
 	
@@ -238,72 +240,134 @@ function init_gear_sets()
 		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.cichol.tp,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"}
 		
-	sets.idle.Weak = set_combine(sets.idle, {
-		--head="Twilight Helm",body="Twilight Mail"
-	})
+	sets.idle.Weak = set_combine(sets.idle, sets.passive.Twilight, {})
 		
-	sets.idle.Reraise = set_combine(sets.idle, {
-		--head="Twilight Helm",body="Twilight Mail"
-	})
+	sets.idle.Reraise = set_combine(sets.idle, sets.passive.Twilight. {})
 			 
 	-- Resting sets
 	sets.resting = sets.idle
 	
 	-- Defense sets
-	sets.defense.PDT = {ammo="Staunch Tathlum",
-		neck="Loricate Torque +1",ear2="Genmei Earring",
-		body="Souv. Cuirass +1",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
-		legs="Pumm. Cuisses +3",feet="Souveran Schahs +1"}
+	sets.defense.PDT = {
+		ammo="Staunch Tathlum",
+		neck="Loricate Torque +1",
+		body="Hjarrandi Breast.",hands="Pumm. Mufflers +2",ring1="Moonbeam Ring",
+		back=gear.cichol.tp,legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"
+	}
 		
-	sets.defense.PDTMaxHP = set_combine(sets.defense.PDT, {ring1="Moonbeam Ring",back="Moonbeam Cape"})
-		
-	sets.defense.PDTReraise = set_combine(sets.defense.PDT, {
-		--head="Twilight Helm",body="Twilight Mail"
+	sets.defense.PDTMaxHP = set_combine(sets.defense.PDT, {
+		head="Hjarrandi Helm",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		hands="Souv. Handsch. +1",ring2="Supershear Ring",
+		back="Moonbeam Cape"
 	})
+		
+	sets.defense.PDTReraise = set_combine(sets.defense.PDT, sets.passive.Twilight, {})
 
-	sets.defense.MDT = {ammo="Staunch Tathlum",
-		head="Founder's Corona",neck="Loricate Torque +1",ear2="Etiolation Earring",
-		body="Souv. Cuirass +1",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
-		waist="Asklepian Belt",feet=gear.valorous.greaves.strwsd}
+	sets.defense.MDT = {
+		ammo="Staunch Tathlum",
+		head="Founder's Corona",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",
+		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Moonbeam Ring",ring2="Purity Ring",
+		back="Moonbeam Cape",waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet=gear.valorous.greaves.strwsd,
+	}
 		
-	sets.defense.MDTMaxHP = set_combine(sets.defense.MDT, {feet="Souveran Schahs +1"})
+	sets.defense.MDTMaxHP = set_combine(sets.defense.MDT, {ear2="Odnowa Earring",feet="Souveran Schuhs +1"})
 		
-	sets.defense.MDTReraise = set_combine(sets.defense.MDT, {head="Twilight Helm",body="Twilight Mail"})
+	sets.defense.MDTReraise = set_combine(sets.defense.MDT, sets.passive.Twilight, {})
 		
-	sets.defense.MEVA = set_combine(sets.defense.MDT, {})
+	sets.defense.MEVA = set_combine(sets.defense.MDT, {ear1="Eabani Earring",back="Solemnity Cape",waist="Engraved Belt",feet="Pumm. Calligae +3"})
+	sets.defense.MEVA_Charm = set_combine(sets.defense.MEVA, {back="Solemnity Cape",--[[legs="Souv. Diechlings +1"]]})
+	sets.defense.MEVA_Death = set_combine(sets.defense.MEVA, {})
+	sets.defense.MEVA_Terror = set_combine(sets.defense.MEVA, {feet="Founder's Greaves"})
 
 	sets.Kiting = {}
-	sets.Reraise = {
-		--head="Twilight Helm",body="Twilight Mail"
-	}
+	sets.Reraise = sets.passive.Twilight
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
-	sets.buff.Sleep = {head="Frenzy Sallet"}
+	sets.buff.Sleep = {}
      
-            -- Engaged sets
-	sets.engaged = {ammo="Ginsen",
-		head="Flam. Zucchetto +2",neck="Ainia Collar",ear1="Telos Earring",ear2="Brutal Earring",
-		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
-		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"}
-	
-	sets.engaged.Acc = set_combine(sets.engaged, {neck="Lissome Necklace",hands="Flam. Manopolas +2",ring1="Chirich Ring"})
-	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {body="Pumm. Lorica +3"})
-	sets.engaged.Fodder = set_combine(sets.engaged, {feet="Flam. Gambieras +2"})
-	
-	sets.engaged.DTLite = set_combine(sets.engaged, {head="Hjarrandi Helm",body="Souv. Cuirass +1",hands="Flam. Manopolas +2",ring1="Moonbeam Ring"})
-	sets.engaged.DTLite.Acc = set_combine(sets.engaged.DTLite, {neck="Lissome Necklace"})
-	sets.engaged.DTLite.FullAcc = set_combine(sets.engaged.DTLite.Acc, {})
-	sets.engaged.DTLite.Fodder = set_combine(sets.engaged.DTLite, {feet="Flam. Gambieras +2"})
+	-- Engaged sets
+	sets.engaged = {}
+	sets.engaged.DW = {}
 
-	sets.engaged.DW = set_combine(sets.engaged, {head="Pummeler's Mask +2",ear2="Suppanomimi",hands=gear.valorous.mitts.da,waist="Patentia Sash"})
+	sets.engaged.Chango = {
+		--93% DA --> 99% if get War. Bead. +2, 100% if 5% on valorous mail and war. Bead. +2
+		ammo="Ginsen",
+		head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Cessance Earring",
+		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
+	}
+
+	sets.engaged.Chango.Charge = set_combine(sets.engaged.Chango, {
+		neck="Ainia Collar",ear1="Telos Earring",ear2="Dedition Earring",
+		body="Hjarrandi Breast.",hands=gear.valorous.mitts.da,ring1="Flamma Ring",ring2="Moonbeam Ring",
+		legs=gear.odyssean.cuisses.stp
+	})
+	sets.engaged.Chango.Charge.Mighty = set_combine(sets.engaged.Chango.Charge, {})
+	sets.engaged.Chango.Mighty = set_combine(sets.engaged.Chango, {legs=gear.valorous.hose.critdamage,feet=gear.valorous.greaves.strwsd})	
+
+	sets.engaged.Chango.Acc = set_combine(sets.engaged.Chango, {})
+	sets.engaged.Chango.Acc.Charge = set_combine(sets.engaged.Chango.Acc, {})
+	sets.engaged.Chango.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Acc.Charge, {})
+	sets.engaged.Chango.Acc.Mighty = set_combine(sets.engaged.Chango.Acc, {})
+
+	sets.engaged.Chango.FullAcc = set_combine(sets.engaged.Chango.Acc, {})
+	sets.engaged.Chango.FullAcc.Charge = set_combine(sets.engaged.Chango.FullAcc, {})
+	sets.engaged.Chango.FullAcc.Charge.Mighty = set_combine(sets.engaged.Chango.FullAcc.Charge, {})
+	sets.engaged.Chango.FullAcc.Mighty = set_combine(sets.engaged.Chango.FullAcc, {})
+
+	sets.engaged.Chango.Fodder = set_combine(sets.engaged.Chango, {})
+	sets.engaged.Chango.Fodder.Charge = set_combine(sets.engaged.Chango.Charge, {})
+	sets.engaged.Chango.Fodder.Charge.Mighty = set_combine(sets.engaged.Chango.Charge.Mighty, {})
+	sets.engaged.Chango.Fodder.Mighty = set_combine(sets.engaged.Chango.Mighty, {})
+
+	sets.engaged.Chango.Hybrid = set_combine(sets.engaged.Chango, {
+		body="Hjarrandi Breast.",hands=gear.valorous.mitts.da,ring1="Moonbeam Ring"
+	})
+	sets.engaged.Chango.Hybrid.Charge = set_combine(sets.engaged.Chango.Hybrid, {})
+	sets.engaged.Chango.Hybrid.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid.Charge, {})
+	sets.engaged.Chango.Hybrid.Mighty = set_combine(sets.engaged.Chango.Hybrid, {})
+
+	sets.engaged.Chango.Hybrid.Acc = set_combine(sets.engaged.Chango.Hybrid, {})
+	sets.engaged.Chango.Hybrid.Acc.Charge = set_combine(sets.engaged.Chango.Hybrid.Acc, {})
+	sets.engaged.Chango.Hybrid.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid.Accv.Charge, {})
+	sets.engaged.Chango.Hybrid.Acc.Mighty = set_combine(sets.engaged.Chango.Hybrid.Acc, {})
+
+	sets.engaged.Chango.Hybrid.FullAcc = set_combine(sets.engaged.Chango.Hybrid.Acc, {})
+	sets.engaged.Chango.Hybrid.FullAcc.Charge = set_combine(sets.engaged.Chango.Hybrid.FullAcc, {})
+	sets.engaged.Chango.Hybrid.FullAcc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid.FullAcc.Charge, {})
+	sets.engaged.Chango.Hybrid.FullAcc.Mighty = set_combine(sets.engaged.Chango.Hybrid.FullAcc, {})
+
+	sets.engaged.Chango.Hybrid.Fodder = set_combine(sets.engaged.Chango.Hybrid, {})
+	sets.engaged.Chango.Hybrid.Fodder.Charge = set_combine(sets.engaged.Chango.Hybrid.Fodder, {})
+	sets.engaged.Chango.Hybrid.Fodder.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid.Fodder.Charge, {})
+	sets.engaged.Chango.Hybrid.Fodder.Mighty = set_combine(sets.engaged.Chango.Hybrid.Fodder, {})
+
+	sets.engaged.Chango.Hybrid_HPUp = set_combine(sets.engaged.Chango, {
+		ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Moonbeam Ring"
+	})
+	sets.engaged.Chango.Hybrid_HPUp.Charge = set_combine(sets.engaged.Chango.Hybrid_HPUp, {})
+	sets.engaged.Chango.Hybrid_HPUp.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Charge, {})
+	sets.engaged.Chango.Hybrid_HPUp.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp, {})
+
+	sets.engaged.Chango.Hybrid_HPUp.Acc = set_combine(sets.engaged.Chango.Hybrid_HPUp, {})
+	sets.engaged.Chango.Hybrid_HPUp.Acc.Charge = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc, {})
+	sets.engaged.Chango.Hybrid_HPUp.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Accv.Charge, {})
+	sets.engaged.Chango.Hybrid_HPUp.Acc.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc, {})
+
+	sets.engaged.Chango.Hybrid_HPUp.FullAcc = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc, {})
+	sets.engaged.Chango.Hybrid_HPUp.FullAcc.Charge = set_combine(sets.engaged.Chango.Hybrid_HPUp.FullAcc, {})
+	sets.engaged.Chango.Hybrid_HPUp.FullAcc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.FullAcc.Charge, {})
+	sets.engaged.Chango.Hybrid_HPUp.FullAcc.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.FullAcc, {})
+
+	sets.engaged.Chango.Hybrid_HPUp.Fodder = set_combine(sets.engaged.Chango.Hybrid_HPUp, {})
+	sets.engaged.Chango.Hybrid_HPUp.Fodder.Charge = set_combine(sets.engaged.Chango.Hybrid_HPUp.Fodder, {})
+	sets.engaged.Chango.Hybrid_HPUp.Fodder.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Fodder.Charge, {})
+	sets.engaged.Chango.Hybrid_HPUp.Fodder.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Fodder, {})
 	
-	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {ammo="Seeth. Bomblet +1",neck="Lissome Necklace",hands="Flam. Manopolas +2",ring1="Flamma Ring"})
-	sets.engaged.DW.FullAcc = set_combine(sets.engaged.DW.Acc, {body="Pumm. Lorica +3"})
-	sets.engaged.DW.Fodder = set_combine(sets.engaged.DW, {feet="Flam. Gambieras +2"})
-	
-	sets.engaged.DW.DTLite = set_combine(sets.engaged.DW, {body="Souv. Cuirass +1",hands="Souv. Handsch. +1",ring1="Moonbeam Ring"})
-	sets.engaged.DW.DTLite.Acc = set_combine(sets.engaged.DW.DTLite, {neck="Lissome Necklace"})
-	sets.engaged.DW.DTLite.FullAcc = set_combine(sets.engaged.DW.DTLite.Acc, {})
-	sets.engaged.DW.DTLite.Fodder = set_combine(sets.engaged.DW.DTLite, {feet="Flam. Gambieras +2"})
+
+	sets.engaged.Zulfiqar = sets.engaged.Chango
+	sets.engaged.Naegling = sets.engaged.Chango
+	sets.engaged.NaeglingDW = sets.engaged.Chango
 	
 	--Extra Special Sets
 	
@@ -316,8 +380,8 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
-	sets.weapons.KajaSword = {main="Kaja Sword",sub="Blurred Shield +1"}
-	sets.weapons.KajaSwordDW = {main="Kaja Sword",sub="Barbarity"}
+	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield +1"}
+	sets.weapons.NaeglingDW = {main="Kaja Sword",sub="Barbarity"}
 	--sets.weapons.KajaAxe = {main="Kaja Axe",sub="Blurred Shield +1"}
 	--sets.weapons.KajaAxeDW = {main="Kaja Axe",sub="Firangi"}
 end

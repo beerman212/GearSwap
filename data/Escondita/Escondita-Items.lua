@@ -13,10 +13,10 @@ sets.weapons.ProcSword = {main="",sub=empty}
 sets.weapons.ProcClub = {main="",sub=empty}
 sets.weapons.ProcKatana = {main="",sub=empty}
 sets.weapons.ProcDagger = {main="",sub=empty}
-sets.weapons.ProcStaff = {main="",sub=empty}
+sets.weapons.ProcStaff = {main="Ranine Staff",sub=empty}
 sets.weapons.ProcSpear = {main="",sub=empty}
-sets.weapons.ProcGreatsword = {main="",sub=empty}
-sets.weapons.ProcScythe = {main="",sub=empty}
+sets.weapons.ProcGreatsword = {main="Lament",sub=empty}
+sets.weapons.ProcScythe = {main="Hoe",sub=empty}
 sets.weapons.ProcGreatKatana = {main="",sub=empty}
 
 --Augmented items that you'll use among multiple jobs.
