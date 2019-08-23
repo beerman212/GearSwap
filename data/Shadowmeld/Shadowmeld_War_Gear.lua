@@ -309,7 +309,11 @@ function init_gear_sets()
 	sets.engaged.Chango.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Acc.Charge, {})
 	sets.engaged.Chango.Acc.Mighty = set_combine(sets.engaged.Chango.Acc, {})
 
-	sets.engaged.Chango.FullAcc = set_combine(sets.engaged.Chango.Acc, {})
+	sets.engaged.Chango.FullAcc = set_combine(sets.engaged.Chango.Acc, {
+		ammo="Seeth. Bomblet +1",
+		ear1="Telos Earring",ear2="Mache Earring +1",
+		body="Pumm. Lorica +3",ring1="Ilabrat Ring",
+	})
 	sets.engaged.Chango.FullAcc.Charge = set_combine(sets.engaged.Chango.FullAcc, {})
 	sets.engaged.Chango.FullAcc.Charge.Mighty = set_combine(sets.engaged.Chango.FullAcc.Charge, {})
 	sets.engaged.Chango.FullAcc.Mighty = set_combine(sets.engaged.Chango.FullAcc, {})
@@ -367,7 +371,81 @@ function init_gear_sets()
 
 	sets.engaged.Zulfiqar = sets.engaged.Chango
 	sets.engaged.Naegling = sets.engaged.Chango
-	sets.engaged.NaeglingDW = sets.engaged.Chango
+	sets.engaged.NaeglingDW = {
+		--88% DA --> 94% if get War. Bead. +2, 95% if 5% on valorous mail and war. Bead. +2
+		ammo="Ginsen",
+		head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Suppanomimi",
+		body=gear.valorous.mail.da,hands="Emi. Gauntlets +1",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
+	}
+
+	sets.engaged.NaeglingDW.Charge = set_combine(sets.engaged.NaeglingDW, {
+		neck="Ainia Collar",ear1="Telos Earring",
+		body="Hjarrandi Breast.",ring1="Flamma Ring",ring2="Moonbeam Ring",
+		legs=gear.odyssean.cuisses.stp
+	})
+	sets.engaged.NaeglingDW.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Charge, {})
+	sets.engaged.NaeglingDW.Mighty = set_combine(sets.engaged.NaeglingDW, {legs=gear.valorous.hose.critdamage,feet=gear.valorous.greaves.strwsd})	
+
+	sets.engaged.NaeglingDW.Acc = set_combine(sets.engaged.NaeglingDW, {})
+	sets.engaged.NaeglingDW.Acc.Charge = set_combine(sets.engaged.NaeglingDW.Acc, {})
+	sets.engaged.NaeglingDW.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Acc.Charge, {})
+	sets.engaged.NaeglingDW.Acc.Mighty = set_combine(sets.engaged.NaeglingDW.Acc, {})
+
+	sets.engaged.NaeglingDW.FullAcc = set_combine(sets.engaged.NaeglingDW.Acc, {})
+	sets.engaged.NaeglingDW.FullAcc.Charge = set_combine(sets.engaged.NaeglingDW.FullAcc, {})
+	sets.engaged.NaeglingDW.FullAcc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.FullAcc.Charge, {})
+	sets.engaged.NaeglingDW.FullAcc.Mighty = set_combine(sets.engaged.NaeglingDW.FullAcc, {})
+
+	sets.engaged.NaeglingDW.Fodder = set_combine(sets.engaged.NaeglingDW, {})
+	sets.engaged.NaeglingDW.Fodder.Charge = set_combine(sets.engaged.NaeglingDW.Charge, {})
+	sets.engaged.NaeglingDW.Fodder.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Charge.Mighty, {})
+	sets.engaged.NaeglingDW.Fodder.Mighty = set_combine(sets.engaged.NaeglingDW.Mighty, {})
+
+	sets.engaged.NaeglingDW.Hybrid = set_combine(sets.engaged.NaeglingDW, {
+		body="Hjarrandi Breast.",ring1="Moonbeam Ring"
+	})
+	sets.engaged.NaeglingDW.Hybrid.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid, {})
+	sets.engaged.NaeglingDW.Hybrid.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid, {})
+
+	sets.engaged.NaeglingDW.Hybrid.Acc = set_combine(sets.engaged.NaeglingDW.Hybrid, {})
+	sets.engaged.NaeglingDW.Hybrid.Acc.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc, {})
+	sets.engaged.NaeglingDW.Hybrid.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Accv.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid.Acc.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc, {})
+
+	sets.engaged.NaeglingDW.Hybrid.FullAcc = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc, {})
+	sets.engaged.NaeglingDW.Hybrid.FullAcc.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid.FullAcc, {})
+	sets.engaged.NaeglingDW.Hybrid.FullAcc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.FullAcc.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid.FullAcc.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.FullAcc, {})
+
+	sets.engaged.NaeglingDW.Hybrid.Fodder = set_combine(sets.engaged.NaeglingDW.Hybrid, {})
+	sets.engaged.NaeglingDW.Hybrid.Fodder.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid.Fodder, {})
+	sets.engaged.NaeglingDW.Hybrid.Fodder.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Fodder.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid.Fodder.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Fodder, {})
+
+	sets.engaged.NaeglingDW.Hybrid_HPUp = set_combine(sets.engaged.NaeglingDW, {
+		ear1="Odnowa Earring +1",
+		body="Hjarrandi Breast.",ring1="Moonbeam Ring"
+	})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp, {})
+
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Accv.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc, {})
+
+	sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc, {})
+
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Fodder, {})
 	
 	--Extra Special Sets
 	

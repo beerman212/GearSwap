@@ -9,15 +9,15 @@ sets.TreasureHunter = {waist="Chaac Belt"}
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
 
-sets.weapons.ProcSword = {main="",sub=empty}
-sets.weapons.ProcClub = {main="",sub=empty}
-sets.weapons.ProcKatana = {main="",sub=empty}
-sets.weapons.ProcDagger = {main="",sub=empty}
-sets.weapons.ProcStaff = {main="Ranine Staff",sub=empty}
-sets.weapons.ProcSpear = {main="",sub=empty}
+sets.weapons.ProcSword = {main="Ark Saber",sub=empty}
+sets.weapons.ProcClub = {main="Heartbreaker",sub=empty}
+sets.weapons.ProcKatana = {main="Trainee Burin",sub=empty}
+sets.weapons.ProcDagger = {main="Twilight Knife",sub=empty}
+sets.weapons.ProcStaff = {main="Ram Staff",sub=empty}
+sets.weapons.ProcSpear = {main="Pitchfork +1",sub=empty}
 sets.weapons.ProcGreatsword = {main="Lament",sub=empty}
 sets.weapons.ProcScythe = {main="Hoe",sub=empty}
-sets.weapons.ProcGreatKatana = {main="",sub=empty}
+sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub=empty}
 
 --Augmented items that you'll use among multiple jobs.
 gear.grioavolr = {}
