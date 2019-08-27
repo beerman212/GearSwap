@@ -188,7 +188,7 @@ function init_gear_sets()
 	sets.midcast.Pet.PetWSGear = {
         range="Animator P",ammo="Automat. Oil +3",
         head="Karagoz Capello +1",neck="Empathy Necklace",ear1="Rimeice Earring",ear2="Enmerkar Earring",
-        body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,
+        body=gear.taeon.tabard.pup,hands=gear.taeon.gloves.pup,ring1="Varar Ring +1",ring2="Varar Ring +1",
         back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet=gear.taeon.boots.pup
     }
 	
@@ -223,7 +223,7 @@ function init_gear_sets()
     sets.idle.Pet.Engaged = {
         main="Ohtas",range="Animator P",ammo="Automat. Oil +3",
         head="Tali'ah Turban +1",neck="Empath Necklace",ear1="Rimeice Earring",ear2="Enmerkar Earring",
-        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",
+        body="Tali'ah Manteel +1",hands="Tali'ah Gages +1",ring1="Varar Ring +1",ring2="Varar Ring +1",
         back=gear.visucius_mantle.pet_engaged,waist="Ukko Sash",legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
     }
 

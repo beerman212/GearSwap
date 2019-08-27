@@ -201,7 +201,9 @@ function init_gear_sets()
 
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {ammo="Seeth. Bomblet +1",
 		ear1="Telos Earring",ear2="Lugra Earring +1",hands=gear.valorous.mitts.da,ring1="Stikini Ring",
-		back=gear.cichol.reso,feet="Pumm. Calligae +3"})
+		back=gear.cichol.reso,feet="Pumm. Calligae +3"
+	})
+	
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS.Acc, {ring1="Chirich Ring"})
 	sets.precast.WS['Requiescat'].FullAcc = set_combine(sets.precast.WS.FullAcc, {head="Pummeler's Mask +2",ring1="Chirich Ring"})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS.Fodder, {})
@@ -235,15 +237,16 @@ function init_gear_sets()
 	-- Sets to return to when not performing an action.
 
 	-- Idle sets
-	sets.idle = {ammo="Staunch Tathlum",
+	sets.idle = {
+		ammo="Staunch Tathlum",
 		head=gear.valorous.mask.strwsd,neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.cichol.tp,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"}
 		
 	sets.idle.Weak = set_combine(sets.idle, sets.passive.Twilight, {})
 		
-	sets.idle.Reraise = set_combine(sets.idle, sets.passive.Twilight. {})
-			 
+	sets.idle.Reraise = set_combine(sets.idle, sets.passive.Twilight, {})
+	
 	-- Resting sets
 	sets.resting = sets.idle
 	
@@ -328,7 +331,7 @@ function init_gear_sets()
 
 	sets.engaged.Chango.Hybrid.Acc = set_combine(sets.engaged.Chango.Hybrid, {})
 	sets.engaged.Chango.Hybrid.Acc.Charge = set_combine(sets.engaged.Chango.Hybrid.Acc, {})
-	sets.engaged.Chango.Hybrid.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid.Accv.Charge, {})
+	sets.engaged.Chango.Hybrid.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid.Acc.Charge, {})
 	sets.engaged.Chango.Hybrid.Acc.Mighty = set_combine(sets.engaged.Chango.Hybrid.Acc, {})
 
 	sets.engaged.Chango.Hybrid.FullAcc = set_combine(sets.engaged.Chango.Hybrid.Acc, {})
@@ -351,7 +354,7 @@ function init_gear_sets()
 
 	sets.engaged.Chango.Hybrid_HPUp.Acc = set_combine(sets.engaged.Chango.Hybrid_HPUp, {})
 	sets.engaged.Chango.Hybrid_HPUp.Acc.Charge = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc, {})
-	sets.engaged.Chango.Hybrid_HPUp.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Accv.Charge, {})
+	sets.engaged.Chango.Hybrid_HPUp.Acc.Charge.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc.Charge, {})
 	sets.engaged.Chango.Hybrid_HPUp.Acc.Mighty = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc, {})
 
 	sets.engaged.Chango.Hybrid_HPUp.FullAcc = set_combine(sets.engaged.Chango.Hybrid_HPUp.Acc, {})
