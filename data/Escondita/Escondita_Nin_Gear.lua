@@ -307,19 +307,10 @@ function init_gear_sets()
 	sets.Skillchain = {legs="Ryuo Hakama"}
 	
 	-- Weapons sets
-	-- sets.weapons.Heishi = {main="Heishi Shorinken",sub="Kanaria"}
-	--sets.weapons.LowBuff = {main="Heishi Shorinken",sub="Blurred Knife+1"}
+	sets.weapons.Heishi = {main="Heishi Shorinken",sub="Kanaria"}
+	sets.weapons.LowBuff = {main="Heishi Shorinken",sub="Blurred Knife+1"}
 	sets.weapons.Fodder = {main="Kanaria",sub="Kanaria"}
-	sets.weapons.ProcSword = {main="Ark Saber",sub="Trainee Burin"}
-	sets.weapons.ProcClub = {main="Heartbeater",sub="Trainee Burin"}
-	sets.weapons.ProcStaff = {main="Ram Staff",sub="Duplus Grip"}
-	sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub="Duplus Grip"}
-	sets.weapons.ProcDagger = {main="Twilight Knife",sub="Trainee Burin"}
-	sets.weapons.ProcScythe = {main="Hoe",sub="Duplus Grip"}
-	sets.weapons.ProcKatana = {main="Trainee Burin",sub="Ark Saber"}
-	sets.weapons.ProcGreatSword = {main="Lament",sub="Duplus Grip"}
-	sets.weapons.ProcPolearm = {main="Pitchfork +1",sub="Duplus Grip"}
-	--sets.weapons.MagicWeapons = {main="Ochu",sub="Ochu"}
+	sets.weapons.MagicWeapons = {main="Ochu",sub="Ochu"}
 end
 
 -- Select default macro book on initial load or subjob change.

@@ -9,15 +9,15 @@ sets.TreasureHunter = {waist="Chaac Belt"}
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
 
-sets.weapons.ProcSword = {main="",sub=empty}
-sets.weapons.ProcClub = {main="",sub=empty}
-sets.weapons.ProcKatana = {main="",sub=empty}
-sets.weapons.ProcDagger = {main="",sub=empty}
-sets.weapons.ProcStaff = {main="Ranine Staff",sub=empty}
-sets.weapons.ProcSpear = {main="",sub=empty}
-sets.weapons.ProcGreatsword = {main="Lament",sub=empty}
-sets.weapons.ProcScythe = {main="Hoe",sub=empty}
-sets.weapons.ProcGreatKatana = {main="",sub=empty}
+sets.weapons.ProcSword = {main="Ark Saber",sub="Trainee Burin"}
+sets.weapons.ProcClub = {main="Heart Beater",sub="Trainee Burin"}
+sets.weapons.ProcStaff = {main="Ram Staff",sub="Duplus Grip"}
+sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub="Duplus Grip"}
+sets.weapons.ProcDagger = {main="Twilight Knife",sub="Trainee Burin"}
+sets.weapons.ProcScythe = {main="Hoe",sub="Duplus Grip"}
+sets.weapons.ProcKatana = {main="Trainee Burin",sub="Ark Saber"}
+sets.weapons.ProcSpear = {main="Pitchfork +1",sub="Duplus Grip"}
+sets.weapons.ProcGreatsword = {main="Lament",sub="Duplus Grip"}
 
 --Augmented items that you'll use among multiple jobs.
 gear.grioavolr = {}
