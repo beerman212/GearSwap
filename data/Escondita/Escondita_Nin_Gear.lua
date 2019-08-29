@@ -9,7 +9,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Heishi','LowBuff','MagicWeapons','ProcDagger','ProcSword','ProcGreatSword','ProcScythe','ProcPolearm','ProcGreatKatana','ProcKatana','ProcClub','ProcStaff')
+	state.Weapons:options('Fodder','ProcSword','ProcClub','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatSword','ProcStaff')
 	
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None','SuppaBrutal','DWEarrings','DWMax'}
 	
@@ -307,30 +307,31 @@ function init_gear_sets()
 	sets.Skillchain = {legs="Ryuo Hakama"}
 	
 	-- Weapons sets
-	sets.weapons.Heishi = {main="Heishi Shorinken",sub="Kanaria"}
-	sets.weapons.LowBuff = {main="Heishi Shorinken",sub="Blurred Knife +1"}
-	sets.weapons.ProcDagger = {main="Chicken Knife II",sub=empty}
-	sets.weapons.ProcSword = {main="Ark Sword",sub=empty}
-	sets.weapons.ProcGreatSword = {main="Lament",sub=empty}
-	sets.weapons.ProcScythe = {main="Ark Scythe",sub=empty}
-	sets.weapons.ProcPolearm = {main="Pitchfork +1",sub=empty}
-	sets.weapons.ProcGreatKatana = {main="Hardwood Katana",sub=empty}
-	sets.weapons.ProcKatana = {main="Kanaria",sub=empty}
-	sets.weapons.ProcClub = {main="Dream Bell +1",sub=empty}
-	sets.weapons.ProcStaff = {main="Terra's Staff",sub=empty}
-	sets.weapons.MagicWeapons = {main="Ochu",sub="Ochu"}
+	-- sets.weapons.Heishi = {main="Heishi Shorinken",sub="Kanaria"}
+	--sets.weapons.LowBuff = {main="Heishi Shorinken",sub="Blurred Knife+1"}
+	sets.weapons.Fodder = {main="Kanaria",sub="Kanaria"}
+	sets.weapons.ProcSword = {main="Ark Saber",sub="Trainee Burin"}
+	sets.weapons.ProcClub = {main="Heartbeater",sub="Trainee Burin"}
+	sets.weapons.ProcStaff = {main="Ram Staff",sub="Duplus Grip"}
+	sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub="Duplus Grip"}
+	sets.weapons.ProcDagger = {main="Twilight Knife",sub="Trainee Burin"}
+	sets.weapons.ProcScythe = {main="Hoe",sub="Duplus Grip"}
+	sets.weapons.ProcKatana = {main="Trainee Burin",sub="Ark Saber"}
+	sets.weapons.ProcGreatSword = {main="Lament",sub="Duplus Grip"}
+	sets.weapons.ProcPolearm = {main="Pitchfork +1",sub="Duplus Grip"}
+	--sets.weapons.MagicWeapons = {main="Ochu",sub="Ochu"}
 end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'WAR' then
-        set_macro_page(1, 12)
+        set_macro_page(1, 13)
     elseif player.sub_job == 'RNG' then
-        set_macro_page(1, 12)
+        set_macro_page(1, 13)
     elseif player.sub_job == 'RDM' then
-        set_macro_page(1, 12)
+        set_macro_page(1, 13)
     else
-        set_macro_page(1, 12)
+        set_macro_page(1, 13)
     end
 end

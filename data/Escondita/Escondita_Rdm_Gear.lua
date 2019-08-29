@@ -359,12 +359,12 @@ end
 -- Default macro set/book
 function select_default_macro_book()
 	if player.sub_job == 'DNC' then
-		set_macro_page(4, 8)
+		set_macro_page(4, 5)
 	elseif player.sub_job == 'NIN' then
-		set_macro_page(4, 8)
+		set_macro_page(4, 5)
 	elseif player.sub_job == 'BLM' then
-		set_macro_page(2, 8)
+		set_macro_page(2, 5)
 	else
-		set_macro_page(3, 8)
+		set_macro_page(3, 5)
 	end
 end
