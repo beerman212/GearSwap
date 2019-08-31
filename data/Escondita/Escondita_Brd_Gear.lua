@@ -169,7 +169,7 @@ function init_gear_sets()
 		
 	sets.midcast['Enhancing Magic'] = {main="Serenity",sub="Clerisy Grip",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",
-		body=gear.telchine.chas.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
+		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
 		back="Perimede Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing}
 		
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})

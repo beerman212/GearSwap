@@ -9,7 +9,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None','Twilight'}
-	state.Weapons:options('Ragnorok','Chango','Zulfiqar','Naegling','NaeglingDW','ProcDagger','ProcSword','ProcGreatSword','ProcScythe','ProcPolearm','ProcGreatKatana','ProcClub','ProcStaff')
+	state.Weapons:options('Ragnorok','Chango','Zulfiqar','Naegling','NaeglingDW','ProcSword','ProcClub','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatSword','ProcStaff')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name="Cichol's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
@@ -409,12 +409,12 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'SAM' then
-        set_macro_page(3, 3)
+        set_macro_page(3, 1)
     elseif player.sub_job == 'DNC' then
-        set_macro_page(4, 3)
+        set_macro_page(4, 1)
     elseif player.sub_job == 'THF' then
-        set_macro_page(1, 3)
+        set_macro_page(1, 1)
     else
-        set_macro_page(5, 3)
+        set_macro_page(5, 1)
     end
 end
