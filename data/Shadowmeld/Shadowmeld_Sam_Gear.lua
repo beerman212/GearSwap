@@ -78,7 +78,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Knobkierrie",
 		head=gear.valorous.mask.wsd,neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Sakonji Domaru +3",hands=gear.valorous.mitts.wsd,ring1="Epaminondas's Ring",ring2="Niqmaddu Ring",
+		body="Sakonji Domaru +3",hands=gear.valorous.mitts.wsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
 		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.wsd}
 		
 	sets.precast.WS.MidAcc = set_combine(sets.precast.WS, {head="Wakido Kabuto +3"})
@@ -290,6 +290,8 @@ function init_gear_sets()
 
 	-- Weapons sets
 	sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
+	sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
+	sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
 	sets.weapons.ProcWeapon = {main="Soboro Sukehiro",sub="Utu Grip"}
 	--sets.weapons.Bow = {main="Norifusa +1",sub="Utu Grip",range="Cibitshavore",ammo="Eminent Arrow"}
 	

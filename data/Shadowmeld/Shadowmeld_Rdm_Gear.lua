@@ -206,7 +206,7 @@ function init_gear_sets()
 	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
 	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
 	
-	sets.midcast['Enfeebling Magic'] = {main="Kaja Sword",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
+	sets.midcast['Enfeebling Magic'] = {main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"}
@@ -269,7 +269,7 @@ function init_gear_sets()
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 		
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main="Kaja Sword",sub="Ammurapi Shield",body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main="Naegling",sub="Ammurapi Shield",body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical})
 	
 	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 
@@ -345,10 +345,10 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.SequenceAmmurapi = {main="Sequence",sub="Ammurapi Shield"}
 	sets.weapons.SequenceGenmei = {main="Sequence",sub="Genmei Shield"}
-	sets.weapons.NaeglingAmmurapi = {main="Kaja Sword",sub="Ammurapi Shield"}
-	sets.weapons.NaeglingGenmei = {main="Kaja Sword",sub="Genmei Shield"}
+	sets.weapons.NaeglingAmmurapi = {main="Naegling",sub="Ammurapi Shield"}
+	sets.weapons.NaeglingGenmei = {main="Naegling",sub="Genmei Shield"}
 	sets.weapons.DualSequence = {main="Sequence",sub="Ternion Dagger +1"}
-	sets.weapons.DualNaegling = {main="Kaja Sword",sub="Ternion Dagger +1"}
+	sets.weapons.DualNaegling = {main="Naegling",sub="Ternion Dagger +1"}
 	sets.weapons.DualTauret = {main="Tauret",sub="Ternion Dagger +1"}
 
 	-- Engaged sets

@@ -278,16 +278,16 @@ function init_gear_sets()
 	sets.resting = sets.idle
 
 	-- Weapons sets
-	sets.weapons.Default = {main="Kaja Sword",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
+	sets.weapons.Default = {main="Naegling",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLastStand = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLeaden = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.SavageTPBonus = {main="Kaja Sword",sub="Nusku Shield",range="Anarchy +2"}
+	sets.weapons.SavageTPBonus = {main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
 	sets.weapons.EviscerationTPBonus = {main="Kaja Knife",sub="Nusku Shield",range="Anarchy +2"}
 	
-	sets.weapons.DefaultDW = {main="Kaja Sword",sub="Kaja Knife",range="Fomalhaut",ammo=RAbullet}
+	sets.weapons.DefaultDW = {main="Naegling",sub="Kaja Knife",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLastStandDW = {main="Kustawi +1",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.RangedLeadenDW = {main="Kaja Sword",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.SavageDW = {main="Kaja Sword",sub="Blurred Knife +1",range="Anarchy +2"}
+	sets.weapons.RangedLeadenDW = {main="Naegling",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
+	sets.weapons.SavageDW = {main="Naegling",sub="Blurred Knife +1",range="Anarchy +2"}
 	sets.weapons.EviscerationDW = {main="Kaja Knife",sub="Blurred Knife +1",range="Anarchy +2"}
 	
 	-- Engaged sets
