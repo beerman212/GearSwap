@@ -9,7 +9,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Kanaria','MagicWeapons','ProcDagger','ProcSword','ProcGreatSword','ProcScythe','ProcPolearm','ProcGreatKatana','ProcKatana','ProcClub','ProcStaff')
+	state.Weapons:options('Kanaria','MagicWeapons','ProcDagger','ProcSword','ProcGreatsword','ProcScythe','ProcPolearm','ProcGreatKatana','ProcKatana','ProcClub','ProcStaff')
 	
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None','SuppaBrutal','DWEarrings','DWMax'}
     
@@ -67,7 +67,7 @@ function init_gear_sets()
 	sets.precast.FC.Shadows = set_combine(sets.precast.FC.Utsusemi, {})
 
     -- Snapshot for ranged
-    sets.precast.RA = {legs="Nahtirah Trousers"}
+    sets.precast.RA = {}
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {}
@@ -180,9 +180,9 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {
         ammo="Falcon Eye",
-		head=gear.herculean.helm.dexwsd,neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body="Adhemar Jacket +1",hands="Adhemar Wristbands",ring1="Petrov Ring",ring2="Epona's Ring",
-		back="Atheling Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.wsd
+		head="Skormoth Mask",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
+		body="Abnoba Kaftan",hands="Adhemar Wristbands",ring1="Petrov Ring",ring2="Epona's Ring",
+		back="Andartia's Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.wsd
     }
     sets.engaged.SomeAcc = {}
     sets.engaged.Acc = {}
