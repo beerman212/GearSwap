@@ -38,6 +38,7 @@ function user_setup()
 	send_command('bind !r gs c weapons Montante;gs c update')
 	
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -182,7 +183,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Dimidiation'] = {
 		ammo="Knobkierrie",
-		head=gear.herculean.helm.strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+		head=gear.herculean.helm.dexwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
 		back=gear.ogma.dimidiation,waist="Grunfeld Rope",legs="Lustr. Subligar +1",feet="Lustra. Leggings +1"
 	}
@@ -396,6 +397,10 @@ function select_default_macro_book()
 	else
 		set_macro_page(5, 19)
 	end
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 005")
 end
 
 --Job Specific Trust Overwrite

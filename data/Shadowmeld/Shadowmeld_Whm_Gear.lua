@@ -37,7 +37,8 @@ function user_setup()
 	send_command('bind @\\\\ input /ma "Shellra V" <me>')
 	send_command('bind !\\\\ input /ma "Reraise IV" <me>')
 
-    select_default_macro_book()
+	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -383,4 +384,8 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
 	set_macro_page(1, 4)
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 004")
 end

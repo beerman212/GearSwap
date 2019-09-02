@@ -46,6 +46,7 @@ function user_setup()
 	send_command('bind !q gs c weapons Learning;gs c update')
 
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -488,6 +489,10 @@ end
 function select_default_macro_book()
 	-- Default macro set/book
 	set_macro_page(1, 14)
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 006")
 end
 
 --Job Specific Trust Overwrite

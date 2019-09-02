@@ -7,7 +7,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None','SequenceAmmurapi','SequenceGenmei','NaeglingAmmurapi','NaeglingGenmei','DualSequence','DualNaegling')
+	state.Weapons:options('None','SequenceAmmurapi','SequenceGenmei','SequenceSacro','NaeglingAmmurapi','NaeglingGenmei','NaeglingSacro','DualSequence','DualNaegling')
 	
 	gear.sucellos = {}
 	gear.sucellos.stp = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
@@ -48,6 +48,7 @@ function user_setup()
 	send_command('bind @f10 gs c cycle RecoverMode')
 	
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -206,10 +207,19 @@ function init_gear_sets()
 	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
 	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
 	
-	sets.midcast['Enfeebling Magic'] = {main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
+	sets.midcast['Enfeebling Magic'] = {
+		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"}
+		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
+	}
+
+	sets.midcast['Enfeebling Magic'].Weapons = {
+		ammo="Regal Gem",
+		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
+		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
+		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
+	}
 		
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 		
@@ -306,7 +316,7 @@ function init_gear_sets()
 	-- Sets to return to when not performing an action.	
 
 	-- Idle sets
-	sets.idle = {main="Bolelabunga",sub="Genmei Shield",ammo="Homiliary",
+	sets.idle = {main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
 		head="Viti. Chapeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Dark Ring",
 		back="Solemnity Cape",waist="Flume Belt",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh}
@@ -325,11 +335,21 @@ function init_gear_sets()
 	sets.resting = sets.idle
 		
 	-- Defense sets
-	sets.defense.PDT = set_combine(sets.idle.PDT, {})
+	sets.defense.PDT = {
+		main="Mafic Cudgel",sub="Sacro Bulwark",ammo="Staunch Tathlum",
+		head="Aya. Zucchetto +2",neck="Loriqate Torque +1",
+		body="Ayanmo Corazza +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back=gear.sucellos.stp,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
+	}
 
 	sets.defense.NukeLock = sets.midcast['Elemental Magic']
 		
-	sets.defense.MDT = set_combine(sets.idle.MDT, {})
+	sets.defense.MDT = {
+		sub="Sacro Bulwark",ammo="Staunch Tathlum",
+		head="Aya. Zucchetto +2",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		body="Ayanmo Corazza +2",hands="Atrophy Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
+		back="Moonbeam Cape",
+	}
 		
 	sets.defense.MEVA = set_combine(sets.defense.MDT, {head="Ea Hat",body="Ea Houppelande"})
 		
@@ -345,11 +365,13 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.SequenceAmmurapi = {main="Sequence",sub="Ammurapi Shield"}
 	sets.weapons.SequenceGenmei = {main="Sequence",sub="Genmei Shield"}
+	sets.weapons.SequenceSacro = {main="Sequence",sub="Sacro Bulwark"}
 	sets.weapons.NaeglingAmmurapi = {main="Naegling",sub="Ammurapi Shield"}
 	sets.weapons.NaeglingGenmei = {main="Naegling",sub="Genmei Shield"}
-	sets.weapons.DualSequence = {main="Sequence",sub="Ternion Dagger +1"}
-	sets.weapons.DualNaegling = {main="Naegling",sub="Ternion Dagger +1"}
-	sets.weapons.DualTauret = {main="Tauret",sub="Ternion Dagger +1"}
+	sets.weapons.NaeglingSacro = {main="Naegling",sub="Sacro Bulwark"}
+	sets.weapons.DualSequence = {main="Sequence",sub="Kaja Knife"}
+	sets.weapons.DualNaegling = {main="Naegling",sub="Kaja Knife"}
+	sets.weapons.DualTauret = {main="Kaja Knife",sub="Ternion Dagger +1"}
 
 	-- Engaged sets
 
@@ -466,4 +488,8 @@ buff_spell_lists = {
 -- Default macro set/book
 function select_default_macro_book()
 	set_macro_page(1, 5)
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 001")
 end

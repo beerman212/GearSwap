@@ -26,6 +26,7 @@ function user_setup()
 	send_command('bind !r gs c cycle weapons;gs c update')
 	
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -414,7 +415,7 @@ function init_gear_sets()
 
 	sets.engaged.NaeglingDW.Hybrid.Acc = set_combine(sets.engaged.NaeglingDW.Hybrid, {})
 	sets.engaged.NaeglingDW.Hybrid.Acc.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc, {})
-	sets.engaged.NaeglingDW.Hybrid.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Accv.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc.Charge, {})
 	sets.engaged.NaeglingDW.Hybrid.Acc.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc, {})
 
 	sets.engaged.NaeglingDW.Hybrid.FullAcc = set_combine(sets.engaged.NaeglingDW.Hybrid.Acc, {})
@@ -437,7 +438,7 @@ function init_gear_sets()
 
 	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp, {})
 	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Charge = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc, {})
-	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Accv.Charge, {})
+	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Charge.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Charge, {})
 	sets.engaged.NaeglingDW.Hybrid_HPUp.Acc.Mighty = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc, {})
 
 	sets.engaged.NaeglingDW.Hybrid_HPUp.FullAcc = set_combine(sets.engaged.NaeglingDW.Hybrid_HPUp.Acc, {})
@@ -478,5 +479,10 @@ function select_default_macro_book()
         set_macro_page(1, 3)
     else
         set_macro_page(1, 3)
-    end
+	end
+	
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 003")
 end

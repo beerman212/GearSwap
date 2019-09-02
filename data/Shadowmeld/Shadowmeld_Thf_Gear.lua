@@ -31,6 +31,7 @@ function user_setup()
 	send_command('bind !\\\\ input /ja "Mug" <t>')
 
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -39,7 +40,7 @@ function init_gear_sets()
 	-- Special sets (required by rules)
 	--------------------------------------
 
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,hands="Plunderer's Armlets +1",feet="Skulk. Poulaines +1"})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,hands="Plunderer's Armlets +1",feet=gear.herculean.boots.TH})
 	sets.ExtraRegen = {}
 	sets.Kiting = {feet="Pillager's Poulaines"}
 
@@ -318,5 +319,9 @@ function select_default_macro_book()
         set_macro_page(1, 1)
     else
         set_macro_page(1, 1)
-    end
+	end
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 007")
 end

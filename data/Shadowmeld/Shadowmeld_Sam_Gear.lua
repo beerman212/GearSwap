@@ -25,6 +25,7 @@ function user_setup()
 	send_command('bind ^q gs c weapons Bow;gs c update')
 
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -319,7 +320,12 @@ function select_default_macro_book()
         set_macro_page(1, 2)
     else
         set_macro_page(1, 2)
-    end
+	end
+
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 002")
 end
 
 --Job Specific Trust Overwrite

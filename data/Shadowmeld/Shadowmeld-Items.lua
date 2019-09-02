@@ -50,6 +50,7 @@ gear.chironic.hose.refresh = {name = "Chironic Hose", augments = {'"Store TP"+1'
 gear.herculean = {}
 gear.herculean.helm = {}
 gear.herculean.helm.strwsd = {name = "Herculean Helm", augments = {'Attack+9','Weapon skill damage +4%','STR+15','Accuracy+15',}}
+gear.herculean.helm.dexwsd = {name="Herculean Helm",augments={'Accuracy+30','Weapon skill damage +3%','DEX+15','Attack+8',}}
 gear.herculean.helm.magical = {name = "Herculean Helm", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','Enmity-2','MND+10','Mag. Acc.+4','"Mag.Atk.Bns."+15',}}
 gear.herculean.helm.agiwsd = {name = "Herculean Helm", augments = {'Accuracy+15','Weapon skill damage +4%','AGI+6','Rng.Acc.+10',}}
 gear.herculean.helm.TH = {name = "Herculean Helm", augments = {'"Conserve MP"+2','Accuracy+8','"Treasure Hunter"+2','Accuracy+7 Attack+7',}}

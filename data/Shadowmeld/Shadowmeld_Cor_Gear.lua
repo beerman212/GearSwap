@@ -47,6 +47,7 @@ function user_setup()
 	send_command('bind @pause roller roll')
 
 	select_default_macro_book()
+	lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -330,8 +331,10 @@ function select_default_macro_book()
     else
         set_macro_page(1, 6)
     end   
+end
 
-
+function lockstyle()
+	windower.chat.input("/lockstyleset 008")
 end
 
 function select_default_weapons()
