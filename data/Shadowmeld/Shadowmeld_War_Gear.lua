@@ -242,7 +242,8 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head=gear.valorous.mask.strwsd,neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Hjarrandi Breast.",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back=gear.cichol.tp,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"}
+		back=gear.cichol.tp,waist="Asklepian Belt",legs="Pumm. Cuisses +3",feet="Souveran Schuhs +1"
+	}
 		
 	sets.idle.Weak = set_combine(sets.idle, sets.passive.Twilight, {})
 		

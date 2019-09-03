@@ -206,7 +206,7 @@ function init_gear_sets()
 	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
 	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
 	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
-	
+
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
@@ -214,72 +214,58 @@ function init_gear_sets()
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
 	}
 
-	sets.midcast['Enfeebling Magic'].Weapons = {
-		ammo="Regal Gem",
-		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
-	}
-		
+	sets.midcast['Enfeebling Magic'].PreserveTP = set_combine(sets.midcast['Enfeebling Magic'], {range=empty,ammo="Regal Gem"})
+	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Leth. Sayon +1",back=gear.sucellos.enfeeble,--[[feet="Vitiation Boots +2"]]}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
-		
-    sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
-    sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
-	
-	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {
-		main=gear.grioavolr.enfeebling,sub="Enki Strap",range=empty,sub="Regal Gem",
-		head="Viti. Chapeau +2",body="Leth. Sayon +1",back=gear.sucellos.mab,waist="Rumination Sash"})
-	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {
-		main=gear.grioavolr.enfeebling,sub="Enki Strap",range=empty,sub="Regal Gem",
-		head="Viti. Chapeau +2",body="Leth. Sayon +1",back=gear.sucellos.mab,waist="Rumination Sash"})
 
-	sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {
-		main=gear.grioavolr.enfeebling,sub="Enki Strap",range=empty,sub="Regal Gem",
-		head="Viti. Chapeau +2",body="Leth. Sayon +1"})
-	sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {
-		main=gear.grioavolr.enfeebling,sub="Enki Strap",range=empty,sub="Regal Gem",
-		head="Viti. Chapeau +2",body="Leth. Sayon +1"})
-	
-	sets.midcast['Distract III'] = set_combine(sets.midcast.MndEnfeebles, {})
+	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +2"})
+	sets.midcast['Enfeebling Magic'].MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles, sets.midcast['Enfeebling Magic'].Potency, {})
+
+	sets.midcast['Enfeebling Magic'].IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast['Enfeebling Magic'].IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].IntEnfeebles, {back=gear.sucellos.mab})
+
+	sets.midcast['Distract III'] = set_combine(sets.midcast.MndEnfeebles, {
+		main=gear.grioavolr.enfeeble,sub="Enki Strap",waist="Rumination Sash"
+	})
 	sets.midcast['Distract III'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {})
+
+	sets.midcast['Frazzle III'] = sets.midcast['Distract III']
+
+	sets.midcast.Silence = sets.midcast['Enfeebling Magic']
+	sets.midcast.Bind = sets.midcast['Enfeebling Magic']
+	sets.midcast.Break = sets.midcast['Enfeebling Magic']
+	sets.midcast.Sleep = sets.midcast['Enfeebling Magic']
+	sets.midcast['Sleep II'] = sets.midcast['Enfeebling Magic']
+	sets.midcast.Sleepga = sets.midcast['Enfeebling Magic']
+
+	sets.midcast.Dia = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
+	sets.midcast.Diaga = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
+	sets.midcast['Dia II'] = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
+	sets.midcast['Dia III'] = set_combine(sets.midcast.FastRecast, sets.TreasureHunter, sets.midcast['Enfeebling Magic'].Potency, {})
+	sets.midcast['Bio III'] = sets.midcast['Dia III']
 	
-	sets.midcast['Frazzle II'] = sets.midcast['Enfeebling Magic']
-	sets.midcast['Frazzle II'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
-	
-	sets.midcast['Frazzle III'] = set_combine(sets.midcast.MndEnfeebles, {})
-	sets.midcast['Frazzle III'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {})
-	
-	sets.midcast.Silence = set_combine(sets.midcast['Enfeebling Magic'], {})
-	sets.midcast.Silence.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})	
+	sets.midcast['Poison'] = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {})
+	sets.midcast['Poison'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, sets.midcast['Enfeebling Magic'].Potency, {})
+	sets.midcast['Poison II'] = set_combine(sets.midcast['Poison'], {head="Viti. Chapeau +2"})
+	sets.midcast['Poison II'].Resistant = set_combine(sets.midcast['Poison'].Resistant, {head="Viti. Chapeau +2"})
+
+	sets.midcast.Gravity = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {})
+	sets.midcast.Gravity.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, sets.midcast['Enfeebling Magic'].Potency, {})
+	sets.midcast['Gravity II'] = set_combine(sets.midcast.Gravity, {})
+	sets.midcast['Gravity II'].Resistant = set_combine(sets.midcast.Gravity.Resistant, {})
+
+	sets.midcast.Inundation = set_combine(sets.midcast.FastRecast, {ring1="Kishar Ring"})
 	
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
-
-	sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +2",waist="Chaac Belt"})
-	
-	sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {})
-
-	sets.midcast['Slow II'] = set_combine(sets.midcast.MndEnfeebles, {head="Viti. Chapeau +2"})
-	sets.midcast['Slow II'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {head="Viti. Chapeau +2"})
-	
-	sets.midcast['Paralyze II'] = set_combine(sets.midcast.MndEnfeebles, {feet="Vitiation Boots +1"})
-	sets.midcast['Paralyze II'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {feet="Vitiation Boots +1"})
-	
-	sets.midcast['Poison'] = set_combine(sets.midcast.IntEnfeebles, {})
-	sets.midcast['Poison'].Resistant = set_combine(sets.midcast.IntEnfeebles.Resistant, {})
-	sets.midcast['Poison II'] = set_combine(sets.midcast.IntEnfeebles, {})
-	sets.midcast['Poison II'].Resistant = set_combine(sets.midcast.IntEnfeebles.Resistant, {})
 	
 	sets.midcast['Elemental Magic'] = {main=gear.grioavolr.nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 		
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main="Naegling",sub="Ammurapi Shield",body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
+		main="Naegling",sub="Ammurapi Shield",body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical
+	})
 	
 	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 
@@ -492,4 +478,12 @@ end
 
 function lockstyle()
 	windower.chat.input("/lockstyleset 001")
+end
+
+function user_job_post_midcast(spell, spellMap, eventArgs)
+	if spell.skill == 'Enfeebling Magic' then
+		if state.WeaponMode and state.WeaponMode.value ~= 'None' then
+			equip(sets.midcast['Enfeebling Magic'].PreserveTP)
+		end
+	end
 end

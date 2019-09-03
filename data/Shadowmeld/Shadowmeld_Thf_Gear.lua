@@ -165,7 +165,7 @@ function init_gear_sets()
 	sets.precast.WS['Evisceration'] = {
 		ammo="Yetshila",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Moonshade Earring",
-		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_b,ring1="Hetairoi Ring",ring2="Ilabrat Ring",
+		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Ilabrat Ring",
 		back=gear.toutatis.crit,waist="Fotia Belt",legs="Pill. Culottes +2",feet="Mummu Gamash. +2"
 	}
 	
@@ -226,6 +226,7 @@ function init_gear_sets()
 	sets.midcast.Bio = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
 	sets.midcast['Bio II'] = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
+	sets.midcast['Horde Lullaby II'] = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
 
 	-- Ranged gear
 

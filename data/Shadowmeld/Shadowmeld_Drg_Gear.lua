@@ -17,7 +17,6 @@ function user_setup()
 	gear.brigantia.stardiver = {name="Brigantia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.brigantia.sonicthrust = {name="Brigantia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
-
 	select_default_macro_book()
 
 	-- Additional local binds
@@ -33,6 +32,8 @@ function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
+
+	sets.Reraise = {--[[head="Twilight Helm",body="Twilight Mail"]]}
 
 	-- Precast Sets
 	-- Precast sets to enhance JAs
@@ -72,7 +73,7 @@ function init_gear_sets()
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
 
 	-- Midcast Sets
-	sets.midcast.FastRecast = set_combine(sets.precast.FC, {}
+	sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
 
 	-- Put HP+ gear and the AF head to make healing breath trigger more easily with this set.
 	sets.midcast.HB_Trigger = set_combine(sets.midcast.FastRecast, {})
@@ -82,7 +83,6 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 
 	sets.precast.WS = {}
-
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.FullAcc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
@@ -119,21 +119,20 @@ function init_gear_sets()
 
 	sets.idle.Weak = set_combine(sets.idle, {})
 
-	sets.idle.Reraise = set_combine(sets.idle, {})
+	sets.idle.Reraise = set_combine(sets.idle, sets.Reraise)
 
 	-- Defense sets
 	sets.defense.PDT = {}
 
-	sets.defense.PDTReraise = set_combine(sets.defense.PDT, {})
+	sets.defense.PDTReraise = set_combine(sets.defense.PDT, sets.Reraise, {})
 
 	sets.defense.MDT = {}
 
-	sets.defense.MDTReraise = set_combine(sets.defense.MDT, {})
+	sets.defense.MDTReraise = set_combine(sets.defense.MDT, sets.Reraise, {})
 
 	sets.defense.MEVA = {}
 
 	sets.Kiting = {legs="Carmine Cuisses +1"}
-	sets.Reraise = {--[[head="Twilight Helm",body="Twilight Mail"]]}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {--[[head="Frenzy Sallet"]]}
 
