@@ -103,7 +103,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Yetshila",
 		head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
-		body="Viti. Tabard +3",hands=gear.taeon.gloves.cdc,ring1="Hetairoi Ring",ring2="Ilabrat Ring",
+		body="Viti. Tabard +3",hands=gear.taeon.gloves.cdc,ring1="Begrudging Ring",ring2="Ilabrat Ring",
 		back=gear.sucellos.cdc,waist="Fotia Belt",legs=gear.taeon.tights.cdc,feet="Jhakri Pigaches +2"
 	}
 		
@@ -215,7 +215,7 @@ function init_gear_sets()
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
 	}
 
-	sets.midcast['Enfeebling Magic'].PreserveTP = set_combine(sets.midcast['Enfeebling Magic'], {range=empty,ammo="Regal Gem"})
+	sets.midcast['Enfeebling Magic'].PreserveTP = {range=empty,ammo="Regal Gem"}
 	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,--[[feet="Vitiation Boots +2"]]}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 
@@ -230,6 +230,7 @@ function init_gear_sets()
 	})
 	sets.midcast['Distract III'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles.Resistant, {})
 
+	sets.midcast['Frazzle II'] = sets.midcast['Enfeebling Magic'].Resistant
 	sets.midcast['Frazzle III'] = sets.midcast['Distract III']
 
 	sets.midcast.Silence = sets.midcast['Enfeebling Magic']
@@ -400,8 +401,8 @@ buff_spell_lists = {
 	Auto = {
 		{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
 		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-		{Name='Phalanx',		Buff='Phalanx',	SpellID=106,	When='Always'},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		When='Always'},
+		{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
+		{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
 		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
 	},
 	
@@ -500,7 +501,6 @@ function lockstyle()
 end
 
 function user_job_post_midcast(spell, spellMap, eventArgs)
-	
 	if S{'Enfeebling Magic','Dark Magic','Elemental Magic'}:contains(spell.skill) and sets.midcast[spell.skill].PreserveTP then
 		if state.Weapons and state.Weapons.value ~= 'None' then
 			equip(sets.midcast[spell.skill].PreserveTP)
