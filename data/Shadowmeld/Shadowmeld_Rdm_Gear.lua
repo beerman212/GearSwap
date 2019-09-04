@@ -203,9 +203,10 @@ function init_gear_sets()
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
 	sets.midcast.Protect = {ring2="Sheltered Ring"}
 	sets.midcast.Shell = {ring2="Sheltered Ring"}
-	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
-	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
-	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
+	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +1",legs="Atrophy Tights +2"}
+	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +1",legs="Atrophy Tights +2"}
+	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +1",legs="Atrophy Tights +2"}
+	sets.midcast.Phalanx = {head=gear.taeon.chapeau.phalanx,body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx}
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
@@ -215,19 +216,19 @@ function init_gear_sets()
 	}
 
 	sets.midcast['Enfeebling Magic'].PreserveTP = set_combine(sets.midcast['Enfeebling Magic'], {range=empty,ammo="Regal Gem"})
-	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Leth. Sayon +1",back=gear.sucellos.enfeeble,--[[feet="Vitiation Boots +2"]]}
+	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,--[[feet="Vitiation Boots +2"]]}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +2"})
 	sets.midcast['Enfeebling Magic'].MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles, sets.midcast['Enfeebling Magic'].Potency, {})
 
-	sets.midcast['Enfeebling Magic'].IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast['Enfeebling Magic'].IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {hands="Jhakri Cuffs +2",back=gear.sucellos.mab})
 	sets.midcast['Enfeebling Magic'].IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].IntEnfeebles, {back=gear.sucellos.mab})
 
-	sets.midcast['Distract III'] = set_combine(sets.midcast.MndEnfeebles, {
+	sets.midcast['Distract III'] = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles, {
 		main=gear.grioavolr.enfeeble,sub="Enki Strap",waist="Rumination Sash"
 	})
-	sets.midcast['Distract III'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {})
+	sets.midcast['Distract III'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles.Resistant, {})
 
 	sets.midcast['Frazzle III'] = sets.midcast['Distract III']
 
@@ -255,6 +256,7 @@ function init_gear_sets()
 	sets.midcast['Gravity II'].Resistant = set_combine(sets.midcast.Gravity.Resistant, {})
 
 	sets.midcast.Inundation = set_combine(sets.midcast.FastRecast, {ring1="Kishar Ring"})
+	sets.midcast.Dispel = set_combine(sets.midcast['Enfeebling Magic'], {ring1="Archon Ring"})
 	
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 	
@@ -279,7 +281,10 @@ function init_gear_sets()
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Atrophy Tabard +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
-		back=gear.sucellos.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.drain}
+		back=gear.sucellos.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.drain
+	}
+
+	sets.midcast['Dark Magic'].PreserveTP = {range=empty,ammo="Regal Gem"}
 
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi",feet=gear.merlinic.crackows.drain})
 
@@ -408,7 +413,36 @@ buff_spell_lists = {
 		{Name='Protect V',		Buff='Protect',		SpellID=47,		Reapply=false},
 	},
 
-	MageBuff = {
+	MageHeal = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+		{Name='Aurorastorm', 	Buff='Aurorastorm', 	SpellID=119, 	Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+	},
+
+	MageDebuff = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+	},
+
+	MageNuke = {
 		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
 		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
 		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
@@ -418,21 +452,8 @@ buff_spell_lists = {
 		{Name='Gain-INT',		Buff='INT Boost',		SpellID=490,	Reapply=false},
 		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
 		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,		Reapply=false}
-	},
-	
-	OdinBuff = {
-		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
-		--{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-		--{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,		Reapply=false},
-		{Name='Windstorm',		Buff='Windstorm',				SpellID=114,			Reapply=false}
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
 	},
 	
 	MeleeBuffCygne = {
@@ -446,7 +467,6 @@ buff_spell_lists = {
 		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
 		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
 		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-		{Name='Enthunder',	Buff='Enthunder',	SpellID=104,	Reapply=false},
 		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
 		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
 		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
@@ -463,7 +483,6 @@ buff_spell_lists = {
 		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
 		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
 		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-		{Name='Enthunder',	Buff='Enthunder',	SpellID=104,	Reapply=false},
 		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
 		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
 		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
@@ -481,9 +500,10 @@ function lockstyle()
 end
 
 function user_job_post_midcast(spell, spellMap, eventArgs)
-	if spell.skill == 'Enfeebling Magic' then
-		if state.WeaponMode and state.WeaponMode.value ~= 'None' then
-			equip(sets.midcast['Enfeebling Magic'].PreserveTP)
+	
+	if S{'Enfeebling Magic','Dark Magic','Elemental Magic'}:contains(spell.skill) and sets.midcast[spell.skill].PreserveTP then
+		if state.Weapons and state.Weapons.value ~= 'None' then
+			equip(sets.midcast[spell.skill].PreserveTP)
 		end
 	end
 end

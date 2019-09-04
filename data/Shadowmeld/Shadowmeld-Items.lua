@@ -28,7 +28,7 @@ gear.gada.enhancing = {name = "Gada", augments = {'Enh. Mag. eff. dur. +5','MND+
 gear.grioavolr = {}
 gear.grioavolr.nuke = {name = "Grioavolr", augments = {'Enh. Mag. eff. dur. +9','INT+11','Mag. Acc.+27','"Mag.Atk.Bns."+25','Magic Damage +6',}}
 gear.grioavolr.pact = {name = "Grioavolr", augments = {'Blood Pact Dmg.+8','Pet: STR+13','Pet: Mag. Acc.+25','Pet: "Mag.Atk.Bns."+21',}}
-gear.grioavolr.enfeeble = {name = "Grioavolr", augments = {'Enfb.mag. skill +8','MND+10','Mag. Acc.+26',}}
+gear.grioavolr.enfeeble = {name = "Grioavolr", augments = {'Enfb.mag. skill +15','INT+4','Mag. Acc.+30','"Mag.Atk.Bns."+20',}}
 
 gear.dark_ring = {}
 gear.dark_ring.dt = {name = "Dark Ring", augments = {'Magic dmg. taken -4%','Phys. dmg. taken -5%',}}
