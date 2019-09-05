@@ -82,30 +82,67 @@ function init_gear_sets()
 
 	-- Default set for any weaponskill that isn't any more specifically defined
 
-	sets.precast.WS = {}
+	sets.precast.WS = {
+		ammo="Knobkierrie",
+		head=gear.valorous.mask.strwsd,neck="Fotia Gorget",ear1="Sherida Earring",ear2="Ishvara Earring",
+		body=gear.valorous.mail.strwsd,hands=gear.valorous.mitts.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
+		back=gear.brigantia.sonicthrust,waist="Fotia Belt",legs="Vishap Brais +2",feet="Sulev. Leggings +2",
+	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.FullAcc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {})
+	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",ear2="Moonshade Earring",
+		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Flamma Ring",
+		back=gear.brigantia.stardiver,legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2",
+	})
 	sets.precast.WS['Stardiver'].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Stardiver'].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
 	sets.precast.WS['Stardiver'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
-	sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {})
+	sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",ear2="Moonshade Earring",
+		body="Hjarrandi Breast.",hands="Flam. Manopolas +2",ring1="Begrudging Ring",
+		back=gear.brigantia.stardiver,legs="Pelt. Cuissots +1",feet=gear.valorous.greaves.strwsd,
+	})
 	sets.precast.WS['Drakesbane'].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Drakesbane'].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
 	sets.precast.WS['Drakesbane'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 	
-	sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS, {})
+	sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS, {ear2="Moonshade Earring"})
 	sets.precast.WS['Sonic Thrust'].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Sonic Thrust'].Acc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Sonic Thrust'].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
 	sets.precast.WS['Sonic Thrust'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
+	sets.precast.WS["Camlann's Torment"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS["Camlann's Torment"].SomeAcc = set_combine(sets.precast.WS.Acc, {})
+	sets.precast.WS["Camlann's Torment"].Acc = set_combine(sets.precast.WS.Acc, {})
+	sets.precast.WS["Camlann's Torment"].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS["Camlann's Torment"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	
+	sets.precast.WS["Leg Sweep"] = set_combine(sets.precast.WS, {
+		ammo="Pemphredo Tathlum"
+		head="Flam. Zucchetto +2",ear1="Digni. Earring",
+		body="Flam. Korazin +2",hands="Flam. Manopolas +2",ring1="Etana Ring",ring2="Flamma Ring",
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2",
+	})
+	sets.precast.WS["Leg Sweep"].SomeAcc = set_combine(sets.precast.WS.Acc, {})
+	sets.precast.WS["Leg Sweep"].Acc = set_combine(sets.precast.WS.Acc, {})
+	sets.precast.WS["Leg Sweep"].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS["Leg Sweep"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+
+	-- Swap to these on Moonshade using WS if at 3000 TP
+	sets.MaxTP = {}
+	sets.AccMaxTP = {}
+
+	sets.MaxTP
+
+	sets.Gavialis = {head="Gavialis Helm"}
 
 	-- Sets to return to when not performing an action.
 
@@ -144,14 +181,6 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
 
-	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {}
-	sets.AccMaxTP = {}
-	sets.AccDayMaxTPWSEars = {}
-	sets.DayMaxTPWSEars = {}
-	sets.AccDayWSEars = {}
-	sets.DayWSEars = {}
-
 	-- Engaged sets
 
 	-- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
@@ -161,17 +190,16 @@ function init_gear_sets()
 
 	-- Normal melee group
 
-	sets.engaged = {}
+	sets.engaged = {
+		ammo="Ginsen",
+		head="Flam. Zucchetto +2",neck="Anu Torque",ear1="Sherida Earring",ear2="Dedition Earring",
+		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		back=gear.brigantia.stp,waist="Ioskeha Belt +1",legs=gear.valorous.hose.dexwsd,feet="Flam. Gambieras +2",
+	}
 	sets.engaged.SomeAcc = {}
 	sets.engaged.Acc = {}
 	sets.engaged.FullAcc = {}
 	sets.engaged.Fodder = {}
-
-	sets.engaged.AM = {}
-	sets.engaged.AM.SomeAcc = {}
-	sets.engaged.AM.Acc = {}
-	sets.engaged.AM.FullAcc = {}
-	sets.engaged.AM.Fodder = {}
 
 	sets.engaged.PDT = {}
 	sets.engaged.SomeAcc.PDT = {}
@@ -179,12 +207,7 @@ function init_gear_sets()
 	sets.engaged.FullAcc.PDT = {}
 	sets.engaged.Fodder.PDT = {}
 
-	sets.engaged.AM.PDT = {}
-	sets.engaged.AM.SomeAcc.PDT = {}
-	sets.engaged.AM.Acc.PDT = {}
-	sets.engaged.AM.FullAcc.PDT = {}
-	sets.engaged.AM.Fodder.PDT = {}
-
+	sets.engaged.MaxHaste = set_combine(sets.engaged, {body="Hjarrandi Breast."})
 end
 
 -- Select default macro book on initial load or subjob change.
@@ -199,4 +222,51 @@ function select_default_macro_book()
 	else
 		set_macro_page(5, 13)
 	end
+end
+
+function check_haste_level()
+	local haste_level = 0
+	local ja_haste_level = 0
+
+	if buffactive[33] then -- Haste Spell
+		haste_level = 15 * lasthaste
+	end
+
+	if buffactive["March"] then
+		if buffactive["March"] == 1 then
+			haste_level = haste_level + 16
+		else
+			haste_level = haste_level + 44
+		end
+	end
+
+	if buffactive[580] then --Geo Haste
+		haste_level = haste_level + 30
+	end
+
+	haste_level = math.min(43.75, haste_level)
+
+	if pet.isvalid then
+		ja_haste_level = ja_haste_level + 10
+	end
+
+	if buffactive["Hasso"] then
+		ja_haste_level = ja_haste_level + 10
+	end
+
+	if buffactive["Last Resort"] then
+		ja_haste_level = ja_haste_level + 15
+	end
+
+	if buffactive["Haste Samba"] then
+		ja_haste_level = ja_haste_level + 5
+	end
+
+	if buffactive["Spirit Surge"] then
+		ja_haste_level = ja_haste_level + 25
+	end
+
+	ja_haste_level = math.min(25, ja_haste_level)
+
+	return ja_haste_level + haste_level
 end

@@ -507,3 +507,84 @@ function user_job_post_midcast(spell, spellMap, eventArgs)
 		end
 	end
 end
+
+function user_aftercast(spell, spellMap, eventArgs)
+	if not spell.interrupted then
+		if spell.skill == "Enfeebling Magic" and state.UseCustomTimers.value then
+			local spell_info = windower.ffxi.res.spells[spell.recast_id]
+			local casting_set = standardize_set(get_midcast_set(spell, spellMap))
+			local duration = spell_info.duration or 0
+			local saboteur_modifier = get_saboteur_modifier(casting_set)
+			local duration_modifier = get_enfeebling_modifier(casting_set)
+			local duration_bonus = get_enfeebling_duration_from_merits(casting_set) + get_enfeebling_duration_from_jp()
+
+			if duration > 0 then
+				local calculated_duration = math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100)
+
+				local debuff_icon = "spells/00220.png"
+
+				send_command('@timers c "'..spell.english..' ['..spell.target.id..':'..spell.target.name..']" ' .. calculated_duration .. ' '.. debuff_icon)
+			end
+
+			eventArgs.handled = true
+		end
+	end
+end
+
+function get_saboteur_modifier(casting_set)
+	local saboteur_modifier = 100
+
+	if buffactive["Saboteur"] then
+		casting_set = set_combine(casting_set, sets.buff.Saboteur)
+
+		if casting_set.hands == "Leth. Gantherots +1" then
+			saboteur_modifier = 212
+		elseif casting_set.hands == "Leth. Gantherots" then
+			saboteur_modifier = 211
+		elseif casting_set.hands == "Estq. Ganthrt. +2" then
+			saboteur_modifier = 210
+		elseif casting_set.hands == "Estq. Canthrt. +1" then
+			saboteur_modifier = 205
+		else
+			saboteur_modifier = 200
+		end
+	end
+
+	return saboteur_modifier
+end
+
+function get_enfeebling_modifier(casting_set)
+	local duration_modifier = 100
+
+	if S{casting_set.ring1, casting_set.ring2}:contains("Kishar Ring") then duration_modifier = duration_modifier + 10 end
+	if casting_set.hands == "Regal Cuffs" then duration_modifier = duration_modifier + 20 end
+
+	return duration_modifier
+end
+
+function get_enfeebling_duration_from_merits(casting_set)
+	local duration_bonus = 0
+	local enfeebling_duration_merits = windower.ffxi.get_player().merits["Enfeebling Magic Duration"] or 0
+
+	if enfeebling_duration_merits > 0 then
+		duration_bonus = enfeebling_duration_merits * 6
+
+		if S{"Viti. Chapeau +3","Viti. Chapeau +2","Viti. Chapeau +1","Vitiation Chapeau"}:contains(casting_set.head) then
+			duration_bonus = duration_bonus + (enfeebling_duration_merits * 3)
+		end
+	end
+
+	return duration_bonus
+end
+
+function get_enfeebling_duration_from_jp()
+	local enfeebling_duration_jps = windower.ffxi.get_player().job_points[string.lower(player.main_job)]["Enfeebling Magic Duration"] or 0
+	local stymie_duration_jps = windower.ffxi.get_player().job_points[string.lower(player.main_job)]["Stymie Effect"] or 0
+	local duration_bonus = enfeebling_duration_jps
+
+	if buffactive["Stymie"] then
+		duration_bonus = duration_bonus + stymie_duration_jps
+	end
+
+	return duration_bonus
+end
