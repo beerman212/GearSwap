@@ -511,19 +511,47 @@ end
 function user_aftercast(spell, spellMap, eventArgs)
 	if not spell.interrupted then
 		if spell.skill == "Enfeebling Magic" and state.UseCustomTimers.value then
-			local spell_info = windower.ffxi.res.spells[spell.recast_id]
-			local casting_set = standardize_set(get_midcast_set(spell, spellMap))
-			local duration = spell_info.duration or 0
+			local custom_durations = {
+				["Slow"] = 180,
+				["Slow II"] = 180,
+				["Sleep II"] = 90,
+				["Sleepga"] = 60,
+				["Sleepga II"] = 90,
+				["Frazzle"] = 300,
+				["Frazzle II"] = 300,
+				["Frazzle III"] = 300,
+				["Distract"] = 300,
+				["Distract II"] = 300,
+				["Distract III"] = 300,
+				["Addle II"] = 180,
+				["Dia III"] = 180,
+				--["Gravity II"] = 75,
+			}
+
+			local spell_info = res.spells[spell.recast_id]
+			local casting_set = get_midcast_set(spell, spellMap)
+
+			if buffactive["Saboteur"] then
+				casting_set = set_combine(casting_set, sets.buff.Saboteur)
+			end
+
+			windower.add_to_chat(casting_set.body)
+
+			--casting_set = standardize_set(casting_set)
+			
+			local duration = custom_durations[spell.name] or spell_info.duration or 0
 			local saboteur_modifier = get_saboteur_modifier(casting_set)
+			local composure_modifier = get_composure_modifier(casting_set)
 			local duration_modifier = get_enfeebling_modifier(casting_set)
 			local duration_bonus = get_enfeebling_duration_from_merits(casting_set) + get_enfeebling_duration_from_jp()
 
 			if duration > 0 then
-				local calculated_duration = math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100)
+				local calculated_duration = math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100)
 
+				windower.add_to_chat("Calculated Duration: " .. calculated_duration)
 				local debuff_icon = "spells/00220.png"
 
-				send_command('@timers c "'..spell.english..' ['..spell.target.id..':'..spell.target.name..']" ' .. calculated_duration .. ' '.. debuff_icon)
+				send_command('@timers c "'..spell.english..' ['..spell.target.name..']" ' .. calculated_duration .. ' down '.. debuff_icon)
 			end
 
 			eventArgs.handled = true
@@ -535,8 +563,6 @@ function get_saboteur_modifier(casting_set)
 	local saboteur_modifier = 100
 
 	if buffactive["Saboteur"] then
-		casting_set = set_combine(casting_set, sets.buff.Saboteur)
-
 		if casting_set.hands == "Leth. Gantherots +1" then
 			saboteur_modifier = 212
 		elseif casting_set.hands == "Leth. Gantherots" then
@@ -550,21 +576,23 @@ function get_saboteur_modifier(casting_set)
 		end
 	end
 
+	windower.add_to_chat("Saboteur Modifier: " .. saboteur_modifier)
 	return saboteur_modifier
 end
 
 function get_enfeebling_modifier(casting_set)
 	local duration_modifier = 100
 
-	if S{casting_set.ring1, casting_set.ring2}:contains("Kishar Ring") then duration_modifier = duration_modifier + 10 end
+	if S{casting_set.ring1, casting_set.ring2, casting_set.left_ring, casting_set.right_ring}:contains("Kishar Ring") then duration_modifier = duration_modifier + 10 end
 	if casting_set.hands == "Regal Cuffs" then duration_modifier = duration_modifier + 20 end
 
+	windower.add_to_chat("Duration Modifier: " .. duration_modifier)
 	return duration_modifier
 end
 
 function get_enfeebling_duration_from_merits(casting_set)
 	local duration_bonus = 0
-	local enfeebling_duration_merits = windower.ffxi.get_player().merits["Enfeebling Magic Duration"] or 0
+	local enfeebling_duration_merits = windower.ffxi.get_player().merits.enfeebling_magic_duration or 0
 
 	if enfeebling_duration_merits > 0 then
 		duration_bonus = enfeebling_duration_merits * 6
@@ -574,17 +602,42 @@ function get_enfeebling_duration_from_merits(casting_set)
 		end
 	end
 
+	windower.add_to_chat("Duration Bonus from Merits: " .. duration_bonus)
 	return duration_bonus
 end
 
 function get_enfeebling_duration_from_jp()
-	local enfeebling_duration_jps = windower.ffxi.get_player().job_points[string.lower(player.main_job)]["Enfeebling Magic Duration"] or 0
-	local stymie_duration_jps = windower.ffxi.get_player().job_points[string.lower(player.main_job)]["Stymie Effect"] or 0
+	local enfeebling_duration_jps = windower.ffxi.get_player().job_points[string.lower(player.main_job)].enfeebling_magic_duration or 0
+	local stymie_duration_jps = windower.ffxi.get_player().job_points[string.lower(player.main_job)].stymie_effect or 0
 	local duration_bonus = enfeebling_duration_jps
 
 	if buffactive["Stymie"] then
 		duration_bonus = duration_bonus + stymie_duration_jps
 	end
 
+	windower.add_to_chat("Duration Bonus from JP: " .. duration_bonus)
 	return duration_bonus
+end
+
+function get_composure_modifier(casting_set)
+	local duration_modifier = 100
+	local empy_count = 0
+
+	if buffactive["Composure"] then
+		if casting_set.head:startswith("Leth") then empy_count = empy_count + 1 end
+		if casting_set.body:startswith("Leth") then empy_count = empy_count + 1 end
+		if casting_set.hands:startswith("Leth") then empy_count = empy_count + 1 end
+		--if casting_set.legs:startswith("Leth") then empy_count = empy_count + 1 end
+		if casting_set.feet:startswith("Leth") then empy_count = empy_count + 1 end
+
+		if empy_count == 2 then duration_modifier = 110
+		elseif empy_count == 3 then duration_modifier = 120
+		elseif empy_count == 4 then duration_modifier = 135
+		elseif empy_count == 5 then duration_modifier = 150
+		end
+
+	end
+
+	windower.add_to_chat("Composure Modifier: " .. duration_modifier)
+	return duration_modifier
 end
