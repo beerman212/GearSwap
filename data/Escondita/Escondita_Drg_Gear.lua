@@ -258,12 +258,12 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'WAR' then
-        set_macro_page(5, 13)
+        set_macro_page(1, 14)
     elseif player.sub_job == 'SAM' then
-        set_macro_page(3, 13)
+        set_macro_page(2, 14)
     elseif player.sub_job == 'BLU' then
-        set_macro_page(2, 13)
+        set_macro_page(3, 14)
     else
-        set_macro_page(5, 13)
+        set_macro_page(10, 14)
     end
 end
