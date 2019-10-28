@@ -23,7 +23,7 @@ state.DisplayMode = M(true, 'Display Mode') --Set this to false if you don't wan
 --Uncomment the settings below and change the values to edit the display's look.
 --displayx = 3
 --displayy = 1062
---displayfont = 'Arial'
+displayfont = 'Times New Roman'
 --displaysize = 12
 --displaybold = true
 --displaybg = 0
@@ -88,7 +88,7 @@ send_command('bind ^y gs c toggle AutoCleanupMode') --Uses certain items and tri
 send_command('bind ^t gs c cycle treasuremode') --Toggles hitting htings with your treasure hunter set.
 send_command('bind !t input /target <bt>') --Targets the battle target.
 send_command('bind ^o fillmode') --Lets you see through walls.
-send_command('bind @m gs c mount Omega')
+send_command('bind @m gs c mount Fenrir')
 
 --Place to override Tables and other definitions you may want to.
 

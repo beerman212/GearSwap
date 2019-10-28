@@ -524,8 +524,7 @@ buff_spell_lists = {
 		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
 		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Combat'},
 		{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	When='Combat'},
-		{Name='Occultation',		Buff='Blink',			SpellID=679,	When='Combat'},
-	},
+		},
 	
 	Default = {
 		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},

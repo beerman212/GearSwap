@@ -159,7 +159,7 @@ function init_gear_sets()
 
 	-- Physical Spells --
 
-	sets.midcast['Blue Magic'].Physical = {main="Kaja Sword",sub="Colada",ammo="Falcon Eye",
+	sets.midcast['Blue Magic'].Physical = {main="Naegling",sub="Colada",ammo="Falcon Eye",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Assuage Earring",
 		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Ramuh Ring",ring2="Apate Ring",
 		back=gear.rosmerta.wsd,waist="Eschan Stone",legs="Samnuha Tights",feet="Jhakri Pigaches +1"}
@@ -209,7 +209,7 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Magical = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs=gear.herculean.trousers.magical,feet="Amalric Nails"}
@@ -231,12 +231,12 @@ function init_gear_sets()
 		hands="Jhakri Cuffs +2",ring2="Stikini Ring",
 		feet="Jhakri Pigaches +1"})
 
-	sets.midcast['Enfeebling Magic'] = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Enfeebling Magic'] = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Assim. Keffiyeh +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Hermetic Earring",
 		body="Assim. Jubba +3",hands="Regal Cuffs",ring1="Etana Ring",ring2="Stikini Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Psycloth Lappas",feet="Aya. Gambieras +2"}
 
-	sets.midcast['Dark Magic'] = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Dark Magic'] = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Evanescense Ring",ring2="Stikini Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
@@ -264,7 +264,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Stikini Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"}
 
-	sets.midcast['Elemental Magic'] = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs=gear.herculean.trousers.magical,feet="Jhakri Pigaches +1"}
@@ -292,7 +292,7 @@ function init_gear_sets()
 
 	-- Physical Added Effect Spells most notably "Stun" spells --
 
-	sets.midcast['Blue Magic'].Stun = {main="Kaja Sword",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Stun = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Hermetic Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Jhakri Ring",ring2="Stikini Ring",
 		back="Cornflower Cape",waist="Luminary Sash",legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"}
@@ -377,11 +377,11 @@ function init_gear_sets()
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
 	-- Weapons sets
-	sets.weapons.Almace = {main="Almace",sub="Kaja Sword"}
-	sets.weapons.Naegling = {main="Kaja Sword",sub="Thibron"}
-	sets.weapons.NaeglingAcc = {main="Kaja Sword",sub="Almace"}
+	sets.weapons.Almace = {main="Almace",sub="Naegling"}
+	sets.weapons.Naegling = {main="Naegling",sub="Thibron"}
+	sets.weapons.NaeglingAcc = {main="Naegling",sub="Almace"}
 	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Nibiru Cudgel"}
-	sets.weapons.MagicMelee = {main="Kaja Sword",sub="Kaja Rod"}
+	sets.weapons.MagicMelee = {main="Naegling",sub="Kaja Rod"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
@@ -461,8 +461,8 @@ function check_trust()
 			if party.p5 == nil then
 				local spell_recasts = windower.ffxi.get_spell_recasts()
 
-				if spell_recasts[980] < spell_latency and not have_trust("Yoran-Oran") then
-					windower.chat.input('/ma "Yoran-Oran (UC)" <me>')
+				if spell_recasts[981] < spell_latency and not have_trust("Sylvie") then
+					windower.chat.input('/ma "Sylvie (UC)" <me>')
 					tickdelay = (framerate * 3)
 					return true
 				elseif spell_recasts[952] < spell_latency and not have_trust("Koru-Moru") then
@@ -489,3 +489,41 @@ function check_trust()
 	end
 	return false
 end
+
+buff_spell_lists = {
+	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
+		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	When='Always'},
+		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	When='Always'},
+		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Always'},
+		{Name='Nat. Meditation',	Buff='Attack Boost',	SpellID=700,	When='Engaged'},
+		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Combat'},
+		{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	When='Combat'},
+		},
+	
+	Default = {
+		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},
+		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	Reapply=false},
+		{Name='Refresh',			Buff='Refresh',			SpellID=109,	Reapply=false},
+		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	Reapply=false},
+		{Name='Stoneskin',			Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Occultation',		Buff='Blink',			SpellID=679,	Reapply=false},
+		{Name='Blink',				Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	Reapply=false},
+		{Name='Nat. Meditation',	Buff='Attack Boost',	SpellID=700,	Reapply=false},
+	},
+	
+	Cleave = {
+		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},
+		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	Reapply=false},
+		{Name='Refresh',			Buff='Refresh',			SpellID=109,	Reapply=false},
+		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	Reapply=false},
+		{Name='Stoneskin',			Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Occultation',		Buff='Blink',			SpellID=679,	Reapply=false},
+		{Name='Blink',				Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Carcharian Verve',	Buff='Aquaveil',		SpellID=745,	Reapply=false},
+		{Name='Memento Mori',		Buff='Magic Atk. Boost',SpellID=538,	Reapply=false},
+	},
+}
