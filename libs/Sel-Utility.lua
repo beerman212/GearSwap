@@ -654,8 +654,8 @@ function silent_can_use(spellid)
 	local available_spells = windower.ffxi.get_spells()
 	local spell_jobs = copy_entry(res.spells[spellid].levels)
         
-	-- Filter for spells that you do not know. Exclude Impact.
-	if not available_spells[spellid] and not (spellid == 503 or spellid == 417) then
+	-- Filter for spells that you do not know. Exclude Impact, Honor March and Dispelga.
+	if not available_spells[spellid] and not (spellid == 503 or spellid == 417 or spellid == 360) then
 		return false
 	-- Filter for spells that you know, but do not currently have access to
 	elseif (not spell_jobs[player.main_job_id] or not (spell_jobs[player.main_job_id] <= player.main_job_level or
@@ -679,7 +679,7 @@ function can_use(spell)
         local spell_jobs = copy_entry(res.spells[spell.id].levels)
         
         -- Filter for spells that you do not know. Exclude Impact.
-        if not available_spells[spell.id] and not (spell.id == 503 or spell.id == 417) then
+        if not available_spells[spell.id] and not (spell.id == 503 or spell.id == 417 or spellid == 360) then
             add_to_chat(123,"Abort: You haven't learned ["..(res.spells[spell.id][language] or spell.id).."].")
             return false
         elseif spell.type == 'Ninjutsu'  then
@@ -1193,7 +1193,7 @@ function check_spell_targets(spell, spellMap, eventArgs)
 		elseif spell.english:startswith('Curaga') and not spell.target.in_party then
 			if (buffactive['light arts'] or buffactive['addendum: white']) then
 				if get_current_strategem_count() > 0 then
-					local number = spell.name:match('Curaga ?%a*'):sub(7) or ''
+					local number = spell.english:match('Curaga ?%a*'):sub(7) or ''
 					eventArgs.cancel = true
 					if buffactive['Accession'] then
 						windower.chat.input('/ma "Cure'..number..'" '..spell.target.name..'')
@@ -1530,6 +1530,10 @@ function check_use_item()
 			windower.send_command('get '..useItemName..'')
 			tickdelay = os.clock() + 2
 			return true
+		elseif item_stepdown[useItemName] then
+			useItemName = item_stepdown[useItemName][1]
+			useItemSlot = item_stepdown[useItemName][2]
+			return false
 		else
 			add_to_chat(123,''..useItemName..' not available or ready for use.')
 			useItem = false
@@ -1602,25 +1606,25 @@ function check_ws()
 
 	local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 		
-		if player.hpp < 41 and available_ws:contains(47) and player.target.distance < (3.2 + player.target.model_size) then
+		if player.hpp < 41 and state.AutoWSRestore.value and available_ws:contains(47) and player.target.distance < (3.2 + player.target.model_size) then
 			windower.chat.input('/ws "Sanguine Blade" <t>')
 			tickdelay = os.clock() + 2.8
 			return true
-		elseif player.hpp < 41 and available_ws:contains(105) and player.target.distance < (3.2 + player.target.model_size) then
+		elseif player.hpp < 41 and state.AutoWSRestore.value and available_ws:contains(105) and player.target.distance < (3.2 + player.target.model_size) then
 			windower.chat.input('/ws "Catastrophe" <t>')
 			tickdelay = os.clock() + 2.8
 			return true
-		elseif player.mpp < 21 and available_ws:contains(109) and player.target.distance < (3.2 + player.target.model_size) then
+		elseif player.mpp < 31 and state.AutoWSRestore.value and available_ws:contains(109) and player.target.distance < (3.2 + player.target.model_size) then
 			windower.chat.input('/ws "Entropy" <t>')
 			tickdelay = os.clock() + 2.8
 			return true
-		elseif player.mpp < 21 and available_ws:contains(171) and player.target.distance < (3.2 + player.target.model_size) then
+		elseif player.mpp < 31 and state.AutoWSRestore.value and available_ws:contains(171) and player.target.distance < (3.2 + player.target.model_size) then
 			windower.chat.input('/ws "Mystic Boon" <t>')
 			tickdelay = os.clock() + 2.8
 			return true
 		elseif player.target.distance > (3.2 + player.target.model_size) and not ranged_weaponskills:contains(autows) then
 			return false
-		elseif player.tp > 999 and relic_weapons:contains(player.equipment.main) and state.MaintainAftermath.value and (not buffactive['Aftermath']) then
+		elseif relic_weapons:contains(player.equipment.main) and state.MaintainAftermath.value and (not buffactive['Aftermath']) then
 			windower.chat.input('/ws "'..data.weaponskills.relic[player.equipment.main]..'" <t>')
 			tickdelay = os.clock() + 2.8
 			return true
@@ -2171,7 +2175,7 @@ function update_combat_form()
 		state.CombatForm:set('DW')
 	elseif sets.engaged[player.equipment.main] then
 		state.CombatForm:set(player.equipment.main)
-	elseif sets.engaged.Fencer and (player.equipment.sub == 'empty' or player.equipment.sub:contains('Grip') or player.equipment.sub:contains('Strap') or res.items[item_name_to_id(player.equipment.sub)].shield_size) then
+	elseif sets.engaged.Fencer and is_fencing() then
 		state.CombatForm:set('Fencer')
 	else
 		state.CombatForm:reset()

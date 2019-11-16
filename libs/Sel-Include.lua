@@ -86,6 +86,7 @@ function init_include()
 	state.AutoHolyWaterMode   = M(true, 'Auto Holy Water Mode')
 	state.AutoRemoveDoomMode  = M(true, 'Auto Remove Doom Mode')
 	state.AutoWSMode		  = M(false, 'Auto Weaponskill Mode')
+	state.AutoWSRestore		  = M(true, 'Auto Weaponskill Restore Mode')
 	state.AutoFoodMode		  = M(false, 'Auto Food Mode')
 	state.AutoSubMode 		  = M(false, 'Auto Sublimation Mode')
 	state.AutoBuffMode 		  = M(false, 'Auto Buff Mode')
@@ -908,7 +909,7 @@ function default_post_precast(spell, spellMap, eventArgs)
 			
 		elseif spell.type == 'WeaponSkill' then
 		
-			if state.WeaponskillMode.value ~= 'Proc' and elemental_obi_weaponskills:contains(spell.name) then
+			if state.WeaponskillMode.value ~= 'Proc' and elemental_obi_weaponskills:contains(spell.english) then
 				local orpheus_avail = item_available("Orpheus's Sash")
 				local hachirin_avail = item_available('Hachirin-no-Obi')
 				
@@ -1007,19 +1008,20 @@ function default_post_midcast(spell, spellMap, eventArgs)
 						equip(sets.HPCure)
 					end
 					curecheat = false
-				elseif sets.Self_Healing and not (state.CastingMode.value:contains('SIRD') and (player.in_combat or being_attacked)) then
-					equip(sets.Self_Healing)
-				elseif sets.Self_Healing and sets.Self_Healing.SIRD and state.CastingMode.value:contains('SIRD') then
-					equip(sets.Self_Healing.SIRD)
+				elseif sets.Self_Healing then
+					if sets.Self_Healing.SIRD and state.CastingMode.value:contains('SIRD') and (player.in_combat or being_attacked) and not buffactive['Aquaveil'] then
+						equip(sets.Self_Healing.SIRD)
+					else
+						equip(sets.Self_Healing)
+					end
 				end
-			elseif spellMap == 'Refresh' and sets.Self_Refresh and not (state.CastingMode.value:contains('SIRD') and (player.in_combat or being_attacked)) then
+			elseif spellMap == 'Refresh' and sets.Self_Refresh then
 				equip(sets.Self_Refresh)
 			end
 		end
 		
 		if state.Capacity.value == true then
 			if set.contains(spell.targets, 'Enemy') then
-		
 				if spell.skill == 'Elemental Magic' or spell.skill == 'Blue Magic' or spell.action_type == 'Ranged Attack' then
 					equip(sets.Capacity)
 				end
@@ -1056,7 +1058,8 @@ function default_post_midcast(spell, spellMap, eventArgs)
 			
 			eventArgs.handled = true
 		end
-	end		
+	
+	end
 	
 	if buffactive.doom then
 		equip(sets.buff.Doom)
@@ -1205,7 +1208,7 @@ end
 function filter_aftercast(spell, spellMap, eventArgs)
     if state.EquipStop.value == 'precast' or state.EquipStop.value == 'midcast' or state.EquipStop.value == 'pet_midcast' then
         eventArgs.cancel = true
-    elseif spell.name == 'Unknown Interrupt' then
+    elseif spell.english == 'Unknown Interrupt' then
         eventArgs.cancel = true
     end
 end
@@ -1663,7 +1666,8 @@ function get_precast_set(spell, spellMap)
     -- Once we have a named base set, do checks for specialized modes (casting mode, weaponskill mode, etc).
     
     if spell.action_type == 'Magic' then
-		if (state.CastingMode.current:contains('SIRD') or state.CastingMode.current:contains('DT')) and not (player.in_combat or being_attacked) then
+		if state.CastingMode.current:contains('DT') and not (player.in_combat or being_attacked) then
+		elseif state.CastingMode.current:contains('SIRD') and (buffactive['Aquaveil'] or (not (player.in_combat or being_attacked))) then
         elseif equipSet[state.CastingMode.current] then
             equipSet = equipSet[state.CastingMode.current]
             mote_vars.set_breadcrumbs:append(state.CastingMode.current)

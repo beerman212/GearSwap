@@ -186,7 +186,7 @@ magian_tp_bonus_melee_weapons = S{'Sphyras','Barracudas +3','Barracudas +2','Cen
 
 magian_tp_bonus_ranged_weapons = S{'Ataktos','Anarchy +3','Anarchy +2','Accipiter','Sparrowhawk +3','Sparrowhawk +2'}
 
-rema_ranged_weapons = S{'Fomalhaut','Death Penalty','Armageddon','Fail-Not','Gandiva','Yoichinoyumi','Annihilator'}
+rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty','Armageddon','Fail-Not','Gandiva','Yoichinoyumi','Annihilator'}
 
 rema_ranged_weapons_ammo = {
 	['Fomalhaut'] = 'Chrono Bullet',
@@ -546,6 +546,12 @@ spell_stepdown = {
 	['Gravity II'] = 'Gravity',
 	['Horde Lullaby II'] = 'Horde Lullaby',
 	['Foe Lullaby II'] = 'Foe Lullaby',
+}
+
+item_stepdown = {
+	['Warp Ring'] = {'Treat Staff','main'},
+	['Treat Staff'] = {'Warp Cudgel','main'},
+	['Warp Cudgel'] = {'Instant Warp','item'}
 }
 -------------------------------------------------------------------------------------------------------------------
 -- Tables to specify general area groupings.  Creates the 'areas' table to be referenced in job files.
