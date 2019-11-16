@@ -60,7 +60,7 @@ function init_gear_sets()
 	sets.Enmity.DT = {ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Emet Harness +1",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back=gear.ogma.enmity,waist="Flume Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
+		back=gear.ogma.enmity,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
 	--------------------------------------
@@ -149,7 +149,7 @@ function init_gear_sets()
 	sets.precast.FC = {ammo="Impatiens",
 		head="Rune. Bandeau +2",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back="",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
+		back="",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {})
 			
@@ -217,7 +217,7 @@ function init_gear_sets()
 	sets.midcast.FastRecast = {ammo="Sapience Orb",
 		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",
-		back="",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
+		back="",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
 	}
 
 	sets.midcast.FastRecast.DT = set_combine(sets.midcast.FastRecast, {neck="Loricate Torque +1",ring1="Defending Ring",ring2="Moonlight Ring"})
@@ -261,7 +261,7 @@ function init_gear_sets()
 	sets.idle = {ammo='Homiliary',
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Eabani Earring",ear2="Ethereal Earring",
 		body="Runeist's Coat +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Solemnity Cape",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
+		back=gear.ogma.da,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
 	}
 		
 	--sets.idle.Sphere = set_combine(sets.idle,{body="Mekosu. Harness"})
@@ -270,7 +270,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Dampening Tam",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
 		body="Ayanmo Corazza +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Solemnity Cape",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
+		back="Solemnity Cape",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
 	}
 
 	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Meghanada Visor +2",legs="Carmine Cuisses +1"})
@@ -285,7 +285,7 @@ function init_gear_sets()
 
     -- Extra defense sets.  Apply these on top of melee or defense sets.
 	sets.Knockback = {}
-	sets.MP = {ear2="Ethereal Earring",body="Erilaz Surcoat +1",waist="Flume Belt"}
+	sets.MP = {ear2="Ethereal Earring",body="Erilaz Surcoat +1",waist="Flume Belt +1"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
 	
 	-- Weapons sets
@@ -302,7 +302,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Erilaz Surcoat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Moonbeam Cape",waist="Flume Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
+		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 	
 	sets.defense.PDT_HP = set_combine(sets.defense.PDT, {})

@@ -87,6 +87,7 @@ gear.merlinic.dastanas.refresh = {name = "Merlinic Dastanas", augments = {'INT+5
 
 gear.merlinic.shalwar = {}
 gear.merlinic.shalwar.magical = {name = "Merlinic Shalwar", augments = {'Mag. Acc.+23 "Mag.Atk.Bns."+23','"Fast Cast"+6','Mag. Acc.+2','"Mag.Atk.Bns."+14',}}
+gear.merlinic.shalwar.refresh = {name = "Merlinic Shalwar", augments = {'Pet: DEX+4','MND+9','"Refresh"+1','Accuracy+16 Attack+16','Mag. Acc.+5 "Mag.Atk.Bns."+5',}}
 
 gear.merlinic.crackows = {}
 gear.merlinic.crackows.drain = {name = "Merlinic Crackows", augments = {'Mag. Acc.+21 "Mag.Atk.Bns."+21','"Drain" and "Aspir" potency +5','MND+2','"Mag.Atk.Bns."+10',}}

@@ -190,7 +190,7 @@ function init_gear_sets()
 
 	sets.midcast['Elemental Magic'] = {main="Lathi",sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.taranus.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main=gear.grioavolr.nuke,body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical})
@@ -221,7 +221,7 @@ function init_gear_sets()
 	sets.idle = {main="Lathi",sub="Eletta Grip",ammo="Staunch Tathlum",
 		head="Befouled Crown",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.merlinic.dastanas.refresh,ring1="Defending Ring",ring2=gear.dark_ring.dt,
-		back="Solemnity Cape",waist="Luminary Sash",legs="Assid. Pants +1",feet=gear.merlinic.crackows.refresh}
+		back="Solemnity Cape",waist="Luminary Sash",legs=gear.merlinic.shalwar.refresh,feet=gear.merlinic.crackows.refresh}
 
 	-- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
 	sets.idle.PDT = set_combine(sets.idle, {body="Mallquis Saio +2",ring2="Gelatinous Ring +1"})

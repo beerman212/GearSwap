@@ -89,7 +89,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -102,7 +102,7 @@ function init_gear_sets()
 	sets.precast.WS["Resolution"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -114,7 +114,7 @@ function init_gear_sets()
 	sets.precast.WS["Scourge"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Brutal Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Apate Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
@@ -126,7 +126,7 @@ function init_gear_sets()
 	sets.precast.WS["Ground Strike"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Apate Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
@@ -138,8 +138,8 @@ function init_gear_sets()
 	sets.precast.WS["Shockwave"] = {
 		ammo="Knobkierrie",
 		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Assuage Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Etana Ring",
-		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +1",feet="Flam. Gambieras +2"
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Etana Ring",
+		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	}
 
 	sets.precast.WS["Shockwave"].SomeAcc = {}
@@ -150,7 +150,7 @@ function init_gear_sets()
 	sets.precast.WS["Herculean Slash"] = {
 		ammo="Pemphredo Tathlum",
 		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
 	}
 
@@ -162,7 +162,7 @@ function init_gear_sets()
 	sets.precast.WS["Upheaval"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -174,7 +174,7 @@ function init_gear_sets()
 	sets.precast.WS["King's Justice"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -186,8 +186,8 @@ function init_gear_sets()
 	sets.precast.WS["Full Break"] = {
 		ammo="Knobkierrie",
 		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Assuage Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Etana Ring",
-		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +1",feet="Flam. Gambieras +2"
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Etana Ring",
+		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	}
 
 	sets.precast.WS["Full Break"].SomeAcc = {}
@@ -198,7 +198,7 @@ function init_gear_sets()
 	sets.precast.WS["Fell Cleave"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Brutal Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Apate Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
@@ -210,7 +210,7 @@ function init_gear_sets()
 	sets.precast.WS["Ukko's Fury"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -222,7 +222,7 @@ function init_gear_sets()
 	sets.precast.WS["Steel Cyclone"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Apate Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
@@ -234,7 +234,7 @@ function init_gear_sets()
 	sets.precast.WS["Savage Blade"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Apate Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
@@ -246,7 +246,7 @@ function init_gear_sets()
 	sets.precast.WS["Vorpal Blade"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -258,7 +258,7 @@ function init_gear_sets()
 	sets.precast.WS["Sanguine Blade"] = {
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Shiva Ring +1",ring2="Archon Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Shiva Ring +1",ring2="Archon Ring",
 		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
 	}
 
@@ -270,7 +270,7 @@ function init_gear_sets()
 	sets.precast.WS["Requiescat"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +1",ring1="Ifrit Ring",ring2="Flamma Ring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -303,6 +303,7 @@ function init_gear_sets()
 			
 	-- Idle sets
 	sets.idle = {
+		ammo="Staunch Tathlum +1",
 		head=gear.valorous.mask.crit,neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Sulevia's Plate. +1",hands="Pumm. Mufflers +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back="Solemnity Cape",waist="Flume Belt +1",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2",
@@ -338,7 +339,7 @@ function init_gear_sets()
 	sets.engaged.Chango = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +1",ring1="Petrov Ring",ring2="Flamma Ring",
+		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -350,7 +351,7 @@ function init_gear_sets()
 	sets.engaged.Ragnorok = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +1",ring1="Petrov Ring",ring2="Flamma Ring",
+		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -362,7 +363,7 @@ function init_gear_sets()
 	sets.engaged.Zulfiqar = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +1",ring1="Petrov Ring",ring2="Flamma Ring",
+		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
@@ -374,7 +375,7 @@ function init_gear_sets()
 	sets.engaged.Naegling = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +1",ring1="Petrov Ring",ring2="Flamma Ring",
+		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 

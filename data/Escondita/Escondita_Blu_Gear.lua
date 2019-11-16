@@ -340,7 +340,7 @@ function init_gear_sets()
 	sets.Learning = {hands="Assim. Bazu. +2"}
 	
 	-- Idle sets
-	sets.idle = {ammo="Staunch Tathlum",
+	sets.idle = {ammo="Staunch Tathlum +1",
 		head=gear.herculean.helm.refresh,neck="Twilight Torque",ear1="Etiolation Earring",
 		body="Jhakri Robe +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Warden's Ring",
 		back=gear.rosmerta.stp,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet=gear.herculean.boots.refresh}

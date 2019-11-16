@@ -535,22 +535,28 @@ function user_aftercast(spell, spellMap, eventArgs)
 				casting_set = set_combine(casting_set, sets.buff.Saboteur)
 			end
 
-			windower.add_to_chat(casting_set.body)
-
 			--casting_set = standardize_set(casting_set)
 			
 			local duration = custom_durations[spell.name] or spell_info.duration or 0
 			local saboteur_modifier = get_saboteur_modifier(casting_set)
 			local composure_modifier = get_composure_modifier(casting_set)
 			local duration_modifier = get_enfeebling_modifier(casting_set)
+			local aug_duration_modifier = get_duelist_torque_modifier(casting_set)
 			local duration_bonus = get_enfeebling_duration_from_merits(casting_set) + get_enfeebling_duration_from_jp()
 
-			if duration > 0 then
-				local calculated_duration = math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100)
+			windower.add_to_chat("Spell: " .. spell.name)
+			windower.add_to_chat("Base Duration: " .. duration)
+			windower.add_to_chat("Saboteur Bonus: " .. saboteur_modifier)
+			windower.add_to_chat("Base Duration Increase: " .. duration_bonus)
+			windower.add_to_chat("Duration Bonus From Gear: " .. duration_modifier)
+			windower.add_to_chat("Duration Bonus From Augmented Gear: " .. aug_duration_modifier)
+			windower.add_to_chat("Duration Bonus From Composure: " .. composure_modifier)
 
-				windower.add_to_chat("Calculated Duration: " .. calculated_duration)
+			if duration > 0 then
+				local calculated_duration = math.floor(math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100) * aug_duration_modifier / 100)
 				local debuff_icon = "spells/00220.png"
 
+				windower.add_to_chat("Calculated Duration: " .. calculated_duration)
 				send_command('@timers c "'..spell.english..' ['..spell.target.name..']" ' .. calculated_duration .. ' down '.. debuff_icon)
 			end
 
@@ -576,7 +582,6 @@ function get_saboteur_modifier(casting_set)
 		end
 	end
 
-	windower.add_to_chat("Saboteur Modifier: " .. saboteur_modifier)
 	return saboteur_modifier
 end
 
@@ -586,7 +591,6 @@ function get_enfeebling_modifier(casting_set)
 	if S{casting_set.ring1, casting_set.ring2, casting_set.left_ring, casting_set.right_ring}:contains("Kishar Ring") then duration_modifier = duration_modifier + 10 end
 	if casting_set.hands == "Regal Cuffs" then duration_modifier = duration_modifier + 20 end
 
-	windower.add_to_chat("Duration Modifier: " .. duration_modifier)
 	return duration_modifier
 end
 
@@ -602,7 +606,6 @@ function get_enfeebling_duration_from_merits(casting_set)
 		end
 	end
 
-	windower.add_to_chat("Duration Bonus from Merits: " .. duration_bonus)
 	return duration_bonus
 end
 
@@ -615,7 +618,6 @@ function get_enfeebling_duration_from_jp()
 		duration_bonus = duration_bonus + stymie_duration_jps
 	end
 
-	windower.add_to_chat("Duration Bonus from JP: " .. duration_bonus)
 	return duration_bonus
 end
 
@@ -624,11 +626,36 @@ function get_composure_modifier(casting_set)
 	local empy_count = 0
 
 	if buffactive["Composure"] then
-		if casting_set.head:startswith("Leth") then empy_count = empy_count + 1 end
-		if casting_set.body:startswith("Leth") then empy_count = empy_count + 1 end
-		if casting_set.hands:startswith("Leth") then empy_count = empy_count + 1 end
-		--if casting_set.legs:startswith("Leth") then empy_count = empy_count + 1 end
-		if casting_set.feet:startswith("Leth") then empy_count = empy_count + 1 end
+
+		if type(casting_set.head) == 'table' then
+			if casting_set.head.name:startswith("Leth") then empy_count = empy_count + 1 end
+		else
+			if casting_set.head:startswith("Leth") then empy_count = empy_count + 1 end
+		end
+
+		if type(casting_set.body) == 'table' then
+			if casting_set.body.name:startswith("Leth") then empy_count = empy_count + 1 end
+		else
+			if casting_set.body:startswith("Leth") then empy_count = empy_count + 1 end
+		end
+
+		if type(casting_set.hands) == 'table' then
+			if casting_set.hands.name:startswith("Leth") then empy_count = empy_count + 1 end
+		else
+			if casting_set.hands:startswith("Leth") then empy_count = empy_count + 1 end
+		end
+
+		if type(casting_set.legs) == 'table' then
+			if casting_set.legs.name:startswith("Leth") then empy_count = empy_count + 1 end
+		else
+			if casting_set.legs:startswith("Leth") then empy_count = empy_count + 1 end
+		end
+
+		if type(casting_set.feet) == 'table' then
+			if casting_set.feet.name:startswith("Leth") then empy_count = empy_count + 1 end
+		else
+			if casting_set.feet:startswith("Leth") then empy_count = empy_count + 1 end
+		end
 
 		if empy_count == 2 then duration_modifier = 110
 		elseif empy_count == 3 then duration_modifier = 120
@@ -638,6 +665,13 @@ function get_composure_modifier(casting_set)
 
 	end
 
-	windower.add_to_chat("Composure Modifier: " .. duration_modifier)
 	return duration_modifier
+end
+
+function get_duelist_torque_modifier(casting_set)
+	if type(casting_set.neck) == "table" then
+		return casting_set.neck.name == "Duelist's Torque" and 114 or 100
+	else
+		return casting_set.neck == "Duelist's Torque" and 114 or 0
+	end
 end

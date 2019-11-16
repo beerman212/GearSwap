@@ -248,9 +248,9 @@ function init_gear_sets()
 
 	sets.idle = {
 		ammo="Staunch Tathlum",
-		head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Dampening Tam",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
-		back=gear.toutatis.stp,waist="Flume Belt",legs="Mummu Kecks +2",feet="Meg. Jam. +2"
+		back=gear.toutatis.stp,waist="Engraved Belt",legs="Mummu Kecks +2",feet="Turms Leggings"
 	}
 
 	sets.idle.Sphere = set_combine(sets.idle, {})
@@ -271,9 +271,9 @@ function init_gear_sets()
 	back=gear.toutatis.stp,waist="Flume Belt",legs="Mummu Kecks +2",feet="Meg. Jam. +2"}
 
 	sets.defense.MDT = {ammo="Staunch Tathlum",
-	head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
+	head="Dampening Tam",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
 	body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
-	back=gear.toutatis.stp,waist="Flume Belt",legs="Mummu Kecks +2",feet="Meg. Jam. +2"}
+	back=gear.toutatis.stp,waist="Engraved Belt",legs="Mummu Kecks +2",feet="Turms Leggings"}
 
 	sets.defense.MEVA = {ammo="Staunch Tathlum",
 	head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
@@ -306,6 +306,8 @@ function init_gear_sets()
 	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.FullAcc, {ring1="Defending Ring",ring2="Moonbeam Ring",back=gear.toutatis.stp})
 
 	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, {ring1="Defending Ring",ring2="Moonbeam Ring",back=gear.toutatis.stp})
+
+	sets.engaged.MDT = set_combine()
 		
 end
 
