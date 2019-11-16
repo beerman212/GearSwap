@@ -226,11 +226,15 @@ function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'WAR' then
         set_macro_page(1, 13)
-    elseif player.sub_job == 'RNG' then
-        set_macro_page(1, 13)
+    elseif player.sub_job == 'DNC' then
+        set_macro_page(2, 13)
     elseif player.sub_job == 'RDM' then
-        set_macro_page(1, 13)
+        set_macro_page(3, 13)
+    elseif player.sub_job == 'THF' then
+        set_macro_page(4, 13)
+    elseif player.sub_job == 'RNG' then
+        set_macro_page(5, 13)
     else
-        set_macro_page(1, 13)
+        set_macro_page(10, 13)
     end
 end

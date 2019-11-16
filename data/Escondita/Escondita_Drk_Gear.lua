@@ -215,10 +215,10 @@ function init_gear_sets()
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
-    if player.sub_job == 'WAR' then
-        set_macro_page(2, 8)
-    elseif player.sub_job == 'SAM' then
+    if player.sub_job == 'SAM' then
         set_macro_page(1, 8)
+    elseif player.sub_job == 'WAR' then
+        set_macro_page(2, 8)
     elseif player.sub_job == 'DNC' then
         set_macro_page(3, 8)
     elseif player.sub_job == 'THF' then

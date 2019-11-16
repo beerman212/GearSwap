@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Almace', 'Naegling','MagicWeapons','Learning','None')
+	state.Weapons:options('Almace', 'Naegling','MagicWeapons','MagicMelee','Learning','None')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
@@ -380,7 +380,8 @@ function init_gear_sets()
 	sets.weapons.Almace = {main="Almace",sub="Kaja Sword"}
 	sets.weapons.Naegling = {main="Kaja Sword",sub="Thibron"}
 	sets.weapons.NaeglingAcc = {main="Kaja Sword",sub="Almace"}
-	sets.weapons.MagicWeapons = {main="Kaja Sword",sub="Nibiru Cudgel"}
+	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Nibiru Cudgel"}
+	sets.weapons.MagicMelee = {main="Kaja Sword",sub="Kaja Rod"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
@@ -436,19 +437,19 @@ end
 function select_default_macro_book()
 	-- Default macro set/book
 	if player.sub_job == 'DNC' then
-		set_macro_page(4, 2)
+		set_macro_page(1, 16)
 	elseif player.sub_job == 'NIN' then
-		set_macro_page(5, 2)
+		set_macro_page(2, 16)
 	elseif player.sub_job == 'WAR' then
-		set_macro_page(7, 2)
+		set_macro_page(3, 16)
 	elseif player.sub_job == 'RUN' then
-		set_macro_page(3, 2)
+		set_macro_page(4, 16)
 	elseif player.sub_job == 'THF' then
-		set_macro_page(2, 2)
+		set_macro_page(5, 16)
 	elseif player.sub_job == 'RDM' then
-		set_macro_page(1, 2)
+		set_macro_page(6, 16)
 	else
-		set_macro_page(6, 2)
+		set_macro_page(10, 16)
 	end
 end
 

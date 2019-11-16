@@ -522,6 +522,9 @@ buff_spell_lists = {
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Idle'},
 		{Name='Nat. Meditation',	Buff='Attack Boost',	SpellID=700,	When='Engaged'},
 		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Combat'},
+		{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	When='Combat'},
+		{Name='Occultation',		Buff='Blink',			SpellID=679,	When='Combat'},
 	},
 	
 	Default = {

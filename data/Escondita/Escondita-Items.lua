@@ -13,7 +13,7 @@ sets.weapons.ProcSword = {main="Ark Saber",sub="Trainee Burin"}
 sets.weapons.ProcClub = {main="Heartbeater",sub="Trainee Burin"}
 sets.weapons.ProcStaff = {main="Ram Staff",sub="Duplus Grip"}
 sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub="Duplus Grip"}
-sets.weapons.ProcDagger = {main="Twilight Knife",sub="Trainee Burin"}
+sets.weapons.ProcDagger = {main="Qutrub Knife",sub="Trainee Burin"}
 sets.weapons.ProcScythe = {main="Hoe",sub="Duplus Grip"}
 sets.weapons.ProcKatana = {main="Trainee Burin",sub="Ark Saber"}
 sets.weapons.ProcPolearm = {main="Pitchfork +1",sub="Duplus Grip"}
