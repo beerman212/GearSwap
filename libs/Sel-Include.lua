@@ -252,7 +252,6 @@ function init_include()
     -- Include general user globals, such as custom binds or gear tables.
     -- Load Sel-Globals first, followed by User-Globals, followed by <character>-Globals.
     -- Any functions re-defined in the later includes will overwrite the earlier versions.
-    include('Sel-GlobalItems')
     optional_include('user-globals.lua')
     optional_include(player.name..'-globals.lua')
     optional_include(player.name..'-items.lua')
@@ -268,6 +267,8 @@ function init_include()
     -- Load sidecar file
 	include(player.name..'_'..player.main_job..'_gear.lua')
 
+	-- Load items into variable after determining what is owned as needed.
+	include('Sel-GlobalItems')
 	
 	-- Controls for handling our autmatic functions.
 	
@@ -1384,9 +1385,13 @@ function get_idle_set(petStatus)
     end
 
     if not (player.in_combat or being_attacked) and (state.IdleMode.current:contains('DT') or state.IdleMode.current:contains('Tank')) then
-	elseif idleSet[state.IdleMode.current] then
-		idleSet = idleSet[state.IdleMode.current]
-		mote_vars.set_breadcrumbs:append(state.IdleMode.current)
+		if state.NonCombatIdleMode and idleSet[state.NonCombatIdleMode.current] then
+			idleSet = idleSet[state.NonCombatIdleMode.current]
+			mote_vars.set_breadcrumbs:append(state.NonCombatIdleMode.current)
+		elseif idleSet[state.IdleMode.current] then
+			idleSet = idleSet[state.IdleMode.current]
+			mote_vars.set_breadcrumbs:append(state.IdleMode.current)
+		end
     end
 
     if (pet.isvalid or state.Buff.Pet) and idleSet.Pet then
