@@ -62,7 +62,7 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 	sets.precast.FC = {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",
-		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
 		back=gear.alaunus.fc,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Navon Crackows"}
 	
@@ -117,7 +117,7 @@ function init_gear_sets()
 		back="Twilight Cape",waist="Luminary Sash",legs="Piety Pantaln. +1",feet="Theo. Duckbills +3"}
 		
 	sets.precast.WS['Flash Nova'] = {ammo="Pemphredo Tathlum",
-		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
+		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Vedic Coat",hands="Theophany Mitts +2",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.alaunus.fc,waist="Refoccilation Stone",legs=gear.chironic.hose.enfeeble,feet="Navon Crackows"}
 
@@ -249,7 +249,7 @@ function init_gear_sets()
 		legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"})
 		
 	sets.midcast['Elemental Magic'] = {main=gear.gada.enfeeble,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Vedic Coat",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Inyanga Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +3"}
 
@@ -258,7 +258,7 @@ function init_gear_sets()
 	sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {head=empty,body="Twilight Cloak"})
 
 	sets.midcast['Divine Magic'] = {main=gear.gada.enfeeble, sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Jokushu Chain",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Inyanga Tiara +2",neck="Jokushu Chain",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs="Th. Pantaloons +2",feet="Theo. Duckbills +3"}
 		
@@ -271,7 +271,7 @@ function init_gear_sets()
 	sets.midcast.Flash = set_combine(sets.midcast['Divine Magic'], {})
 
 	sets.midcast['Dark Magic'] = {main="Rubicundity", sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Evanescence Ring",ring2="Archon Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs="Th. Pantaloons +2",feet="Theo. Duckbills +3"}
 
@@ -287,7 +287,7 @@ function init_gear_sets()
 	sets.midcast.Stun.Resistant = set_combine(sets.midcast.Stun, {})
 
 	sets.midcast['Enfeebling Magic'] = {main=gear.gada.enfeebling,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Theophany Briault +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +3"}
 

@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Sequence','MaxtentiusTP','NaeglingTP','MagicWeapons','Learning','None')
+	state.Weapons:options('Sequence','MaxentiusTP','NaeglingTP','MagicWeapons','Learning','None')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','TreasureHunter'}
 	
@@ -42,7 +42,7 @@ function user_setup()
 	send_command('bind !@^f7 gs c toggle AutoWSMode')
 	send_command('bind !r gs c weapons MagicWeapons;gs c update')
 	send_command('bind @q gs c weapons NaeglingTP;gs c update')
-	send_command('bind ^q gs c weapons MaxtentiusTP;gs c update')
+	send_command('bind ^q gs c weapons MaxentiusTP;gs c update')
 	send_command('bind !q gs c weapons Learning;gs c update')
 
 	select_default_macro_book()
@@ -250,7 +250,7 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Kaja Rod",sub="Naegling",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Magical = {main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
@@ -273,7 +273,7 @@ function init_gear_sets()
 		waist="Luminary Sash",legs="Aya. Cosciales +2",feet="Jhakri Pigaches +2"
 	})
 
-	sets.midcast['Enfeebling Magic'] = {main="Kaja Rod",sub="Naegling",ammo="Pemphredo Tathlum",
+	sets.midcast['Enfeebling Magic'] = {main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
 		head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ayanmo Ring",ring2="Stikini Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Skaoi Boots"}
@@ -307,7 +307,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring2="Stikini Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
-	sets.midcast['Elemental Magic'] = {main="Kaja Rod",sub="Naegling",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
@@ -384,7 +384,7 @@ function init_gear_sets()
 	sets.idle = {main="Bolelabunga",sub="Medeina Kilij",ammo="Staunch Tathlum",
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.rosmerta.stp,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
+		back=gear.rosmerta.stp,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
 	sets.idle.PDT = set_combine(sets.idle, {head="Aya. Zucchetto +2",body="Ayanmo Corazza +2"})
 
@@ -395,7 +395,7 @@ function init_gear_sets()
 	sets.defense.PDT = {ammo="Staunch Tathlum",
 		head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Ayanmo Corazza +2",hands="Assim. Bazu. +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.stp_jse_back,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
+		back=gear.stp_jse_back,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"}
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {ring2="Purity Ring"})
 
@@ -407,7 +407,7 @@ function init_gear_sets()
 
 	-- Extra Melee sets.  Apply these on top of melee sets.
 	sets.Knockback = {}
-	sets.MP = {waist="Flume Belt",ear1="Ethereal Earring"}
+	sets.MP = {waist="Flume Belt +1",ear1="Ethereal Earring"}
 	sets.MP_Knockback = {}
 	sets.SuppaBrutal = {}
 	sets.DWEarrings = {}
@@ -418,8 +418,8 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Sequence = {main="Sequence",sub="Naegling"}
 	sets.weapons.NaeglingTP = {main="Naegling",sub=gear.colada.stp}
-	sets.weapons.MaxtentiusTP = {main="Kaja Rod",sub=gear.colada.stp}
-	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Naegling"}
+	sets.weapons.MaxentiusTP = {main="Maxentius",sub=gear.colada.stp}
+	sets.weapons.MagicWeapons = {main="Maxentius",sub="Naegling"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
@@ -435,7 +435,7 @@ function init_gear_sets()
 
 	sets.engaged.Fodder = set_combine(sets.engaged, {})
 
-	sets.engaged.DTLite = set_combine(sets.engaged, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt"})
+	sets.engaged.DTLite = set_combine(sets.engaged, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt +1"})
 
 	sets.engaged.PDT = set_combine(sets.engaged.DTLite, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
@@ -444,9 +444,9 @@ function init_gear_sets()
 	sets.engaged.MDT = set_combine(sets.engaged, {ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Purity Ring",
-		waist="Flume Belt",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+		waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
-	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt"})
+	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt +1"})
 
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
@@ -454,9 +454,9 @@ function init_gear_sets()
 
 	sets.engaged.Acc.MDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",ear1="Etiolation Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Purity Ring",
-		waist="Flume Belt",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
+		waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
-	sets.engaged.FullAcc.DTLite = set_combine(sets.engaged.FullAcc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt"})
+	sets.engaged.FullAcc.DTLite = set_combine(sets.engaged.FullAcc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt +1"})
 
 	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.FullAcc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
@@ -466,7 +466,7 @@ function init_gear_sets()
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Purity Ring",
 		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
-	sets.engaged.Fodder.DTLite = set_combine(sets.engaged.Fodder, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt"})
+	sets.engaged.Fodder.DTLite = set_combine(sets.engaged.Fodder, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt +1"})
 
 	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
@@ -564,9 +564,9 @@ buff_spell_lists = {
 		{Name='Diamondhide',		Buff='Stoneskin',		SpellID=632,	Reapply=false},
 		{Name='Occultation',		Buff='Blink',			SpellID=679,	Reapply=false},
 		{Name='Blink',				Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Carcharian Verve',	Buff='Aquaveil',		SpellID=745,	Reapply=false},
+		--{Name='Carcharian Verve',	Buff='Aquaveil',		SpellID=745,	Reapply=false},
 		{Name='Aquaveil', 			Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Cocoon'					, Buff='Defense Boost',	SpellID=547,	Reapply=false},
+		{Name='Cocoon',				Buff='Defense Boost',	SpellID=547,	Reapply=false},
 		{Name='Memento Mori',		Buff='Magic Atk. Boost',SpellID=538,	Reapply=false},
 	},
 }

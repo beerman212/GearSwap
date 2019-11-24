@@ -66,7 +66,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Impatiens",
-		head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
 		body="Anhur Robe",hands=gear.telchine.gloves.enhancing,ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.drain}
 
@@ -74,7 +74,7 @@ function init_gear_sets()
 
 	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
 
-	sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ear2="Barkaro. Earring",ring1="Defending Ring",ring2="Kishar Ring",back=gear.taranus.mab,waist="Channeler's Stone"})
+	sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ring1="Defending Ring",ring2="Kishar Ring",back=gear.taranus.mab,waist="Channeler's Stone"})
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {main="Serenity",sub="Clerisy Strap +1",body="Heka's Kalasiris"})
 
@@ -141,7 +141,7 @@ function init_gear_sets()
 	sets.midcast.BarElement = set_combine(sets.precast.FC['Enhancing Magic'], {})
 
 	sets.midcast['Enfeebling Magic'] = {main=gear.gada.enfeebling,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head=gear.merlinic.hood.magical,neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head=gear.merlinic.hood.magical,neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Spaekona's Coat +2",hands="Amalric Gages +1",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.taranus.mab,waist="Luminary Sash",legs="Spae. Tonban +2",feet="Skaoi Boots"}
 
@@ -165,11 +165,13 @@ function init_gear_sets()
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head=gear.merlinic.hood.magical,neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head=gear.merlinic.hood.magical,neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body=gear.merlinic.jubbah.magical,hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
 		back="Perimede Cape",waist="Luminary Sash",legs="Spae. Tonban +2",feet=gear.merlinic.crackows.magical}
 
-	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {main="Rubicundity",head="Pixie Hairpin +1",neck="Erra Pendant",ring1="Evanescence Ring",waist="Fucho-no-Obi",legs="Spae. Tonban +2",feet=gear.merlinic.crackows.drain})
+	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
+		main="Rubicundity",head="Pixie Hairpin +1",neck="Erra Pendant",ring1="Evanescence Ring",waist="Fucho-no-Obi",legs="Spae. Tonban +2",feet=gear.merlinic.crackows.drain
+	})
 
 	sets.midcast.Aspir = sets.midcast.Drain
 
@@ -189,11 +191,13 @@ function init_gear_sets()
 	-- Elemental Magic sets
 
 	sets.midcast['Elemental Magic'] = {main="Lathi",sub="Enki Strap",ammo="Pemphredo Tathlum",
-		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
+		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.taranus.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {main=gear.grioavolr.nuke,body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
+		main=gear.grioavolr.nuke,body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical
+	})
 
 	sets.midcast['Elemental Magic'].Fodder = set_combine(sets.midcast['Elemental Magic'], {})
 

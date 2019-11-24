@@ -48,6 +48,7 @@ gear.herculean.boots = {}
 gear.herculean.boots.wsd = {name = "Herculean Boots", augments = {'Pet: Accuracy+18 Pet: Rng. Acc.+18','Weapon skill damage +6%','Accuracy+19 Attack+19',}}
 gear.herculean.boots.refresh = {name = "Herculean Boots", augments = {'Accuracy+20','"Mag.Atk.Bns."+22','"Refresh"+2',}}
 gear.herculean.boots.th = {name = "Herculean Boots", augments = {'Attack+8','Mag. Acc.+19','"Treasure Hunter"+2','Mag. Acc.+9 "Mag.Atk.Bns."+9',}}
+gear.herculean.boots.mburst = {name = "Herculean Boots", augments = {'Accuracy+9','MND+2','Magic burst dmg.+13%','Accuracy+19 Attack+19','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 
 gear.merlinic = {}
 gear.merlinic.hood = {}

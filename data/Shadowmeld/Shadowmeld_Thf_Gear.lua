@@ -2,7 +2,7 @@
 function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal','Acc','FullAcc','Fodder')
-	state.HybridMode:options('Normal','PDT')
+	state.HybridMode:options('Normal','PDT','MDT')
 	state.RangedMode:options('Normal', 'Acc')
 	state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
 	state.IdleMode:options('Normal', 'Sphere')
@@ -268,7 +268,7 @@ function init_gear_sets()
 	sets.defense.PDT = {ammo="Staunch Tathlum",
 	head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 	body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
-	back=gear.toutatis.stp,waist="Flume Belt",legs="Mummu Kecks +2",feet="Meg. Jam. +2"}
+	back=gear.toutatis.stp,waist="Flume Belt +1",legs="Mummu Kecks +2",feet="Meg. Jam. +2"}
 
 	sets.defense.MDT = {ammo="Staunch Tathlum",
 	head="Dampening Tam",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
@@ -278,7 +278,7 @@ function init_gear_sets()
 	sets.defense.MEVA = {ammo="Staunch Tathlum",
 	head="Dampening Tam",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 	body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
-	back=gear.toutatis.stp,waist="Flume Belt",legs="Mummu Kecks +2",feet="Meg. Jam. +2"}
+	back=gear.toutatis.stp,waist="Flume Belt +1",legs="Mummu Kecks +2",feet="Meg. Jam. +2"}
 
 
 	--------------------------------------
@@ -301,13 +301,13 @@ function init_gear_sets()
 
 	sets.engaged.PDT = set_combine(sets.engaged, {ring1="Defending Ring",ring2="Moonbeam Ring",back=gear.toutatis.stp})
 
+	sets.engaged.MDT = set_combine(sets.engaged, {ammo="Staunch Tathlum",head="Dampening Tam",ring1="Defending Ring",ring2="Moonbeam Ring",})
+
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {ring1="Defending Ring",ring2="Moonbeam Ring",back=gear.toutatis.stp})
 
 	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.FullAcc, {ring1="Defending Ring",ring2="Moonbeam Ring",back=gear.toutatis.stp})
 
 	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, {ring1="Defending Ring",ring2="Moonbeam Ring",back=gear.toutatis.stp})
-
-	sets.engaged.MDT = set_combine()
 		
 end
 

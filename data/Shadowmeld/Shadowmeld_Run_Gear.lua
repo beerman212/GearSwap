@@ -442,7 +442,7 @@ end
 
 buff_spell_lists.Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	When='Combat'},
-	--{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	When='Engaged'},
+	{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	When='Engaged'},
 	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
 	{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Idle'},
 }

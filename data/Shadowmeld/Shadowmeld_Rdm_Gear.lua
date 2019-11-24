@@ -71,12 +71,12 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	
 	sets.precast.FC = {ammo="Impatiens",
-		head="Atro. Chapeau +2",neck="Loricate Torque +1",ear1="Enchntr. Earring +1",ear2="Etiolation Earring",
+		head="Atro. Chapeau +2",neck="Loricate Torque +1",ear1="Malignance Earring",ear2="Etiolation Earring",
 		body="Viti. Tabard +3",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-		head=empty,neck="Voltsurge Torque",ear2="Loquac. Earring",
+		head=empty,neck="Voltsurge Torque",ear2="Enchntr. Earring +1",
 		body="Twilight Cloak",hands="Leyline Gloves",ring1="Kishar Ring",
 		back=gear.sucellos.enfeeble})
        
@@ -121,7 +121,7 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'].Fodder = set_combine(sets.precast.WS['Savage Blade'], {})
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
-		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
+		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
@@ -132,7 +132,7 @@ function init_gear_sets()
 	sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS.Acc, {})
 	
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {ammo="Pemphredo Tathlum",
-		head="Jhakri Coronal +2", neck="Sanctity Necklace",ear1="Regal Earring", ear2="Friomisi Earring",
+		head="Jhakri Coronal +2", neck="Sanctity Necklace",ear1="Regal Earring", ear2="Malignance Earring",
 		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs=gear.merlinic.shalwar.magical,feet="Jhakri Pigaches +2"})
 	
@@ -210,7 +210,7 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
 	}
@@ -262,7 +262,7 @@ function init_gear_sets()
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 	
 	sets.midcast['Elemental Magic'] = {main=gear.grioavolr.nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
-		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
+		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 		
@@ -280,7 +280,7 @@ function init_gear_sets()
 		head=empty,body="Twilight Cloak"})
 
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
+		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Atrophy Tabard +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
 		back=gear.sucellos.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.drain
 	}
