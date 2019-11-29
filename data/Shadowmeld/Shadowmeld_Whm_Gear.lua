@@ -87,17 +87,17 @@ function init_gear_sets()
 	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Benediction = {body="Piety Briault +2"}
+	sets.precast.JA.Benediction = {body="Piety Briault +3"}
 
 	-- Waltz set (chr and vit)
-	sets.precast.Waltz = {head="Nahtirah Hat",body="Piety Briault +2",hands="Telchine Gloves"}
+	sets.precast.Waltz = {head="Nahtirah Hat",body="Piety Briault +3",hands="Telchine Gloves"}
 
 	-- Weaponskill sets
 
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Telos Earring",ear2="Ishvara Earring",
-		body="Piety Briault +2",hands="Aya. Manopolas +2",ring1="Shukuyu Ring",ring2="Ayanmo Ring",
+		body="Piety Briault +3",hands="Aya. Manopolas +2",ring1="Shukuyu Ring",ring2="Ayanmo Ring",
 		back=gear.alaunus.stp,waist="Fotia Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 		
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -235,7 +235,7 @@ function init_gear_sets()
 
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
 
-	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {main="Bolelabunga",head="Inyanga Tiara +2",body="Piety Briault +2",hands="Ebers Mitts +1",legs="Th. Pantaloons +2",})
+	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {main="Bolelabunga",head="Inyanga Tiara +2",body="Piety Briault +3",hands="Ebers Mitts +1",legs="Th. Pantaloons +2",})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
 	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
@@ -313,7 +313,7 @@ function init_gear_sets()
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {main="Queller Rod",sub="Genmei Shield",ammo="Homiliary",
 		head="Inyanga Tiara +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
-		body="Piety Briault +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		body="Piety Briault +3",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.alaunus.wsd,waist="Fucho-no-Obi",legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"}
 
 	sets.idle.PDT = set_combine(sets.idle, {main="Mafic Cudgel",body="Inyanga Jubbah +2"})
