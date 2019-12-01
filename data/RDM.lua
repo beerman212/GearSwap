@@ -187,7 +187,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 end
 
 function job_buff_change(buff, gain)
-	if enspell_lookup:contains(buff) then
+	if enspells:contains(buff) then
 		if gain then
 			enspell = buff
 		else
@@ -228,8 +228,8 @@ end
 
 function job_customize_melee_set(meleeSet)
 
-	if enspell ~= '' and sets.element.enspell and sets.element.enspell[enspell_lookup.enspell]] then
-		meleeSet = set_combine(meleeSet, sets.element.enspell[enspell_lookup.enspell]])
+	if enspell ~= '' and sets.element.enspell and sets.element.enspell[enspell_lookup.enspell] then
+		meleeSet = set_combine(meleeSet, sets.element.enspell[enspell_lookup.enspell])
 	end
 
     return meleeSet
@@ -463,7 +463,7 @@ function update_melee_groups()
 	classes.CustomMeleeGroups:clear()
 	
 	if enspell ~= '' then
-		if endspell:endswith('II') then
+		if enspell:endswith('II') then
 			classes.CustomMeleeGroups:append('Enspell2')
 		else
 			classes.CustomMeleeGroups:append('Enspell')
