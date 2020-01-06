@@ -74,6 +74,7 @@ gear.herculean.boots.ta_low_acc = {name = "Herculean Boots", augments = {'Accura
 gear.herculean.boots.magical = {name = "Herculean Boots", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','MND+9','Mag. Acc.+13','"Mag.Atk.Bns."+7',}}
 gear.herculean.boots.agiwsd = {name = "Herculean Boots", augments = {'Rng.Acc.+27','Weapon skill damage +4%','STR+7','Rng.Atk.+12',}}
 gear.herculean.boots.TH = {name = "Herculean Boots", augments = {'Potency of "Cure" effect received+1%','Attack+20','"Treasure Hunter"+2','Mag. Acc.+2 "Mag.Atk.Bns."+2',}}
+gear.herculean.boots.refresh = {name = "Herculean Boots", augments = {}}
 
 gear.merlinic = {}
 gear.merlinic.hood = {}
