@@ -26,7 +26,7 @@ function user_setup()
 	send_command('bind !r gs c cycle weapons;gs c update')
 	
 	select_default_macro_book()
-	lockstyle:schedule(5)
+	--lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.

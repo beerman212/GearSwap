@@ -16,7 +16,7 @@ triggers.lua
 user_functions.lua
 validate.lua
 version_history.txt
-data/User-Globals.lua
+#*data/User-Globals.lua
 beta_examples_and_information/*
 data/instructions.txt
 libs/Mote-*

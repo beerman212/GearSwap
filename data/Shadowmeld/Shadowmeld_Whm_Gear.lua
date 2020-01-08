@@ -7,6 +7,8 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('None','IzcalliAmmurapi','IzcalliGenmei','MaxentiusAmmurapi','MaxentiusGenmei','DualIzcalli','DualMaxentiusAcc','DualMaxentius','DualMagian','DualMagianAcc')
+
+	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
 	gear.alaunus = {}
 	gear.alaunus.wsd = {name = "Alaunus's Cape", augments = {'MND+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
@@ -38,7 +40,7 @@ function user_setup()
 	send_command('bind !\\\\ input /ma "Reraise IV" <me>')
 
 	select_default_macro_book()
-	lockstyle:schedule(5)
+	--lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -134,6 +136,7 @@ function init_gear_sets()
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+	sets.Sublimation = {}
 	
 	--Situational sets: Gear that is equipped on certain targets
 	sets.Self_Healing = {waist="Gishdubar Sash"}
@@ -359,10 +362,12 @@ function init_gear_sets()
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 
 	-- Basic set for if no TP weapon is defined.
-	sets.engaged = {ammo="Staunch Tathlum",
+	sets.engaged = {
+		ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",neck="Lissome Necklace",ear1="Telos Earring",ear2="Cessance Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Petrov Ring",Ring2="Ilabrat Ring",
-		back=gear.alaunus.stp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
+		back=gear.alaunus.stp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
+	}
 
 	sets.engaged.Acc = set_combine(sets.engaged, {})
 
@@ -388,4 +393,12 @@ end
 
 function lockstyle()
 	windower.chat.input("/lockstyleset 004")
+end
+
+function user_job_customize_idle_set(idleSet)
+	if buffactive['Sublimation: Activated'] or state.Buff['Sublimation: Activated'] then
+		idleSet = set_combine(idleSet, sets.Sublimation)
+	end
+
+	return idleSet
 end

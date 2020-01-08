@@ -38,7 +38,7 @@ function user_setup()
 	send_command('bind !r gs c weapons Montante;gs c update')
 	
 	select_default_macro_book()
-	lockstyle:schedule(5)
+	--lockstyle:schedule(5)
 end
 
 function init_gear_sets()

@@ -1,13 +1,18 @@
 function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal','Acc','Fodder')
-	state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
+	state.HybridMode:options('Normal', 'PDT', 'MDT')
 	state.CastingMode:options('Normal', 'Resistant', 'Fodder', 'Proc')
 	state.IdleMode:options('Normal', 'PDT', 'MDT')
 	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None','SequenceAmmurapi','SequenceGenmei','SequenceSacro','NaeglingAmmurapi','NaeglingGenmei','NaeglingSacro','DualSequence','DualNaegling')
+	state.Weapons:options('None','Melee','MeleeBow','MeleeDW','MeleeDWBow')
+	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Kaja Knife','Maxentius'}
+	state.Shields = M{['description'] = 'Shields', 'Sacro Bulwark', 'Ammurapi Shield', 'Genmei Shield'}
+	state.OffhandWeapons = M{['description'] = 'Offhand Weapons', 'Ternion Dagger +1', 'Kaja Knife', 'Naegling'}
+
+	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
 	gear.sucellos = {}
 	gear.sucellos.stp = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
@@ -18,7 +23,8 @@ function user_setup()
 
 	gear.colada = {}
 	gear.colada.enhancing = {name = "Colada", augments = {'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
-	gear.colada.refresh = {}
+	gear.colada.refresh1 = {name="Colada",augments={}}
+	gear.colada.refresh2 = {name="Colada",augments={}}
 	
 	gear.obi_cure_back = gear.sucellos.enfeeble
 	gear.obi_cure_waist = "Witful Belt"
@@ -48,7 +54,7 @@ function user_setup()
 	send_command('bind @f10 gs c cycle RecoverMode')
 	
 	select_default_macro_book()
-	lockstyle:schedule(5)
+	--lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -84,7 +90,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Ginsen",
 		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Sherida Earring",
-		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -113,7 +119,7 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Regal Gem",
 		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",
-		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
+		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
 	}
 	
@@ -122,7 +128,7 @@ function init_gear_sets()
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
+		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Freke Ring",ring2="Archon Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -133,7 +139,7 @@ function init_gear_sets()
 	
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2", neck="Sanctity Necklace",ear1="Regal Earring", ear2="Malignance Earring",
-		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs=gear.merlinic.shalwar.magical,feet="Jhakri Pigaches +2"})
 	
 	sets.precast.WS['Energy Drain'] = set_combine(sets.precast.WS['Sanguine Blade'], {ammo="Regal Gem",})
@@ -263,8 +269,8 @@ function init_gear_sets()
 	
 	sets.midcast['Elemental Magic'] = {main=gear.grioavolr.nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
+		back=gear.sucellos.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
 		
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
 		main="Naegling",sub="Ammurapi Shield",body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical
@@ -308,39 +314,42 @@ function init_gear_sets()
 	-- Sets to return to when not performing an action.	
 
 	-- Idle sets
-	sets.idle = {main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
+	sets.idle = {
+		main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
 		head="Viti. Chapeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Dark Ring",
-		back="Solemnity Cape",waist="Flume Belt",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh}
-		
-	sets.idle.PDT = set_combine(sets.idle, {ammo="Staunch Tathlum",
-		head="Aya. Zucchetto +2",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
-		feet="Aya. Gambieras +2"})
-		
-	sets.idle.MDT = set_combine(sets.idle, {ammo="Staunch Tathlum",hands="Atrophy Gloves +2",legs="Ea Slops",feet="Amalric Nails"})
-		
-	sets.idle.Weak = set_combine(sets.idle, {})
+		back="Moonbeam Cape",waist="Flume Belt",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh
+	}
 	
-	sets.idle.DTHippo = set_combine(sets.idle.PDT, {})
+	sets.idle.PDT = set_combine(sets.idle, {
+		ammo="Staunch Tathlum",ring2="Gelatinous Ring +1",legs="Malignance Tights"
+	})
+	
+	sets.idle.MDT = set_combine(sets.idle, {
+		neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		ring2="Purity Ring",legs="Malignance Tights"
+	})
+		
+	sets.idle.Weak = set_combine(sets.idle.PDT, {})
 	
 	-- Resting sets
 	sets.resting = sets.idle
 		
 	-- Defense sets
 	sets.defense.PDT = {
-		main="Mafic Cudgel",sub="Sacro Bulwark",ammo="Staunch Tathlum",
-		head="Aya. Zucchetto +2",neck="Loriqate Torque +1",
-		body="Ayanmo Corazza +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.sucellos.stp,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
+		ammo="Staunch Tathlum",
+		head="Malignance Chapeau",neck="Loricate Torque +1",
+		body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		waist="Flume Belt",legs="Malignance Tights"
 	}
 
 	sets.defense.NukeLock = sets.midcast['Elemental Magic']
 		
 	sets.defense.MDT = {
-		sub="Sacro Bulwark",ammo="Staunch Tathlum",
-		head="Aya. Zucchetto +2",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
-		body="Ayanmo Corazza +2",hands="Atrophy Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
-		back="Moonbeam Cape",
+		ammo="Staunch Tathlum",
+		head="Malignance Chapeau",neck="Warder's Charm",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		body="Malignance Tabard",hands="",ring1="Defending Ring",ring2="Purity Ring",
+		back="Moonbeam Cape",waist="",legs="Malignance Tights",feet=""
 	}
 		
 	sets.defense.MEVA = set_combine(sets.defense.MDT, {head="Ea Hat",body="Ea Houppelande"})
@@ -353,6 +362,7 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-obi"}
 	sets.DayIdle = {}
 	sets.NightIdle = {}
+	sets.Sublimation = {}
 	
 	-- Weapons sets
 	sets.weapons.SequenceAmmurapi = {main="Sequence",sub="Ammurapi Shield"}
@@ -365,6 +375,22 @@ function init_gear_sets()
 	sets.weapons.DualNaegling = {main="Naegling",sub="Kaja Knife"}
 	sets.weapons.DualTauret = {main="Kaja Knife",sub="Ternion Dagger +1"}
 
+	sets.weapons.Naegling = {main="Naegling",sub=gear.meleeShield}
+	sets.weapons.NaeglingBow = {main="Naegling",sub=gear.meleeShield,range="Kaja Bow"}
+	sets.weapons.Almace = {main="Almace",sub=gear.meleeShield}
+	sets.weapons.AlmaceBow = {main="Almace",sub=gear.meleeShield,range="Kaja Bow"}
+	sets.weapons.Sequence = {main="Sequence",sub=gear.meleeShield}
+	sets.weapons.SequenceBow = {main="Sequence",sub=gear.meleeShield,range="Kaja Bow"}
+	sets.weapons.Tauret = {main="Tauret",sub=gear.meleeShield}
+	sets.weapons.TauretBow = {main="Tauret",sub=gear.meleeShield,range="Kaja Bow"}
+	sets.weapons.Maxentius = {main="Maxentius",sub=gear.meleeShield}
+	sets.weapons.MaxentiusBow = {main="Maxentius",sub=gear.meleeShield,range="Kaja Bow"}
+
+	sets.weapons.Melee = {main=states.MainHandWeapons.value,sub=states.Shields.value}
+	sets.weapons.MeleeBow = {main=states.MainHandWeapons.value,sub=states.Shields.value,range="Kaja Bow"}
+	sets.weapons.MeleeDW = {main=states.MainHandWeapons.value,sub=states.OffhandWeapons.value}
+	sets.weapons.MeleeDWBow = {main=states.MainHandWeapons.value,sub=states.OffhandWeapons.value,range="Kaja Bow"}
+
 	-- Engaged sets
 
 	-- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
@@ -375,26 +401,51 @@ function init_gear_sets()
 	-- Normal melee group
 	sets.engaged = {
 		ammo="Ginsen",
-		head="Aya. Zucchetto +2",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
-		body="Ayanmo Corazza +2",hands="Taeon Gloves",ring1="Petrov Ring",ring2="Ilabrat Ring",
-		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Taeon Tights",feet="Carmine Greaves +1"
+		head="Malignance Chapeau",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
+		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
+		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Malignance Tights",feet="Carmine Greaves +1"
 	}
+	sets.engaged.PDT = set_combine(sets.engaged, {
+		neck="Loricate Torque +1",ring1="Defending Ring"
+	})
+	sets.engaged.MDT = set_combine(sets.engaged, {
+		neck="Warder's Charm +1",ring1="Purity Ring"
+	})
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		head="Carmine Mask +1",neck="Lissome Torque",
 		hands="Aya. Manopolas +2",ring1="Chirich Ring",
-		waist="Grunfeld Rope",legs="Carmine Cuisses +1"})
+		waist="Grunfeld Rope",legs="Carmine Cuisses +1"
+	})
+	sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {
+		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
+	})
+	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {
+		hands="Aya.Manopolas +2",waist="Grunfeld Rope"
+	})
+	
+	sets.engaged.DW = {
+		ammo="Ginsen",
+		head="Malignance Chapeau", neck="Anu Torque", ear1="Suppanomimi",ear2="Sherida Earring",
+		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
+		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"
+	}
+	sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
+		neck="Loricate Torque +1",ring1="Defending Ring", ring2="Gelatinous Ring +1"
+	})
+	sets.engaged.DW.MDT = set_combine(sets.engaged.DW, {
+		neck="Warder's Charm +1",ring1="Defending Ring",ring2="Purity Ring"
+	})
 
-	sets.engaged.DW = set_combine(sets.engaged, {ear1="Suppanomimi",legs="Carmine Cuisses +1"})
-	sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {ear1="Suppanomimi"})
-		
-	sets.engaged.PhysicalDef = set_combine(sets.engaged, {
-		neck="Loricate Torque +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.sucellos.stp,waist="Flume Belt"})
-		
-	sets.engaged.MagicalDef = set_combine(sets.engaged, {
-		ammo="Staunch Tathlum",neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt})
-
+	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
+		neck="Lissome Necklace",hands="Aya. Manopolas +2",ring1="Chirich Ring",waist="Grunfeld Rope"
+	})
+	sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.PDT, {
+		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
+	})
+	sets.engaged.DW.Acc.MDT = set_combine(sets.engaged.DW.MDT, {
+		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
+	})
 end
 
 buff_spell_lists = {
@@ -502,7 +553,7 @@ end
 
 function user_job_post_midcast(spell, spellMap, eventArgs)
 	if S{'Enfeebling Magic','Dark Magic','Elemental Magic'}:contains(spell.skill) and sets.midcast[spell.skill].PreserveTP then
-		if state.Weapons and state.Weapons.value ~= 'None' then
+		if state.Weapons and state.Weapons.value ~= 'None' and not S{'Kaja Bow','Ullr'}:contains(sets.weapons[state.Weapons.value].range) then
 			equip(sets.midcast[spell.skill].PreserveTP)
 		end
 	end
@@ -674,4 +725,48 @@ function get_duelist_torque_modifier(casting_set)
 	else
 		return casting_set.neck == "Duelist's Torque" and 114 or 0
 	end
+end
+
+function user_job_self_command(commandArgs,eventArgs)
+	local commandToHandle = (table.remove(commandArgs,1)).lower()
+
+	if commandToHandle == 'cyclemain' then
+		eventArgs.handled = true
+		handle_cycle('MainHandWeapons')
+		--state.MainHandWeapons:cycle()
+
+		if state.MainHandWeapons.value == state.OffhandWeapons.value then
+			handle_cycle('OffhandWeapons')
+			--state.OffhandWeapons:cycle()
+		end
+
+		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
+		handle_weapons(state.Weapons.value)
+	elseif commandToHandle == 'cycleshield' then
+		eventArgs.handled = true
+		handle_cycle('Shields')
+		--state.Shields:cycle()
+
+		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
+		handle_weapons(state.Weapons.value)
+	elseif commandToHandle == 'cycleoffhand' then
+		eventArgs.handled = true
+		handle_cycle('OffhandWeapons')
+		--state.OffhandWeapons:cycle()
+
+		if state.MainHandWeapons.value == state.OffhandWeapons.value then
+			handle_cycle('OffhandWeapons')
+			--state.OffhandWeapons:cycle()
+		end
+
+		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
+		handle_weapons(state.Weapons.value)
+	end
+end
+
+function reset_all_weapon_sets(mainhand, shield, offhand)
+	sets.weapons.Melee = set_combine(sets.weapons.Melee, {main=mainhand,sub=shield})
+	sets.weapons.MeleeBow = set_combine(sets.weapons.Melee, {main=mainhand,sub=shield})
+	sets.weapons.MeleeDW = set_combine(sets.weapons.Melee, {main=mainhand,sub=offhand})
+	sets.weapons.MeleeDWBow = set_combine(sets.weapons.Melee, {main=mainhand,sub=offhand})
 end

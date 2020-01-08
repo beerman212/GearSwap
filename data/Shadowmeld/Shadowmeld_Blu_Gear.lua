@@ -46,7 +46,7 @@ function user_setup()
 	send_command('bind !q gs c weapons Learning;gs c update')
 
 	select_default_macro_book()
-	lockstyle:schedule(5)
+	--lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -462,7 +462,7 @@ function init_gear_sets()
 
 	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt,waist="Flume Belt +1"})
 
-	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",head="Aya. Zucchetto +2",
+	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum",head="Malignance Chapeau",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
 		legs="Carmine Cuisses +1",feet="Ahosi Leggings"})
 
@@ -494,7 +494,7 @@ function init_gear_sets()
 	sets.Healing_Club = {}
 	sets.Healing_DWClub = {}
 	sets.Cure_Received = {hands="Buremte Gloves",waist="Gishdubar Sash"}
-	sets.Self_Refresh = {hands="Buremte Gloves",waist="Gishdubar Sash"}
+	sets.Self_Refresh = {head="Amalric Coif +1",hands="Buremte Gloves",waist="Gishdubar Sash"}
 	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1",ring1="Mujin Band",ring2="Locus Ring",feet="Jhakri Pigaches +2"}
 
 end
