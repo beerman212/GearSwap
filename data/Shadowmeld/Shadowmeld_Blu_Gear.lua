@@ -448,7 +448,7 @@ function init_gear_sets()
 
 	sets.engaged.PDT = set_combine(sets.engaged.DTLite, {
 		ammo="Staunch Tathlum",
-		head="Malignance Chapeau",neck="Loricate Torque +1"
+		head="Malignance Chapeau",neck="Loricate Torque +1",
 		body="Malignance Tabard",ring2="Gelatinous Ring +1",
 		legs="Carmine Cuisses +1"
 	})

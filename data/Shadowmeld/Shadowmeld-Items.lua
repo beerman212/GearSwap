@@ -71,10 +71,10 @@ gear.herculean.trousers.ranged_crit = {name = "Herculean Trousers", augments = {
 gear.herculean.boots = {}
 gear.herculean.boots.ta = {name = "Herculean Boots", augments = {'Accuracy+23 Attack+23','"Triple Atk."+3','AGI+9',}}
 gear.herculean.boots.ta_low_acc = {name = "Herculean Boots", augments = {'Accuracy+7','"Triple Atk."+4',}}
-gear.herculean.boots.magical = {name = "Herculean Boots", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','MND+9','Mag. Acc.+13','"Mag.Atk.Bns."+7',}}
-gear.herculean.boots.agiwsd = {name = "Herculean Boots", augments = {'Rng.Acc.+27','Weapon skill damage +4%','STR+7','Rng.Atk.+12',}}
+gear.herculean.boots.magical = {name = "Herculean Boots", augments = {'Mag. Acc.+17 "Mag.Atk.Bns."+17','Magic dmg. taken -3%','INT+9','Mag. Acc.+14','"Mag.Atk.Bns."+14',}}
+--gear.herculean.boots.agiwsd = {name = "Herculean Boots", augments = {'Rng.Acc.+27','Weapon skill damage +4%','STR+7','Rng.Atk.+12',}}
 gear.herculean.boots.TH = {name = "Herculean Boots", augments = {'Potency of "Cure" effect received+1%','Attack+20','"Treasure Hunter"+2','Mag. Acc.+2 "Mag.Atk.Bns."+2',}}
-gear.herculean.boots.refresh = {name = "Herculean Boots", augments = {}}
+gear.herculean.boots.refresh = {name = "Herculean Boots", augments = {'STR+14','Attack+2','"Refresh"+2','Mag. Acc.+8 "Mag.Atk.Bns."+8',}}
 
 gear.merlinic = {}
 gear.merlinic.hood = {}

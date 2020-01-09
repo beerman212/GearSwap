@@ -386,10 +386,10 @@ function init_gear_sets()
 	sets.weapons.Maxentius = {main="Maxentius",sub=gear.meleeShield}
 	sets.weapons.MaxentiusBow = {main="Maxentius",sub=gear.meleeShield,range="Kaja Bow"}
 
-	sets.weapons.Melee = {main=states.MainHandWeapons.value,sub=states.Shields.value}
-	sets.weapons.MeleeBow = {main=states.MainHandWeapons.value,sub=states.Shields.value,range="Kaja Bow"}
-	sets.weapons.MeleeDW = {main=states.MainHandWeapons.value,sub=states.OffhandWeapons.value}
-	sets.weapons.MeleeDWBow = {main=states.MainHandWeapons.value,sub=states.OffhandWeapons.value,range="Kaja Bow"}
+	sets.weapons.Melee = {main=state.MainHandWeapons.value,sub=state.Shields.value}
+	sets.weapons.MeleeBow = {main=state.MainHandWeapons.value,sub=state.Shields.value,range="Kaja Bow"}
+	sets.weapons.MeleeDW = {main=state.MainHandWeapons.value,sub=state.OffhandWeapons.value}
+	sets.weapons.MeleeDWBow = {main=state.MainHandWeapons.value,sub=state.OffhandWeapons.value,range="Kaja Bow"}
 
 	-- Engaged sets
 
@@ -728,15 +728,15 @@ function get_duelist_torque_modifier(casting_set)
 end
 
 function user_job_self_command(commandArgs,eventArgs)
-	local commandToHandle = (table.remove(commandArgs,1)).lower()
+	local commandToHandle = commandArgs[1]
 
 	if commandToHandle == 'cyclemain' then
 		eventArgs.handled = true
-		handle_cycle('MainHandWeapons')
+		handle_cycle({'MainHandWeapons'})
 		--state.MainHandWeapons:cycle()
 
 		if state.MainHandWeapons.value == state.OffhandWeapons.value then
-			handle_cycle('OffhandWeapons')
+			handle_cycle({'OffhandWeapons'})
 			--state.OffhandWeapons:cycle()
 		end
 
@@ -744,18 +744,18 @@ function user_job_self_command(commandArgs,eventArgs)
 		handle_weapons(state.Weapons.value)
 	elseif commandToHandle == 'cycleshield' then
 		eventArgs.handled = true
-		handle_cycle('Shields')
+		handle_cycle({'Shields'})
 		--state.Shields:cycle()
 
 		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
 		handle_weapons(state.Weapons.value)
 	elseif commandToHandle == 'cycleoffhand' then
 		eventArgs.handled = true
-		handle_cycle('OffhandWeapons')
+		handle_cycle({'OffhandWeapons'})
 		--state.OffhandWeapons:cycle()
 
 		if state.MainHandWeapons.value == state.OffhandWeapons.value then
-			handle_cycle('OffhandWeapons')
+			handle_cycle({'OffhandWeapons'})
 			--state.OffhandWeapons:cycle()
 		end
 
