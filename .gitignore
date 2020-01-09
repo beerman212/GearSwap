@@ -25,7 +25,7 @@ libs/rev1/*
 #*_Crafting.lua
 #*-Items.lua
 #*-Globals.lua
-data/export/*
+#data/export/*
 data/common/*
 data/User/*
 data/Extras/*
@@ -33,3 +33,4 @@ libs/closetCleaner.lua
 Rename.bat
 Modes.lua
 organizer-lib.lua
+#data\export\*
