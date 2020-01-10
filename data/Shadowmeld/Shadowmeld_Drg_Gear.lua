@@ -1,8 +1,8 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal','SomeAcc','Acc','FullAcc','Fodder')
-	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','FullAcc','Fodder')
+	state.OffenseMode:options('Normal','SomeAcc','Acc','MaxAcc','Fodder')
+	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','MaxAcc','Fodder')
 	state.HybridMode:options('Normal')
 	state.PhysicalDefenseMode:options('PDT', 'PDTReraise')
 	state.MagicalDefenseMode:options('MDT', 'MDTReraise')
@@ -89,7 +89,7 @@ function init_gear_sets()
 		back=gear.brigantia.sonicthrust,waist="Fotia Belt",legs="Vishap Brais +2",feet="Sulev. Leggings +2",
 	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
-	sets.precast.WS.FullAcc = set_combine(sets.precast.WS, {})
+	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -100,7 +100,7 @@ function init_gear_sets()
 	})
 	sets.precast.WS['Stardiver'].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {})
-	sets.precast.WS['Stardiver'].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS['Stardiver'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
 	sets.precast.WS['Stardiver'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
 	sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {
@@ -110,19 +110,19 @@ function init_gear_sets()
 	})
 	sets.precast.WS['Drakesbane'].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS.Acc, {})
-	sets.precast.WS['Drakesbane'].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS['Drakesbane'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
 	sets.precast.WS['Drakesbane'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 	
 	sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS, {ear2="Moonshade Earring"})
 	sets.precast.WS['Sonic Thrust'].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS['Sonic Thrust'].Acc = set_combine(sets.precast.WS.Acc, {})
-	sets.precast.WS['Sonic Thrust'].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS['Sonic Thrust'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
 	sets.precast.WS['Sonic Thrust'].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
 	sets.precast.WS["Camlann's Torment"] = set_combine(sets.precast.WS, {})
 	sets.precast.WS["Camlann's Torment"].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS["Camlann's Torment"].Acc = set_combine(sets.precast.WS.Acc, {})
-	sets.precast.WS["Camlann's Torment"].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS["Camlann's Torment"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
 	sets.precast.WS["Camlann's Torment"].Fodder = set_combine(sets.precast.WS.Fodder, {})
 	
 	sets.precast.WS["Leg Sweep"] = set_combine(sets.precast.WS, {
@@ -133,7 +133,7 @@ function init_gear_sets()
 	})
 	sets.precast.WS["Leg Sweep"].SomeAcc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS["Leg Sweep"].Acc = set_combine(sets.precast.WS.Acc, {})
-	sets.precast.WS["Leg Sweep"].FullAcc = set_combine(sets.precast.WS.FullAcc, {})
+	sets.precast.WS["Leg Sweep"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
 	sets.precast.WS["Leg Sweep"].Fodder = set_combine(sets.precast.WS.Fodder, {})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
@@ -198,13 +198,13 @@ function init_gear_sets()
 	}
 	sets.engaged.SomeAcc = {}
 	sets.engaged.Acc = {}
-	sets.engaged.FullAcc = {}
+	sets.engaged.MaxAcc = {}
 	sets.engaged.Fodder = {}
 
 	sets.engaged.PDT = {}
 	sets.engaged.SomeAcc.PDT = {}
 	sets.engaged.Acc.PDT = {}
-	sets.engaged.FullAcc.PDT = {}
+	sets.engaged.MaxAcc.PDT = {}
 	sets.engaged.Fodder.PDT = {}
 
 	sets.engaged.MaxHaste = set_combine(sets.engaged, {body="Hjarrandi Breast."})

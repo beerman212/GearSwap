@@ -1,10 +1,10 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal','Acc','FullAcc','Fodder')
+	state.OffenseMode:options('Normal','Acc','MaxAcc','Fodder')
 	state.HybridMode:options('Normal','PDT','MDT','Crit','STP','SubtleBlow')
 	state.RangedMode:options('Normal', 'Acc')
-	state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
+	state.WeaponskillMode:options('Match','Normal','Acc','MaxAcc','Fodder')
 	state.IdleMode:options('Normal', 'Sphere')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
@@ -138,7 +138,7 @@ function init_gear_sets()
 	}
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",})
-	sets.precast.WS.FullAcc = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",legs="Pill. Culottes +2",feet="Meg. Chausses +2"})
+	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",legs="Pill. Culottes +2",feet="Meg. Chausses +2"})
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS["Rudra's Storm"] = {
@@ -149,7 +149,7 @@ function init_gear_sets()
 	}
 	
 	sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {ear1="Mache Earring +1"})
-	sets.precast.WS["Rudra's Storm"].FullAcc = set_combine(sets.precast.WS["Rudra's Storm"].Acc, {body="Pillager's Vest +2",legs="Pill. Culottes +2"})
+	sets.precast.WS["Rudra's Storm"].MaxAcc = set_combine(sets.precast.WS["Rudra's Storm"].Acc, {body="Pillager's Vest +2",legs="Pill. Culottes +2"})
 	sets.precast.WS["Rudra's Storm"].Fodder = set_combine(sets.precast.WS["Rudra's Storm"], {})
 	sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
 	sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
@@ -165,7 +165,7 @@ function init_gear_sets()
 	}
 	
 	sets.precast.WS["Shark Bite"].Acc = set_combine(sets.precast.WS["Shark Bite"], {})
-	sets.precast.WS["Shark Bite"].FullAcc = set_combine(sets.precast.WS["Shark Bite"].Acc, {})
+	sets.precast.WS["Shark Bite"].MaxAcc = set_combine(sets.precast.WS["Shark Bite"].Acc, {})
 	sets.precast.WS["Shark Bite"].Fodder = set_combine(sets.precast.WS["Shark Bite"], {})
 	sets.precast.WS["Shark Bite"].SA = set_combine(sets.precast.WS["Shark Bite"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
 	sets.precast.WS["Shark Bite"].TA = set_combine(sets.precast.WS["Shark Bite"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
@@ -179,7 +179,7 @@ function init_gear_sets()
 	}
 	
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
-	sets.precast.WS['Evisceration'].FullAcc = set_combine(sets.precast.WS['Evisceration'].Acc, {ammo="Seeth. Bomblet +1",ear2="Mache Earring +1",body="Pillager's Vest +2",ring1="Moonbeam Ring"})
+	sets.precast.WS['Evisceration'].MaxAcc = set_combine(sets.precast.WS['Evisceration'].Acc, {ammo="Seeth. Bomblet +1",ear2="Mache Earring +1",body="Pillager's Vest +2",ring1="Moonbeam Ring"})
 	sets.precast.WS['Evisceration'].Fodder = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Fodder, {})
 	sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].Fodder, {})
@@ -193,7 +193,7 @@ function init_gear_sets()
 	}
 	
 	sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {})
-	sets.precast.WS['Exenterator'].FullAcc = set_combine(sets.precast.WS['Exenterator'].Acc, {})
+	sets.precast.WS['Exenterator'].MaxAcc = set_combine(sets.precast.WS['Exenterator'].Acc, {})
 	sets.precast.WS['Exenterator'].Fodder = set_combine(sets.precast.WS['Exenterator'], {})
 	sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Fodder, {})
 	sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Fodder, {})
@@ -340,21 +340,21 @@ function init_gear_sets()
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {})
 	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {})
 
-	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {
+	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {
 		head="Pill. Bonnet +2",neck="Lissome Necklace",
 		waist="Grunfeld Rope",legs="Pill. Culottes +2",feet="Mummu Gamash. +2"
 	})
-	sets.engaged.FullAcc.Crit = set_combine(sets.engaged.Acc.Crit, {
+	sets.engaged.MaxAcc.Crit = set_combine(sets.engaged.Acc.Crit, {
 		head="Pill. Bonnet +2",back=gear.toutatis.stp,legs="Pill. Culottes +2"
 	})
-	sets.engaged.FullAcc.STP = set_combine(sets.engaged.Acc.STP, {legs="Pill. Culottes +2",feet="Mummu Gamash. +2"})
-	sets.engaged.FullAcc.SubtleBlow = set_combine(sets.engaged.Acc.SubtleBlow, {
+	sets.engaged.MaxAcc.STP = set_combine(sets.engaged.Acc.STP, {legs="Pill. Culottes +2",feet="Mummu Gamash. +2"})
+	sets.engaged.MaxAcc.SubtleBlow = set_combine(sets.engaged.Acc.SubtleBlow, {
 		ammo="Yamarang",
 		head="Pill. Bonnet +2",neck="Lissome Necklace",
 		ring1="Moonbeam Ring",waist="Grunfeld Rope",legs="Pill. Culottes +2"
 	})
-	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.Acc.PDT, {})
-	sets.engaged.FullAcc.MDT = set_combine(sets.engaged.Acc.MDT, {})
+	sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.Acc.PDT, {})
+	sets.engaged.MaxAcc.MDT = set_combine(sets.engaged.Acc.MDT, {})
 
 	sets.engaged.Fodder = set_combine(sets.engaged, {neck="Iskur Gorget",ear2="Dedition Earring"})
 	sets.engaged.Fodder.Crit = set_combine(sets.engaged.Crit, {ear2="Dedition Earring"})

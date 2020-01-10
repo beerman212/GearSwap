@@ -411,6 +411,15 @@ function init_gear_sets()
 	sets.engaged.MDT = set_combine(sets.engaged, {
 		neck="Warder's Charm +1",ring1="Purity Ring"
 	})
+
+	sets.engaged.Enspell = set_combine(sets.engaged, {})
+	sets.engaged.Enspell2 = set_combine(sets.engaged, {})
+
+	sets.engaged.PDT.Enspell = set_combine(sets.engaged.PDT, {})
+	sets.engaged.PDT.Enspell2 = set_combine(sets.engaged.PDT, {})
+
+	sets.engaged.MDT.Enspell = set_combine(sets.engaged.MDT, {})
+	sets.engaged.MDT.Enspell2 = set_combine(sets.engaged.MDT, {})
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		head="Carmine Mask +1",neck="Lissome Torque",

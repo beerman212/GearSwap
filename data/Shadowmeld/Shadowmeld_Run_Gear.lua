@@ -1,8 +1,8 @@
 function user_setup()
 
-	state.OffenseMode:options('Normal','SomeAcc','Acc','HighAcc','FullAcc')
+	state.OffenseMode:options('Normal','SomeAcc','Acc','HighAcc','MaxAcc')
 	state.HybridMode:options('Normal','DTLite','Tank')
-	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','HighAcc','FullAcc')
+	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','HighAcc','MaxAcc')
 	state.CastingMode:options('Normal','SIRD','Resistant')
 	state.PhysicalDefenseMode:options('PDT', 'PDT_HP')
 	state.MagicalDefenseMode:options('MDT','MDT_HP','BDT','BDT_HP')
@@ -168,7 +168,7 @@ function init_gear_sets()
 	sets.precast.WS.SomeAcc = {}
 	sets.precast.WS.Acc = {}
 	sets.precast.WS.HighAcc = {}
-	sets.precast.WS.FullAcc = {}
+	sets.precast.WS.MaxAcc = {}
 
 	sets.precast.WS['Resolution'] = {
 		ammo="Knobkierrie",
@@ -179,7 +179,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'],{})
 	sets.precast.WS['Resolution'].HighAcc = set_combine(sets.precast.WS['Resolution'].Acc,{})
-	sets.precast.WS['Resolution'].FullAcc = set_combine(sets.precast.WS['Resolution'].HighAcc,{})
+	sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'].HighAcc,{})
 
 	sets.precast.WS['Dimidiation'] = {
 		ammo="Knobkierrie",
@@ -190,7 +190,7 @@ function init_gear_sets()
 	
 	sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS.Acc,{})
 	sets.precast.WS['Dimidiation'].HighAcc = set_combine(sets.precast.WS.HighAcc,{})
-	sets.precast.WS['Dimidiation'].FullAcc = set_combine(sets.precast.WS.FullAcc,{})
+	sets.precast.WS['Dimidiation'].MaxAcc = set_combine(sets.precast.WS.MaxAcc,{})
 	
 	sets.precast.WS['Ground Strike'] = {
 		ammo="Knobkierrie",
@@ -201,7 +201,7 @@ function init_gear_sets()
 	
 	sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS.Acc,{})
 	sets.precast.WS['Ground Strike'].HighAcc = set_combine(sets.precast.WS.HighAcc,{})
-	sets.precast.WS['Ground Strike'].FullAcc = set_combine(sets.precast.WS.FullAcc,{})
+	sets.precast.WS['Ground Strike'].MaxAcc = set_combine(sets.precast.WS.MaxAcc,{})
 	
 	sets.precast.WS['Herculean Slash'] = set_combine(sets.precast.JA['Lunge'], {})
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.JA['Lunge'], sets.element.Dark, {})
@@ -348,13 +348,13 @@ function init_gear_sets()
 	sets.engaged.SomeAcc = set_combine(sets.engaged, {head="Dampening Tam",feet=gear.herculean.boots.ta})
 	sets.engaged.Acc = set_combine(sets.engaged.SomeAcc, {neck="Lissome Necklace",ear1="Telos Earring"})
 	sets.engaged.HighAcc = set_combine(sets.engaged.Acc, {})
-	sets.engaged.FullAcc = set_combine(sets.engaged.HighAcc, {})
+	sets.engaged.MaxAcc = set_combine(sets.engaged.HighAcc, {})
 	sets.engaged.DTLite = set_combine(sets.engaged, {})
 	
 	sets.engaged.SomeAcc.DTLite = set_combine(sets.engaged.SomeAcc, {})
 	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {})
 	sets.engaged.HighAcc.DTLite = set_combine(sets.engaged.HighAcc, {})
-	sets.engaged.FullAcc.DTLite = set_combine(sets.engaged.FullAcc, {})
+	sets.engaged.MaxAcc.DTLite = set_combine(sets.engaged.MaxAcc, {})
 
 	sets.engaged.Tank = {ammo="Staunch Tathlum",
 	head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
@@ -363,7 +363,7 @@ function init_gear_sets()
 	sets.engaged.SomeAcc.Tank = sets.engaged.Tank
 	sets.engaged.Acc.Tank = sets.engaged.Tank
 	sets.engaged.HighAcc.Tank = sets.engaged.Tank
-	sets.engaged.FullAcc.Tank = sets.engaged.Tank
+	sets.engaged.MaxAcc.Tank = sets.engaged.Tank
 	
 	--------------------------------------
 	-- Custom buff sets
