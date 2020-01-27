@@ -65,8 +65,7 @@ function init_gear_sets()
 	-- Precast Sets
 	
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Chainspell'] = {body="Viti. Tabard +3"}
-	
+	sets.precast.JA['Chainspell'] = {body="Viti. Tabard +3"}	
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
@@ -143,6 +142,13 @@ function init_gear_sets()
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs=gear.merlinic.shalwar.magical,feet="Jhakri Pigaches +2"})
 	
 	sets.precast.WS['Energy Drain'] = set_combine(sets.precast.WS['Sanguine Blade'], {ammo="Regal Gem",})
+
+	sets.precast.WS['Empyreal Arrow'] = {
+		ammo="",
+		head="Malignance Chapeau",neck="Marked Gorget",ear1="Telos Earring",ear2="Enervating Earring",
+		body="Malignance Tabard",hands="",ring1="",ring2="",
+		back=gear.sucellos.stp,waist="Yemaya Belt",legs="Malignance Tights",feet=""
+	}
 	
 	sets.MaxTP = {}
 	sets.AccMaxTP = {}
@@ -300,6 +306,14 @@ function init_gear_sets()
 	sets.midcast.Stun = set_combine(sets.midcast.FastRecast, {main="Rubicundity",sub="Ammurapi Shield",})
 		
 	sets.midcast.Stun.Resistant = sets.midcast['Dark Magic']
+
+	-- Ranged Attack sets
+	sets.midcast.RA = {
+		ammo="",
+		head="Malignance Chapeau",neck="Marked Gorget",ear1="Telos Earring",ear2="Enervating Earring",
+		body="Malignance Tabard",hands="",ring1="",ring2="",
+		back=gear.sucellos.stp,waist="Yemaya Belt",legs="Malignance Tights",feet=""
+	}
 
 	-- Sets for special buff conditions on spells.
 		

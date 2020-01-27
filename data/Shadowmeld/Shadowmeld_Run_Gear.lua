@@ -9,8 +9,16 @@ function user_setup()
 	state.ResistDefenseMode:options('MEVA','MEVA_HP','Charm')
 	state.IdleMode:options('Normal','Tank','KiteTank','Sphere')
 	state.Weapons:options('Zulfiqar','Epeolatry','Aettir')
+	state.CompoundRuneMode = M{['description'] = 'Compound Rune Mode', 'Normal', 'Bashmu'}
 	
 	state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None','MP'}
+
+	defaultRunes = {
+		Bashmu = {
+			{Name="Ignis",Amount=2},
+			{Name="Supor",Amount=1}
+		},
+	}
 
 	gear.ogma = {}
 	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10',}}
@@ -446,3 +454,56 @@ buff_spell_lists.Auto = {--Options for When are: Always, Engaged, Idle, OutOfCom
 	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
 	{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Idle'},
 }
+
+function check_rune()
+	if state.AutoRuneMode.value then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+	
+		if state.CombatRuneMode.value ~= "Normal" and defaultRunes[state.CombatRuneMode.value] then
+			local runesToCheck = defaultRunes[state.CombatRuneMode.value]
+			for 1,8 do
+				local rune = runesToCheck[i]
+				local rune_count = buffactive[rune.Name] or 0
+
+				if rune_count < rune.Amount then
+					windower.chat.input('/ja "' .. rune.Name .. '" <me>')
+					tickdelay = os.clock() + 1.8
+					return true
+				end
+
+			end
+		elseif (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 3) then
+			if abil_recasts[92] > 0 then return false end		
+			send_command('input /ja "'..state.RuneElement.value..'" <me>')
+			tickdelay = os.clock() + 1.8
+			return true
+		end
+
+		if not player.in_combat then 
+			return false
+		elseif not buffactive['Pflug'] then
+			if abil_recasts[59] < latency then
+				send_command('input /ja "Pflug" <me>')
+				tickdelay = os.clock() + 1.8
+				return true
+			end
+		elseif not (buffactive['Vallation'] or buffactive['Valiance']) then
+			if player.main_job == 'RUN' and abil_recasts[113] < latency then
+				send_command('input /ja "Valiance" <me>')
+				tickdelay = os.clock() + 2.5
+				return true
+			elseif abil_recasts[23] < latency then
+				send_command('input /ja "Vallation" <me>')
+				tickdelay = os.clock() + 2.5
+				return true
+			else
+				return false
+			end
+		else 
+			return false
+		end
+
+	end
+
+	return false
+end

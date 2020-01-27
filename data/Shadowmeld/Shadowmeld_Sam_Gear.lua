@@ -1,8 +1,8 @@
 -- Setup vars that are user-dependent.
 function user_setup()
-	state.OffenseMode:options('Normal','Zanhasso', 'Kenhasso', 'TripleAttack', 'MidAcc','MaxAcc')
-	state.HybridMode:options('Normal','HybridDT','PDT')
-	state.WeaponskillMode:options('Match','Normal','MidAcc','MaxAcc','Proc')
+	state.OffenseMode:options('Normal','Acc','MaxAcc','Fodder')
+	state.HybridMode:options('Zanshin','Kendatsuba','HybridDT','PDT','MDT')
+	state.WeaponskillMode:options('Match','Normal','Acc','MaxAcc','Proc')
 	state.RangedMode:options('Normal', 'Acc')
 	state.PhysicalDefenseMode:options('PDT','PDTReraise')
 	state.MagicalDefenseMode:options('MDT','MDTReraise')
@@ -78,89 +78,161 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head=gear.valorous.mask.wsd,neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Sakonji Domaru +3",hands=gear.valorous.mitts.wsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
-		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.wsd}
-		
-	sets.precast.WS.MidAcc = set_combine(sets.precast.WS, {head="Wakido Kabuto +3"})
-	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {
-		head="Wakido Kabuto +3",ear2="Cessance Earring",
-		hands="Wakido Kote +3",
-		feet="Flam. Gambieras +2"})
-	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
-	
-	sets.precast.WS.Proc = {ammo="Hasty Pinion +1",
-		head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Wakido Domaru +3",hands="Flam. Manopolas +2",ring1="Flamma Ring",ring2="Chirich Ring",
-		back=gear.smertrios.da,waist="Fotia Belt",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
-	
-	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {})
-	sets.precast.WS['Tachi: Fudo'].MidAcc = set_combine(sets.precast.WS.MidAcc, {})
-	sets.precast.WS['Tachi: Fudo'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
-	sets.precast.WS['Tachi: Fudo'].Fodder = set_combine(sets.precast.WS.Fodder, {})
-
-	sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
-		head="Flam. Zucchetto +2",
-		hands=gear.valorous.mitts.da,ring1="Flamma Ring"})
-	sets.precast.WS['Tachi: Shoha'].MidAcc = set_combine(sets.precast.WS.MidAcc, {feet="Flam. Gambieras +2"})
-	sets.precast.WS['Tachi: Shoha'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
-	sets.precast.WS['Tachi: Shoha'].Fodder = set_combine(sets.precast.WS.Fodder, {})
-
-	sets.precast.WS['Tachi: Rana'] = set_combine(sets.precast.WS, {
-		ammo="Paeapua",
-		head="Flam. Zucchetto +2",neck="Caro Necklace",ear2="Cessance Earring",
-		body="Ken. Samue +1",hands=gear.valorous.mitts.da,ring1="Flamma Ring",
-		waist="Grunfeld Rope",legs="Ken. Hakama +1",feet="Flam. Gambieras +2",
+		head=gear.valorous.mask.strwsd,neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		body="Sakonji Domaru +3",hands=gear.valorous.mitts.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
+		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.strwsd
+	}
+	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
+	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS.Acc, {
+		head="Wakido Kabuto +3",ear1="Lugra Earring +1",
+		hands="Wakido Kote +3",ring1="Flamma Ring",
+		feet="Flam. Gambieras +2"
 	})
-	sets.precast.WS['Tachi: Rana'].MidAcc = set_combine(sets.precast.WS.MidAcc, {})
-	sets.precast.WS['Tachi: Rana'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
-	sets.precast.WS['Tachi: Rana'].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
+	sets.precast.WS.Proc = {}
 
-	sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {})
-	sets.precast.WS['Tachi: Kasha'].MidAcc = set_combine(sets.precast.WS.MidAcc, {})
-	sets.precast.WS['Tachi: Kasha'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
-	sets.precast.WS['Tachi: Kasha'].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	--[[ Tachi: Fudo ]]
+	sets.precast.WS["Tachi: Fudo"] = set_combine(sets.precast.WS, {neck="Caro Necklace"})
+	sets.precast.WS["Tachi: Fudo"].Acc = set_combine(sets.precast.WS.Acc, {neck="Caro Necklace"})
+	sets.precast.WS["Tachi: Fudo"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
+		head="Wakido Kabuto +3",neck="Caro Necklace",ear1="Lugra Earring +1",ear2="Mache Earring +1",
+		hands="Wakido Kote +3",ring1="Flamma Ring",
+		feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Fudo"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Fudo"].Proc = set_combine(sets.precast.WS.Proc, {})
 
-	sets.precast.WS['Tachi: Gekko'] = set_combine(sets.precast.WS, {})
-	sets.precast.WS['Tachi: Gekko'].MidAcc = set_combine(sets.precast.WS.MidAcc, {})
-	sets.precast.WS['Tachi: Gekko'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
-	sets.precast.WS['Tachi: Gekko'].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Kasha"] = sets.precast.WS["Tachi: Fudo"]
+	sets.precast.WS["Tachi: Gekko"] = sets.precast.WS["Tachi: Fudo"]
+	sets.precast.WS["Tachi: Yukikaze"] = sets.precast.WS["Tachi: Fudo"]
 
-	sets.precast.WS['Tachi: Yukikaze'] = set_combine(sets.precast.WS, {})
-	sets.precast.WS['Tachi: Yukikaze'].MidAcc = set_combine(sets.precast.WS.MidAcc, {})
-	sets.precast.WS['Tachi: Yukikaze'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {})
-	sets.precast.WS['Tachi: Yukikaze'].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	--[[ Tachi: Shoha ]]
+	sets.precast.WS["Tachi: Shoha"] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",ear1="Lugra Earring +1",
+		ring1="Flamma Ring"
+		waist="Ioskeha Belt +1",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Shoha"].Acc = set_combine(sets.precast.WS.Acc, {})
+	sets.precast.WS["Tachi: Shoha"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
+		head="Flam. Zucchetto +2",ear1="Mache Earring +1",
+		hands="Wakido Kote +3",ring1="Flamma Ring",
+		waist="Ioskeha Belt +1",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Shoha"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Shoha"].Proc = set_combine(sets.precast.WS.Proc, {})
 
-	sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS, {
-		ammo="Pemphredo Tathlum",
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear2="Digni. Earring",
+	sets.precast.WS["Tachi: Enpi"] = sets.precast.WS["Tachi: Shoha"]
+
+	--[[ Tachi: Rana ]]
+	sets.precast.WS["Tachi: Rana"] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",ear1="Lugra Earring +1",ear2="Lugra Earring",
+		body=gear.valorous.mail.da,hands=gear.valorous.mitts.da,ring1="Flamma Ring",
+		waist="Ioskeha Belt +1",legs=gear.valorous.hose.dexwsd,feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Rana"].Acc = set_combine(sets.precast.WS.Acc, {
+		head="Flam. Zucchetto +2",ear1="Lugra Earring +1",ear2="Lugra Earring",
+		body=gear.valorous.mail.da,hands=gear.valorous.mitts.da,ring1="Flamma Ring",
+		waist="Ioskeha Belt +1",legs=gear.valorous.hose.dexwsd,feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Rana"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
+		head="Flam. Zucchetto +2",ear1="Lugra Earring +1",ear2="Mache Earring +1",
+		body="Wakido Domaru +3",hands="Wakido Kote +3",ring1="Flamma Ring",
+		waist="Ioskeha Belt +1",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Rana"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Rana"].Proc = set_combine(sets.precast.WS.Proc, {})
+
+	--[[ Tachi: Ageha ]]
+	sets.precast.WS["Tachi: Ageha"] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
 		hands="Flam. Manopolas +2",ring1="Flamma Ring",
-		waist="Eschan Stone",feet="Flam. Gambieras +2"})
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Ageha"].Acc = set_combine(sets.precast.WS.Acc, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		hands="Flam. Manopolas +2",ring1="Flamma Ring",
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Ageha"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		hands="Flam. Manopolas +2",ring1="Flamma Ring",
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Ageha"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Ageha"].Proc = set_combine(sets.precast.WS.Proc, {})
 
-	sets.precast.WS['Tachi: Hobaku'] = sets.precast.WS['Tachi: Ageha']
-	
-	sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS, {
-		neck="Sanctity Necklace",ear1="Friomisi Earring",
-		hands="Founder's Gauntlets",feet="Founder's Greaves"})
+	--[[ Tachi: Jinpu ]]
+	sets.precast.WS["Tachi: Jinpu"] = set_combine(sets.precast.WS, {
+		hands="Founder's Gauntlets",feet="Founder's Greaves"
+	})
+	sets.precast.WS["Tachi: Jinpu"].Acc = set_combine(sets.precast.WS.Acc, {
+		hands="Founder's Gauntlets",feet="Founder's Greaves"
+	})
+	sets.precast.WS["Tachi: Jinpu"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
+		hands="Founder's Gauntlets",feet="Founder's Greaves"
+	})
+	sets.precast.WS["Tachi: Jinpu"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Jinpu"].Proc = set_combine(sets.precast.WS.Proc, {})
 
-	sets.precast.WS['Apex Arrow'] = {--[[
-			head="Ynglinga Sallet",neck="Fotia Gorget",ear1="Clearview Earring",ear2="Moonshade Earring",
-			body="Kyujutsugi",hands="Buremte Gloves",ring1="Ilabrat Ring",ring2="Regal Ring",
-			back=gear.ws_jse_back,waist="Fotia Belt",legs="Wakido Haidate +3",feet="Waki. Sune-Ate +1"]]}
+	sets.precast.WS["Tachi: Goten"] = sets.precast.WS["Tachi: Jinpu"]
+	sets.precast.WS["Tachi: Kagero"] = sets.precast.WS["Tachi: Jinpu"]
+	sets.precast.WS["Tachi: Koki"] = sets.precast.WS["Tachi: Jinpu"]
+
+	--[[ Tachi: Hobaku ]]
+	sets.precast.WS["Tachi: Hobaku"] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		hands="Flam. Manopolas +2",ring1="Flamma Ring",
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Hobaku"].Acc = set_combine(sets.precast.WS.Acc, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		hands="Flam. Manopolas +2",ring1="Flamma Ring",
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Hobaku"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		hands="Flam. Manopolas +2",ring1="Flamma Ring",
+		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+	sets.precast.WS["Tachi: Hobaku"].Fodder = set_combine(sets.precast.WS.Fodder, {})
+	sets.precast.WS["Tachi: Hobaku"].Proc = set_combine(sets.precast.WS.Proc, {})
+
+	-- sets.precast.WS['Apex Arrow'] = {--[[
+	-- 		head="Ynglinga Sallet",neck="Fotia Gorget",ear1="Clearview Earring",ear2="Moonshade Earring",
+	-- 		body="Kyujutsugi",hands="Buremte Gloves",ring1="Ilabrat Ring",ring2="Regal Ring",
+	-- 		back=gear.ws_jse_back,waist="Fotia Belt",legs="Wakido Haidate +3",feet="Waki. Sune-Ate +1"]]}
 	
-	sets.precast.WS['Apex Arrow'].MidAcc = set_combine(sets.precast.WS['Apex Arrow'], {})
-	sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {})
-	sets.precast.WS['Apex Arrow'].MaxAcc = set_combine(sets.precast.WS['Apex Arrow'], {})
-	sets.precast.WS['Apex Arrow'].Fodder = set_combine(sets.precast.WS['Apex Arrow'], {})
+	-- sets.precast.WS['Apex Arrow'].MidAcc = set_combine(sets.precast.WS['Apex Arrow'], {})
+	-- sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {})
+	-- sets.precast.WS['Apex Arrow'].MaxAcc = set_combine(sets.precast.WS['Apex Arrow'], {})
+	-- sets.precast.WS['Apex Arrow'].Fodder = set_combine(sets.precast.WS['Apex Arrow'], {})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Ishvara Earring",}
+	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Ishvara Earring"}
+	sets.MaxTP["Tachi: Shoha"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.MaxTP["Tachi: Enpi"] = sets.MaxTP["Tachi: Shoha"]
+
 	sets.AccMaxTP = {ear1="Telos Earring",ear2="Lugra Earring +1"}
-	sets.AccDayMaxTPWSEars = {ear1="Telos Earring",ear2="Cessance Earring"}
-	sets.DayMaxTPWSEars = {ear1="Telos Earring",ear2="Ishvara Earring",}
-	sets.AccDayWSEars = {ear1="Telos Earring",ear2="Moonshade Earring"}
-	sets.DayWSEars = {ear1="Ishvara Earring",ear2="Moonshade Earring",}
+	sets.AccMaxTP["Tachi: Shoha"] = {ear1="Lugra Earring +1",ear2="Mache Earring +1"}
+	sets.AccMaxTP["Tachi: Enpi"] = sets.AccMaxTP["Tachi: Shoha"]
+
+	sets.DayWSEars = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
+	sets.DayWSEars["Tachi: Shoha"] = {ear1="Brutal Earring",ear2="Moonshade Earring"}
+	sets.DayWSEars["Tachi: Enpi"] = sets.DayWSEars["Tachi: Shoha"]
+	sets.DayWSEars["Tachi: Rana"] = {ear1="Mache Earring +1",ear2="Brutal Earring"}
+
+	sets.AccDayWSEars = {ear1="Telos Earring",ear2="Mache Earring +1"}
+	sets.AccDayWSEars["Tachi: Shoha"] = {ear1="Telos Earring",ear2="Mache Earring +1"}
+	sets.AccDayWSEars["Tachi: Enpi"] = sets.AccDayWSEars["Tachi: Shoha"]
+	sets.AccDayWSEars["Tachi: Rana"] = {ear1="Telos Earring",ear2="Mache Earring +1"}
+
+	sets.DayMaxTPWSEars = {ear1="Mache Earring +1",ear2="Ishvara Earring"}
+	sets.DayMaxTPWSEars["Tachi: Shoha"] = {ear1="Brutal Earring",ear2="Mache Earring +1"}
+	sets.DayMaxTPWSEars["Tachi: Enpi"] = sets.DayMaxTPWSEars["Tachi: Shoha"]
+
+	sets.AccDayMaxTPWSEars = {ear1="Telos Earring",ear2="Mache Earring +1"}
+	sets.AccDayMaxTPWSEars = {ear1="Telos Earring",ear2="Mache Earring +1"}
+	sets.AccDayMaxTPWSEars["Tachi: Enpi"] = sets.AccDayMaxTPWSEars["Tachi: Shoha"]
 	
 	-- Midcast Sets
 	sets.midcast.FastRecast = set_combine(sets.precast.FC,{})
@@ -182,9 +254,6 @@ function init_gear_sets()
 
     
     -- Sets to return to when not performing an action.
-    
-	
-    
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	
@@ -192,7 +261,7 @@ function init_gear_sets()
 		--feet="Danzo Sune-ate"
 	}
 
-  sets.Reraise = {
+  	sets.Reraise = {
 		--head="Twilight Helm",body="Twilight Mail"
 	}
 	
@@ -250,44 +319,50 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Ginsen",
 		head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Kasuga Domaru +1",hands=gear.valorous.mitts.da,ring1="Petrov Ring",ring2="Niqmaddu Ring",
-		back=gear.smertrios.da,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"}
-	sets.engaged.Zanhasso = set_combine(sets.engaged, {})
-	sets.engaged.Kenhasso = set_combine(sets.engaged, {body="Ken. Samue +1",legs="Ken. Hakama +1",})
-	sets.engaged.TripleAttack = set_combine(sets.engaged, {
-		ammo="Paeapua",
-		body="Ken. Samue +1",ring1="Hetairoi Ring",
-		legs="Ken. Hakama +1",feet="Flam. Gambieras +2"})
-	sets.engaged.MidAcc = set_combine(sets.engaged, {ring1="Flamma Ring",legs="Ken. Hakama +1",})
-	sets.engaged.MaxAcc = set_combine(sets.engaged, sets.engaged.MidAcc, {
-		head="Wakido Kabuto +3",ear2="Digni. Earring",
-		body="Wakido Domaru +3",hands="Wakido Kote +3",
-		legs="Wakido Haidate +3",feet="Flam. Gambieras +2"})
-	sets.engaged.Fodder = set_combine(sets.engaged, {})
-	
-	sets.engaged.PDT = set_combine(sets.engaged, sets.defense.PDT, {})
-	sets.engaged.Zanhasso.PDT = set_combine(sets.engaged.Zanhasso, sets.defense.PDT, {})
-	sets.engaged.Kenhasso.PDT = set_combine(sets.engaged.Kenhasso, sets.defense.PDT, {})
-	sets.engaged.TripleAttack.PDT = set_combine(sets.engaged.TripleAttack, sets.defense.PDT, {})
-	sets.engaged.MidAcc.PDT = set_combine(sets.engaged.MidAcc, sets.defense.PDT, {})
-	sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.MaxAcc, sets.defense.PDT, {})
-	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, sets.defense.PDT, {})
-	
-	sets.engaged.HybridDT = set_combine(sets.engaged, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
-	sets.engaged.Zanhasso.HybridDT = set_combine(sets.engaged.Zanhasso, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
-	sets.engaged.Kenhasso.HybridDT = set_combine(sets.engaged.Kenhasso, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
-	sets.engaged.TripleAttack.HybridDT = set_combine(sets.engaged.TripleAttack, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
-	sets.engaged.MidAcc.HybridDT = set_combine(sets.engaged.MidAcc, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
-	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.MaxAcc, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
-	sets.engaged.Fodder.HybridDT = set_combine(sets.engaged.Fodder, {ammo="Staunch Tathlum",body="Wakido Domaru +3",ring1="Defending Ring",})
+		body=gear.valorous.mail.da,hands=gear.valorous.mitts.da,ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		back=gear.smertrios.da,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"
+	}
+	sets.engaged.Zanshin = set_combine(sets.engaged, {body="Kasuga Domaru +1"})
+	sets.engaged.Kendatsuba = set_combine(sets.engaged, {})
+	sets.engaged.HybridDT = set_combine(sets.engaged, {body="Wakido Domaru +3",ring1="Defending Ring"})
+	sets.engaged.PDT = set_combine(sets.engaged.HybridDT, {ammo="Staunch Tathlum",neck="Loricate Torque +1",ear2="Genmei Earring",ring2="Gelatinous Ring +1",feet=gear.valorous.greaves.strwsd})
+	sets.engaged.MDT = set_combine(sets.engaged.HybridDT, {ammo="Staunch Tathlum",ear2="Odnowa Earring +1"})
 
-	sets.engaged.Reraise = set_combine(sets.engaged, sets.Reraise)
-	sets.engaged.Zanhasso.Reraise = set_combine(sets.engaged.Zanhasso, sets.Reraise)
-	sets.engaged.Kenhasso.Reraise = set_combine(sets.engaged.Kenhasso, sets.Reraise)
-	sets.engaged.TripleAttack.Reraise = set_combine(sets.engaged.TripleAttack, sets.Reraise)
-	sets.engaged.MidAcc.Reraise = set_combine(sets.engaged.MidAcc, sets.Reraise)			
-	sets.engaged.MaxAcc.Reraise = set_combine(sets.engaged.MaxAcc, sets.Reraise)		
-	sets.engaged.Fodder.Reraise = set_combine(sets.engaged.Fodder, sets.Reraise)		
+	sets.engaged.Acc = set_combine(sets.engaged, {})
+	sets.engaged.Acc.Zanshin = set_combine(sets.engaged.Zanshin, {})
+	sets.engaged.Acc.Kendatsuba = set_combine(sets.engaged.Kendatsuba, {})
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {})
+	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {})
+	
+	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {
+		head="Wakido Kabuto +3",ear2="Mache Earring +1",
+		body="Wakido Domaru +3",hands="Wakido Kote +3",ring1="Flamma Ring",
+		legs="Wakido Haidate +3",feet="Flam. Gambieras +2"
+	})
+	sets.engaged.MaxAcc.Zanshin = set_combine(sets.engaged.Acc.Zanshin, {
+		head="Wakido Kabuto +3",ear2="Mache Earring +1",
+		hands="Wakido Kote +3",ring1="Chirich Ring",
+		legs="Wakido Haidate +3"
+	})
+	sets.engaged.MaxAcc.Kendatsuba = set_combine(sets.engaged.Acc.Kendatsuba, {})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {
+		head="Wakido Kabuto +3",ear2="Mache Earring +1",
+		hands="Wakido Kote +3",feet="Flam. Gambieras +2"
+	})
+	sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.PDT, {
+		head="Wakido Kabuto +3",hands="Wakido Kote +3",
+	})
+	sets.engaged.MaxAcc.MDT = set_combine(sets.engaged.MDT, {
+		head="Wakido Kabuto +3",hands="Wakido Kote +3",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"
+	})
+
+	sets.engaged.Fodder = set_combine(sets.engaged, {})
+	sets.engaged.Fodder.Zanshin = set_combine(sets.engaged.Zanshin, {})
+	sets.engaged.Fodder.Kendatsuba = set_combine(sets.engaged.Kendatsuba, {})
+	sets.engaged.Fodder.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.Fodder.PDT = set_combine(sets.engaged.PDT, {})
+	sets.engaged.Fodder.MDT = set_combine(sets.engaged.MDT, {})	
 
 	-- Weapons sets
 	sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
