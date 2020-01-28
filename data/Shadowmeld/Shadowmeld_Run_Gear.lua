@@ -1,8 +1,8 @@
 function user_setup()
 
-	state.OffenseMode:options('Normal','SomeAcc','Acc','HighAcc','MaxAcc')
-	state.HybridMode:options('Normal','DTLite','Tank')
-	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','HighAcc','MaxAcc')
+	state.OffenseMode:options('Normal','MaxAcc')
+	state.HybridMode:options('Normal','HybridDT','Tank')
+	state.WeaponskillMode:options('Match','Normal','MaxAcc')
 	state.CastingMode:options('Normal','SIRD','Resistant')
 	state.PhysicalDefenseMode:options('PDT', 'PDT_HP')
 	state.MagicalDefenseMode:options('MDT','MDT_HP','BDT','BDT_HP')
@@ -170,12 +170,8 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head=gear.herculean.helm.strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
-		back="",waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
+		back=gear.ogma.dimidiation,waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
 	}
-	
-	sets.precast.WS.SomeAcc = {}
-	sets.precast.WS.Acc = {}
-	sets.precast.WS.HighAcc = {}
 	sets.precast.WS.MaxAcc = {}
 
 	sets.precast.WS['Resolution'] = {
@@ -184,9 +180,6 @@ function init_gear_sets()
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back=gear.ogma.resolution,waist="Fotia Belt",legs="Samnuha Tights",feet="Lustra. Leggings +1"
 	}
-
-	sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'],{})
-	sets.precast.WS['Resolution'].HighAcc = set_combine(sets.precast.WS['Resolution'].Acc,{})
 	sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'].HighAcc,{})
 
 	sets.precast.WS['Dimidiation'] = {
@@ -195,9 +188,6 @@ function init_gear_sets()
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
 		back=gear.ogma.dimidiation,waist="Grunfeld Rope",legs="Lustr. Subligar +1",feet="Lustra. Leggings +1"
 	}
-	
-	sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS.Acc,{})
-	sets.precast.WS['Dimidiation'].HighAcc = set_combine(sets.precast.WS.HighAcc,{})
 	sets.precast.WS['Dimidiation'].MaxAcc = set_combine(sets.precast.WS.MaxAcc,{})
 	
 	sets.precast.WS['Ground Strike'] = {
@@ -206,9 +196,6 @@ function init_gear_sets()
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
 		back="",waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
 	}
-	
-	sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS.Acc,{})
-	sets.precast.WS['Ground Strike'].HighAcc = set_combine(sets.precast.WS.HighAcc,{})
 	sets.precast.WS['Ground Strike'].MaxAcc = set_combine(sets.precast.WS.MaxAcc,{})
 	
 	sets.precast.WS['Herculean Slash'] = set_combine(sets.precast.JA['Lunge'], {})
@@ -352,26 +339,51 @@ function init_gear_sets()
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back=gear.ogma.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
-	
-	sets.engaged.SomeAcc = set_combine(sets.engaged, {head="Dampening Tam",feet=gear.herculean.boots.ta})
-	sets.engaged.Acc = set_combine(sets.engaged.SomeAcc, {neck="Lissome Necklace",ear1="Telos Earring"})
-	sets.engaged.HighAcc = set_combine(sets.engaged.Acc, {})
-	sets.engaged.MaxAcc = set_combine(sets.engaged.HighAcc, {})
-	sets.engaged.DTLite = set_combine(sets.engaged, {})
-	
-	sets.engaged.SomeAcc.DTLite = set_combine(sets.engaged.SomeAcc, {})
-	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {})
-	sets.engaged.HighAcc.DTLite = set_combine(sets.engaged.HighAcc, {})
-	sets.engaged.MaxAcc.DTLite = set_combine(sets.engaged.MaxAcc, {})
+	sets.engaged.HybridDT = set_combine(sets.engaged, {})
+	sets.engaged.Tank = {
+		ammo="Staunch Tathlum",
+		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
+		body="Futhark Coat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+		back=gear.ogma.da,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Turms Leggings"
+	}
 
-	sets.engaged.Tank = {ammo="Staunch Tathlum",
-	head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
-	body="Futhark Coat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-	back="Shadow Mantle",waist="Kasiri Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"}
-	sets.engaged.SomeAcc.Tank = sets.engaged.Tank
-	sets.engaged.Acc.Tank = sets.engaged.Tank
-	sets.engaged.HighAcc.Tank = sets.engaged.Tank
-	sets.engaged.MaxAcc.Tank = sets.engaged.Tank
+	sets.engaged.MaxAcc = set_combine(sets.engaged, {
+		head="Dampening Tam",neck="Lissome Necklace",ear1="Telos Earring",ear2="Mache Earring +1",
+		ring2="Chirich Ring",
+		waist="Grunfeld Rope",feet="Mummu Gamash. +2"
+	})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.MaxAcc.Tank = set_combine(sets.engaged.Tank, {})
+
+	-- sets.engaged = {
+	-- 	ammo="Yamarang",
+	-- 	head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Brutal Earring",ear2="Sherida Earring",
+	-- 	body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
+	-- 	back=gear.ogma.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+	-- }
+	
+	-- sets.engaged.SomeAcc = set_combine(sets.engaged, {head="Dampening Tam",feet=gear.herculean.boots.ta})
+	-- sets.engaged.Acc = set_combine(sets.engaged.SomeAcc, {neck="Lissome Necklace",ear1="Telos Earring"})
+	-- sets.engaged.HighAcc = set_combine(sets.engaged.Acc, {})
+	-- sets.engaged.MaxAcc = set_combine(sets.engaged.HighAcc, {})
+	-- sets.engaged.HybridDT = set_combine(sets.engaged, {})
+	
+	-- sets.engaged.SomeAcc.HybridDT = set_combine(sets.engaged.SomeAcc, {})
+	-- sets.engaged.Acc.HybridDT = set_combine(sets.engaged.Acc, {})
+	-- sets.engaged.HighAcc.HybridDT = set_combine(sets.engaged.HighAcc, {})
+	-- sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.MaxAcc, {})
+
+	-- sets.engaged.Tank = {
+	-- 	ammo="Staunch Tathlum",
+	-- 	head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
+	-- 	body="Futhark Coat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+	-- 	back="Shadow Mantle",waist="Kasiri Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
+	-- }
+
+	-- sets.engaged.SomeAcc.Tank = sets.engaged.Tank
+	-- sets.engaged.Acc.Tank = sets.engaged.Tank
+	-- sets.engaged.HighAcc.Tank = sets.engaged.Tank
+	-- sets.engaged.MaxAcc.Tank = sets.engaged.Tank
 	
 	--------------------------------------
 	-- Custom buff sets
