@@ -317,7 +317,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Maligance Tabard",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
 		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 		

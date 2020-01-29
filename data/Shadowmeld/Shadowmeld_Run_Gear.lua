@@ -16,7 +16,7 @@ function user_setup()
 	defaultRunes = {
 		Bashmu = {
 			{Name="Ignis",Amount=2},
-			{Name="Supor",Amount=1}
+			{Name="Sulpor",Amount=1}
 		},
 	}
 
@@ -263,9 +263,9 @@ function init_gear_sets()
 	
 	sets.idle.Tank = {
 		ammo="Staunch Tathlum",
-		head="Dampening Tam",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
-		body="Ayanmo Corazza +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Solemnity Cape",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
+		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		body="Erilaz Surcoat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
 	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Meghanada Visor +2",legs="Carmine Cuisses +1"})
@@ -471,16 +471,20 @@ function check_rune()
 	if state.AutoRuneMode.value then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 	
-		if state.CombatRuneMode.value ~= "Normal" and defaultRunes[state.CombatRuneMode.value] then
-			local runesToCheck = defaultRunes[state.CombatRuneMode.value]
-			for 1,8 do
+		if state.CompoundRuneMode.value ~= "Normal" and defaultRunes[state.CompoundRuneMode.value] then
+			local runesToCheck = defaultRunes[state.CompoundRuneMode.value]
+			for i = 1,8 do
 				local rune = runesToCheck[i]
-				local rune_count = buffactive[rune.Name] or 0
+				if rune then
+					local rune_count = buffactive[rune.Name] or 0
 
-				if rune_count < rune.Amount then
-					windower.chat.input('/ja "' .. rune.Name .. '" <me>')
-					tickdelay = os.clock() + 1.8
-					return true
+					if rune_count < rune.Amount then
+						if abil_recasts[92] > 0 then return false end
+
+						windower.chat.input('/ja "' .. rune.Name .. '" <me>')
+						tickdelay = os.clock() + 1.8
+						return true
+					end
 				end
 
 			end
