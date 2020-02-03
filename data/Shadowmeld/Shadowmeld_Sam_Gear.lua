@@ -109,7 +109,7 @@ function init_gear_sets()
 	--[[ Tachi: Shoha ]]
 	sets.precast.WS["Tachi: Shoha"] = set_combine(sets.precast.WS, {
 		head="Flam. Zucchetto +2",ear1="Lugra Earring +1",
-		ring1="Flamma Ring"
+		ring1="Flamma Ring",
 		waist="Ioskeha Belt +1",feet="Flam. Gambieras +2"
 	})
 	sets.precast.WS["Tachi: Shoha"].Acc = set_combine(sets.precast.WS.Acc, {})
