@@ -27,6 +27,11 @@ function user_setup()
 	
 	select_default_macro_book()
 	--lockstyle:schedule(5)
+
+	organizer_items = {
+		{name = "Cichol's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+		{name = "Cichol's Mantle", augments = {'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+	}
 end
 
 -- Define sets and vars used by this job file.
@@ -46,7 +51,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		--[[head="Souv. Schaller +1",]]neck="Moonbeam Necklace",
 		--[[hands="Eschite Gauntlets",]]
-		legs="Founder's Cuisses",feet="Souveran Schuhs +1"
+		--[[legs="Founder's Cuisses",]]feet="Souveran Schuhs +1"
 	}
 	sets.Knockback = {}
 	sets.passive.Twilight = {--[[head="Twilight Helm",body="Twilight Mail"]]}
@@ -56,7 +61,7 @@ function init_gear_sets()
 	sets.precast.JA['Warcry'] = {head="Agoge Mask +2"}
 	sets.precast.JA['Defender'] = {}
 	sets.precast.JA['Aggressor'] = {head="Pummeler's Mask +2",body="Agoge Lorica +1"}
-	sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers"}
+	sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers +1"}
 	sets.precast.JA["Warrior's Charge"] = {legs="Agoge Cuisses +2"}
 	sets.precast.JA['Tomahawk'] = {ammo="Thr. Tomahawk",feet="Agoge Calligae +1"}
 	sets.precast.JA['Retaliation'] = {}
@@ -80,7 +85,7 @@ function init_gear_sets()
 	sets.precast.FC = {ammo="Impatiens",
 		neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Odyss. Chestplate",hands="Leyline Gloves",ring1="Defending Ring",ring2="Lebeche Ring",
-		back=gear.cichol.tp,waist="Flume Belt",legs="Arjuna Breeches",feet="Odyssean Greaves"}
+		back=gear.cichol.tp,waist="Flume Belt +1",legs="Arjuna Breeches",feet="Odyssean Greaves"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
@@ -99,23 +104,23 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Knobkierrie",
 		head="Agoge Mask +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
-		body="Pumm. Lorica +3",hands=gear.odyssean.gautlets.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
+		body="Pumm. Lorica +3",hands=gear.odyssean.gauntlets.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
 		back=gear.cichol.wsd.str,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
-	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS.Acc, {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring",legs="Pumm. Cuisses +2"})
+	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS.Acc, {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring",legs="Pumm. Cuisses +3"})
 
 	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
 
 	--[[ Great Axe WS ]]
 	--[[ Upheaval ]]
-	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {waist="Caudata Belt"})
+	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {back=gear.cichol.wsd.vit,waist="Caudata Belt"})
 
 	sets.precast.WS["Upheaval"].Acc = sets.precast.WS["Upheaval"]
 	
-	sets.precast.WS["Upheaval"].MaxAcc = set_combine(sets.precast.WS["Upheaval"].Acc, {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring",legs="Pumm. Cuisses +2"})
+	sets.precast.WS["Upheaval"].MaxAcc = set_combine(sets.precast.WS["Upheaval"].Acc, {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring",legs="Pumm. Cuisses +3"})
 
 	sets.precast.WS["Upheaval"].Fodder = set_combine(sets.precast.WS["Upheaval"], {})
 
@@ -126,7 +131,7 @@ function init_gear_sets()
 
 	sets.precast.WS["King's Justice"].Acc = sets.precast.WS["King's Justice"]
 	
-	sets.precast.WS["King's Justice"].MaxAcc = set_combine(sets.precast.WS["King's Justice"].Acc, {ammo="Seeth. Bomblet +1",head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring",legs="Pumm. Cuisses +2"})
+	sets.precast.WS["King's Justice"].MaxAcc = set_combine(sets.precast.WS["King's Justice"].Acc, {ammo="Seeth. Bomblet +1",head="Pummeler's Mask +2",hands="Flam. Manopolas +2",ring1="Flamma Ring",legs="Pumm. Cuisses +3"})
 
 	sets.precast.WS["King's Justice"].Fodder = set_combine(sets.precast.WS["King's Justice"], {})
 
@@ -528,7 +533,7 @@ function init_gear_sets()
 		ammo="Seeth. Bomblet +1",head="Pummeler's Mask +2"
 	})
 	sets.engaged.DW.MaxAcc.PDT = set_combine(sets.engaged.DW.Acc.PDT, {})
-	sets.engaged.DW.MaxAcc.MDT = set_combine(sets.engaged.DW.Acc.MDT, {ammo="Seeth. Bomblet +1",feet="Pumm. Gambieras +3"})
+	sets.engaged.DW.MaxAcc.MDT = set_combine(sets.engaged.DW.Acc.MDT, {ammo="Seeth. Bomblet +1",feet="Pumm. Calligae +3"})
 
 	sets.engaged.DW.Fodder = set_combine(sets.engaged, {})
 	sets.engaged.DW.Fodder.HybridDT = set_combine(sets.engaged.DW.Fodder, {})
