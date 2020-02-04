@@ -466,6 +466,14 @@ buff_spell_lists.Auto = {--Options for When are: Always, Engaged, Idle, OutOfCom
 	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
 	{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Idle'},
 }
+buff_spell_lists.Default = {
+	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	Reapply=false},
+	{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	Reapply=false},
+	{Name='Haste',		Buff='Haste',			SpellID=57,		Reapply=false},
+	{Name='Refresh',	Buff='Refresh',			SpellID=109,	Reapply=false},
+	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	Reapply=false},
+	{Name='Aquaveil',	Buff='Aquaveil',		SpellID=55,		Reapply=false},
+}
 
 function check_rune()
 	if state.AutoRuneMode.value then
