@@ -7,17 +7,17 @@ function user_self_command(commandArgs, eventArgs)
     end
 end
 
-function extra_user_customize_idle_set(idleSet)
-    if state.RPMode and state.RPMode.value == true and world.area:startswith('Dynamis') and world.area:endswith('[D]') then
-        idleSet = set_combine(idleSet, sets.RP or {})
-    end
-end
+-- function extra_user_customize_idle_set(idleSet)
+--     if state.RPMode and state.RPMode.value == true and world.area:startswith('Dynamis') and world.area:endswith('[D]') then
+--         idleSet = set_combine(idleSet, sets.RP or {})
+--     end
+-- end
 
-function extra_user_customize_melee_set(meleeSet)
-    if state.RPMode and state.RPMode.value == true and world.area:startswith('Dynamis') and world.area:endswith('[D]') then
-        meleeSet = set_combine(meleeSet, sets.RP or {})
-    end
-end
+-- function extra_user_customize_melee_set(meleeSet)
+--     if state.RPMode and state.RPMode.value == true and world.area:startswith('Dynamis') and world.area:endswith('[D]') then
+--         meleeSet = set_combine(meleeSet, sets.RP or {})
+--     end
+-- end
 
 function user_state_change(stateField, newValue, oldValue)
     if stateField == 'RPMode' and state.RPMode and sets.RP then

@@ -10,6 +10,8 @@ function user_setup()
 	state.IdleMode:options('Normal', 'Reraise')
 	state.Weapons:options('Dojikiri','ProcWeapon')
 
+	state.RPMode = M('RP Farming Mode', false)
+
 	gear.smertrios = {}
 	gear.smertrios.wsd = {name = "Smertrios's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.smertrios.da = {name = "Smertrios's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -267,6 +269,7 @@ function init_gear_sets()
 	
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	sets.Skillchain = {}
+	sets.RP = {neck="Sam. Nodowa +2"}
 	
 	sets.idle = {
 		ammo="Staunch Tathlum",
