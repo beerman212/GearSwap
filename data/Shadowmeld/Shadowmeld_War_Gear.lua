@@ -381,7 +381,7 @@ function init_gear_sets()
 	-- Engaged sets
 
 	sets.engaged = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"

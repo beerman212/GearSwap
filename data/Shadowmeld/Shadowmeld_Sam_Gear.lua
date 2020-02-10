@@ -45,7 +45,7 @@ function init_gear_sets()
 	sets.precast.JA['Sengikori'] = {feet="Kas. Sune-Ate +1"}
 	
 	sets.precast.Step = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Wakido Kabuto +3",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Digni. Earring",
 		body="Wakido Domaru +3",hands="Wakido Kote +3",ring1="Flamma Ring",ring2="Chirich Ring",
 		back=gear.smertrios.da,waist="Grunfeld Rope",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
@@ -320,7 +320,7 @@ function init_gear_sets()
 	-- Normal melee group
 	-- Delay 450 GK, 25 Save TP => 65 Store TP for a 5-hit (25 Store TP in gear)
 	sets.engaged = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.da,hands=gear.valorous.mitts.da,ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.smertrios.da,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"

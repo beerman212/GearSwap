@@ -334,8 +334,8 @@ function init_gear_sets()
 	sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
-	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {waist="Channeler's Stone"})
-	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Channeler's Stone"})
+	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
 	sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})

@@ -191,7 +191,7 @@ function init_gear_sets()
 	-- Normal melee group
 
 	sets.engaged = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Flam. Zucchetto +2",neck="Anu Torque",ear1="Sherida Earring",ear2="Dedition Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.brigantia.stp,waist="Ioskeha Belt +1",legs=gear.valorous.hose.dexwsd,feet="Flam. Gambieras +2",

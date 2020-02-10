@@ -87,7 +87,7 @@ function init_gear_sets()
        
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {ammo="Ginsen",
+	sets.precast.WS = {ammo="Aurgelmir Orb",
 		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Sherida Earring",
 		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
@@ -102,7 +102,7 @@ function init_gear_sets()
 		back=gear.sucellos.enfeeble,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Carmine Greaves +1"
 	}
 		
-	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ammo="Ginsen",head="Carmine Mask +1",ring1="Chirich Ring",ring2="Ilabrat Ring",back=gear.sucellos.stp})
+	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ammo="Aurgelmir Orb",head="Carmine Mask +1",ring1="Chirich Ring",ring2="Ilabrat Ring",back=gear.sucellos.stp})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 		
 	sets.precast.WS['Chant du Cygne'] = {
@@ -112,7 +112,7 @@ function init_gear_sets()
 		back=gear.sucellos.cdc,waist="Fotia Belt",legs=gear.taeon.tights.cdc,feet="Jhakri Pigaches +2"
 	}
 		
-	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Ginsen",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
+	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Aurgelmir Orb",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
 		
 	sets.precast.WS['Savage Blade'] = {
@@ -414,7 +414,7 @@ function init_gear_sets()
 	
 	-- Normal melee group
 	sets.engaged = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Malignance Chapeau",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
 		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
 		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Malignance Tights",feet="Carmine Greaves +1"
@@ -448,7 +448,7 @@ function init_gear_sets()
 	})
 	
 	sets.engaged.DW = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Malignance Chapeau", neck="Anu Torque", ear1="Suppanomimi",ear2="Sherida Earring",
 		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
 		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"

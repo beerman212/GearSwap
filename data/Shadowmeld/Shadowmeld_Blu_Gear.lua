@@ -57,8 +57,8 @@ function init_gear_sets()
 
 	sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +1"}
 	sets.buff['Chain Affinity'] = {feet="Assim. Charuqs +2"}
-	sets.buff.Convergence = {head="Mirage Keffiyeh +2"}
-	sets.buff.Diffusion = {feet="Luhlaza Charuqs"}
+	sets.buff.Convergence = {head="Luh. Keffiyeh +2"}
+	sets.buff.Diffusion = {feet="Luhlaza Charuqs +1"}
 	sets.buff.Enchainment = {}
 	sets.buff.Efflux = {back=gear.rosmerta.stp,legs="Hashishin Tayt +1"}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
@@ -70,7 +70,7 @@ function init_gear_sets()
 	-- Precast Sets
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Azure Lore'] = {hands="Mrg. Bazubands +2"}
+	sets.precast.JA['Azure Lore'] = {hands="Luh. Bazubands +1"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {legs="Dashing Subligar"}
@@ -78,12 +78,12 @@ function init_gear_sets()
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = {}
 
-	sets.precast.Step = {ammo="Ginsen",
+	sets.precast.Step = {ammo="Aurgelmir Orb",
 		head="Carmine Mask +1",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Chirich Ring",ring2="Ayanmo Ring",
 		back=gear.rosmerta.stp,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Jhakri Pigaches +2"}
 
-	sets.precast.Flourish1 = {ammo="Ginsen",
+	sets.precast.Flourish1 = {ammo="Aurgelmir Orb",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Etana Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
@@ -102,7 +102,7 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {ammo="Ginsen",
+	sets.precast.WS = {ammo="Aurgelmir Orb",
 		head=gear.herculean.helm.strwsd,neck="Fotia Gorget",ear1="Telos Earring",ear2="Cessance Earring",
 		body=gear.herculean.vest.dexwsd,hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Ilabrat Ring",
 		back=gear.rosmerta.wsd,waist="Fotia Belt",legs=gear.herculean.trousers.strwsd,feet="Jhakri Pigaches +2"}
@@ -113,8 +113,8 @@ function init_gear_sets()
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Requiescat'] = {
-		ammo="Ginsen",
-		head="Jhakri Coronal +2",neck="Fotial Gorget",ear1="Moonshade Earring",ear2="Regal Earring",
+		ammo="Aurgelmir Orb",
+		head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Regal Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.req,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
 	}
@@ -135,7 +135,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
 
 	sets.precast.WS['Savage Blade'] = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head=gear.herculean.helm.strwsd,neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Rufescent Ring",
 		back=gear.rosmerta.wsd,waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Jhakri Pigaches +2"
@@ -165,7 +165,7 @@ function init_gear_sets()
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
 	
 	sets.precast.WS['Black Halo'] = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head=gear.herculean.helm.strwsd,neck="Mirage Stole +1",ear1="Regal Earring",ear2="Moonshade Earring",
 		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Rufescent Ring",
 		back=gear.rosmerta.wsd,waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Carmine Cuisses +1"
@@ -203,10 +203,10 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].Physical = {main="Naegling",sub="Vampirism",ammo="Mavi Tathlum",
 		head="Adhemar Bonnet +1",neck="Caro Necklace",ear1="Telos Earring",ear2="Suppanomimi",
-		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Ramuh Ring",
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Chirich Ring",
 		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet=gear.herculean.boots.ta}
 
-	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'], {sub=gear.colada.stp,ammo="Ginsen",head="Jhakri Coronal +2",ear2="Digni. Earring",feet="Jhakri Pigaches +2"})
+	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'], {sub=gear.colada.stp,ammo="Aurgelmir Orb",head="Jhakri Coronal +2",ear2="Digni. Earring",feet="Jhakri Pigaches +2"})
 	
 	sets.midcast['Blue Magic'].Physical.Fodder = set_combine(sets.midcast['Blue Magic'].Physical, {})
 
@@ -280,7 +280,7 @@ function init_gear_sets()
 
 	sets.midcast['Dark Magic'] = {mmain="Naegling",sub="Colada",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Evanescense Ring",ring2="Archon Ring",
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Evanescence Ring",ring2="Archon Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
 	sets.midcast['Enhancing Magic'] = {main=gear.colada.enhancing,
@@ -365,7 +365,7 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub=gear.colada.enhancing,ammo="Mavi Tathlum",
 		head="Luhlaza Keffiyeh",neck="Incanter's Torque",ear1="Gifted Earring",ear2="Loquac. Earring",
 		body="Assim. Jubbah +2",hands="Hashi. Bazu. +1",ring1="Kishar Ring",ring2="Dark Ring",
-		back=gear.rosmerta.stp,waist="Witful Belt",legs="Aya. Cosciales",feet="Carmine Greaves +1"}
+		back=gear.rosmerta.stp,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
 	sets.midcast['Blue Magic']['Battery Charge'] = set_combine(sets.midcast['Blue Magic'].Buff, {head="Amalric Coif +1",waist="Gishdubar Sash"})
 
@@ -417,7 +417,7 @@ function init_gear_sets()
 	-- Extra Melee sets.  Apply these on top of melee sets.
 	sets.Knockback = {}
 	sets.MP = {waist="Flume Belt +1",ear1="Ethereal Earring"}
-	sets.DWMax = {ear1="Suppanomimi Earring",ear2="Eabani Earring",body="Adhemar Jacket +1",legs="Carmine Cuisses +1"}
+	sets.DWMax = {ear1="Suppanomimi",ear2="Eabani Earring",body="Adhemar Jacket +1",legs="Carmine Cuisses +1"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
 	
 	-- Weapons sets
@@ -430,7 +430,7 @@ function init_gear_sets()
 	-- Engaged sets
 
 	sets.engaged = {
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Suppanomimi",ear2="Cessance Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
