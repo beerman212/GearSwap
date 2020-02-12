@@ -98,8 +98,8 @@ function init_gear_sets()
 	sets.precast.CorsairShot.Proc = {
 		ammo=gear.RAbullet,
 		head="Wh. Rarab Cap +1",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Sanare Earring",
-		body="Emet Harness +1",hands=gear.herculean.gloves.magical,ring1="Defending Ring",ring2="Dark Ring",
-		back="Moonlight Cape",waist="Flume Belt",legs="Carmine Cuisses +1",feet="Chass. Bottes +1"
+		body="Emet Harness +1",hands="Leyline Gloves",ring1="Defending Ring",ring2="Dark Ring",
+		back="Moonlight Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Chass. Bottes +1"
 	}
 
 	sets.precast.CorsairShot['Light Shot'] = set_combine(sets.precast.CorsairShot, {
@@ -114,7 +114,7 @@ function init_gear_sets()
 	sets.precast.Waltz = {
 		head="Carmine Mask +1",neck="Loricate Torque +1",ear2="Genmei Earring",
 		body="Lanun Frac +3",hands="Carmine Fin. Ga. +1",ring1="Defending Ring",ring2="Dark Ring",
-		back=gear.camulus.stp.melee,waist="Flume Belt",legs="Mummu Kecks +2",feet="Rawhide Boots"}
+		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Mummu Kecks +2",feet="Rawhide Boots"}
 		
 	sets.Self_Waltz = {head="Mummu Bonnet +2",}
         
@@ -126,7 +126,7 @@ function init_gear_sets()
 	sets.precast.FC = {
 		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back=gear.camulus.stp.melee,waist="Flume Belt",legs="Limbo Trousers",feet="Carmine Greaves +1"
+		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Limbo Trousers",feet="Carmine Greaves +1"
 	}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -283,7 +283,7 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		head="Carmine Mask +1",neck="Loricate Torque +1",ear1="Enchntr. Earring +1",ear2="Mendi. Earring",
 		body="Lanun Frac +3",hands="Leyline Gloves",ring1="Stikini Ring",ring2="Lebeche Ring",
-		back="Solemnity Cape",waist="Flume Belt",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"}
+		back="Solemnity Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"}
 
 	sets.Self_Healing = {waist="Gishdubar Sash"}
 	sets.Cure_Received = {waist="Gishdubar Sash"}

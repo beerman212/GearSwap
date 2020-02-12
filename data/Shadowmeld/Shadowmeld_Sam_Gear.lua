@@ -80,7 +80,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head=gear.valorous.mask.strwsd,neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		head=gear.valorous.mask.strwsd,neck="Sam. Nodowa +2",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Sakonji Domaru +3",hands=gear.valorous.mitts.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
 		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.strwsd
 	}
@@ -94,10 +94,10 @@ function init_gear_sets()
 	sets.precast.WS.Proc = {}
 
 	--[[ Tachi: Fudo ]]
-	sets.precast.WS["Tachi: Fudo"] = set_combine(sets.precast.WS, {neck="Caro Necklace"})
-	sets.precast.WS["Tachi: Fudo"].Acc = set_combine(sets.precast.WS.Acc, {neck="Caro Necklace"})
+	sets.precast.WS["Tachi: Fudo"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS["Tachi: Fudo"].Acc = set_combine(sets.precast.WS.Acc, {})
 	sets.precast.WS["Tachi: Fudo"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
-		head="Wakido Kabuto +3",neck="Caro Necklace",ear1="Lugra Earring +1",ear2="Mache Earring +1",
+		head="Wakido Kabuto +3",ear1="Lugra Earring +1",ear2="Mache Earring +1",
 		hands="Wakido Kote +3",ring1="Flamma Ring",
 		feet="Flam. Gambieras +2"
 	})
@@ -146,17 +146,17 @@ function init_gear_sets()
 
 	--[[ Tachi: Ageha ]]
 	sets.precast.WS["Tachi: Ageha"] = set_combine(sets.precast.WS, {
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		head="Flam. Zucchetto +2",ear1="Digni. Earring",
 		hands="Flam. Manopolas +2",ring1="Flamma Ring",
 		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	})
 	sets.precast.WS["Tachi: Ageha"].Acc = set_combine(sets.precast.WS.Acc, {
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		head="Flam. Zucchetto +2",ear1="Digni. Earring",
 		hands="Flam. Manopolas +2",ring1="Flamma Ring",
 		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	})
 	sets.precast.WS["Tachi: Ageha"].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Digni. Earring",
+		head="Flam. Zucchetto +2",ear1="Digni. Earring",
 		hands="Flam. Manopolas +2",ring1="Flamma Ring",
 		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	})
