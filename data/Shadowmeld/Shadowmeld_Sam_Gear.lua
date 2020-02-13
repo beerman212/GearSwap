@@ -326,7 +326,9 @@ function init_gear_sets()
 		back=gear.smertrios.da,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"
 	}
 	sets.engaged.Zanshin = set_combine(sets.engaged, {body="Kasuga Domaru +1"})
-	sets.engaged.Kendatsuba = set_combine(sets.engaged, {})
+	sets.engaged.Kendatsuba = set_combine(sets.engaged, {
+		body="Ken. Samue +1",legs="Ken. Hakama +1"
+	})
 	sets.engaged.HybridDT = set_combine(sets.engaged, {body="Wakido Domaru +3",ring1="Defending Ring"})
 	sets.engaged.PDT = set_combine(sets.engaged.HybridDT, {ammo="Staunch Tathlum",neck="Loricate Torque +1",ear2="Genmei Earring",ring2="Gelatinous Ring +1",feet=gear.valorous.greaves.strwsd})
 	sets.engaged.MDT = set_combine(sets.engaged.HybridDT, {ammo="Staunch Tathlum",ear2="Odnowa Earring +1"})

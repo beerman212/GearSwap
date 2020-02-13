@@ -23,8 +23,8 @@ function user_setup()
 
 	gear.camulus.wsd = {}
 	gear.camulus.wsd.melee = {name = "Camulus's Mantle", augments = {'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-	gear.camulus.wsd.ranged = {name = "Camulus's Mantle", augments = {'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}}
-	gear.camulus.wsd.mab = {name = "Camulus's Mantle", augments = {'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
+	gear.camulus.wsd.mab = {name = "Camulus's Mantle", augments = {'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}}
+	gear.camulus.wsd.ranged = {name = "Camulus's Mantle", augments = {'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
 	gear.camulus.snapshot = {name = "Camulus's Mantle", augments = {'"Snapshot"+10',}}
 
 	-- Additional local binds
