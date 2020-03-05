@@ -228,7 +228,7 @@ function init_gear_sets()
 	}
 
 	sets.midcast['Enfeebling Magic'].PreserveTP = {range=empty,ammo="Regal Gem"}
-	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,--[[feet="Vitiation Boots +2"]]}
+	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,feet="Vitiation Boots +2"}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +2"})
@@ -332,7 +332,7 @@ function init_gear_sets()
 		main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
 		head="Viti. Chapeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Dark Ring",
-		back="Moonbeam Cape",waist="Flume Belt",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh
+		back="Moonbeam Cape",waist="Flume Belt +1",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh
 	}
 	
 	sets.idle.PDT = set_combine(sets.idle, {
@@ -354,7 +354,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Loricate Torque +1",
 		body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		waist="Flume Belt",legs="Malignance Tights"
+		waist="Flume Belt +1",legs="Malignance Tights"
 	}
 
 	sets.defense.NukeLock = sets.midcast['Elemental Magic']

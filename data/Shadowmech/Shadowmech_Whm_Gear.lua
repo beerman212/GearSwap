@@ -46,22 +46,19 @@ function init_gear_sets()
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.precast.FC = {main="Marin Staff",sub="Clerisy Strap",ammo="Incantor Stone",
-		head="Haruspex Hat",ear1="Loquac. Earring",
-		body="Inyanga Jubbah +2",
-		back="Alaunus's Cape",legs="Aya. Cosciales +2"}
+    sets.precast.FC = {}
 		
     sets.precast.FC.DT = {}
 
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 	
-    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {head="Umuthi Hat"})
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
 
-    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Orsn. Pantaln. +2"})
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {})
 
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 	
-    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {feet="Hygieia Clogs"})
+    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {})
 	
 	sets.precast.FC.Cure.DT = {}
 
@@ -69,7 +66,7 @@ function init_gear_sets()
 
 	sets.precast.FC.CureSolace = sets.precast.FC.Cure
 
-	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
+	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {})
 
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {}
@@ -94,7 +91,7 @@ function init_gear_sets()
     -- Midcast Sets
 
     sets.Kiting = {}
-    sets.latent_refresh = {waist="Fucho-no-obi"}
+    sets.latent_refresh = {}
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
@@ -119,14 +116,11 @@ function init_gear_sets()
 
 	sets.midcast['Full Cure'] = sets.midcast.FastRecast
 	
-	sets.midcast.Cure = {main="Iridal Staff",sub="Clerisy Strap",
-		head="Vanya Hood",neck="Nodens Gorget",
-		body="Orison Bliaud +2",ring2="Janniston Ring",
-		back="Alaunus's Cape",legs="Orsn. Pantaln. +2",feet="Vanya Clogs"}
+	sets.midcast.Cure = {}
 		
 	sets.midcast.CureSolace = sets.midcast.Cure
 
-	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {waist="Light Belt"})
+	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {})
 
 	sets.midcast.LightWeatherCureSolace = sets.midcast.LightWeatherCure
 		
@@ -146,32 +140,32 @@ function init_gear_sets()
 	sets.midcast.MeleeCure = {}
 		
 	sets.midcast.MeleeCureSolace = set_combine(sets.midcast.MeleeCure, {})
-	sets.midcast.MeleeLightWeatherCure = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
-	sets.midcast.MeleeLightWeatherCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaud +1",waist="Light Belt"})
-	sets.midcast.MeleeLightDayCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaud +1",waist="Light Belt"})
-	sets.midcast.MeleeLightDayCure = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
+	sets.midcast.MeleeLightWeatherCure = set_combine(sets.midcast.MeleeCure, {})
+	sets.midcast.MeleeLightWeatherCureSolace = set_combine(sets.midcast.MeleeCure, {})
+	sets.midcast.MeleeLightDayCureSolace = set_combine(sets.midcast.MeleeCure, {})
+	sets.midcast.MeleeLightDayCure = set_combine(sets.midcast.MeleeCure, {})
 	sets.midcast.MeleeCuraga = set_combine(sets.midcast.MeleeCure, {})
-	sets.midcast.MeleeLightWeatherCuraga = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
-	sets.midcast.MeleeLightDayCuraga = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
+	sets.midcast.MeleeLightWeatherCuraga = set_combine(sets.midcast.MeleeCure, {})
+	sets.midcast.MeleeLightDayCuraga = set_combine(sets.midcast.MeleeCure, {})
 
 	sets.midcast.CureSolace.DT = set_combine(sets.midcast.Cure.DT, {})
-	sets.midcast.LightWeatherCure.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.LightWeatherCureSolace.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.LightDayCureSolace.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.LightDayCure.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
+	sets.midcast.LightWeatherCure.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.LightWeatherCureSolace.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.LightDayCureSolace.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.LightDayCure.DT = set_combine(sets.midcast.Cure.DT, {})
 	sets.midcast.Curaga.DT = set_combine(sets.midcast.Cure.DT, {})
-	sets.midcast.LightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.LightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
+	sets.midcast.LightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.LightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
 	sets.midcast.MeleeCure.DT = set_combine(sets.midcast.Cure.DT, {})
 	
 	sets.midcast.MeleeCureSolace.DT = set_combine(sets.midcast.Cure.DT, {})
-	sets.midcast.MeleeLightWeatherCure.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.MeleeLightWeatherCureSolace.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.MeleeLightDayCureSolace.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.MeleeLightDayCure.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
+	sets.midcast.MeleeLightWeatherCure.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.MeleeLightWeatherCureSolace.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.MeleeLightDayCureSolace.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.MeleeLightDayCure.DT = set_combine(sets.midcast.Cure.DT, {})
 	sets.midcast.MeleeCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
-	sets.midcast.MeleeLightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
-	sets.midcast.MeleeLightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {waist="Light Belt"})
+	sets.midcast.MeleeLightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
+	sets.midcast.MeleeLightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
 
 	sets.midcast.Cursna = {}
 
@@ -234,11 +228,11 @@ function init_gear_sets()
     sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
     sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
-	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {waist="Acuity Belt +1"})
-	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Acuity Belt +1"})
+	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
-	sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {back="Alaunus's Cape"})
-	sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {back="Alaunus's Cape",ring1="Stikini Ring"})
+	sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
     -- Sets to return to when not performing an action.
 
@@ -247,10 +241,7 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {}
-	sets.idle = {main="Bolelabunga",sub="Sors Shield",ammo="Sihirik",
-		head=gear.chironic.hat.refresh,
-		body="Artsieq Jubbah",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Ayanmo Ring",
-		back="Alaunus's Cape",waist="Porous Rope",legs=gear.chironic.hose.refresh,feet=gear.chironic.slippers.refresh}
+	sets.idle = {}
 
 	sets.idle.PDT = {}
 		
@@ -267,9 +258,9 @@ function init_gear_sets()
     sets.defense.MEVA = {}
 		
 	-- Gear for specific elemental nukes.
-	sets.element.Wind = {main="Marin Staff"}
-	sets.element.Ice = {main="Ngqoqwanb"}
-	sets.element.Earth = {neck="Quanpur Necklace"}
+	sets.element.Wind = {}
+	sets.element.Ice = {}
+	sets.element.Earth = {}
 
 		-- Engaged sets
 
@@ -288,7 +279,7 @@ function init_gear_sets()
     sets.engaged.DW.Acc = {}
 
 		-- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-    sets.buff['Divine Caress'] = {hands="Ebers Mitts +1",back="Mending Cape"}
+    sets.buff['Divine Caress'] = {}
 
 	sets.HPDown = {}
 

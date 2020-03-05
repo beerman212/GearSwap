@@ -40,7 +40,7 @@ function init_gear_sets()
 	-- Special sets (required by rules)
 	--------------------------------------
 
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,hands="Plunderer's Armlets +1",feet="Skulk. Poulaines +1"})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,hands="Plun. Armlets +1",feet="Skulk. Poulaines +1"})
 	sets.ExtraRegen = {}
 	sets.Kiting = {feet="Pill. Poulaines +1"}
 

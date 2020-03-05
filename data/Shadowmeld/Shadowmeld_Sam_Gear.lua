@@ -8,7 +8,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT','MDTReraise')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'Reraise')
-	state.Weapons:options('Dojikiri','ProcWeapon')
+	state.Weapons:options('Dojikiri','Masamune','ProcWeapon')
 
 	state.RPMode = M('RP Farming Mode', false)
 
@@ -46,7 +46,7 @@ function init_gear_sets()
 	
 	sets.precast.Step = {
 		ammo="Aurgelmir Orb",
-		head="Wakido Kabuto +3",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Digni. Earring",
+		head="Wakido Kabuto +3",neck="Sam. Nodowa +2",ear1="Telos Earring",ear2="Digni. Earring",
 		body="Wakido Domaru +3",hands="Wakido Kote +3",ring1="Flamma Ring",ring2="Chirich Ring",
 		back=gear.smertrios.da,waist="Grunfeld Rope",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
 	sets.precast.JA['Violent Flourish'] = {
@@ -80,7 +80,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head=gear.valorous.mask.strwsd,neck="Sam. Nodowa +2",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		head=gear.valorous.mask.strwsd,neck="Sam. Nodowa +2",ear1="Thrud Earring",ear2="Moonshade Earring",
 		body="Sakonji Domaru +3",hands=gear.valorous.mitts.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
 		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.strwsd
 	}
@@ -210,7 +210,7 @@ function init_gear_sets()
 	-- sets.precast.WS['Apex Arrow'].Fodder = set_combine(sets.precast.WS['Apex Arrow'], {})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Ishvara Earring"}
+	sets.MaxTP = {ear1="Thrud Earring",ear2="Ishvara Earring"}
 	sets.MaxTP["Tachi: Shoha"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
 	sets.MaxTP["Tachi: Enpi"] = sets.MaxTP["Tachi: Shoha"]
 
@@ -218,8 +218,8 @@ function init_gear_sets()
 	sets.AccMaxTP["Tachi: Shoha"] = {ear1="Lugra Earring +1",ear2="Mache Earring +1"}
 	sets.AccMaxTP["Tachi: Enpi"] = sets.AccMaxTP["Tachi: Shoha"]
 
-	sets.DayWSEars = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
-	sets.DayWSEars["Tachi: Shoha"] = {ear1="Brutal Earring",ear2="Moonshade Earring"}
+	sets.DayWSEars = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.DayWSEars["Tachi: Shoha"] = {ear1="Thrud Earring",ear2="Moonshade Earring"}
 	sets.DayWSEars["Tachi: Enpi"] = sets.DayWSEars["Tachi: Shoha"]
 	sets.DayWSEars["Tachi: Rana"] = {ear1="Mache Earring +1",ear2="Brutal Earring"}
 
@@ -228,8 +228,8 @@ function init_gear_sets()
 	sets.AccDayWSEars["Tachi: Enpi"] = sets.AccDayWSEars["Tachi: Shoha"]
 	sets.AccDayWSEars["Tachi: Rana"] = {ear1="Telos Earring",ear2="Mache Earring +1"}
 
-	sets.DayMaxTPWSEars = {ear1="Mache Earring +1",ear2="Ishvara Earring"}
-	sets.DayMaxTPWSEars["Tachi: Shoha"] = {ear1="Brutal Earring",ear2="Mache Earring +1"}
+	sets.DayMaxTPWSEars = {ear1="Thrud Earring",ear2="Ishvara Earring"}
+	sets.DayMaxTPWSEars["Tachi: Shoha"] = {ear1="Thrud Earring",ear2="Brutal Earring"}
 	sets.DayMaxTPWSEars["Tachi: Enpi"] = sets.DayMaxTPWSEars["Tachi: Shoha"]
 
 	sets.AccDayMaxTPWSEars = {ear1="Telos Earring",ear2="Mache Earring +1"}
@@ -321,7 +321,7 @@ function init_gear_sets()
 	-- Delay 450 GK, 25 Save TP => 65 Store TP for a 5-hit (25 Store TP in gear)
 	sets.engaged = {
 		ammo="Aurgelmir Orb",
-		head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Telos Earring",ear2="Cessance Earring",
+		head="Flam. Zucchetto +2",neck="Sam. Nodowa +2",ear1="Telos Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.da,hands=gear.valorous.mitts.da,ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.smertrios.da,waist="Ioskeha Belt +1",legs="Ryuo Hakama",feet="Ryuo Sune-Ate +1"
 	}
@@ -372,7 +372,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
 	sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
-	sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
+	--sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
 	sets.weapons.ProcWeapon = {main="Soboro Sukehiro",sub="Utu Grip"}
 	--sets.weapons.Bow = {main="Norifusa +1",sub="Utu Grip",range="Cibitshavore",ammo="Eminent Arrow"}
 	
