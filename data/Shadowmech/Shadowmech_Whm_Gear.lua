@@ -1,19 +1,19 @@
 -- Setup vars that are user-dependent.  Can override this in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal','Acc')
+    state.OffenseMode:options('Normal','MaxAcc')
     state.CastingMode:options('Normal','Resistant')
-    state.IdleMode:options('Normal','PDT','TPEat')
+    state.IdleMode:options('Refresh','MEva')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('None')
 
-	gear.obi_cure_waist = "Porous Rope"
-	gear.obi_cure_back = "Alaunus's Cape"
+	gear.obi_cure_waist = ""
+	gear.obi_cure_back = ""
 
-	gear.obi_nuke_waist = "Sekhmet Corset"
-	gear.obi_high_nuke_waist = "Yamabuki-no-Obi"
-	gear.obi_nuke_back = "Toro Cape"
+	gear.obi_nuke_waist = ""
+	gear.obi_high_nuke_waist = ""
+	gear.obi_nuke_back = ""
 
 		-- Additional local binds
 	send_command('bind ^` input /ma "Arise" <t>')
@@ -241,11 +241,8 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {}
-	sets.idle = {}
-
-	sets.idle.PDT = {}
-		
-    sets.idle.TPEat = set_combine(sets.idle, {})
+	sets.idle.Refresh = {}
+	sets.idle.MEva = {}
 
 	sets.idle.Weak = {}
 
@@ -270,13 +267,11 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     -- Basic set for if no TP weapon is defined.
-    sets.engaged = {}
+	sets.engaged = {}
+	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
 
-    sets.engaged.Acc = {}
-
-	sets.engaged.DW = {}
-
-    sets.engaged.DW.Acc = {}
+	sets.engaged.DW = set_combine(sets.engaged, {})
+	sets.engaged.DW.MaxAcc = set_combine(sets.engaged.DW, {})
 
 		-- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     sets.buff['Divine Caress'] = {}
