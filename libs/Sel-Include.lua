@@ -72,7 +72,7 @@
 function init_include()
 	extdata = require('extdata')
 	require('queues')
-	res = require ('resources')
+	res = require('resources')
 	packets = require('packets')
 	
 	--Snaps's Rnghelper extension for automatic ranged attacks that should be superior to my implementation.
@@ -177,13 +177,6 @@ function init_include()
 	state.Buff['Manifestation'] = buffactive['Manifestation'] or false
 	state.Buff['Warcry'] = buffactive['Warcry'] or false
 	
-	--Defining Variables here on load that won't change without a reload to save processing.
-	if (dualWieldJobs:contains(player.main_job) or (player.sub_job == 'DNC' or player.sub_job == 'NIN')) then
-		can_dual_wield = true
-	else
-		can_dual_wield = false
-	end
-
     -- Classes describe a 'type' of action.  They are similar to state, but
     -- may have any free-form value, or describe an entire table of mapped values.
     classes = {}
@@ -228,14 +221,11 @@ function init_include()
 	useItemName = ''
 	useItemSlot = ''
 	petWillAct = 0
-	
 	autonuke = 'Fire'
 	autows = ''
 	rangedautows = ''
 	autowstp = 1000
 	rangedautowstp = 1000
-	time_offset = -39602
-	framerate = 60
 	latency = .7
 	spell_latency = nil
 	buffup = ''
@@ -244,6 +234,7 @@ function init_include()
 	next_cast = 0
 	delayed_cast = ''
 	delayed_target = ''
+	equipped = 0
 	
 	time_test = false
 	selindrile_warned = false
@@ -349,7 +340,7 @@ function init_include()
 	end
 
 	if not selindrile_warned then
-		naughty_list = {'lua','gearswap','file','windower','plugin','addon','program','hack','bot'}
+		naughty_list = {'lua','gearswap','file','windower','plugin','addon','program','hack','bot ','bots ','botting','easyfarm'}
 		
 		windower.raw_register_event('outgoing chunk', function(id, data, modified, injected, blocked)
 			if id == 0x0B6 and res.servers[windower.ffxi.get_info().server].en == 'Asura' then
@@ -426,6 +417,7 @@ function init_include()
 		state.AutoFoodMode:reset()
 		state.AutoWSMode:reset()
 		state.AutoNukeMode:reset()
+		send_command('gs rh disable')
 		state.RngHelper:reset()
 		useItem = false
 		useItemName = ''
@@ -536,6 +528,7 @@ end
 
 -- Non item-based global settings to check on load.
 function global_on_load()
+	set_dual_wield()
 	if world.area then
 		if world.area:contains('Abyssea') or areas.ProcZones:contains(world.area) then
 			state.SkipProcWeapons:set('False')
@@ -1221,7 +1214,7 @@ function default_aftercast(spell, spellMap, eventArgs)
 			lastshadow = spell.english
 		elseif spell.action_type == 'Item' and useItem and (spell.english == useItemName or useItemSlot == 'set') then
 			useItem = false
-			if useItemSlot == 'item' and not (time_test and useItemName == 'Capacity Ring') then
+			if useItemSlot == 'item' then
 				windower.send_command('put '..useItemName..' satchel')
 			elseif useItemSlot == 'set' then
 				local slots = T{}
@@ -1241,7 +1234,6 @@ function default_aftercast(spell, spellMap, eventArgs)
 			useItemName = ''
 			useItemSlot = ''
 		end
-	else
 	end
 
 	if not eventArgs.handled then
@@ -1392,6 +1384,13 @@ end
 -- Central point to call to equip gear based on status.
 -- Status - Player status that we're using to define what gear to equip.
 function handle_equipping_gear(playerStatus, petStatus)
+	local current_time = os.clock()
+	if current_time < equipped then
+		return
+	else
+		equipped = current_time + .1
+	end
+	
     -- init a new eventArgs
     local eventArgs = {handled = false}
 	
@@ -1401,7 +1400,7 @@ function handle_equipping_gear(playerStatus, petStatus)
     end
 
 	if state.ReEquip.value and state.Weapons.value ~= 'None' then
-		if player.equipment.main == 'empty' or player.equipment.sub == 'empty' then
+		if player.equipment.main ~= sets.weapons[state.Weapons.value].main or (sets.weapons[state.Weapons.value].sub and player.equipment.sub ~= sets.weapons[state.Weapons.value].sub) or (sets.weapons[state.Weapons.value].range and player.equipment.range ~= sets.weapons[state.Weapons.value].range) then
 			handle_weapons()
 		end
 	end
@@ -2107,6 +2106,7 @@ end
 
 -- Called when the player's subjob changes.
 function sub_job_change(newSubjob, oldSubjob)
+	set_dual_wield()
     if user_setup then
         user_setup()
     end
@@ -2244,7 +2244,7 @@ function state_change(stateField, newValue, oldValue)
 			send_command('wait .001;gs c DisplayElement')
 		end
 	elseif stateField == 'Capacity' and newValue == 'false' and cprings:contains(player.equipment.left_ring) then
-            enable("left_ring")
+            enable("ring1")
 	end
 	
 	if state.DisplayMode.value then update_job_states()	end
@@ -2285,36 +2285,14 @@ function buff_change(buff, gain)
 		lastshadow = "None"
     elseif S{'Commitment','Dedication'}:contains(buff) then
         if gain and (cprings:contains(player.equipment.left_ring) or xprings:contains(player.equipment.left_ring)) then
-            enable("left_ring")
-			
-			if time_test and player.equipment.left_ring == 'Capacity Ring' then
-				--local CurrentTime = (os.time(os.date("!*t", os.time())) + time_offset)
-				local CurrentTime = os.time(os.date("!*t"))
-				time_test = false
-				local CapacityNextUse = get_item_next_use('Capacity Ring').next_use_time
-				local CapacityOffset = CapacityNextUse - CurrentTime
-				local NegativeCapacityOffset = (CapacityNextUse - CurrentTime) * -1
-				local CapacityOffsetPlus = CapacityOffset + 900
-				local CapacityOffsetMinus = CapacityOffset - 900
-				local NegativeCapacityOffsetPlus =  NegativeCapacityOffset + 900
-				local NegativeCapacityOffsetMinus = NegativeCapacityOffset - 900
-				if (CapacityNextUse - (CurrentTime + CapacityOffsetPlus)) > 895 and (CapacityNextUse - (CurrentTime + CapacityOffsetPlus)) < 905 then
-					windower.add_to_chat(123,"Capacity Ring Used: Your offset is: "..CapacityOffsetPlus.."")
-				elseif (CapacityNextUse - (CurrentTime + CapacityOffsetMinus)) > 895 and (CapacityNextUse - (CurrentTime + CapacityOffsetMinus)) < 905 then
-					windower.add_to_chat(123,"Capacity Ring Used: Your offset is: "..CapacityOffsetMinus.."")
-				elseif (CapacityNextUse - (CurrentTime + NegativeCapacityOffsetPlus)) > 895 and (CapacityNextUse - (CurrentTime + NegativeCapacityOffsetPlus)) < 905 then
-					windower.add_to_chat(123,"Capacity Ring Used: Your offset is: "..NegativeCapacityOffsetPlus.."")
-				elseif (CapacityNextUse - (CurrentTime + NegativeCapacityOffsetMinus)) > 895 and (CapacityNextUse - (CurrentTime + NegativeCapacityOffsetMinus)) < 905 then
-					windower.add_to_chat(123,"Capacity Ring Used: Your offset is: "..NegativeCapacityOffsetMinus.."")
-				else
-					windower.add_to_chat(123,"Unable to automatically determine your offset")
-					time_test = true
-				end
-			end
-			
+            enable("ring1")			
 		elseif gain and (player.equipment.head == "Guide Beret" or player.equipment.head == "Sprout Beret") then
 			enable("head")
         end
+	elseif buff == "Emporox's Gift" and gain then
+		if player.equipment.left_ring == "Emporox's Ring" then
+			enable("ring1")
+		end
     end
 
 	if not midaction() and not pet_midaction() then

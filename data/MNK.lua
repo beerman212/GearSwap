@@ -84,23 +84,22 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-	if spell.type == 'WeaponSkill' and state.AutoBoost.value then
+	if spell.type == 'WeaponSkill' and (state.AutoBoost.value or state.AutoBuffMode.value ~= 'Off') then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if abil_recasts[16] < latency then
-			eventArgs.cancel = true
-			windower.chat.input('/ja "Boost" <me>')
-			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
-			tickdelay = os.clock() + 1.25
-			return
-		elseif player.sub_job == 'WAR' and abil_recasts[2] < latency then
+		if state.AutoBoost.value and player.sub_job == 'WAR' and abil_recasts[2] < latency then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Warcry" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
+		elseif state.AutoBoost.value and abil_recasts[16] < latency then
+			eventArgs.cancel = true
+			windower.chat.input('/ja "Boost" <me>')
+			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
+			tickdelay = os.clock() + 1.25
+			return
 		end
 	end
-
 end
 
 -- Run after the general precast() is done.
@@ -121,9 +120,9 @@ function job_post_precast(spell, spellMap, eventArgs)
 			end
 		end
 		
-        if buffactive.Impetus and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
+        if state.Buff['Impetus'] and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
 			equip(sets.buff.Impetus)
-		elseif buffactive.Footwork and (spell.english == "Dragon Kick" or spell.english == "Tornado Kick") then
+		elseif buffactive.Footwork and (spell.english == "Dragon Kick" or spell.english	 == "Tornado Kick") then
 			equip(sets.FootworkWS)
 		end
 	end
@@ -150,7 +149,7 @@ end
 
 -- Modify the default melee set after it was constructed.
 function job_customize_melee_set(meleeSet)
-    if buffactive.Impetus and state.DefenseMode.value == 'None' and state.OffenseMode.value ~= 'FullAcc' then
+    if state.Buff['Impetus'] and state.DefenseMode.value == 'None' and state.OffenseMode.value ~= 'FullAcc' then
 		meleeSet = set_combine(meleeSet, sets.buff.Impetus)
     end
 	
