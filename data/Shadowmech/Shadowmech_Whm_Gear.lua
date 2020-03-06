@@ -2,7 +2,7 @@
 function user_setup()
     state.OffenseMode:options('Normal','MaxAcc')
     state.CastingMode:options('Normal','Resistant')
-    state.IdleMode:options('Refresh','MEva')
+    state.IdleMode:options('Normal','MEva')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
@@ -241,7 +241,7 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {}
-	sets.idle.Refresh = {}
+	
 	sets.idle.MEva = {}
 
 	sets.idle.Weak = {}
