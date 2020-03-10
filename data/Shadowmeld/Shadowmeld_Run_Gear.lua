@@ -61,7 +61,7 @@ function init_gear_sets()
 	sets.Enmity.SIRD = {
 		ammo="Staunch Tathlum",
 		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Halasz Earring",ear2="Friomisi Earring",
-		bocy=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
+		body=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
 		back=gear.ogma.enmity,waist="Rumination Sash",legs="Carmine Cuisses +1",feet=gear.taeon.boots.phalanx
 	}
 
@@ -264,7 +264,7 @@ function init_gear_sets()
 	sets.idle.Tank = {
 		ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Erilaz Surcoat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Erilaz Surcoat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
@@ -343,7 +343,7 @@ function init_gear_sets()
 	sets.engaged.Tank = {
 		ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
-		body="Futhark Coat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Futhark Coat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.da,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Turms Leggings"
 	}
 

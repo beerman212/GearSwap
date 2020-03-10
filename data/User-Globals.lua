@@ -4,6 +4,12 @@ function user_self_command(commandArgs, eventArgs)
     if commandArgs[1] == "lock" and lockstyle then
         eventArgs.handled = true
         lockstyle()
+    -- elseif commandArgs[1] == "getslips" then
+    --     eventArgs.handled = true
+
+    -- elseif commandArgs[1] == "putslips" then
+    --     eventArgs.handled = true
+
     end
 end
 

@@ -44,7 +44,11 @@ function init_gear_sets()
 	sets.precast.JA['Counterstance'] = {}
 	sets.precast.JA['Footwork'] = {}
 	sets.precast.JA['Formless Strikes'] = {}
-	sets.precast.JA['Mantra'] = {}
+	sets.precast.JA['Mantra'] = {
+		head="Halitus Helm",neck="Sanctity Necklace",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		body="Malignance Tabard",hands="Rawhide Gloves",ring1="Ilabrat Ring",ring2="Etana Ring",
+		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Ryuo Sune-ate +1"
+	}
 
 	sets.precast.JA['Chi Blast'] = {}
 	
@@ -71,7 +75,7 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		ammo="Knobkierrie"
+		ammo="Knobkierrie",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
 		back="",waist="Fotia Belt",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
