@@ -13,10 +13,11 @@ function user_setup()
 	
 	gear.segomo = {}
 	gear.segomo.tp = {}
-	gear.segomo.tp.da = {name="Segomo's Mantle",augments={}}
+	gear.segomo.tp.da = {name="Segomo's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 
 	gear.segomo.ws = {}
 	gear.segomo.ws.smite = {name="Segomo's Mantle",augments={}}
+	gear.segomo.ws.tornado = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
     update_melee_groups()
 	
@@ -67,7 +68,12 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 	
-	sets.precast.FC = {}
+	sets.precast.FC = {
+		ammo="Impatiens",
+		head=gear.herculean.helm.dexwsd,neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Lebeche Ring",
+		legs="Limbo Trousers"
+	}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
@@ -78,7 +84,7 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back="",waist="Fotia Belt",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+		back=gear.segomo.ws.tornado,waist="Fotia Belt",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {})
 
@@ -95,7 +101,7 @@ function init_gear_sets()
 	sets.precast.WS['Raging Fists'].MaxAcc = set_combine(sets.precast.WS['Raging Fists'], {})
 
 	sets.precast.WS['Shijin Spiral'] = set_combine(sets.precast.WS, {
-		ammo="Aurgelmir Orb",ear1="Mache Earring +1",
+		ammo="Aurgelmir Orb",ear1="Mache Earring +1",back=gear.segomo.tp.da
 	})
 	sets.precast.WS['Shijin Spiral'].MaxAcc = set_combine(sets.precast.WS['Shijin Spiral'], {})
 
@@ -138,7 +144,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Eabani Earring",
 		body="Malignance Tabard",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Purity Ring",
-		back="Moonbeam Cape",waist="Moonbeam Belt",legs="Malignance Tights",feet="Ahosi Leggings"
+		back="Moonbeam Cape",waist="Moonbow Belt",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 
 	sets.idle.PDT = {}
@@ -166,17 +172,19 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back="",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+		back=gear.segomo.tp.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
-	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
+	sets.engaged.MaxAcc = set_combine(sets.engaged, {
+		head="Malignance Chapeau",neck="Lissome Torque",
+		body="Malignance Tabard",ring1="Chirich Ring",
+		waist="Grunfeld Rope",legs="Malignance Tights",feet="Mummu Gamash. +2"
+	})
 
 	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
 	sets.engaged.SubtleBlow.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
 
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		legs="Malignance Tights",
+		head="Malignance Chapeau",body="Malignance Tabard",legs="Malignance Tights",
 	})
 	sets.engaged.HybridDT.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
 
@@ -186,8 +194,7 @@ function init_gear_sets()
 	sets.engaged.PDT.MaxAcc = set_combine(sets.engaged.HybridDT.MaxAcc, {})
 
 	sets.engaged.MDT = set_combine(sets.engaged.HybridDT, {
-		neck="Warder's Charm +1",ear1="Eabani Earring",
-		ring1="Purity Ring"
+		neck="Warder's Charm +1",ear1="Eabani Earring",ring1="Purity Ring"
 	})
 	sets.engaged.MDT.MaxAcc = set_combine(sets.engaged.HybridDT.MaxAcc, {})
 

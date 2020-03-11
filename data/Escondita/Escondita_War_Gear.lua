@@ -1,8 +1,8 @@
 function user_setup()
 	-- Options: Override default values
-    state.OffenseMode:options('Normal')
-    state.WeaponskillMode:options('Match','Normal')
-    state.HybridMode:options('Normal')
+    state.OffenseMode:options('Normal','MaxAcc')
+    state.WeaponskillMode:options('Match','Normal','MaxAcc')
+    state.HybridMode:options('Normal','HybridDT')
     state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
@@ -93,11 +93,6 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
-	sets.precast.WS.SomeAcc = set_combine(sets.precast.WS, {})
-	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
-	sets.precast.WS.FullAcc = set_combine(sets.precast.WS, {})
-	sets.precast.WS.Fodder = set_combine(sets.precast.WS, {})
-
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS["Resolution"] = {
 		ammo="Seething Bomblet",
@@ -106,22 +101,12 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
-	sets.precast.WS["Resolution"].SomeAcc = {}
-	sets.precast.WS["Resolution"].Acc = {}
-	sets.precast.WS["Resolution"].FullAcc = {}
-	sets.precast.WS["Resolution"].Fodder = {}
-
 	sets.precast.WS["Scourge"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Brutal Earring",ear2="Ishvara Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
-
-	sets.precast.WS["Scourge"].SomeAcc = {}
-	sets.precast.WS["Scourge"].Acc = {}
-	sets.precast.WS["Scourge"].FullAcc = {}
-	sets.precast.WS["Scourge"].Fodder = {}
 
 	sets.precast.WS["Ground Strike"] = {
 		ammo="Knobkierrie",
@@ -130,22 +115,12 @@ function init_gear_sets()
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
-	sets.precast.WS["Ground Strike"].SomeAcc = {}
-	sets.precast.WS["Ground Strike"].Acc = {}
-	sets.precast.WS["Ground Strike"].FullAcc = {}
-	sets.precast.WS["Ground Strike"].Fodder = {}
-
 	sets.precast.WS["Shockwave"] = {
 		ammo="Knobkierrie",
 		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Assuage Earring",ear2="Ishvara Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Etana Ring",
 		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	}
-
-	sets.precast.WS["Shockwave"].SomeAcc = {}
-	sets.precast.WS["Shockwave"].Acc = {}
-	sets.precast.WS["Shockwave"].FullAcc = {}
-	sets.precast.WS["Shockwave"].Fodder = {}
 
 	sets.precast.WS["Herculean Slash"] = {
 		ammo="Pemphredo Tathlum",
@@ -154,22 +129,12 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
 	}
 
-	sets.precast.WS["Herculean Slash"].SomeAcc = {}
-	sets.precast.WS["Herculean Slash"].Acc = {}
-	sets.precast.WS["Herculean Slash"].FullAcc = {}
-	sets.precast.WS["Herculean Slash"].Fodder = {}
-
 	sets.precast.WS["Upheaval"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
-
-	sets.precast.WS["Upheaval"].SomeAcc = {}
-	sets.precast.WS["Upheaval"].Acc = {}
-	sets.precast.WS["Upheaval"].FullAcc = {}
-	sets.precast.WS["Upheaval"].Fodder = {}
 
 	sets.precast.WS["King's Justice"] = {
 		ammo="Seething Bomblet",
@@ -178,22 +143,12 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
-	sets.precast.WS["King's Justice"].SomeAcc = {}
-	sets.precast.WS["King's Justice"].Acc = {}
-	sets.precast.WS["King's Justice"].FullAcc = {}
-	sets.precast.WS["King's Justice"].Fodder = {}
-
 	sets.precast.WS["Full Break"] = {
 		ammo="Knobkierrie",
 		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Assuage Earring",ear2="Ishvara Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Etana Ring",
 		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	}
-
-	sets.precast.WS["Full Break"].SomeAcc = {}
-	sets.precast.WS["Full Break"].Acc = {}
-	sets.precast.WS["Full Break"].FullAcc = {}
-	sets.precast.WS["Full Break"].Fodder = {}
 
 	sets.precast.WS["Fell Cleave"] = {
 		ammo="Knobkierrie",
@@ -202,22 +157,12 @@ function init_gear_sets()
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
-	sets.precast.WS["Fell Cleave"].SomeAcc = {}
-	sets.precast.WS["Fell Cleave"].Acc = {}
-	sets.precast.WS["Fell Cleave"].FullAcc = {}
-	sets.precast.WS["Fell Cleave"].Fodder = {}
-
 	sets.precast.WS["Ukko's Fury"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
-
-	sets.precast.WS["Ukko's Fury"].SomeAcc = {}
-	sets.precast.WS["Ukko's Fury"].Acc = {}
-	sets.precast.WS["Ukko's Fury"].FullAcc = {}
-	sets.precast.WS["Ukko's Fury"].Fodder = {}
 
 	sets.precast.WS["Steel Cyclone"] = {
 		ammo="Knobkierrie",
@@ -226,22 +171,12 @@ function init_gear_sets()
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
-	sets.precast.WS["Steel Cyclone"].SomeAcc = {}
-	sets.precast.WS["Steel Cyclone"].Acc = {}
-	sets.precast.WS["Steel Cyclone"].FullAcc = {}
-	sets.precast.WS["Steel Cyclone"].Fodder = {}
-
 	sets.precast.WS["Savage Blade"] = {
 		ammo="Knobkierrie",
 		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
 		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
-
-	sets.precast.WS["Savage Blade"].SomeAcc = {}
-	sets.precast.WS["Savage Blade"].Acc = {}
-	sets.precast.WS["Savage Blade"].FullAcc = {}
-	sets.precast.WS["Savage Blade"].Fodder = {}
 
 	sets.precast.WS["Vorpal Blade"] = {
 		ammo="Seething Bomblet",
@@ -250,11 +185,6 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
-	sets.precast.WS["Vorpal Blade"].SomeAcc = {}
-	sets.precast.WS["Vorpal Blade"].Acc = {}
-	sets.precast.WS["Vorpal Blade"].FullAcc = {}
-	sets.precast.WS["Vorpal Blade"].Fodder = {}
-
 	sets.precast.WS["Sanguine Blade"] = {
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
@@ -262,22 +192,12 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
 	}
 
-	sets.precast.WS["Sanguine Blade"].SomeAcc = {}
-	sets.precast.WS["Sanguine Blade"].Acc = {}
-	sets.precast.WS["Sanguine Blade"].FullAcc = {}
-	sets.precast.WS["Sanguine Blade"].Fodder = {}
-
 	sets.precast.WS["Requiescat"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
-
-	sets.precast.WS["Requiescat"].SomeAcc = {}
-	sets.precast.WS["Requiescat"].Acc = {}
-	sets.precast.WS["Requiescat"].FullAcc = {}
-	sets.precast.WS["Requiescat"].Fodder = {}
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Brutal Earring",ear2="Cessance Earring"}
@@ -330,66 +250,35 @@ function init_gear_sets()
 	sets.buff.Sleep = {neck="Vim Torque"}
 		
 			-- Engaged sets
-	sets.engaged = {}
-	sets.engaged.SomeAcc = {}
-	sets.engaged.Acc = {}
-	sets.engaged.FullAcc = {}
-	sets.engaged.Fodder = {}
-
-	sets.engaged.Chango = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
+	sets.engaged = {
+		ammo="Aurgelmir Orb",
+		head="Flamm. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}
+	sets.engaged.HybridDT = set_combine(sets.engaged, {
+		ring1="Defending Ring",ring2="Gelatinous Ring +1"
+	})
 
-	sets.engaged.Chango.SomeAcc = {}
-	sets.engaged.Chango.Acc = {}
-	sets.engaged.Chango.FullAcc = {}
-	sets.engaged.Chango.Fodder = {}
+	sets.engaged.MaxAcc = set_combine(sets.engaged, {
+		ear1="Zennaroi Earring",body="Pumm. Lorica +2",hands="Pumm. Mufflers +2"
+	})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.HybridDT, {
+		head="Pummeler's Mask +2",ear1="Zennaroi Earring",body="Pumm. Lorica +2",hands="Pumm. Mufflers +2"
+	})
 
-	sets.engaged.Ragnorok = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
-		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
-	}
+	sets.engaged.Ragnorok = set_combine(sets.engaged, {})
+	sets.engaged.Ragnorok.HybridDT = set_combine(sets.engaged.Ragnorok, {})
 
-	sets.engaged.Ragnorok.SomeAcc = {}
-	sets.engaged.Ragnorok.Acc = {}
-	sets.engaged.Ragnorok.FullAcc = {}
-	sets.engaged.Ragnorok.Fodder = {}
+	sets.engaged.Ragnorok.MaxAcc = set_combine(sets.engaged.Ragnorok, {})
+	sets.engaged.Ragnorok.MaxAcc.HybridDT = set_combine(sets.engaged.Ragnarok.HybridDT, {})
 
-	sets.engaged.Zulfiqar = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
-		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
-	}
-
-	sets.engaged.Zulfiqar.SomeAcc = {}
-	sets.engaged.Zulfiqar.Acc = {}
-	sets.engaged.Zulfiqar.FullAcc = {}
-	sets.engaged.Zulfiqar.Fodder = {}
-
-	sets.engaged.Naegling = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
-		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
-	}
-
-	sets.engaged.Naegling.SomeAcc = {}
-	sets.engaged.Naegling.Acc = {}
-	sets.engaged.Naegling.FullAcc = {}
-	sets.engaged.Naegling.Fodder = {}
-
-	sets.engaged.Naegling.DW = set_combine(sets.engaged.Naegling, {ear1="Suppanomimi",ear2="Eabani Earring"})
-
-	sets.engaged.Naegling.DW.SomeAcc = {}
-	sets.engaged.Naegling.DW.Acc = {}
-	sets.engaged.Naegling.DW.FullAcc = {}
-	sets.engaged.Naegling.DW.Fodder = {}
+	-- sets.engaged.Ragnorok = {
+	-- 	ammo="Seething Bomblet",
+	-- 	head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
+	-- 	body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
+	-- 	back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
+	-- }
 	
 	--Extra Special Sets
 	

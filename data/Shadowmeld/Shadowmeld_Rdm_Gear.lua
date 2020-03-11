@@ -7,6 +7,8 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
+	state.AutoBuffMode:options('Off','AutoSavage','AutoCygne','AutoHeal','AutoNuke')
+
 	state.Weapons:options('None','Melee','MeleeBow','MeleeDW','MeleeDWBow')
 	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Kaja Knife','Maxentius'}
 	state.Shields = M{['description'] = 'Shields', 'Sacro Bulwark', 'Ammurapi Shield', 'Genmei Shield'}
@@ -471,97 +473,90 @@ function init_gear_sets()
 	})
 end
 
-buff_spell_lists = {
-	Auto = {
-		{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
-		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-		{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
-		{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
-		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
-	},
-	
-	Default = {
-		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	Reapply=false},
-		{Name='Haste II',		Buff='Haste',		SpellID=511,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
-		{Name='Shell V',		Buff='Shell',		SpellID=52,		Reapply=false},
-		{Name='Protect V',		Buff='Protect',		SpellID=47,		Reapply=false},
-	},
+buff_spell_lists.AutoHeal = {
+	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
+	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
+	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
+	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
+	{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
+	{Name='Gain-MND',		Buff='MND Boost',	SpellID=490,	When='Always'},
+	{Name='Reraise',		Buff='Reraise',		SpellID=135,	When='Always'},
+}
 
-	MageHeal = {
-		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
-		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
-		{Name='Aurorastorm', 	Buff='Aurorastorm', 	SpellID=119, 	Reapply=false},
-		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-	},
+buff_spell_lists.AutoSavage = {
+	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
+	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
+	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
+	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
+	{Name="Temper II",		Buff='Multi Strikes',SpellID=895,	When='Always'},
+	{Name='Gain-STR',		Buff='STR Boost',	SpellID=486,	When="Always"},
+}
 
-	MageDebuff = {
-		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
-		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
-		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-	},
+buff_spell_lists.AutoCygne = {
+	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
+	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
+	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
+	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
+	{Name="Temper II",		Buff='Multi Strikes',SpellID=895,	When='Always'},
+	{Name='Gain-DEX',		Buff='DEX Boost',	SpellID=487,	When="Always"},
+}
 
-	MageNuke = {
-		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Gain-INT',		Buff='INT Boost',		SpellID=490,	Reapply=false},
-		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
-		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-	},
-	
-	MeleeBuffCygne = {
-		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Gain-DEX',		Buff='DEX Boost',		SpellID=487,	Reapply=false},
-		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
-		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
-		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
-	},
-	
-	MeleeBuffSavage = {
-		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Gain-STR',		Buff='STR Boost',		SpellID=486,	Reapply=false},
-		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
-		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
-		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
-		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
-	},
+buff_spell_lists.AutoNuke = {
+	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
+	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
+	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
+	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
+	{Name='Gain-INT',		Buff='INT Boost',	SpellID=490,	When='Always'},
+	{Name='Klimaform',		Buff='Klimaform',	SpellID=287,	When='Always'}
+}
+
+buff_spell_lists.Default = {
+	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	Reapply=false},
+	{Name='Haste II',		Buff='Haste',		SpellID=511,	Reapply=false},
+	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	Reapply=false},
+	{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
+	{Name='Shell V',		Buff='Shell',		SpellID=52,		Reapply=false},
+	{Name='Protect V',		Buff='Protect',		SpellID=47,		Reapply=false},
+	{Name='Klimaform',		Buff='Klimaform',	SpellID=287,	Reapply=false}
+}
+
+buff_spell_lists.MageHeal = {
+	{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+	{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+	{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+	{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+	{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+	{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
+	{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+	{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+	{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+	{Name='Aurorastorm', 	Buff='Aurorastorm', 	SpellID=119, 	Reapply=false},
+}
+
+buff_spell_lists.MageDebuff = {
+	{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+	{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+	{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+	{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+	{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+	{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+	{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
+	{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+	{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+	{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+}
+
+buff_spell_lists.MageNuke = {
+	{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+	{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+	{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+	{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+	{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+	{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+	{Name='Gain-INT',		Buff='INT Boost',		SpellID=490,	Reapply=false},
+	{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+	{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+	{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
 }
 
 -- Select default macro book on initial load or subjob change.

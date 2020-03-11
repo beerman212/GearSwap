@@ -8,7 +8,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT','MDT_HP','BDT','BDT_HP')
 	state.ResistDefenseMode:options('MEVA','MEVA_HP','Charm')
 	state.IdleMode:options('Normal','Tank','KiteTank','Sphere')
-	state.Weapons:options('Zulfiqar','Epeolatry','Aettir')
+	state.Weapons:options('Epeolatry','Aettir','Zulfiqar')
 	state.CompoundRuneMode = M{['description'] = 'Compound Rune Mode', 'Normal', 'Bashmu'}
 	
 	state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None','MP'}
@@ -21,7 +21,7 @@ function user_setup()
 	}
 
 	gear.ogma = {}
-	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10',}}
+	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Occ. inc. resist. to stat. ailments+10',}}
 	gear.ogma.da = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
 	gear.ogma.resolution = {name="Ogma's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 	gear.ogma.dimidiation = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
@@ -288,8 +288,7 @@ function init_gear_sets()
 	sets.weapons.Aettir = {main="Aettir",sub="Utu Grip"}
 	--sets.weapons.Lionheart = {main="Lionheart",sub="Utu Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
-	sets.weapons.Montante = {main="Montante +1",sub="Utu Grip"}
-	--sets.weapons.DualWeapons = {main="Firangi",sub="Reikiko"}
+	--sets.weapons.Montante = {main="Montante +1",sub="Utu Grip"}
 	
 	-- Defense Sets
 	
@@ -354,36 +353,6 @@ function init_gear_sets()
 	})
 	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.HybridDT, {})
 	sets.engaged.MaxAcc.Tank = set_combine(sets.engaged.Tank, {})
-
-	-- sets.engaged = {
-	-- 	ammo="Yamarang",
-	-- 	head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Brutal Earring",ear2="Sherida Earring",
-	-- 	body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
-	-- 	back=gear.ogma.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
-	-- }
-	
-	-- sets.engaged.SomeAcc = set_combine(sets.engaged, {head="Dampening Tam",feet=gear.herculean.boots.ta})
-	-- sets.engaged.Acc = set_combine(sets.engaged.SomeAcc, {neck="Lissome Necklace",ear1="Telos Earring"})
-	-- sets.engaged.HighAcc = set_combine(sets.engaged.Acc, {})
-	-- sets.engaged.MaxAcc = set_combine(sets.engaged.HighAcc, {})
-	-- sets.engaged.HybridDT = set_combine(sets.engaged, {})
-	
-	-- sets.engaged.SomeAcc.HybridDT = set_combine(sets.engaged.SomeAcc, {})
-	-- sets.engaged.Acc.HybridDT = set_combine(sets.engaged.Acc, {})
-	-- sets.engaged.HighAcc.HybridDT = set_combine(sets.engaged.HighAcc, {})
-	-- sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.MaxAcc, {})
-
-	-- sets.engaged.Tank = {
-	-- 	ammo="Staunch Tathlum",
-	-- 	head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
-	-- 	body="Futhark Coat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-	-- 	back="Shadow Mantle",waist="Kasiri Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
-	-- }
-
-	-- sets.engaged.SomeAcc.Tank = sets.engaged.Tank
-	-- sets.engaged.Acc.Tank = sets.engaged.Tank
-	-- sets.engaged.HighAcc.Tank = sets.engaged.Tank
-	-- sets.engaged.MaxAcc.Tank = sets.engaged.Tank
 	
 	--------------------------------------
 	-- Custom buff sets
@@ -460,12 +429,6 @@ function check_trust()
 	return false
 end
 
-buff_spell_lists.Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	When='Combat'},
-	{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	When='Engaged'},
-	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
-	{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Idle'},
-}
 buff_spell_lists.Default = {
 	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	Reapply=false},
 	{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	Reapply=false},
@@ -473,15 +436,6 @@ buff_spell_lists.Default = {
 	{Name='Refresh',	Buff='Refresh',			SpellID=109,	Reapply=false},
 	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	Reapply=false},
 	{Name='Aquaveil',	Buff='Aquaveil',		SpellID=55,		Reapply=false},
-}
-
-buff_spell_lists.Default = {
-	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	Reapply=false},
-	{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	Reapply=false},
-	{Name='Haste',		Buff='Haste',			SpellID=57,		Reapply=false},
-	{Name='Refresh',	Buff='Refresh',			SpellID=109,	Reapply=false},
-	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	Reapply=false},
-	{Name='Aquaveil', 	Buff='Aquaveil', 		SpellID=55, 	Reapply=false}
 }
 
 function check_rune()
