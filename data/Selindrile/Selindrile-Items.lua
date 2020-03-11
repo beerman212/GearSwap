@@ -3,7 +3,7 @@
 sets.Sheltered = {ring2="Sheltered Ring"}
 sets.Capacity = {back="Mecisto. Mantle"}
 
-sets.buff.Doom = {neck="Nicander's Necklace",back="Moonlight Cape",waist="Gishdubar Sash",ring1="Eshmun's Ring",ring2="Eshmun's Ring"}
+sets.buff.Doom = {waist="Gishdubar Sash",ring1="Eshmun's Ring",ring2="Eshmun's Ring"}
 sets.TreasureHunter = {head="Wh. Rarab Cap +1",waist="Chaac Belt"}
 
 sets.precast.Item['Hallowed Water'] = {}
@@ -13,6 +13,7 @@ sets.precast.Item['Holy Water'] = {}
 
 gear.gada_enhancing_club = {name="Gada",augments={'Enh. Mag. eff. dur. +6','STR+3','Mag. Acc.+8','"Mag.Atk.Bns."+17','DMG:+7',}}
 gear.gada_healing_club = {name="Gada",augments={'"Cure" potency +9%','Mag. Acc.+11','"Mag.Atk.Bns."+13','DMG:+3',}}
+gear.gada_matk_club = {name="Gada",augments={'Mag. Acc.+23','"Mag.Atk.Bns."+24','DMG:+14',}}
 gear.grioavolr_nuke_staff = {name="Grioavolr",augments={'Magic burst dmg.+8%','MP+61','Mag. Acc.+16','"Mag.Atk.Bns."+30','Magic Damage +7',}}
 gear.grioavolr_fc_staff = {name="Grioavolr",augments={'"Fast Cast"+7','MP+20','Mag. Acc.+17','"Mag.Atk.Bns."+10','Magic Damage +5',}}
 gear.grioavolr_pet_staff = {name="Grioavolr",augments={'Blood Pact Dmg.+8','Pet: STR+10','Pet: Mag. Acc.+19','Pet: "Mag.Atk.Bns."+30',}}
@@ -26,8 +27,6 @@ gear.chironic_refresh_feet = {name="Chironic Slippers",augments={'Pet: Mag. Acc.
 gear.herculean_fc_head = {name="Herculean Helm",augments={'"Fast Cast"+6','"Mag.Atk.Bns."+13',}}
 gear.herculean_nuke_head = {name="Herculean Helm",augments={'Mag. Acc.+16 "Mag.Atk.Bns."+16','Enmity-3','INT+9','"Mag.Atk.Bns."+13',}}
 gear.herculean_dt_hands = {name="Herculean Gloves",augments={'Attack+4','Damage taken-4%',}}
-gear.herculean_phalanx_hands = {name="Herculean Gloves", augments={'INT+6','MND+7','Phalanx +4','Accuracy+10 Attack+10','Mag. Acc.+13 "Mag.Atk.Bns."+13',}}
-gear.herculean_treasure_hands = {name="Herculean Gloves", augments={'"Store TP"+7','INT+6','"Treasure Hunter"+2','Accuracy+17 Attack+17','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
 gear.herculean_refresh_hands = {name="Herculean Gloves",augments={'Enmity+2','Pet: "Store TP"+4','"Refresh"+1',}}
 gear.herculean_waltz_hands = {name="Herculean Gloves",augments={'Rng.Acc.+16','"Waltz" potency +11%','AGI+1',}}
 gear.herculean_waltz_body = {name="Herculean Vest",augments={'Attack+26','"Waltz" potency +11%','AGI+4','Accuracy+5',}}
@@ -37,10 +36,11 @@ gear.herculean_wsd_legs = {name="Herculean Trousers",augments={'Weapon skill dam
 gear.herculean_nuke_legs = {name="Herculean Trousers",augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Damage taken-2%','"Mag.Atk.Bns."+14',}}
 gear.herculean_acc_feet = {name="Herculean Boots",augments={'Accuracy+25 Attack+25','Crit. hit damage +1%','DEX+10','Accuracy+14','Attack+1',}}
 gear.herculean_ta_feet = {name="Herculean Boots",augments={'Accuracy+19 Attack+19','"Triple Atk."+4','DEX+5','Accuracy+8','Attack+11',}}
-gear.herculean_refresh_feet = {name="Herculean Boots",augments={'CHR+2','MND+6','"Refresh"+2','Accuracy+7 Attack+7',}}
+gear.herculean_dt_feet = {name="Herculean Boots",augments={'Damage taken-4%','MND+7','Attack+6',}}
 gear.herculean_wsd_feet = {name="Herculean Boots",augments={'Accuracy+23 Attack+23','Weapon skill damage +5%','DEX+10','Accuracy+10','Attack+1',}}
 gear.herculean_waltz_feet = {name="Herculean Boots",augments={'Attack+10','"Waltz" potency +10%','AGI+4','Accuracy+9',}}
 gear.herculean_nuke_feet = {name="Herculean Boots",augments={'"Mag.Atk.Bns."+23','Rng.Acc.+14','Phalanx +1','Mag. Acc.+15 "Mag.Atk.Bns."+15',}}
+gear.herculean_refresh_feet = {name="Herculean Boots",augments={'CHR+8','Rng.Acc.+7','"Refresh"+1','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
 
 gear.merlinic_nuke_head = {name="Merlinic Hood",augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+15','Mag. Acc.+3','"Mag.Atk.Bns."+13',}}
 gear.merlinic_nuke_body = {name="Merlinic Jubbah",augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','"Occult Acumen"+4','INT+10','Mag. Acc.+2','"Mag.Atk.Bns."+15',}}
