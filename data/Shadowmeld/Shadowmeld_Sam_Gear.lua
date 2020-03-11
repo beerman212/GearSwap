@@ -267,7 +267,7 @@ function init_gear_sets()
 		--head="Twilight Helm",body="Twilight Mail"
 	}
 	
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.valorous.mask.TH,hands=gear.valorous.mitts.TH})
 	sets.Skillchain = {}
 	sets.RP = {neck="Sam. Nodowa +2"}
 	

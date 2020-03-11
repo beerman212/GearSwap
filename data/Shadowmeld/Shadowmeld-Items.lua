@@ -4,7 +4,7 @@ sets.Sheltered = {ring2="Sheltered Ring"}
 sets.Capacity = {back="Mecisto. Mantle"}
 
 sets.buff.Doom = {waist="Gishdubar Sash",ring2="Purity Ring"}
-sets.TreasureHunter = {}
+sets.TreasureHunter = {waist="Chaac Belt"}
 
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
@@ -143,6 +143,7 @@ gear.telchine.pigaches.enhancing = {name = "Telchine Pigaches", augments = {'Enh
 gear.valorous = {}
 gear.valorous.mask = {}
 gear.valorous.mask.strwsd = {name = "Valorous Mask", augments = {'Weapon skill damage +4%','STR+8','Accuracy+11','Attack+15',}}
+gear.valorous.mask.TH = {name = "Valorous Mask", augments = {'AGI+6','INT+11','"Treasure Hunter"+1','Accuracy+14 Attack+14','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
 
 gear.valorous.mail = {}
 gear.valorous.mail.strwsd = {name = "Valorous Mail", augments = {'Accuracy+27','Weapon skill damage +3%','STR+9','Attack+14',}}
@@ -151,6 +152,7 @@ gear.valorous.mail.da = {name = "Valorous Mail", augments = {'Accuracy+15 Attack
 gear.valorous.mitts = {}
 gear.valorous.mitts.vitwsd = {name = "Valorous Mitts", augments = {'Accuracy+24','Weapon skill damage +4%','VIT+5','Attack+10',}}
 gear.valorous.mitts.da = {name = "Valorous Mitts", augments = {'Accuracy+25 Attack+25','"Dbl.Atk."+4','Accuracy+14','Attack+10',}}
+gear.valorous.mitts.TH = {name = "Valorous Mitts", augments = {'AGI+10','MND+5','"Treasure Hunter"+2','Mag. Acc.+5 "Mag.Atk.Bns."+5',}}
 
 gear.valorous.hose = {}
 gear.valorous.hose.dexwsd = {name = "Valor. Hose", augments = {'Accuracy+24 Attack+24','Weapon skill damage +2%','DEX+9','Accuracy+13','Attack+14',}}

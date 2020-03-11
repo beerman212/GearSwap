@@ -242,7 +242,9 @@ function init_gear_sets()
 	sets.resting = {}
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-	sets.idle = {}
+	sets.idle = {
+		legs="Assiduity Pants"
+	}
 	
 	sets.idle.MEva = {}
 
@@ -288,5 +290,5 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(3, 6)
+	set_macro_page(1, 1)
 end
