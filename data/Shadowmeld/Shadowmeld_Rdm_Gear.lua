@@ -1,20 +1,13 @@
 function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal','Acc','Fodder')
-	state.HybridMode:options('Normal', 'PDT', 'MDT')
+	state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
 	state.CastingMode:options('Normal', 'Resistant', 'Fodder', 'Proc')
 	state.IdleMode:options('Normal', 'PDT', 'MDT')
 	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.AutoBuffMode:options('Off','AutoSavage','AutoCygne','AutoHeal','AutoNuke')
-
-	state.Weapons:options('None','Melee','MeleeBow','MeleeDW','MeleeDWBow')
-	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Kaja Knife','Maxentius'}
-	state.Shields = M{['description'] = 'Shields', 'Sacro Bulwark', 'Ammurapi Shield', 'Genmei Shield'}
-	state.OffhandWeapons = M{['description'] = 'Offhand Weapons', 'Ternion Dagger +1', 'Kaja Knife', 'Naegling'}
-
-	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
+	state.Weapons:options('None','SequenceAmmurapi','SequenceGenmei','SequenceSacro','NaeglingAmmurapi','NaeglingGenmei','NaeglingSacro','DualSequence','DualNaegling')
 	
 	gear.sucellos = {}
 	gear.sucellos.stp = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
@@ -25,8 +18,7 @@ function user_setup()
 
 	gear.colada = {}
 	gear.colada.enhancing = {name = "Colada", augments = {'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
-	gear.colada.refresh1 = {name="Colada",augments={}}
-	gear.colada.refresh2 = {name="Colada",augments={}}
+	gear.colada.refresh = {}
 	
 	gear.obi_cure_back = gear.sucellos.enfeeble
 	gear.obi_cure_waist = "Witful Belt"
@@ -56,7 +48,7 @@ function user_setup()
 	send_command('bind @f10 gs c cycle RecoverMode')
 	
 	select_default_macro_book()
-	--lockstyle:schedule(5)
+	lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -67,7 +59,8 @@ function init_gear_sets()
 	-- Precast Sets
 	
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Chainspell'] = {body="Viti. Tabard +3"}	
+	sets.precast.JA['Chainspell'] = {body="Viti. Tabard +3"}
+	
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
@@ -78,20 +71,20 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	
 	sets.precast.FC = {ammo="Impatiens",
-		head="Atro. Chapeau +2",neck="Loricate Torque +1",ear1="Malignance Earring",ear2="Etiolation Earring",
+		head="Atro. Chapeau +2",neck="Loricate Torque +1",ear1="Enchntr. Earring +1",ear2="Etiolation Earring",
 		body="Viti. Tabard +3",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-		head=empty,neck="Voltsurge Torque",ear2="Enchntr. Earring +1",
+		head=empty,neck="Voltsurge Torque",ear2="Loquac. Earring",
 		body="Twilight Cloak",hands="Leyline Gloves",ring1="Kishar Ring",
 		back=gear.sucellos.enfeeble})
        
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {ammo="Aurgelmir Orb",
+	sets.precast.WS = {ammo="Ginsen",
 		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Sherida Earring",
-		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
+		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -104,7 +97,7 @@ function init_gear_sets()
 		back=gear.sucellos.enfeeble,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Carmine Greaves +1"
 	}
 		
-	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ammo="Aurgelmir Orb",head="Carmine Mask +1",ring1="Chirich Ring",ring2="Ilabrat Ring",back=gear.sucellos.stp})
+	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ammo="Ginsen",head="Carmine Mask +1",ring1="Chirich Ring",ring2="Ilabrat Ring",back=gear.sucellos.stp})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 		
 	sets.precast.WS['Chant du Cygne'] = {
@@ -114,13 +107,13 @@ function init_gear_sets()
 		back=gear.sucellos.cdc,waist="Fotia Belt",legs=gear.taeon.tights.cdc,feet="Jhakri Pigaches +2"
 	}
 		
-	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Aurgelmir Orb",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
+	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Ginsen",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
 		
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Regal Gem",
 		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",
-		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
+		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Epaminondas's Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
 	}
 	
@@ -128,8 +121,8 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'].Fodder = set_combine(sets.precast.WS['Savage Blade'], {})
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
-		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Freke Ring",ring2="Archon Ring",
+		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
+		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Archon Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -139,18 +132,11 @@ function init_gear_sets()
 	sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS.Acc, {})
 	
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {ammo="Pemphredo Tathlum",
-		head="Jhakri Coronal +2", neck="Sanctity Necklace",ear1="Regal Earring", ear2="Malignance Earring",
-		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Freke Ring",ring2="Shiva Ring +1",
+		head="Jhakri Coronal +2", neck="Sanctity Necklace",ear1="Regal Earring", ear2="Friomisi Earring",
+		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Shiva Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs=gear.merlinic.shalwar.magical,feet="Jhakri Pigaches +2"})
 	
 	sets.precast.WS['Energy Drain'] = set_combine(sets.precast.WS['Sanguine Blade'], {ammo="Regal Gem",})
-
-	sets.precast.WS['Empyreal Arrow'] = {
-		ammo="",
-		head="Malignance Chapeau",neck="Marked Gorget",ear1="Telos Earring",ear2="Enervating Earring",
-		body="Malignance Tabard",hands="",ring1="",ring2="",
-		back=gear.sucellos.stp,waist="Yemaya Belt",legs="Malignance Tights",feet=""
-	}
 	
 	sets.MaxTP = {}
 	sets.AccMaxTP = {}
@@ -224,13 +210,13 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Malignance Earring",
+		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
 	}
 
 	sets.midcast['Enfeebling Magic'].PreserveTP = {range=empty,ammo="Regal Gem"}
-	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,feet="Vitiation Boots +2"}
+	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,--[[feet="Vitiation Boots +2"]]}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +2"})
@@ -276,9 +262,9 @@ function init_gear_sets()
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 	
 	sets.midcast['Elemental Magic'] = {main=gear.grioavolr.nuke,sub="Enki Strap",ammo="Pemphredo Tathlum",
-		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=gear.sucellos.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
+		head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
+		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 		
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
 		main="Naegling",sub="Ammurapi Shield",body=gear.merlinic.jubbah.magical,legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.magical
@@ -294,7 +280,7 @@ function init_gear_sets()
 		head=empty,body="Twilight Cloak"})
 
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
+		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Atrophy Tabard +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
 		back=gear.sucellos.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.drain
 	}
@@ -309,14 +295,6 @@ function init_gear_sets()
 		
 	sets.midcast.Stun.Resistant = sets.midcast['Dark Magic']
 
-	-- Ranged Attack sets
-	sets.midcast.RA = {
-		ammo="",
-		head="Malignance Chapeau",neck="Marked Gorget",ear1="Telos Earring",ear2="Enervating Earring",
-		body="Malignance Tabard",hands="",ring1="",ring2="",
-		back=gear.sucellos.stp,waist="Yemaya Belt",legs="Malignance Tights",feet=""
-	}
-
 	-- Sets for special buff conditions on spells.
 		
 	sets.buff.Saboteur = {hands="Leth. Gantherots +1"}
@@ -330,42 +308,39 @@ function init_gear_sets()
 	-- Sets to return to when not performing an action.	
 
 	-- Idle sets
-	sets.idle = {
-		main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
+	sets.idle = {main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
 		head="Viti. Chapeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Dark Ring",
-		back="Moonbeam Cape",waist="Flume Belt +1",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh
-	}
-	
-	sets.idle.PDT = set_combine(sets.idle, {
-		ammo="Staunch Tathlum",ring2="Gelatinous Ring +1",legs="Malignance Tights"
-	})
-	
-	sets.idle.MDT = set_combine(sets.idle, {
-		neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
-		ring2="Purity Ring",legs="Malignance Tights"
-	})
+		back="Solemnity Cape",waist="Flume Belt",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh}
 		
-	sets.idle.Weak = set_combine(sets.idle.PDT, {})
+	sets.idle.PDT = set_combine(sets.idle, {ammo="Staunch Tathlum",
+		head="Aya. Zucchetto +2",body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring2="Gelatinous Ring +1",
+		feet="Aya. Gambieras +2"})
+		
+	sets.idle.MDT = set_combine(sets.idle, {ammo="Staunch Tathlum",hands="Atrophy Gloves +2",legs="Ea Slops",feet="Amalric Nails"})
+		
+	sets.idle.Weak = set_combine(sets.idle, {})
+	
+	sets.idle.DTHippo = set_combine(sets.idle.PDT, {})
 	
 	-- Resting sets
 	sets.resting = sets.idle
 		
 	-- Defense sets
 	sets.defense.PDT = {
-		ammo="Staunch Tathlum",
-		head="Malignance Chapeau",neck="Loricate Torque +1",
-		body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		waist="Flume Belt +1",legs="Malignance Tights"
+		main="Mafic Cudgel",sub="Sacro Bulwark",ammo="Staunch Tathlum",
+		head="Aya. Zucchetto +2",neck="Loriqate Torque +1",
+		body="Ayanmo Corazza +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back=gear.sucellos.stp,waist="Flume Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
 	}
 
 	sets.defense.NukeLock = sets.midcast['Elemental Magic']
 		
 	sets.defense.MDT = {
-		ammo="Staunch Tathlum",
-		head="Malignance Chapeau",neck="Warder's Charm",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
-		body="Malignance Tabard",hands="",ring1="Defending Ring",ring2="Purity Ring",
-		back="Moonbeam Cape",waist="",legs="Malignance Tights",feet=""
+		sub="Sacro Bulwark",ammo="Staunch Tathlum",
+		head="Aya. Zucchetto +2",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		body="Ayanmo Corazza +2",hands="Atrophy Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
+		back="Moonbeam Cape",
 	}
 		
 	sets.defense.MEVA = set_combine(sets.defense.MDT, {head="Ea Hat",body="Ea Houppelande"})
@@ -378,7 +353,6 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-obi"}
 	sets.DayIdle = {}
 	sets.NightIdle = {}
-	sets.Sublimation = {}
 	
 	-- Weapons sets
 	sets.weapons.SequenceAmmurapi = {main="Sequence",sub="Ammurapi Shield"}
@@ -391,22 +365,6 @@ function init_gear_sets()
 	sets.weapons.DualNaegling = {main="Naegling",sub="Kaja Knife"}
 	sets.weapons.DualTauret = {main="Kaja Knife",sub="Ternion Dagger +1"}
 
-	sets.weapons.Naegling = {main="Naegling",sub=gear.meleeShield}
-	sets.weapons.NaeglingBow = {main="Naegling",sub=gear.meleeShield,range="Kaja Bow"}
-	sets.weapons.Almace = {main="Almace",sub=gear.meleeShield}
-	sets.weapons.AlmaceBow = {main="Almace",sub=gear.meleeShield,range="Kaja Bow"}
-	sets.weapons.Sequence = {main="Sequence",sub=gear.meleeShield}
-	sets.weapons.SequenceBow = {main="Sequence",sub=gear.meleeShield,range="Kaja Bow"}
-	sets.weapons.Tauret = {main="Tauret",sub=gear.meleeShield}
-	sets.weapons.TauretBow = {main="Tauret",sub=gear.meleeShield,range="Kaja Bow"}
-	sets.weapons.Maxentius = {main="Maxentius",sub=gear.meleeShield}
-	sets.weapons.MaxentiusBow = {main="Maxentius",sub=gear.meleeShield,range="Kaja Bow"}
-
-	sets.weapons.Melee = {main=state.MainHandWeapons.value,sub=state.Shields.value}
-	sets.weapons.MeleeBow = {main=state.MainHandWeapons.value,sub=state.Shields.value,range="Kaja Bow"}
-	sets.weapons.MeleeDW = {main=state.MainHandWeapons.value,sub=state.OffhandWeapons.value}
-	sets.weapons.MeleeDWBow = {main=state.MainHandWeapons.value,sub=state.OffhandWeapons.value,range="Kaja Bow"}
-
 	-- Engaged sets
 
 	-- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
@@ -416,147 +374,120 @@ function init_gear_sets()
 	
 	-- Normal melee group
 	sets.engaged = {
-		ammo="Aurgelmir Orb",
-		head="Malignance Chapeau",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
-		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
-		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Malignance Tights",feet="Carmine Greaves +1"
+		ammo="Ginsen",
+		head="Aya. Zucchetto +2",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
+		body="Ayanmo Corazza +2",hands="Taeon Gloves",ring1="Petrov Ring",ring2="Ilabrat Ring",
+		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Taeon Tights",feet="Carmine Greaves +1"
 	}
-	sets.engaged.PDT = set_combine(sets.engaged, {
-		neck="Loricate Torque +1",ring1="Defending Ring"
-	})
-	sets.engaged.MDT = set_combine(sets.engaged, {
-		neck="Warder's Charm +1",ring1="Purity Ring"
-	})
-
-	sets.engaged.Enspell = set_combine(sets.engaged, {})
-	sets.engaged.Enspell2 = set_combine(sets.engaged, {})
-
-	sets.engaged.PDT.Enspell = set_combine(sets.engaged.PDT, {})
-	sets.engaged.PDT.Enspell2 = set_combine(sets.engaged.PDT, {})
-
-	sets.engaged.MDT.Enspell = set_combine(sets.engaged.MDT, {})
-	sets.engaged.MDT.Enspell2 = set_combine(sets.engaged.MDT, {})
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		head="Carmine Mask +1",neck="Lissome Torque",
 		hands="Aya. Manopolas +2",ring1="Chirich Ring",
-		waist="Grunfeld Rope",legs="Carmine Cuisses +1"
-	})
-	sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
-	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {
-		hands="Aya.Manopolas +2",waist="Grunfeld Rope"
-	})
-	
-	sets.engaged.DW = {
-		ammo="Aurgelmir Orb",
-		head="Malignance Chapeau", neck="Anu Torque", ear1="Suppanomimi",ear2="Sherida Earring",
-		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
-		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"
-	}
-	sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
-		neck="Loricate Torque +1",ring1="Defending Ring", ring2="Gelatinous Ring +1"
-	})
-	sets.engaged.DW.MDT = set_combine(sets.engaged.DW, {
-		neck="Warder's Charm +1",ring1="Defending Ring",ring2="Purity Ring"
-	})
+		waist="Grunfeld Rope",legs="Carmine Cuisses +1"})
 
-	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
-		neck="Lissome Necklace",hands="Aya. Manopolas +2",ring1="Chirich Ring",waist="Grunfeld Rope"
-	})
-	sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.PDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
-	sets.engaged.DW.Acc.MDT = set_combine(sets.engaged.DW.MDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
+	sets.engaged.DW = set_combine(sets.engaged, {ear1="Suppanomimi",legs="Carmine Cuisses +1"})
+	sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {ear1="Suppanomimi"})
+		
+	sets.engaged.PhysicalDef = set_combine(sets.engaged, {
+		neck="Loricate Torque +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back=gear.sucellos.stp,waist="Flume Belt"})
+		
+	sets.engaged.MagicalDef = set_combine(sets.engaged, {
+		ammo="Staunch Tathlum",neck="Loricate Torque +1",ring1="Defending Ring",ring2=gear.dark_ring.dt})
+
 end
 
-buff_spell_lists.AutoHeal = {
-	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
-	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
-	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
-	{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
-	{Name='Gain-MND',		Buff='MND Boost',	SpellID=490,	When='Always'},
-	{Name='Reraise',		Buff='Reraise',		SpellID=135,	When='Always'},
-}
+buff_spell_lists = {
+	Auto = {
+		{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
+		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
+		{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
+		{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
+		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
+	},
+	
+	Default = {
+		{Name='Refresh III',	Buff='Refresh',		SpellID=894,	Reapply=false},
+		{Name='Haste II',		Buff='Haste',		SpellID=511,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
+		{Name='Shell V',		Buff='Shell',		SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',		SpellID=47,		Reapply=false},
+	},
 
-buff_spell_lists.AutoSavage = {
-	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
-	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
-	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
-	{Name="Temper II",		Buff='Multi Strikes',SpellID=895,	When='Always'},
-	{Name='Gain-STR',		Buff='STR Boost',	SpellID=486,	When="Always"},
-}
+	MageHeal = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+		{Name='Aurorastorm', 	Buff='Aurorastorm', 	SpellID=119, 	Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+	},
 
-buff_spell_lists.AutoCygne = {
-	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
-	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
-	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
-	{Name="Temper II",		Buff='Multi Strikes',SpellID=895,	When='Always'},
-	{Name='Gain-DEX',		Buff='DEX Boost',	SpellID=487,	When="Always"},
-}
+	MageDebuff = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+	},
 
-buff_spell_lists.AutoNuke = {
-	{Name='Haste II',		Buff='Haste',		SpellID=511,	When='Always'},
-	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	When='Always'},
-	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	When='Always'},
-	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
-	{Name='Gain-INT',		Buff='INT Boost',	SpellID=490,	When='Always'},
-	{Name='Klimaform',		Buff='Klimaform',	SpellID=287,	When='Always'}
-}
-
-buff_spell_lists.Default = {
-	{Name='Refresh III',	Buff='Refresh',		SpellID=894,	Reapply=false},
-	{Name='Haste II',		Buff='Haste',		SpellID=511,	Reapply=false},
-	{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	Reapply=false},
-	{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
-	{Name='Shell V',		Buff='Shell',		SpellID=52,		Reapply=false},
-	{Name='Protect V',		Buff='Protect',		SpellID=47,		Reapply=false},
-	{Name='Klimaform',		Buff='Klimaform',	SpellID=287,	Reapply=false}
-}
-
-buff_spell_lists.MageHeal = {
-	{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-	{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-	{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-	{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-	{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-	{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
-	{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-	{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-	{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
-	{Name='Aurorastorm', 	Buff='Aurorastorm', 	SpellID=119, 	Reapply=false},
-}
-
-buff_spell_lists.MageDebuff = {
-	{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-	{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-	{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-	{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-	{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-	{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-	{Name='Gain-MND',		Buff='MND Boost',		SpellID=490,	Reapply=false},
-	{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-	{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-	{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
-}
-
-buff_spell_lists.MageNuke = {
-	{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
-	{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
-	{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
-	{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-	{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
-	{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
-	{Name='Gain-INT',		Buff='INT Boost',		SpellID=490,	Reapply=false},
-	{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
-	{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
-	{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+	MageNuke = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-INT',		Buff='INT Boost',		SpellID=490,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+	},
+	
+	MeleeBuffCygne = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-DEX',		Buff='DEX Boost',		SpellID=487,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
+		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
+		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
+	},
+	
+	MeleeBuffSavage = {
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
+		{Name='Gain-STR',		Buff='STR Boost',		SpellID=486,	Reapply=false},
+		{Name='Shell V',		Buff='Shell',			SpellID=52,		Reapply=false},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		Reapply=false},
+		{Name='Shock Spikes',	Buff='Shock Spikes',	SpellID=251,	Reapply=false},
+		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	Reapply=false},
+		{Name='Barfire',		Buff='Barfire',			SpellID=60,		Reapply=false},
+		{Name='Barparalyze',	Buff='Barparalyze',		SpellID=74,		Reapply=false},
+	},
 }
 
 -- Select default macro book on initial load or subjob change.
@@ -571,7 +502,7 @@ end
 
 function user_job_post_midcast(spell, spellMap, eventArgs)
 	if S{'Enfeebling Magic','Dark Magic','Elemental Magic'}:contains(spell.skill) and sets.midcast[spell.skill].PreserveTP then
-		if state.Weapons and state.Weapons.value ~= 'None' and not S{'Kaja Bow','Ullr'}:contains(sets.weapons[state.Weapons.value].range) then
+		if state.Weapons and state.Weapons.value ~= 'None' then
 			equip(sets.midcast[spell.skill].PreserveTP)
 		end
 	end
@@ -604,28 +535,22 @@ function user_aftercast(spell, spellMap, eventArgs)
 				casting_set = set_combine(casting_set, sets.buff.Saboteur)
 			end
 
+			windower.add_to_chat(casting_set.body)
+
 			--casting_set = standardize_set(casting_set)
 			
 			local duration = custom_durations[spell.name] or spell_info.duration or 0
 			local saboteur_modifier = get_saboteur_modifier(casting_set)
 			local composure_modifier = get_composure_modifier(casting_set)
 			local duration_modifier = get_enfeebling_modifier(casting_set)
-			local aug_duration_modifier = get_duelist_torque_modifier(casting_set)
 			local duration_bonus = get_enfeebling_duration_from_merits(casting_set) + get_enfeebling_duration_from_jp()
 
-			windower.add_to_chat("Spell: " .. spell.name)
-			windower.add_to_chat("Base Duration: " .. duration)
-			windower.add_to_chat("Saboteur Bonus: " .. saboteur_modifier)
-			windower.add_to_chat("Base Duration Increase: " .. duration_bonus)
-			windower.add_to_chat("Duration Bonus From Gear: " .. duration_modifier)
-			windower.add_to_chat("Duration Bonus From Augmented Gear: " .. aug_duration_modifier)
-			windower.add_to_chat("Duration Bonus From Composure: " .. composure_modifier)
-
 			if duration > 0 then
-				local calculated_duration = math.floor(math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100) * aug_duration_modifier / 100)
-				local debuff_icon = "spells/00220.png"
+				local calculated_duration = math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100)
 
 				windower.add_to_chat("Calculated Duration: " .. calculated_duration)
+				local debuff_icon = "spells/00220.png"
+
 				send_command('@timers c "'..spell.english..' ['..spell.target.name..']" ' .. calculated_duration .. ' down '.. debuff_icon)
 			end
 
@@ -651,6 +576,7 @@ function get_saboteur_modifier(casting_set)
 		end
 	end
 
+	windower.add_to_chat("Saboteur Modifier: " .. saboteur_modifier)
 	return saboteur_modifier
 end
 
@@ -660,6 +586,7 @@ function get_enfeebling_modifier(casting_set)
 	if S{casting_set.ring1, casting_set.ring2, casting_set.left_ring, casting_set.right_ring}:contains("Kishar Ring") then duration_modifier = duration_modifier + 10 end
 	if casting_set.hands == "Regal Cuffs" then duration_modifier = duration_modifier + 20 end
 
+	windower.add_to_chat("Duration Modifier: " .. duration_modifier)
 	return duration_modifier
 end
 
@@ -675,6 +602,7 @@ function get_enfeebling_duration_from_merits(casting_set)
 		end
 	end
 
+	windower.add_to_chat("Duration Bonus from Merits: " .. duration_bonus)
 	return duration_bonus
 end
 
@@ -687,6 +615,7 @@ function get_enfeebling_duration_from_jp()
 		duration_bonus = duration_bonus + stymie_duration_jps
 	end
 
+	windower.add_to_chat("Duration Bonus from JP: " .. duration_bonus)
 	return duration_bonus
 end
 
@@ -695,36 +624,11 @@ function get_composure_modifier(casting_set)
 	local empy_count = 0
 
 	if buffactive["Composure"] then
-
-		if type(casting_set.head) == 'table' then
-			if casting_set.head.name:startswith("Leth") then empy_count = empy_count + 1 end
-		else
-			if casting_set.head:startswith("Leth") then empy_count = empy_count + 1 end
-		end
-
-		if type(casting_set.body) == 'table' then
-			if casting_set.body.name:startswith("Leth") then empy_count = empy_count + 1 end
-		else
-			if casting_set.body:startswith("Leth") then empy_count = empy_count + 1 end
-		end
-
-		if type(casting_set.hands) == 'table' then
-			if casting_set.hands.name:startswith("Leth") then empy_count = empy_count + 1 end
-		else
-			if casting_set.hands:startswith("Leth") then empy_count = empy_count + 1 end
-		end
-
-		if type(casting_set.legs) == 'table' then
-			if casting_set.legs.name:startswith("Leth") then empy_count = empy_count + 1 end
-		else
-			if casting_set.legs:startswith("Leth") then empy_count = empy_count + 1 end
-		end
-
-		if type(casting_set.feet) == 'table' then
-			if casting_set.feet.name:startswith("Leth") then empy_count = empy_count + 1 end
-		else
-			if casting_set.feet:startswith("Leth") then empy_count = empy_count + 1 end
-		end
+		if casting_set.head:startswith("Leth") then empy_count = empy_count + 1 end
+		if casting_set.body:startswith("Leth") then empy_count = empy_count + 1 end
+		if casting_set.hands:startswith("Leth") then empy_count = empy_count + 1 end
+		--if casting_set.legs:startswith("Leth") then empy_count = empy_count + 1 end
+		if casting_set.feet:startswith("Leth") then empy_count = empy_count + 1 end
 
 		if empy_count == 2 then duration_modifier = 110
 		elseif empy_count == 3 then duration_modifier = 120
@@ -734,57 +638,6 @@ function get_composure_modifier(casting_set)
 
 	end
 
+	windower.add_to_chat("Composure Modifier: " .. duration_modifier)
 	return duration_modifier
-end
-
-function get_duelist_torque_modifier(casting_set)
-	if type(casting_set.neck) == "table" then
-		return casting_set.neck.name == "Duelist's Torque" and 114 or 100
-	else
-		return casting_set.neck == "Duelist's Torque" and 114 or 0
-	end
-end
-
-function user_job_self_command(commandArgs,eventArgs)
-	local commandToHandle = commandArgs[1]
-
-	if commandToHandle == 'cyclemain' then
-		eventArgs.handled = true
-		handle_cycle({'MainHandWeapons'})
-		--state.MainHandWeapons:cycle()
-
-		if state.MainHandWeapons.value == state.OffhandWeapons.value then
-			handle_cycle({'OffhandWeapons'})
-			--state.OffhandWeapons:cycle()
-		end
-
-		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
-		handle_weapons(state.Weapons.value)
-	elseif commandToHandle == 'cycleshield' then
-		eventArgs.handled = true
-		handle_cycle({'Shields'})
-		--state.Shields:cycle()
-
-		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
-		handle_weapons(state.Weapons.value)
-	elseif commandToHandle == 'cycleoffhand' then
-		eventArgs.handled = true
-		handle_cycle({'OffhandWeapons'})
-		--state.OffhandWeapons:cycle()
-
-		if state.MainHandWeapons.value == state.OffhandWeapons.value then
-			handle_cycle({'OffhandWeapons'})
-			--state.OffhandWeapons:cycle()
-		end
-
-		reset_all_weapon_sets(state.MainHandWeapons.value, state.Shields.value, state.OffhandWeapons.value)
-		handle_weapons(state.Weapons.value)
-	end
-end
-
-function reset_all_weapon_sets(mainhand, shield, offhand)
-	sets.weapons.Melee = set_combine(sets.weapons.Melee, {main=mainhand,sub=shield})
-	sets.weapons.MeleeBow = set_combine(sets.weapons.Melee, {main=mainhand,sub=shield})
-	sets.weapons.MeleeDW = set_combine(sets.weapons.Melee, {main=mainhand,sub=offhand})
-	sets.weapons.MeleeDWBow = set_combine(sets.weapons.Melee, {main=mainhand,sub=offhand})
 end

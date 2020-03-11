@@ -7,8 +7,6 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('None','IzcalliAmmurapi','IzcalliGenmei','MaxentiusAmmurapi','MaxentiusGenmei','DualIzcalli','DualMaxentiusAcc','DualMaxentius','DualMagian','DualMagianAcc')
-
-	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
 	gear.alaunus = {}
 	gear.alaunus.wsd = {name = "Alaunus's Cape", augments = {'MND+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
@@ -40,7 +38,7 @@ function user_setup()
 	send_command('bind !\\\\ input /ma "Reraise IV" <me>')
 
 	select_default_macro_book()
-	--lockstyle:schedule(5)
+	lockstyle:schedule(5)
 end
 
 -- Define sets and vars used by this job file.
@@ -63,12 +61,10 @@ function init_gear_sets()
 	-- Precast Sets
 
 	-- Fast cast sets for spells
-	sets.precast.FC = {
-		main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",
-		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
+	sets.precast.FC = {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",
+		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back=gear.alaunus.fc,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Navon Crackows"
-	}
+		back=gear.alaunus.fc,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Navon Crackows"}
 	
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {})
 
@@ -91,19 +87,18 @@ function init_gear_sets()
 	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Benediction = {body="Piety Briault +3"}
+	sets.precast.JA.Benediction = {body="Piety Briault +2"}
 
 	-- Waltz set (chr and vit)
-	sets.precast.Waltz = {head="Nahtirah Hat",body="Piety Briault +3",hands="Telchine Gloves"}
+	sets.precast.Waltz = {head="Nahtirah Hat",body="Piety Briault +2",hands="Telchine Gloves"}
 
 	-- Weaponskill sets
 
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Telos Earring",ear2="Ishvara Earring",
-		body="Piety Briault +3",hands="Aya. Manopolas +2",ring1="Shukuyu Ring",ring2="Ayanmo Ring",
-		back=gear.alaunus.stp,waist="Fotia Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
-	}
+		body="Piety Briault +2",hands="Aya. Manopolas +2",ring1="Shukuyu Ring",ring2="Ayanmo Ring",
+		back=gear.alaunus.stp,waist="Fotia Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 		
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	
@@ -122,7 +117,7 @@ function init_gear_sets()
 		back="Twilight Cape",waist="Luminary Sash",legs="Piety Pantaln. +1",feet="Theo. Duckbills +3"}
 		
 	sets.precast.WS['Flash Nova'] = {ammo="Pemphredo Tathlum",
-		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
+		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Vedic Coat",hands="Theophany Mitts +2",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.alaunus.fc,waist="Refoccilation Stone",legs=gear.chironic.hose.enfeeble,feet="Navon Crackows"}
 
@@ -139,7 +134,6 @@ function init_gear_sets()
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	sets.Sublimation = {}
 	
 	--Situational sets: Gear that is equipped on certain targets
 	sets.Self_Healing = {waist="Gishdubar Sash"}
@@ -164,22 +158,16 @@ function init_gear_sets()
 
 	sets.midcast['Full Cure'] = sets.midcast.FastRecast
 	
-	sets.midcast.Cure = {
-		main="Queller Rod",sub="Sors Shield",ammo="Pemphredo Tathlum",
+	sets.midcast.Cure = {main="Queller Rod",sub="Sors Shield",ammo="Pemphredo Tathlum",
 		head="Vanya Hood",neck="Cleric's Torque",ear1="Glorious Earring",ear2="Mendi. Earring",
 		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Defending Ring",ring2=gear.dark_ring.dt,
-		back=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"
-	}
+		back=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"}
 		
 	sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaud +1"})
 
-	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {
-		main="Chatoyant Staff",sub="Enki Strap",ring2="Lebeche Ring",back="Twilight Cape",waist="Hachirin-no-Obi"
-	})
+	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Chatoyant Staff",sub="Enki Strap",ring2="Lebeche Ring",back="Twilight Cape",waist="Hachirin-no-Obi"})
 
-	sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.LightWeatherCure, {
-		ammo="Psilomene",body="Ebers Bliaud +1",waist="Hachirin-no-Obi"
-	})
+	sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.LightWeatherCure, {ammo="Psilomene",body="Ebers Bliaud +1",waist="Hachirin-no-Obi"})
 		
 	sets.midcast.LightDayCureSolace = set_combine(sets.midcast.CureSolace, {waist="Hachirin-no-Obi"})
 
@@ -195,12 +183,10 @@ function init_gear_sets()
 		{sub="Genmei Shield",ammo="Staunch Tathlum",ring2="Lebeche Ring"})
 		
 	--Melee Curesets are used whenever your Weapons state is set to anything but None.
-	sets.midcast.MeleeCure = {
-		ammo="Psilomene",
+	sets.midcast.MeleeCure = {ammo="Psilomene",
 		head="Vanya Hood",neck="Cleric's Torque",ear1="Glorious Earring",ear2="Mendi. Earring",
 		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Defending Ring",ring2=gear.dark_ring.dt,
-		body=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"
-	}
+		body=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"}
 		
 	sets.midcast.MeleeCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaud +1",ring2="Lebeche Ring"})
 	sets.midcast.MeleeLightWeatherCure = set_combine(sets.midcast.MeleeCure, {waist="Hachirin-no-Obi"})
@@ -230,22 +216,18 @@ function init_gear_sets()
 	sets.midcast.MeleeLightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {waist="Hachirin-no-Obi"})
 	sets.midcast.MeleeLightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {waist="Hachirin-no-Obi"})
 
-	sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {
-		main="Yagrush",sub="Genmei Shield",
+	sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {main="Yagrush",sub="Genmei Shield",
 		neck="Malison Medallion",
 		body="Ebers Bliaud +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
-		back=gear.alaunus.fc,legs="Th. Pantaloons +2",feet="Vanya Clogs"
-	})
+		back=gear.alaunus.fc,legs="Th. Pantaloons +2",feet="Vanya Clogs"})
 
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {main="Yagrush",sub="Genmei Shield"})
 
 	-- 83 total Enhancing Magic Skill; caps with Light Arts
-	sets.midcast['Enhancing Magic'] = {
-		main=gear.gada.enhancing,sub="Ammurapi Shield",
+	sets.midcast['Enhancing Magic'] = {main=gear.gada.enhancing,sub="Ammurapi Shield",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Andoaa Earring",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
-		back="Mending Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet="Theo. Duckbills +3"
-	}
+		back="Mending Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet="Theo. Duckbills +3"}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget",waist="Siegel Sash"})
 
@@ -253,9 +235,7 @@ function init_gear_sets()
 
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
 
-	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
-		main="Bolelabunga",head="Inyanga Tiara +2",body="Piety Briault +3",hands="Ebers Mitts +1",legs="Th. Pantaloons +2"
-	})
+	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {main="Bolelabunga",head="Inyanga Tiara +2",body="Piety Briault +2",hands="Ebers Mitts +1",legs="Th. Pantaloons +2",})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
 	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
@@ -263,47 +243,37 @@ function init_gear_sets()
 	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
 	
 	-- Need to find 8 more skill
-	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
-		main="Beneficus",
+	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {main="Beneficus",
 		head="Ebers Cap +1",
 		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
-		back=gear.alaunus.fc,legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"
-	})
+		legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"})
 		
-	sets.midcast['Elemental Magic'] = {
-		main=gear.gada.enfeeble,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
+	sets.midcast['Elemental Magic'] = {main=gear.gada.enfeeble,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Vedic Coat",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Inyanga Ring",
-		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +3"
-	}
+		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +3"}
 
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
 		
 	sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {head=empty,body="Twilight Cloak"})
 
-	sets.midcast['Divine Magic'] = {
-		main=gear.gada.enfeeble, sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Jokushu Chain",ear1="Regal Earring",ear2="Malignance Earring",
+	sets.midcast['Divine Magic'] = {main=gear.gada.enfeeble, sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Inyanga Tiara +2",neck="Jokushu Chain",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.alaunus.fc,waist="Luminary Sash",legs="Th. Pantaloons +2",feet="Theo. Duckbills +3"
-	}
+		back=gear.alaunus.fc,waist="Luminary Sash",legs="Th. Pantaloons +2",feet="Theo. Duckbills +3"}
 		
-	sets.midcast.Holy = set_combine(sets.midcast['Divine Magic'], {
-		main=gear.grioavolr.nuke,sub="Enki Strap",
+	sets.midcast.Holy = set_combine(sets.midcast['Divine Magic'], {main=gear.grioavolr.nuke,sub="Enki Strap",
 		neck="Sanctity Necklace",ear2="Friomisi Earring",
-		body="Vedic Coat",waist="Eschan Stone",legs=gear.chironic.hose.enfeeble,feet="Navon Crackows"
-	})
+		body="Vedic Coat",waist="Eschan Stone",legs=gear.chironic.hose.enfeeble,feet="Navon Crackows"})
 	
 	sets.midcast.Banish = set_combine(sets.midcast.Holy, {neck="Jokushu Chain",hands="Fanatic Gloves"})
 	
 	sets.midcast.Flash = set_combine(sets.midcast['Divine Magic'], {})
 
-	sets.midcast['Dark Magic'] = {
-		main="Rubicundity", sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
+	sets.midcast['Dark Magic'] = {main="Rubicundity", sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Evanescence Ring",ring2="Archon Ring",
-		back=gear.alaunus.fc,waist="Luminary Sash",legs="Th. Pantaloons +2",feet="Theo. Duckbills +3"
-	}
+		back=gear.alaunus.fc,waist="Luminary Sash",legs="Th. Pantaloons +2",feet="Theo. Duckbills +3"}
 
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {head="Pixie Hairpin +1",waist="Fucho-no-Obi"})
 
@@ -316,12 +286,10 @@ function init_gear_sets()
 
 	sets.midcast.Stun.Resistant = set_combine(sets.midcast.Stun, {})
 
-	sets.midcast['Enfeebling Magic'] = {
-		main=gear.gada.enfeebling,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
+	sets.midcast['Enfeebling Magic'] = {main=gear.gada.enfeebling,sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Inyanga Tiara +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Theophany Briault +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +3"
-	}
+		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +3"}
 
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 		
@@ -334,8 +302,8 @@ function init_gear_sets()
 	sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
-	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
-	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
+	sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {waist="Channeler's Stone"})
+	sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Channeler's Stone"})
 
 	sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
@@ -343,12 +311,10 @@ function init_gear_sets()
 	-- Sets to return to when not performing an action.
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-	sets.idle = {
-		main="Queller Rod",sub="Genmei Shield",ammo="Homiliary",
+	sets.idle = {main="Queller Rod",sub="Genmei Shield",ammo="Homiliary",
 		head="Inyanga Tiara +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
-		body="Piety Briault +3",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.alaunus.wsd,waist="Fucho-no-Obi",legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"
-	}
+		body="Piety Briault +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back=gear.alaunus.wsd,waist="Fucho-no-Obi",legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"}
 
 	sets.idle.PDT = set_combine(sets.idle, {main="Mafic Cudgel",body="Inyanga Jubbah +2"})
 		
@@ -356,12 +322,10 @@ function init_gear_sets()
 		--neck="Chrys. Torque"
 	})
 	
-	sets.idle.MEva = set_combine(sets.idle, {
-		ammo="Staunch Tathlum",
+	sets.idle.MEva = set_combine(sets.idle, {ammo="Staunch Tathlum",
 		head="Inyanga Tiara +2",neck="Loricate Torque +1", ear1="Etiolation Earring",
 		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Inyanga Ring",
-		back=gear.alaunus.fc,feet="Inyan. Crackows +2"
-	})
+		back=gear.alaunus.fc,feet="Inyan. Crackows +2"})
 
 	sets.idle.Weak = sets.idle.PDT
 
@@ -370,19 +334,15 @@ function init_gear_sets()
 		
     -- Defense sets
 
-	sets.defense.PDT = {
-		ammo="Staunch Tathlum",
+	sets.defense.PDT = {ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",neck="Loricate Torque +1",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.alaunus.wsd,legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
-	}
+		back=gear.alaunus.wsd,legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 
-	sets.defense.MDT = {
-		ammo="Staunch Tathlum",
+	sets.defense.MDT = {ammo="Staunch Tathlum",
 		head="Inyanga Tiara +2",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Purity Ring",ring2="Inyanga Ring",
-		back=gear.alaunus.fc,feet="Inyan. Crackows +2"
-	}
+		back=gear.alaunus.fc,feet="Inyan. Crackows +2"}
 
 	sets.defense.MEVA = set_combine(sets.defense.MDT, {})
 		
@@ -399,12 +359,10 @@ function init_gear_sets()
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 
 	-- Basic set for if no TP weapon is defined.
-	sets.engaged = {
-		ammo="Staunch Tathlum",
+	sets.engaged = {ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",neck="Lissome Necklace",ear1="Telos Earring",ear2="Cessance Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Petrov Ring",Ring2="Ilabrat Ring",
-		back=gear.alaunus.stp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Battlecast Gaiters"
-	}
+		back=gear.alaunus.stp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
 
 	sets.engaged.Acc = set_combine(sets.engaged, {})
 
@@ -430,12 +388,4 @@ end
 
 function lockstyle()
 	windower.chat.input("/lockstyleset 004")
-end
-
-function user_job_customize_idle_set(idleSet)
-	if buffactive['Sublimation: Activated'] or state.Buff['Sublimation: Activated'] then
-		idleSet = set_combine(idleSet, sets.Sublimation)
-	end
-
-	return idleSet
 end

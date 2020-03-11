@@ -48,7 +48,6 @@ gear.herculean.boots = {}
 gear.herculean.boots.wsd = {name = "Herculean Boots", augments = {'Pet: Accuracy+18 Pet: Rng. Acc.+18','Weapon skill damage +6%','Accuracy+19 Attack+19',}}
 gear.herculean.boots.refresh = {name = "Herculean Boots", augments = {'Accuracy+20','"Mag.Atk.Bns."+22','"Refresh"+2',}}
 gear.herculean.boots.th = {name = "Herculean Boots", augments = {'Attack+8','Mag. Acc.+19','"Treasure Hunter"+2','Mag. Acc.+9 "Mag.Atk.Bns."+9',}}
-gear.herculean.boots.mburst = {name = "Herculean Boots", augments = {'Accuracy+9','MND+2','Magic burst dmg.+13%','Accuracy+19 Attack+19','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 
 gear.merlinic = {}
 gear.merlinic.hood = {}
@@ -104,7 +103,7 @@ gear.valorous.mask = {}
 gear.valorous.mask.crit = {name="Valorous Mask",augments={'Accuracy+21 Attack+21','Crit. hit damage +3%','DEX+9','Accuracy+6',}}
 
 gear.valorous.mail = {}
-gear.valorous.mail.tp = {name="Valorous Mail",augments={'Mag. Acc.+22','Pet: Accuracy+11 Pet: Rng. Acc.+11','Quadruple Attack +3','Accuracy+18 Attack+18','Mag. Acc.+10 "Mag.Atk.Bns."+10',}}
+gear.valorous.mail.tp = {name="Valorous Mail",augments={'Accuracy+24 Attack+24','"Store TP"+4','DEX+4',}}
 
 gear.valorous.hose = {}
 gear.valorous.hose.mab = {name="Valor. Hose",augments={'"Store TP"+2','Rng.Acc.+20','Accuracy+16 Attack+16','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
