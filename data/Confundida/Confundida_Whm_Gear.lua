@@ -15,6 +15,9 @@ function user_setup()
 	gear.obi_high_nuke_waist = "Yamabuki-no-Obi"
 	gear.obi_nuke_back = "Toro Cape"
 
+	gear.alaunus = {}
+	gear.alaunus.fc = {name="Alaunus Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
+
 		-- Additional local binds
 	send_command('bind ^` input /ma "Arise" <t>')
 	send_command('bind !` input /ja "Penury" <me>')
@@ -48,8 +51,8 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {main="Marin Staff",sub="Clerisy Strap",ammo="Incantor Stone",
 		head="Haruspex Hat",ear1="Loquac. Earring",
-		body="Inyanga Jubbah +2",hands="Chironic Gloves",
-		back="Alaunus's Cape",legs="Aya. Cosciales +2"}
+		body="Inyanga Jubbah +2",
+		back=gear.alaunus.fc,legs="Aya. Cosciales +2"}
 		
     sets.precast.FC.DT = {}
 
@@ -122,7 +125,7 @@ function init_gear_sets()
 	sets.midcast.Cure = {main="Iridal Staff",sub="Clerisy Strap",
 		head="Vanya Hood",neck="Nodens Gorget",
 		body="Orison Bliaud +2",ring2="Janniston Ring",
-		back="Alaunus's Cape",legs="Orsn. Pantaln. +2",feet="Vanya Clogs"}
+		back=gear.alaunus.fc,legs="Orsn. Pantaln. +2",feet="Vanya Clogs"}
 		
 	sets.midcast.CureSolace = sets.midcast.Cure
 
@@ -221,7 +224,12 @@ function init_gear_sets()
 
 	sets.midcast.Stun.Resistant = {}
 
-	sets.midcast['Enfeebling Magic'] = {}
+	sets.midcast['Enfeebling Magic'] = {
+		ammo="",
+		head="Inyanga Tiara +1",neck="",ear1="",ear2="",
+		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +1",ring1="Acumen Ring",ring2="Perception Ring",
+		back=gear.alaunus.fc,waist="",legs=gear.chironic.hose.enfeeble,feet="Inyan. Crackows +1"
+	}
 
 	sets.midcast['Enfeebling Magic'].Resistant = {}
 		
@@ -248,9 +256,9 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {}
 	sets.idle = {main="Bolelabunga",sub="Sors Shield",ammo="Sihirik",
-		head="Aya. Zucchetto +1",
-		body="Artsieq Jubbah",hands="Aya. Manopolas +1",ring1="Defending Ring",ring2="Ayanmo Ring",
-		back="Alaunus's Cape",waist="Porous Rope",legs="Assiduity Pants",feet="Chironic Slippers"}
+		head=gear.chironic.hat.refresh,
+		body="Artsieq Jubbah",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Ayanmo Ring",
+		back="Alaunus's Cape",waist="Porous Rope",legs=gear.chironic.hose.refresh,feet=gear.chironic.slippers.refresh}
 
 	sets.idle.PDT = {}
 		

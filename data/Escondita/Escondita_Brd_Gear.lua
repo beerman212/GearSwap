@@ -77,9 +77,9 @@ function init_gear_sets()
 	
 	-- Precast sets to enhance JAs
 	
-	sets.precast.JA.Nightingale = {feet="Bihu Slippers"}
-	sets.precast.JA.Troubadour = {body="Bihu Justaucorps"}
-	sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions"}
+	sets.precast.JA.Nightingale = {feet="Bihu Slippers +2"}
+	sets.precast.JA.Troubadour = {body="Bihu Jstcorps +1"}
+	sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +2"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
@@ -89,7 +89,7 @@ function init_gear_sets()
 	sets.precast.WS = {range=gear.linos.multiattack,
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Ilabrat Ring",ring2="Apate Ring",
-		back=gear.intarabus.wsd,waist="Fotia Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +1"}
+		back=gear.intarabus.wsd,waist="Fotia Belt",legs="Bihu Cannions +2",feet="Bihu Slippers +2"}
 		
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Telos Earring",ear2="Ishvara Earring",}
@@ -104,7 +104,7 @@ function init_gear_sets()
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
 
 	-- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-	sets.midcast.Ballad = {legs="Fili Rhingrave"}
+	sets.midcast.Ballad = {legs="Fili Rhingrave +1"}
 	sets.midcast.Lullaby = {hands="Brioso Cuffs +2"}
 	sets.midcast['Horde Lullaby'] = {range="Marsyas"}
 	sets.midcast['Horde Lullaby'].Resistant = {range="Gjallarhorn"}
@@ -112,9 +112,9 @@ function init_gear_sets()
 	sets.midcast['Horde Lullaby II'] = {range="Marsyas"}
 	sets.midcast['Horde Lullaby II'].Resistant = {range="Gjallarhorn"}
 	sets.midcast['Horde Lullaby II'].AoE = {range="Daurdabla"}
-	sets.midcast.Madrigal = {head="Fili Calot",back=gear.intarabus.macc}
+	sets.midcast.Madrigal = {head="Fili Calot +1",back=gear.intarabus.macc}
 	sets.midcast.Paeon = {range="Daurdabla",neck="Voltsurge Torque"}
-	sets.midcast.March = {hands="Fili Manchettes"}
+	sets.midcast.March = {hands="Fili Manchettes +1"}
 	sets.midcast['Honor March'] = set_combine(sets.midcast.March,{range="Marsyas"})
 	sets.midcast.Minuet = {body="Fili Hongreline +1"}
 	sets.midcast.Minne = {}
@@ -126,7 +126,7 @@ function init_gear_sets()
 
 	-- For song buffs (duration and AF3 set bonus)
 	sets.midcast.SongEffect = {main="Kali",sub="Genmei Shield",range="Gjallarhorn",ammo=empty,
-		head="Fili Calot",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head="Fili Calot +1",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Fili Hongreline +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.intarabus.macc,legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"}
 		

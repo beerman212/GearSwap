@@ -1,19 +1,27 @@
 function user_setup()
 
-	state.OffenseMode:options('Normal','SomeAcc','Acc','HighAcc','FullAcc')
-	state.HybridMode:options('Normal','DTLite','Tank')
-	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','HighAcc','FullAcc')
+	state.OffenseMode:options('Normal','MaxAcc')
+	state.HybridMode:options('Normal','HybridDT','Tank')
+	state.WeaponskillMode:options('Match','Normal','MaxAcc')
 	state.CastingMode:options('Normal','SIRD','Resistant')
 	state.PhysicalDefenseMode:options('PDT', 'PDT_HP')
 	state.MagicalDefenseMode:options('MDT','MDT_HP','BDT','BDT_HP')
 	state.ResistDefenseMode:options('MEVA','MEVA_HP','Charm')
 	state.IdleMode:options('Normal','Tank','KiteTank','Sphere')
-	state.Weapons:options('Zulfiqar','Epeolatry','Aettir')
+	state.Weapons:options('Epeolatry','Aettir','Zulfiqar')
+	state.CompoundRuneMode = M{['description'] = 'Compound Rune Mode', 'Normal', 'Bashmu'}
 	
 	state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None','MP'}
 
+	defaultRunes = {
+		Bashmu = {
+			{Name="Ignis",Amount=2},
+			{Name="Sulpor",Amount=1}
+		},
+	}
+
 	gear.ogma = {}
-	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10',}}
+	gear.ogma.enmity = {name="Ogma's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Occ. inc. resist. to stat. ailments+10',}}
 	gear.ogma.da = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
 	gear.ogma.resolution = {name="Ogma's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 	gear.ogma.dimidiation = {name="Ogma's Cape",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
@@ -38,7 +46,7 @@ function user_setup()
 	send_command('bind !r gs c weapons Montante;gs c update')
 	
 	select_default_macro_book()
-	lockstyle:schedule(5)
+	--lockstyle:schedule(5)
 end
 
 function init_gear_sets()
@@ -46,21 +54,21 @@ function init_gear_sets()
 	sets.Enmity = {
 		ammo="Sapience Orb",
 		head="Halitus Helm",neck="Moonbeam Necklace",ear2="Friomisi Earring",
-		body="Emet Harness +1",hands="Futhark Mitons",ring1="Petrov Ring",ring2="Supershear Ring",
+		body="Emet Harness +1",hands="Futhark Mitons +1",ring1="Petrov Ring",ring2="Supershear Ring",
 		back=gear.ogma.enmity,waist="Kasiri Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
 	sets.Enmity.SIRD = {
 		ammo="Staunch Tathlum",
 		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Halasz Earring",ear2="Friomisi Earring",
-		bocy=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
+		body=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
 		back=gear.ogma.enmity,waist="Rumination Sash",legs="Carmine Cuisses +1",feet=gear.taeon.boots.phalanx
 	}
 
 	sets.Enmity.DT = {ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Emet Harness +1",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back=gear.ogma.enmity,waist="Flume Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
+		back=gear.ogma.enmity,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
 	--------------------------------------
@@ -70,15 +78,15 @@ function init_gear_sets()
 	-- Item sets.
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Vallation'] = set_combine(sets.Enmity,{body="Runeist Coat +2",legs="Futhark Trousers +1"})
+	sets.precast.JA['Vallation'] = set_combine(sets.Enmity,{body="Runeist's Coat +2",legs="Futhark Trousers +1"})
 	sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
-	sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet="Runeist Boots +2"})
+	sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet="Runeist's Boots +2"})
 	sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{})
 	sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +1"})
 	sets.precast.JA['Gambit'] = set_combine(sets.Enmity,{hands="Runeist's Mitons +2"})
 	sets.precast.JA['Rayke'] = set_combine(sets.Enmity,{})
-	sets.precast.JA['Elemental Sforzo'] = set_combine(sets.Enmity,{body="Futhark Coat"})
-	sets.precast.JA['Swordplay'] = set_combine(sets.Enmity,{hands="Futhark Mitons"})
+	sets.precast.JA['Elemental Sforzo'] = set_combine(sets.Enmity,{body="Futhark Coat +1"})
+	sets.precast.JA['Swordplay'] = set_combine(sets.Enmity,{hands="Futhark Mitons +1"})
 	sets.precast.JA['Embolden'] = set_combine(sets.Enmity,{})
 	sets.precast.JA['One For All'] = set_combine(sets.Enmity,{})
 	sets.precast.JA['Provoke'] = set_combine(sets.Enmity, {})
@@ -89,14 +97,14 @@ function init_gear_sets()
 	sets.precast.JA['Aggressor'] = set_combine(sets.Enmity, {})
 	sets.precast.JA['Animated Flourish'] = set_combine(sets.Enmity, {})
 
-	sets.precast.JA['Vallation'].DT = set_combine(sets.Enmity.DT,{body="Runeist Coat +2",legs="Futhark Trousers +1"})
+	sets.precast.JA['Vallation'].DT = set_combine(sets.Enmity.DT,{body="Runeist's Coat +2",legs="Futhark Trousers +1"})
 	sets.precast.JA['Valiance'].DT = sets.precast.JA['Vallation'].DT
-	sets.precast.JA['Pflug'].DT = set_combine(sets.Enmity.DT,{feet="Runeist Boots +2"})
+	sets.precast.JA['Pflug'].DT = set_combine(sets.Enmity.DT,{feet="Runeist's Boots +2"})
 	sets.precast.JA['Battuta'].DT = set_combine(sets.Enmity.DT,{})
-	sets.precast.JA['Liement'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat"})
+	sets.precast.JA['Liement'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat +1"})
 	sets.precast.JA['Gambit'].DT = set_combine(sets.Enmity.DT,{hands="Runeist's Mitons +2"})
 	sets.precast.JA['Rayke'].DT = set_combine(sets.Enmity.DT,{})
-	sets.precast.JA['Elemental Sforzo'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat"})
+	sets.precast.JA['Elemental Sforzo'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat +1"})
 	sets.precast.JA['Swordplay'].DT = set_combine(sets.Enmity.DT,{})
 	sets.precast.JA['Embolden'].DT = set_combine(sets.Enmity.DT,{})
 	sets.precast.JA['One For All'].DT = set_combine(sets.Enmity.DT,{})
@@ -149,7 +157,7 @@ function init_gear_sets()
 	sets.precast.FC = {ammo="Impatiens",
 		head="Rune. Bandeau +2",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back="",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
+		back="",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {})
 			
@@ -162,13 +170,9 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head=gear.herculean.helm.strwsd,neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
-		back="",waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
+		back=gear.ogma.dimidiation,waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
 	}
-	
-	sets.precast.WS.SomeAcc = {}
-	sets.precast.WS.Acc = {}
-	sets.precast.WS.HighAcc = {}
-	sets.precast.WS.FullAcc = {}
+	sets.precast.WS.MaxAcc = {}
 
 	sets.precast.WS['Resolution'] = {
 		ammo="Knobkierrie",
@@ -176,10 +180,7 @@ function init_gear_sets()
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back=gear.ogma.resolution,waist="Fotia Belt",legs="Samnuha Tights",feet="Lustra. Leggings +1"
 	}
-
-	sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'],{})
-	sets.precast.WS['Resolution'].HighAcc = set_combine(sets.precast.WS['Resolution'].Acc,{})
-	sets.precast.WS['Resolution'].FullAcc = set_combine(sets.precast.WS['Resolution'].HighAcc,{})
+	sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'].HighAcc,{})
 
 	sets.precast.WS['Dimidiation'] = {
 		ammo="Knobkierrie",
@@ -187,10 +188,7 @@ function init_gear_sets()
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
 		back=gear.ogma.dimidiation,waist="Grunfeld Rope",legs="Lustr. Subligar +1",feet="Lustra. Leggings +1"
 	}
-	
-	sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS.Acc,{})
-	sets.precast.WS['Dimidiation'].HighAcc = set_combine(sets.precast.WS.HighAcc,{})
-	sets.precast.WS['Dimidiation'].FullAcc = set_combine(sets.precast.WS.FullAcc,{})
+	sets.precast.WS['Dimidiation'].MaxAcc = set_combine(sets.precast.WS.MaxAcc,{})
 	
 	sets.precast.WS['Ground Strike'] = {
 		ammo="Knobkierrie",
@@ -198,10 +196,7 @@ function init_gear_sets()
 		body=gear.herculean.vest.dexwsd,hands="Meg. Gloves +2",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
 		back="",waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Lustra. Leggings +1"
 	}
-	
-	sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS.Acc,{})
-	sets.precast.WS['Ground Strike'].HighAcc = set_combine(sets.precast.WS.HighAcc,{})
-	sets.precast.WS['Ground Strike'].FullAcc = set_combine(sets.precast.WS.FullAcc,{})
+	sets.precast.WS['Ground Strike'].MaxAcc = set_combine(sets.precast.WS.MaxAcc,{})
 	
 	sets.precast.WS['Herculean Slash'] = set_combine(sets.precast.JA['Lunge'], {})
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.JA['Lunge'], sets.element.Dark, {})
@@ -217,10 +212,10 @@ function init_gear_sets()
 	sets.midcast.FastRecast = {ammo="Sapience Orb",
 		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",
-		back="",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
+		back="",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
 	}
 
-	sets.midcast.FastRecast.DT = set_combine(sets.midcast.FastRecast, {neck="Loricate Torque +1",ring1="Defending Ring",ring2="Moonlight Ring"})
+	sets.midcast.FastRecast.DT = set_combine(sets.midcast.FastRecast, {neck="Loricate Torque +1",ring1="Defending Ring",ring2="Moonbeam Ring"})
 
 	sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,{
 		head="Erilaz Galea +1",neck="Incanter's Torque",ear1="Andoaa Earring",hands="Runeist's Mitons +2",waist="Olympus Sash",legs="Futhark Trousers +1"
@@ -261,16 +256,16 @@ function init_gear_sets()
 	sets.idle = {ammo='Homiliary',
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Eabani Earring",ear2="Ethereal Earring",
 		body="Runeist's Coat +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Solemnity Cape",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
+		back=gear.ogma.da,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
 	}
 		
 	--sets.idle.Sphere = set_combine(sets.idle,{body="Mekosu. Harness"})
 	
 	sets.idle.Tank = {
 		ammo="Staunch Tathlum",
-		head="Dampening Tam",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
-		body="Ayanmo Corazza +2",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Solemnity Cape",waist="Flume Belt",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
+		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		body="Erilaz Surcoat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
+		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
 	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Meghanada Visor +2",legs="Carmine Cuisses +1"})
@@ -285,7 +280,7 @@ function init_gear_sets()
 
     -- Extra defense sets.  Apply these on top of melee or defense sets.
 	sets.Knockback = {}
-	sets.MP = {ear2="Ethereal Earring",body="Erilaz Surcoat +1",waist="Flume Belt"}
+	sets.MP = {ear2="Ethereal Earring",body="Erilaz Surcoat +1",waist="Flume Belt +1"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
 	
 	-- Weapons sets
@@ -293,8 +288,7 @@ function init_gear_sets()
 	sets.weapons.Aettir = {main="Aettir",sub="Utu Grip"}
 	--sets.weapons.Lionheart = {main="Lionheart",sub="Utu Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
-	sets.weapons.Montante = {main="Montante +1",sub="Utu Grip"}
-	--sets.weapons.DualWeapons = {main="Firangi",sub="Reikiko"}
+	--sets.weapons.Montante = {main="Montante +1",sub="Utu Grip"}
 	
 	-- Defense Sets
 	
@@ -302,7 +296,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Erilaz Surcoat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back="Moonbeam Cape",waist="Flume Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
+		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 	
 	sets.defense.PDT_HP = set_combine(sets.defense.PDT, {})
@@ -322,14 +316,14 @@ function init_gear_sets()
 	sets.defense.MEVA = {
 		ammo="Staunch Tathlum",
         head="Erilaz Galea +1",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-        body="Runeist's Coat +1",hands="Erilaz Gauntlets +1",ring1="Purity Ring",
+        body="Runeist's Coat +2",hands="Erilaz Gauntlets +1",ring1="Purity Ring",
         back=gear.ogma.enmity,waist="Engraved Belt",legs="Rune. Trousers +2",feet="Erilaz Greaves +1"
 	}
 	
 	sets.defense.MEVA_HP = {ammo="Staunch Tathlum",
         head="Erilaz Galea +1",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Sanare Earring",
-        body="Runeist's Coat +3",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Moonbeam Ring",
-        back=gear.ogma.enmity,waist="Engraved Belt",legs="Rune. Trousers +3",feet="Erilaz Greaves +1"}
+        body="Runeist's Coat +2",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Moonbeam Ring",
+        back=gear.ogma.enmity,waist="Engraved Belt",legs="Rune. Trousers +2",feet="Erilaz Greaves +1"}
 		
 	sets.defense.Charm = set_combine(sets.defense.MEVA, {back="Solemnity Cape"})
 	
@@ -344,26 +338,21 @@ function init_gear_sets()
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back=gear.ogma.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
-	
-	sets.engaged.SomeAcc = set_combine(sets.engaged, {head="Dampening Tam",feet=gear.herculean.boots.ta})
-	sets.engaged.Acc = set_combine(sets.engaged.SomeAcc, {neck="Lissome Necklace",ear1="Telos Earring"})
-	sets.engaged.HighAcc = set_combine(sets.engaged.Acc, {})
-	sets.engaged.FullAcc = set_combine(sets.engaged.HighAcc, {})
-	sets.engaged.DTLite = set_combine(sets.engaged, {})
-	
-	sets.engaged.SomeAcc.DTLite = set_combine(sets.engaged.SomeAcc, {})
-	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {})
-	sets.engaged.HighAcc.DTLite = set_combine(sets.engaged.HighAcc, {})
-	sets.engaged.FullAcc.DTLite = set_combine(sets.engaged.FullAcc, {})
+	sets.engaged.HybridDT = set_combine(sets.engaged, {})
+	sets.engaged.Tank = {
+		ammo="Staunch Tathlum",
+		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
+		body="Futhark Coat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
+		back=gear.ogma.da,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Turms Leggings"
+	}
 
-	sets.engaged.Tank = {ammo="Staunch Tathlum",
-	head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Ethereal Earring",
-	body="Futhark Coat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
-	back="Shadow Mantle",waist="Kasiri Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"}
-	sets.engaged.SomeAcc.Tank = sets.engaged.Tank
-	sets.engaged.Acc.Tank = sets.engaged.Tank
-	sets.engaged.HighAcc.Tank = sets.engaged.Tank
-	sets.engaged.FullAcc.Tank = sets.engaged.Tank
+	sets.engaged.MaxAcc = set_combine(sets.engaged, {
+		head="Dampening Tam",neck="Lissome Necklace",ear1="Telos Earring",ear2="Mache Earring +1",
+		ring2="Chirich Ring",
+		waist="Grunfeld Rope",feet="Aya. Gambieras +2"
+	})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.MaxAcc.Tank = set_combine(sets.engaged.Tank, {})
 	
 	--------------------------------------
 	-- Custom buff sets
@@ -440,9 +429,68 @@ function check_trust()
 	return false
 end
 
-buff_spell_lists.Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	When='Combat'},
-	--{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	When='Engaged'},
-	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
-	{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Idle'},
+buff_spell_lists.Default = {
+	{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	Reapply=false},
+	{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	Reapply=false},
+	{Name='Haste',		Buff='Haste',			SpellID=57,		Reapply=false},
+	{Name='Refresh',	Buff='Refresh',			SpellID=109,	Reapply=false},
+	{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	Reapply=false},
+	{Name='Aquaveil',	Buff='Aquaveil',		SpellID=55,		Reapply=false},
 }
+
+function check_rune()
+	if state.AutoRuneMode.value then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+	
+		if state.CompoundRuneMode.value ~= "Normal" and defaultRunes[state.CompoundRuneMode.value] then
+			local runesToCheck = defaultRunes[state.CompoundRuneMode.value]
+			for i = 1,8 do
+				local rune = runesToCheck[i]
+				if rune then
+					local rune_count = buffactive[rune.Name] or 0
+
+					if rune_count < rune.Amount then
+						if abil_recasts[92] > 0 then return false end
+
+						windower.chat.input('/ja "' .. rune.Name .. '" <me>')
+						tickdelay = os.clock() + 1.8
+						return true
+					end
+				end
+
+			end
+		elseif (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 3) then
+			if abil_recasts[92] > 0 then return false end		
+			send_command('input /ja "'..state.RuneElement.value..'" <me>')
+			tickdelay = os.clock() + 1.8
+			return true
+		end
+
+		if not player.in_combat then 
+			return false
+		elseif not buffactive['Pflug'] then
+			if abil_recasts[59] < latency then
+				send_command('input /ja "Pflug" <me>')
+				tickdelay = os.clock() + 1.8
+				return true
+			end
+		elseif not (buffactive['Vallation'] or buffactive['Valiance']) then
+			if player.main_job == 'RUN' and abil_recasts[113] < latency then
+				send_command('input /ja "Valiance" <me>')
+				tickdelay = os.clock() + 2.5
+				return true
+			elseif abil_recasts[23] < latency then
+				send_command('input /ja "Vallation" <me>')
+				tickdelay = os.clock() + 2.5
+				return true
+			else
+				return false
+			end
+		else 
+			return false
+		end
+
+	end
+
+	return false
+end
