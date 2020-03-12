@@ -117,7 +117,10 @@ function init_gear_sets()
 	sets.midcast['Full Cure'] = sets.midcast.FastRecast
 	
 	sets.midcast.Cure = {
-		main="Iridal Staff",ear1="Nourish. Earring",body="Noble Tunic",
+		main="Iridal Staff",
+		head="Vanya Hood",ear1="Nourish. Earring",
+		body="Noble Tunic",
+		feet="Vanya Clogs"
 	}
 		
 	sets.midcast.CureSolace = sets.midcast.Cure
