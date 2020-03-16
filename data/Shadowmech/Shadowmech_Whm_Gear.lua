@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Iridal Staff",
 		head="Vanya Hood",ear1="Nourish. Earring",
-		body="Noble Tunic",
+		hands="Kaykaus Cuffs",
 		feet="Vanya Clogs"
 	}
 		
@@ -172,7 +172,10 @@ function init_gear_sets()
 	sets.midcast.MeleeLightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
 	sets.midcast.MeleeLightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
 
-	sets.midcast.Cursna = {}
+	sets.midcast.Cursna = {
+		ring1="Ephedra Ring",
+		feet="Vanya Clogs"
+	}
 
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 
@@ -246,7 +249,10 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		legs="Assiduity Pants"
+		main="Eminent Staff",sub="Willpower Grip",
+		head="Aya. Zucchetto",ear1="Infused Earring",
+		body="Ayanmo Corazza",hands="Aya. Manopolas",
+		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
 	
 	sets.idle.MEva = {}
@@ -274,7 +280,12 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     -- Basic set for if no TP weapon is defined.
-	sets.engaged = {}
+	sets.engaged = {
+		main="Eminent Staff",sub="Willpower Grip",
+		head="Aya. Zucchetto",neck="Focus Collar",ear1="Assuage Earring",
+		body="Ayanmo Corrazza",hands="Aya. Manopolas",ring1="Petrov Ring",
+		waist="Grunfeld Rope",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
+	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
 
 	sets.engaged.DW = set_combine(sets.engaged, {})

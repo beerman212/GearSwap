@@ -226,7 +226,7 @@ function init_gear_sets()
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Skaoi Boots"
+		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Vitiation Boots +3"
 	}
 
 	sets.midcast['Enfeebling Magic'].PreserveTP = {range=empty,ammo="Regal Gem"}

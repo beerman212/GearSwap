@@ -38,22 +38,22 @@ function init_gear_sets()
 	-- Precast Sets
 	
 	-- Precast sets to enhance JAs on use
-	sets.precast.JA['Hundred Fists'] = {}
-	sets.precast.JA['Boost'] = {}
-	sets.precast.JA['Dodge'] = {}
-	sets.precast.JA['Focus'] = {}
+	sets.precast.JA['Hundred Fists'] = {legs="Mel. Hose +2"}
+	sets.precast.JA['Boost'] = {hands="Anch. Gloves +1"}
+	sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +1"}
+	sets.precast.JA['Focus'] = {head="Anchor. Crown +1"}
 	sets.precast.JA['Counterstance'] = {}
 	sets.precast.JA['Footwork'] = {}
-	sets.precast.JA['Formless Strikes'] = {}
+	sets.precast.JA['Formless Strikes'] = {body="Mel. Cyclas +2"}
 	sets.precast.JA['Mantra'] = {
 		head="Halitus Helm",neck="Sanctity Necklace",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
 		body="Malignance Tabard",hands="Rawhide Gloves",ring1="Ilabrat Ring",ring2="Etana Ring",
-		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Ryuo Sune-ate +1"
+		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Mel. Gaiters +2"
 	}
 
 	sets.precast.JA['Chi Blast'] = {}
 	
-	sets.precast.JA['Chakra'] = {}
+	sets.precast.JA['Chakra'] = {body="Anch. Cyclas +1"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.precast.WS['Asuran Fist'].MaxAcc = set_combine(sets.precast.WS['Asuran Fist'], {})
 
 	sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS, {
-		body="Abnoba Kaftan",feet="Mummu Gamash +2"
+		body="Abnoba Kaftan",feet="Mummu Gamash. +2"
 	})
 	sets.precast.WS["Ascetic's Fury"].MaxAcc = set_combine(sets.precast.WS["Ascetic's Fury"], {})
 	
@@ -175,7 +175,7 @@ function init_gear_sets()
 		back=gear.segomo.tp.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {
-		head="Malignance Chapeau",neck="Lissome Torque",
+		head="Malignance Chapeau",neck="Lissome Necklace",
 		body="Malignance Tabard",ring1="Chirich Ring",
 		waist="Grunfeld Rope",legs="Malignance Tights",feet="Mummu Gamash. +2"
 	})
