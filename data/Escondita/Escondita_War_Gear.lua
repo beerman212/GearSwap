@@ -9,7 +9,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None','Twilight'}
-	state.Weapons:options('Ragnorok','Chango','Zulfiqar','Naegling','NaeglingDW','ProcSword','ProcClub','ProcStaff','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatsword')
+	state.Weapons:options('Ragnarok','Chango','Zulfiqar','Naegling','NaeglingDW','ProcSword','ProcClub','ProcStaff','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatsword')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name="Cichol's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
@@ -23,7 +23,7 @@ function user_setup()
 	send_command('bind ^` input /ja "Hasso" <me>')
 	send_command('bind !` input /ja "Seigan" <me>')
 	send_command('bind @` gs c cycle SkillchainMode')
-	send_command('bind !r gs c weapons Ragnorok;gs c update')
+	send_command('bind !r gs c weapons Ragnarok;gs c update')
 	
 	select_default_macro_book()
 end
@@ -267,13 +267,13 @@ function init_gear_sets()
 		head="Pummeler's Mask +2",ear1="Zennaroi Earring",body="Pumm. Lorica +2",hands="Pumm. Mufflers +2"
 	})
 
-	sets.engaged.Ragnorok = set_combine(sets.engaged, {})
-	sets.engaged.Ragnorok.HybridDT = set_combine(sets.engaged.Ragnorok, {})
+	sets.engaged.Ragnarok = set_combine(sets.engaged, {})
+	sets.engaged.Ragnarok.HybridDT = set_combine(sets.engaged.Ragnarok, {})
 
-	sets.engaged.Ragnorok.MaxAcc = set_combine(sets.engaged.Ragnorok, {})
-	sets.engaged.Ragnorok.MaxAcc.HybridDT = set_combine(sets.engaged.Ragnarok.HybridDT, {})
+	sets.engaged.Ragnarok.MaxAcc = set_combine(sets.engaged.Ragnarok, {})
+	sets.engaged.Ragnarok.MaxAcc.HybridDT = set_combine(sets.engaged.Ragnarok.HybridDT, {})
 
-	-- sets.engaged.Ragnorok = {
+	-- sets.engaged.Ragnarok = {
 	-- 	ammo="Seething Bomblet",
 	-- 	head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
 	-- 	body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
@@ -289,7 +289,7 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.Chango = {main=gear.aganoshe.main,sub="Duplus Grip"}
-	sets.weapons.Ragnarok = {main="Ragnorok",sub="Duplus Grip"}
+	sets.weapons.Ragnarok = {main="Ragnarok",sub="Duplus Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Duplus Grip"}
 	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield"}
 	sets.weapons.NaeglingDW = {main="Kaja Sword",sub="Firangi"}

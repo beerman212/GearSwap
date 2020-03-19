@@ -47,7 +47,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-		head="Haruspex Hat",
+		head="Nahtirah Hat",
 		waist="Witful Belt",legs="Ayanmo Cosciales"
 	}
 		

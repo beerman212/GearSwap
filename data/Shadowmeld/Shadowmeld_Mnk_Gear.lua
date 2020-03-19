@@ -38,22 +38,24 @@ function init_gear_sets()
 	-- Precast Sets
 	
 	-- Precast sets to enhance JAs on use
-	sets.precast.JA['Hundred Fists'] = {legs="Mel. Hose +2"}
+	sets.precast.JA['Hundred Fists'] = {legs="Hes. Hose"}
 	sets.precast.JA['Boost'] = {hands="Anch. Gloves +1"}
 	sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +1"}
 	sets.precast.JA['Focus'] = {head="Anchor. Crown +1"}
 	sets.precast.JA['Counterstance'] = {}
 	sets.precast.JA['Footwork'] = {}
-	sets.precast.JA['Formless Strikes'] = {body="Mel. Cyclas +2"}
+	sets.precast.JA['Formless Strikes'] = {body="Hes. Cyclas"}
 	sets.precast.JA['Mantra'] = {
 		head="Halitus Helm",neck="Sanctity Necklace",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
 		body="Malignance Tabard",hands="Rawhide Gloves",ring1="Ilabrat Ring",ring2="Etana Ring",
-		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Mel. Gaiters +2"
+		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Hes. Gaiters"
 	}
 
-	sets.precast.JA['Chi Blast'] = {}
+	sets.precast.JA['Chi Blast'] = {
+		head="Hes. Crown"
+	}
 	
-	sets.precast.JA['Chakra'] = {body="Anch. Cyclas +1"}
+	sets.precast.JA['Chakra'] = {body="Anch. Cyclas +1",hands="Hes. Gloves"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
