@@ -115,7 +115,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	sets.precast.FC = {
 		ammo="Impatiens",
-		head=gear.herculean.helm.magical,neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head=gear.herculean.helm.magical,neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Samnuha Coat",hands="Leyline Gloves",ring2="Lebeche Ring",
 		legs="Limbo Trousers"
 	}

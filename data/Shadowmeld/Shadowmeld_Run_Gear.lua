@@ -155,7 +155,7 @@ function init_gear_sets()
 		
 	-- Fast cast sets for spells
 	sets.precast.FC = {ammo="Impatiens",
-		head="Rune. Bandeau +2",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head="Rune. Bandeau +2",neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 
@@ -210,7 +210,7 @@ function init_gear_sets()
 	--------------------------------------
 	
 	sets.midcast.FastRecast = {ammo="Sapience Orb",
-		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
+		head="Carmine Mask +1",neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",
 		back="",waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
 	}

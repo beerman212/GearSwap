@@ -439,3 +439,9 @@ function user_job_customize_idle_set(idleSet)
 
 	return idleSet
 end
+
+function user_job_precast(spell, spellMap, eventArgs)
+	if spell.name == "Cure VI" then
+		adaptive_cure(spell, eventArgs)
+	end
+end

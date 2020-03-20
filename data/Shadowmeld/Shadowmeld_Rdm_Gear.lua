@@ -83,7 +83,7 @@ function init_gear_sets()
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-		head=empty,neck="Voltsurge Torque",ear2="Enchntr. Earring +1",
+		head=empty,neck="Orunmila's Torque",ear2="Enchntr. Earring +1",
 		body="Twilight Cloak",hands="Leyline Gloves",ring1="Kishar Ring",
 		back=gear.sucellos.enfeeble})
        

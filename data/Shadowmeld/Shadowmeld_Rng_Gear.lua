@@ -55,7 +55,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {
-		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		head="Carmine Mask +1",neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Samnuha Coat",hands="Leyline Gloves",ring1="Defending Ring",ring2="Lebeche Ring",
 		back=gear.belenus.stp.melee,waist="Flume Belt",legs="Limbo Trousers",feet="Carmine Greaves +1"}
 

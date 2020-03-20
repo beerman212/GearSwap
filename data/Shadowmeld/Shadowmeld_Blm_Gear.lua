@@ -66,7 +66,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Impatiens",
-		head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
+		head="Amalric Coif +1",neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
 		body="Anhur Robe",hands=gear.telchine.gloves.enhancing,ring1="Kishar Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs=gear.merlinic.shalwar.magical,feet=gear.merlinic.crackows.drain}
 
@@ -182,7 +182,7 @@ function init_gear_sets()
 		body=gear.merlinic.jubbah.magical,hands="Amalric Gages",ring1="Mephitas's Band",ring2="Archon Ring",
 		back=gear.taranus.mab,waist=gear.ElementalObi,legs="Spae. Tonban +2",feet=gear.merlinic.crackows.magical}
 
-	sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",neck="Voltsurge Torque",ring1="Kishar Ring",back=gear.taranus.mab,waist="Witful Belt"})
+	sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",neck="Orunmila's Torque",ring1="Kishar Ring",back=gear.taranus.mab,waist="Witful Belt"})
 
 	sets.midcast.Stun.Resistant = set_combine(sets.midcast['Dark Magic'], {})
 

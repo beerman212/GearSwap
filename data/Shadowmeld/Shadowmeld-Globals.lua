@@ -99,3 +99,140 @@ bayld_items = {'Tlalpoloani','Macoquetza','Camatlatia','Icoyoca','Tlamini','Suij
 'Kaabnax Trousers','Ejekamal Mask','Ejekamal Boots','Quiahuiz Helm','Quiahuiz Trousers','Uk\'uxkaj Cap'}
 
 NotifyBuffs = S{'doom','petrification'}
+
+function adaptive_cure(spell, eventArgs)
+	local cureTarget = spell.target
+	local missingHP
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+
+	if S{"SELF","MONSTER","NONE"}:contains(cureTarget.type) then
+		missingHP = player.max_hp - player.hp
+	elseif cureTarget.type == "PLAYER" and cureTarget.status:lower():contains("dead") then
+		eventArgs.cancel = true
+		if silent_can_use(494) and spell_recasts(494) < spell_latency then
+			windower.chat.input('/ma "Arise" ' .. cureTarget.raw)
+		elseif spell_recasts(140) < spell_latency then
+			windower.chat.input('/ma "Raise III" ' .. cureTarget.raw)
+		elseif spell_recasts(13) < spell_latency then
+			windower.chat.input('/ma "Raise II" ' .. cureTarget.raw)
+		elseif spell_recasts(12) < spell_latency then
+			windower.chat.input('/ma "Raise" ' .. cureTarget.raw)
+		end
+	elseif cureTarget.isallymember then
+		local targetInfo = find_player_in_alliance(cureTarget.name)
+		local estimated_max_hp = math.floor(targetInfo.hp / cureTarget.hpp * 100)
+		missingHP = estimated_max_hp - targetInfo.hp
+
+		windower.add_to_chat(tostring(missingHP))
+	else
+		if cureTarget.hpp < 5 then
+			if not spell_recasts[6] < spell_latency then
+				eventArgs.cancel = true
+				if spell_recasts[5] < spell_latency then
+					windower.chat.input('/ma "Cure V" ' .. cureTarget.raw)
+				elseif spell_recasts[4] < spell_latency then
+					windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+				end
+			end
+		elseif cureTarget.hpp < 10 then
+			eventArgs.cancel = true
+			if spell_recasts[5] < spell_latency then
+				windower.chat.input('/ma "Cure V" ' .. cureTarget.raw)
+			elseif spell_recasts[4] < spell_latency then
+				windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+			elseif spell_recasts[3] < spell_latency then
+				windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+			end
+		elseif cureTarget.hpp < 50 then
+			eventArgs.cancel = true
+			if spell_recasts[4] < spell_latency then
+				windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+			elseif spell_recasts[3] < spell_latency then
+				windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+			elseif spell_recasts[2] < spell_latency then
+				windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+			end
+		elseif cureTarget.hpp < 70 then
+			eventArgs.cancel = true
+			if spell_recasts[3] < spell_latency then
+				windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+			elseif spell_recasts[4] < spell_latency then
+				windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+			elseif spell_recasts[2] < spell_latency then
+				windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+			end
+		elseif cureTarget.hpp < 85 then
+			eventArgs.cancel = true
+			if spell_recasts[2] < spell_latency then
+				windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+			elseif spell_recasts[3] < spell_latency then
+				windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+			elseif spell_recasts[1] < spell_latency then
+				windower.chat.input('/ma "Cure" ' .. cureTarget.raw)
+			end
+		else
+			eventArgs.cancel = true
+			if spell_recasts[1] < spell_latency then
+				windower.chat.input('/ma "Cure" ' .. cureTarget.raw)
+			elseif spell_recasts[2] < spell_latency then
+				windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+			end
+		end
+
+		return
+	end
+
+	if missingHP > 2000 then
+		if not spell_recasts[6] < spell_latency then
+			eventArgs.cancel = true
+			if spell_recasts[5] < spell_latency then
+				windower.chat.input('/ma "Cure V" ' .. cureTarget.raw)
+			elseif spell_recasts[4] < spell_latency then
+				windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+			end
+		end
+	elseif missingHP > 1400 then
+		eventArgs.cancel = true
+		if spell_recasts[5] < spell_latency then
+			windower.chat.input('/ma "Cure V" ' .. cureTarget.raw)
+		elseif spell_recasts[4] < spell_latency then
+			windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+		elseif spell_recasts[3] < spell_latency then
+			windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+		end
+	elseif missingHP > 1100 then
+		eventArgs.cancel = true
+		if spell_recasts[4] < spell_latency then
+			windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+		elseif spell_recasts[3] < spell_latency then
+			windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+		elseif spell_recasts[2] < spell_latency then
+			windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+		end
+	elseif missingHP > 800 then
+		eventArgs.cancel = true
+		if spell_recasts[3] < spell_latency then
+			windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+		elseif spell_recasts[4] < spell_latency then
+			windower.chat.input('/ma "Cure IV" ' .. cureTarget.raw)
+		elseif spell_recasts[2] < spell_latency then
+			windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+		end
+	elseif missingHP > 400 then
+		eventArgs.cancel = true
+		if spell_recasts[2] < spell_latency then
+			windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+		elseif spell_recasts[3] < spell_latency then
+			windower.chat.input('/ma "Cure III" ' .. cureTarget.raw)
+		elseif spell_recasts[1] < spell_latency then
+			windower.chat.input('/ma "Cure" ' .. cureTarget.raw)
+		end
+	else
+		eventArgs.cancel = true
+		if spell_recasts[1] < spell_latency then
+			windower.chat.input('/ma "Cure" ' .. cureTarget.raw)
+		elseif spell_recasts[2] < spell_latency then
+			windower.chat.input('/ma "Cure II" ' .. cureTarget.raw)
+		end
+	end
+end

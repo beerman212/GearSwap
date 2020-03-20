@@ -67,7 +67,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	sets.precast.FC = {
 		ammo="Sapience Orb",
-		neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
+		neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		hands="Leyline Gloves",ring1="Lebeche Ring",
 		legs="Arjuna Breeches"}
 		
