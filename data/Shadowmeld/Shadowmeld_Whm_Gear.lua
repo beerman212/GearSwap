@@ -39,6 +39,14 @@ function user_setup()
 	send_command('bind @\\\\ input /ma "Shellra V" <me>')
 	send_command('bind !\\\\ input /ma "Reraise IV" <me>')
 
+	organizer_items = {
+		"Echo Drops",
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Tropical Crepe"
+	}
+
 	select_default_macro_book()
 	--lockstyle:schedule(5)
 end

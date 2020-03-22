@@ -105,19 +105,11 @@ function adaptive_cure(spell, eventArgs)
 	local missingHP
 	local spell_recasts = windower.ffxi.get_spell_recasts()
 
-	if S{"SELF","MONSTER","NONE"}:contains(cureTarget.type) then
+	if cureTarget.type == "SELF" or cureTarget.type == "MONSTER" or cureTarget.type == "NONE" then
 		missingHP = player.max_hp - player.hp
 	elseif cureTarget.type == "PLAYER" and cureTarget.status:lower():contains("dead") then
 		eventArgs.cancel = true
-		if silent_can_use(494) and spell_recasts(494) < spell_latency then
-			windower.chat.input('/ma "Arise" ' .. cureTarget.raw)
-		elseif spell_recasts(140) < spell_latency then
-			windower.chat.input('/ma "Raise III" ' .. cureTarget.raw)
-		elseif spell_recasts(13) < spell_latency then
-			windower.chat.input('/ma "Raise II" ' .. cureTarget.raw)
-		elseif spell_recasts(12) < spell_latency then
-			windower.chat.input('/ma "Raise" ' .. cureTarget.raw)
-		end
+		windower.chat.input('/ma "Arise" ' .. cureTarget.raw)
 	elseif cureTarget.isallymember then
 		local targetInfo = find_player_in_alliance(cureTarget.name)
 		local estimated_max_hp = math.floor(targetInfo.hp / cureTarget.hpp * 100)

@@ -184,7 +184,9 @@ function init_gear_sets()
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
 	sets.midcast['Enhancing Magic'] = {}
-	sets.midcast['Enhancing Magic'].skill = {}
+	sets.midcast['Enhancing Magic'].skill = {
+		head="Umuthi Hat"
+	}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
 
@@ -226,7 +228,12 @@ function init_gear_sets()
 
 	sets.midcast.Stun.Resistant = {}
 
-	sets.midcast['Enfeebling Magic'] = {}
+	sets.midcast['Enfeebling Magic'] = {
+		main="Eminent Staff",sub="Mephitis Grip",
+		head="Aya. Zucchetto",
+		body="Ayanmo Corazza",hands="Kaykaus Cuffs",ring1="Ayanmo Ring",ring2="Sangoma Ring",
+		back="Kumbira Cape",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
+	}
 
 	sets.midcast['Enfeebling Magic'].Resistant = {}
 		
@@ -252,9 +259,9 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		main="Eminent Staff",sub="Willpower Grip",
+		main="Bolelabunga",sub=empty,
 		head="Aya. Zucchetto",ear1="Infused Earring",
-		body="Ayanmo Corazza",hands="Aya. Manopolas",
+		body="Artsieq Jubbah",hands="Aya. Manopolas",ring1="Ayanmo Ring",ring2="Beeline Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
 	
