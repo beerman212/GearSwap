@@ -9,7 +9,7 @@ sets.TreasureHunter = {waist="Chaac Belt"}
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
 
-sets.weapons.ProcSword = {main="Ark Saber",sub="Trainee Burin"}
+sets.weapons.ProcSword = {main="Excalipoor II",sub="Trainee Burin"}
 sets.weapons.ProcClub = {main="Heartbeater",sub="Trainee Burin"}
 sets.weapons.ProcStaff = {main="Ram Staff",sub="Duplus Grip"}
 sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub="Duplus Grip"}
