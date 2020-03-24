@@ -230,7 +230,7 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Eminent Staff",sub="Mephitis Grip",
-		head="Aya. Zucchetto",
+		head="Aya. Zucchetto",neck="Imbodla Necklace",
 		body="Ayanmo Corazza",hands="Kaykaus Cuffs",ring1="Ayanmo Ring",ring2="Sangoma Ring",
 		back="Kumbira Cape",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
 	}
