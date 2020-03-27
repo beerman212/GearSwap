@@ -6,7 +6,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None')
+	state.Weapons:options('None','Club','Staff')
 
 	gear.obi_cure_waist = ""
 	gear.obi_cure_back = ""
@@ -14,6 +14,9 @@ function user_setup()
 	gear.obi_nuke_waist = ""
 	gear.obi_high_nuke_waist = ""
 	gear.obi_nuke_back = ""
+
+	gear.alaunus = {}
+	gear.alaunus.fc = {name="Alaunus's Cape",augments={'"Fast Cast"+10',}}
 
 		-- Additional local binds
 	send_command('bind ^` input /ma "Arise" <t>')
@@ -47,8 +50,8 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-		head="Nahtirah Hat",
-		waist="Witful Belt",legs="Ayanmo Cosciales"
+		head="Nahtirah Hat",ear2="Moonshade Earring",
+		back=gear.alaunus.fc,waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps"
 	}
 		
     sets.precast.FC.DT = {}
@@ -61,9 +64,13 @@ function init_gear_sets()
 
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 	
-    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {})
+    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {
+		feet="Hygieia Clogs"
+	})
 	
-	sets.precast.FC.Cure.DT = {}
+	sets.precast.FC.Cure.DT = {
+		feet="Hygieia Clogs"
+	}
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
 
@@ -94,7 +101,7 @@ function init_gear_sets()
     -- Midcast Sets
 
     sets.Kiting = {}
-    sets.latent_refresh = {}
+    sets.latent_refresh = {waist="Fucho-no-Obi"}
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
@@ -121,8 +128,8 @@ function init_gear_sets()
 	
 	sets.midcast.Cure = {
 		main="Iridal Staff",
-		head="Vanya Hood",ear1="Nourish. Earring",
-		hands="Kaykaus Cuffs",
+		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring",ear2="Lifestorm Earring",
+		hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
 		feet="Vanya Clogs"
 	}
 		
@@ -185,7 +192,7 @@ function init_gear_sets()
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
 	sets.midcast['Enhancing Magic'] = {}
 	sets.midcast['Enhancing Magic'].skill = {
-		head="Umuthi Hat"
+		head="Umuthi Hat",ear2="Andoaa Earring",feet="Regal Pumps"
 	}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -230,7 +237,7 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Eminent Staff",sub="Mephitis Grip",
-		head="Aya. Zucchetto",neck="Imbodla Necklace",
+		head="Aya. Zucchetto",neck="Imbodla Necklace",ear1="Psystorm Earring",ear2="Lifestorm Earring",
 		body="Ayanmo Corazza",hands="Kaykaus Cuffs",ring1="Ayanmo Ring",ring2="Sangoma Ring",
 		back="Kumbira Cape",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
 	}
@@ -260,7 +267,7 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
 		main="Bolelabunga",sub=empty,
-		head="Aya. Zucchetto",ear1="Infused Earring",
+		head="Aya. Zucchetto",ear1="Infused Earring",ear2="Moonshade Earring",
 		body="Artsieq Jubbah",hands="Aya. Manopolas",ring1="Ayanmo Ring",ring2="Beeline Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
@@ -292,8 +299,8 @@ function init_gear_sets()
     -- Basic set for if no TP weapon is defined.
 	sets.engaged = {
 		main="Eminent Staff",sub="Willpower Grip",
-		head="Aya. Zucchetto",neck="Focus Collar",ear1="Assuage Earring",
-		body="Ayanmo Corrazza",hands="Aya. Manopolas",ring1="Petrov Ring",
+		head="Aya. Zucchetto",neck="Focus Collar",ear1="Steelflash Earring",ear2="Bladeborn Earring",
+		body="Ayanmo Corrazza",hands="Aya. Manopolas",ring1="Petrov Ring",ring2="K'ayres Ring",
 		waist="Grunfeld Rope",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
@@ -310,6 +317,9 @@ function init_gear_sets()
 
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
+	sets.weapons = {}
+	sets.weapons.Club = {main="Bolelabunga",sub=empty}
+	sets.weapons.Staff = {main="Eminent Staff",sub="Willpower Grip"}
 end
 
 -- Select default macro book on initial load or subjob change.

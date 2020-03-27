@@ -9,15 +9,15 @@ sets.TreasureHunter = {waist="Chaac Belt"}
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
 
-sets.weapons.ProcSword = {main="Ibushi Shinai",sub=empty}
-sets.weapons.ProcClub = {main="Kitty Rod",sub=empty}
-sets.weapons.ProcKatana = {main="",sub=empty}
-sets.weapons.ProcDagger = {main="",sub=empty}
-sets.weapons.ProcStaff = {main="Ranine Staff",sub=empty}
-sets.weapons.ProcSpear = {main="Tzee Xicu's Blade",sub=empty}
-sets.weapons.ProcGreatsword = {main="Lament",sub=empty}
-sets.weapons.ProcScythe = {main="Hoe",sub=empty}
-sets.weapons.ProcGreatKatana = {main="Ark Tachi",sub=empty}
+-- sets.weapons.ProcSword = {main="Ibushi Shinai",sub=empty}
+-- sets.weapons.ProcClub = {main="Kitty Rod",sub=empty}
+-- sets.weapons.ProcKatana = {main="",sub=empty}
+-- sets.weapons.ProcDagger = {main="",sub=empty}
+-- sets.weapons.ProcStaff = {main="Ranine Staff",sub=empty}
+-- sets.weapons.ProcSpear = {main="Tzee Xicu's Blade",sub=empty}
+-- sets.weapons.ProcGreatsword = {main="Lament",sub=empty}
+-- sets.weapons.ProcScythe = {main="Hoe",sub=empty}
+-- sets.weapons.ProcGreatKatana = {main="Ark Tachi",sub=empty}
 
 --Augmented items that you'll use among multiple jobs.
 
