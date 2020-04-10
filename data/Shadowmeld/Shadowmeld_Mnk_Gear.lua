@@ -7,7 +7,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Karambit','Godhands')
+	state.Weapons:options('Karambit','Suwaiyas','Godhands')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	
@@ -39,7 +39,7 @@ function init_gear_sets()
 	
 	-- Precast sets to enhance JAs on use
 	sets.precast.JA['Hundred Fists'] = {legs="Hes. Hose"}
-	sets.precast.JA['Boost'] = {hands="Anch. Gloves +1"}
+	sets.precast.JA['Boost'] = {hands="Anch. Gloves +2"}
 	sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +1"}
 	sets.precast.JA['Focus'] = {head="Anchor. Crown +1"}
 	sets.precast.JA['Counterstance'] = {}
@@ -108,12 +108,12 @@ function init_gear_sets()
 	sets.precast.WS['Shijin Spiral'].MaxAcc = set_combine(sets.precast.WS['Shijin Spiral'], {})
 
 	sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
-		ear1="Moonshade Earring"
+		ear1="Moonshade Earring",hands="Anch. Gloves +2"
 	})
 	sets.precast.WS['Howling Fist'].MaxAcc = set_combine(sets.precast.WS['Howling Fist'], {})
 
 	sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
-		ear1="Moonshade Earring"
+		ear1="Moonshade Earring",hands="Anch. Gloves +2",legs="Hiza. Hizayoroi +2"
 	})
 	sets.precast.WS['Tornado Kick'].MaxAcc = set_combine(sets.precast.WS['Tornado Kick'], {})
 
@@ -174,12 +174,12 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back=gear.segomo.tp.da,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+		back=gear.segomo.tp.da,waist="Moonbow Belt",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {
 		head="Malignance Chapeau",neck="Lissome Necklace",
 		body="Malignance Tabard",ring1="Chirich Ring",
-		waist="Grunfeld Rope",legs="Malignance Tights",feet="Mummu Gamash. +2"
+		legs="Malignance Tights",feet="Mummu Gamash. +2"
 	})
 
 	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
@@ -233,6 +233,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Godhands = {main="Godhands"}
 	sets.weapons.Karambit = {main="Kaja Knuckles"}
+	sets.weapons.Suwaiyas = {main="Suwaiyas"}
 end
 
 -- Select default macro book on initial load or subjob change.

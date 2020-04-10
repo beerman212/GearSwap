@@ -100,7 +100,7 @@ function init_gear_sets()
 	sets.precast.WS['Requiescat'] = {
 		ammo="Regal Gem",
 		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Regal Earring",ear2="Moonshade Earring",
-		body="Viti. Tabard +3",hands="Atrophy Gloves +2",ring1="Hetairoi Ring",ring2="Shukuyu Ring",
+		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring1="Hetairoi Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.enfeeble,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Carmine Greaves +1"
 	}
 		
@@ -120,11 +120,11 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Regal Gem",
 		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",
-		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
+		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring1="Rufescent Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
 	}
 	
-	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {ear1="Regal Earring",ear2="Moonshade Earring",hands="Atrophy Gloves +2",ring2="Ilabrat Ring",legs="Carmine Cuisses +1"})
+	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {ear1="Regal Earring",ear2="Moonshade Earring",hands="Atrophy Gloves +3",ring2="Ilabrat Ring",legs="Carmine Cuisses +1"})
 	sets.precast.WS['Savage Blade'].Fodder = set_combine(sets.precast.WS['Savage Blade'], {})
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
@@ -201,7 +201,7 @@ function init_gear_sets()
 
 	sets.midcast['Enhancing Magic'] = {main=gear.colada.enhancing,sub="Ammurapi Shield",
 		head=gear.telchine.cap.enhancing,neck="Duelist's Torque",ear1="Andoaa Earring",
-		body="Viti. Tabard +3",hands="Atrophy Gloves +2",ring2="Stikini Ring",
+		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring2="Stikini Ring",
 		back="Ghostfyre Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet="Leth. Houseaux +1"}
 
 	--Atrophy Gloves are better than Lethargy for me despite the set bonus for duration on others.		

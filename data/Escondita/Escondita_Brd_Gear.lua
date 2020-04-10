@@ -3,7 +3,7 @@ function user_setup()
 	state.OffenseMode:options('Normal','Acc')
 	state.CastingMode:options('Normal','Resistant','AoE')
 	state.IdleMode:options('Normal','PDT')
-	state.Weapons:options('None','Refresh','DualWeapons')
+	state.Weapons:options('None','Melee','Savage','MeleeDW','SavageDW')
 
 	-- Adjust this if using the Terpander (new +song instrument)
 	info.ExtraSongInstrument = 'Daurdabla'
@@ -39,7 +39,11 @@ function init_gear_sets()
 	-- Start defining the sets
 	--------------------------------------
 
-	-- Weapons sets	
+	-- Weapons sets
+	sets.weapons.Melee = {main="Kaja Knife",sub="Genbu's Shield"}
+	sets.weapons.MeleeDW = {main="Kaja Knife",sub="Taming Sari"}
+	sets.weapons.Savage = {main="Naegling",sub="Genbu's Shield"}
+	sets.weapons.SavageDW = {main="Naegling",sub="Taming Sari"}
 	sets.weapons.Refresh = {main="Sangoma",sub="Genbu's Shield"}
 	sets.weapons.DualWeapons = {main="Sangoma",sub="Taming Sari"}
 	
@@ -63,10 +67,10 @@ function init_gear_sets()
 	sets.precast.FC['Magic Finale'] = set_combine(sets.precast.FC.BardSong,{range="Gjallarhorn"})
 	sets.precast.FC['Horde Lullaby'] = set_combine(sets.precast.FC.BardSong,{range="Marsyas"})
 	sets.precast.FC['Horde Lullaby'].Resistant = set_combine(sets.precast.FC.BardSong,{range="Gjallarhorn"})
-	sets.precast.FC['Horde Lullaby'].AoE = set_combine(sets.precast.FC.BardSong,{range="Terpander"})
+	sets.precast.FC['Horde Lullaby'].AoE = set_combine(sets.precast.FC.BardSong,{range="Daurdabla"})
 	sets.precast.FC['Horde Lullaby II'] = set_combine(sets.precast.FC.BardSong,{range="Marsyas"})
 	sets.precast.FC['Horde Lullaby II'].Resistant = set_combine(sets.precast.FC.BardSong,{range="Gjallarhorn"})
-	sets.precast.FC['Horde Lullaby II'].AoE = set_combine(sets.precast.FC.BardSong,{range="Terpander"})
+	sets.precast.FC['Horde Lullaby II'].AoE = set_combine(sets.precast.FC.BardSong,{range="Daurdabla"})
 		
 	sets.precast.FC.Mazurka = set_combine(sets.precast.FC.BardSong,{range="Marsyas"})
 	sets.precast.FC['Honor March'] = set_combine(sets.precast.FC.BardSong,{range="Marsyas"})
@@ -86,10 +90,17 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {range=gear.linos.multiattack,
+	sets.precast.WS = {
+		range=gear.linos.multiattack,
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Ilabrat Ring",ring2="Apate Ring",
-		back=gear.intarabus.wsd,waist="Fotia Belt",legs="Bihu Cannions +2",feet="Bihu Slippers +2"}
+		back=gear.intarabus.wsd,waist="Fotia Belt",legs="Bihu Cannions +2",feet="Bihu Slippers +2"
+	}
+
+	sets.precast.WS.Evisceration = set_combine(sets.precast.WS, {
+		ear1="Brutal Earring",ear2="Cessance Earring",
+		back=gear.intarabus.tp,feet="Aya. Gambieras +2",
+	})
 		
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Telos Earring",ear2="Ishvara Earring",}
@@ -125,29 +136,35 @@ function init_gear_sets()
 	
 
 	-- For song buffs (duration and AF3 set bonus)
-	sets.midcast.SongEffect = {main="Kali",sub="Genmei Shield",range="Gjallarhorn",ammo=empty,
+	sets.midcast.SongEffect = {
+		main="Kali",sub="Genmei Shield",range="Gjallarhorn",ammo=empty,
 		head="Fili Calot +1",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Fili Hongreline +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.intarabus.macc,legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"}
+		back=gear.intarabus.macc,legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"
+	}
 		
 	sets.midcast.SongEffect.DW = {}
 
 	-- For song defbuffs (duration primary, accuracy secondary)
-	sets.midcast.SongDebuff = {main="Kali",sub="Genbu's Shield",range="Marsyas",ammo=empty,
-		head="Aya. Zucchetto +2",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Regal Earring",
-		body="Fili Hongreline +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.intarabus.macc,waist="Luminary Sash",legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"}
+	sets.midcast.SongDebuff = {
+		main="Grioavolr",sub="Enki Strap",range="Marsyas",ammo=empty,
+		head="Brioso Roundlet +2",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Regal Earring",
+		body="Fili Hongreline +1",hands="Brioso Cuffs +2",ring1="Kishar Ring",ring2="Stikini Ring",
+		back=gear.intarabus.macc,waist="Luminary Sash",legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"
+	}
 
 	-- For song defbuffs (accuracy primary, duration secondary)
-	sets.midcast.SongDebuff.Resistant = {main="Kali",sub="Genbu's Shield",range="Gjallarhorn",ammo=empty,
+	sets.midcast.SongDebuff.Resistant = {
+		main="Naegling",sub="Culminus",range="Gjallarhorn",ammo=empty,
 		head="Brioso Roundlet +2",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Regal Earring",
-		body="Brioso Justau. +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
-		back=gear.intarabus.macc,waist="Luminary Sash",legs="Inyanga Shalwar +2",feet="Aya. Gambieras +1"}
+		body="Brioso Justau. +3",hands="Brioso Cuffs +2",ring1="Kishar Ring",ring2="Stikini Ring",
+		back=gear.intarabus.macc,waist="Luminary Sash",legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"
+	}
 
 	-- Song-specific recast reduction
 	sets.midcast.SongRecast = set_combine(sets.midcast.FastRecast, {range="Daurdabla",ammo=empty})
 		
-	sets.midcast.SongDebuff.DW = {}
+	sets.midcast.SongDebuff.DW = {main="Naegling",sub="Kaja Knife"}
 
 	-- Cast spell with normal gear, except using Daurdabla instead
     sets.midcast.Daurdabla = {range=info.ExtraSongInstrument}
@@ -158,8 +175,8 @@ function init_gear_sets()
 	-- Other general spells and classes.
 	sets.midcast.Cure = {main="Serenity",sub="Enki Strap",ammo="Pemphredo Tathlum",
 		head="Vanya Hood",neck="Incanter's Torque",ear2="Mendi. Earring",
-		ring2="Sirona's Ring",
-		back="Tempered Cape +1",feet="Vanya Clogs"}
+		body="Annoint. Kalasiris",hands="Telchine Gloves",ring2="Sirona's Ring",
+		back="Solemnity Cape",feet="Vanya Clogs"}
 		
 	sets.midcast.Curaga = sets.midcast.Cure
 		
@@ -167,10 +184,12 @@ function init_gear_sets()
 	sets.Cure_Received = {waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
 		
-	sets.midcast['Enhancing Magic'] = {main="Serenity",sub="Clerisy Grip",
+	sets.midcast['Enhancing Magic'] = {
+		main="Serenity",sub="Clerisy Grip",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
-		back="Perimede Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing}
+		back="Perimede Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing
+	}
 		
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
 		
@@ -181,18 +200,23 @@ function init_gear_sets()
 	sets.midcast.Helix = sets.midcast['Elemental Magic']
 	sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Fodder
 		
-	sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {neck="Debilis Medallion",hands="Hieros Mittens",
-		ring1="Haoma's Ring",ring2="Haoma's Ring",waist="Witful Belt",feet="Vanya Clogs"})
+	sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {
+		neck="Debilis Medallion",hands="Hieros Mittens",
+		ring1="Haoma's Ring",ring2="Haoma's Ring",
+		waist="Witful Belt",feet="Vanya Clogs"
+	})
 		
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 
 	
 	
 	-- Idle sets
-	sets.idle = {main="Sangoma",sub="Genbu's Shield",range=gear.linos.multiattack,ammo=empty,
+	sets.idle = {
+		main="Sangoma",sub="Genbu's Shield",range=gear.linos.multiattack,ammo=empty,
 		head="Inyanga Tiara +2",neck="Twilight Torque",
 		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Dark Ring",
-		back=gear.intarabus.tp,waist="Flume Belt +1",legs="Inyanga Shalwar +2",feet=gear.chironic.slippers.refresh}
+		back=gear.intarabus.tp,waist="Flume Belt +1",legs="Inyanga Shalwar +2",feet=gear.chironic.slippers.refresh
+	}
 
 	sets.idle.PDT = set_combine(sets.idle, {})
 	
@@ -214,16 +238,20 @@ function init_gear_sets()
 	-- If you create a set with both offense and defense modes, the offense mode should be first.
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 	
-	sets.engaged = {main="Sangoma",sub="Genbu's Shield",range=gear.linos.multiattack,ammo=empty,
+	sets.engaged = {
+		range=gear.linos.multiattack,ammo=empty,
 		head="Aya. Zucchetto +2",neck="Clotharius Torque",ear1="Cessance Earring",ear2="Brutal Earring",
-		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Petrov Ring",ring2="Ilabrat Ring",
-		back=gear.intarabus.tp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Ilabrat Ring",ring2="Petrov Ring",
+		back=gear.intarabus.tp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
+	}
 	sets.engaged.Acc = set_combine(sets.engaged, {})
 		
-	sets.engaged.DW = {main="Sangoma",sub="Skinflayer",range=gear.linos.multiattack,ammo=empty,
+	sets.engaged.DW = {
+		range=gear.linos.multiattack,ammo=empty,
 		head="Aya. Zucchetto +2",neck="Clotharius Torque",ear1="Suppanomimi",ear2="Eabani Earring",
-		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Petrov Ring",ring2="Ilabrat Ring",
-		back=gear.intarabus.tp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Ilabrat Ring",ring2="Petrov Ring",
+		back=gear.intarabus.tp,waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
+	}
 	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {})
 end
 

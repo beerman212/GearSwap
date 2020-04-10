@@ -7,6 +7,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('None','IzcalliAmmurapi','IzcalliGenmei','MaxentiusAmmurapi','MaxentiusGenmei','DualIzcalli','DualMaxentiusAcc','DualMaxentius','DualMagian','DualMagianAcc')
+	state.AutoCaress = M(false, 'Auto Caress Mode')
 
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
@@ -126,12 +127,12 @@ function init_gear_sets()
 	
 	sets.precast.WS['Dagan'] = {ammo="Psilomene",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Mendi. Earring",
-		body="Ebers Bliaud +1",hands="Theophany Mitts +2",ear1="Ilabrat Ring",ear2="Mephitas's Ring",
+		body="Ebers Bliaud +1",hands="Theophany Mitts +3",ear1="Ilabrat Ring",ear2="Mephitas's Ring",
 		back="Twilight Cape",waist="Luminary Sash",legs="Piety Pantaln. +1",feet="Theo. Duckbills +3"}
 		
 	sets.precast.WS['Flash Nova'] = {ammo="Pemphredo Tathlum",
 		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Vedic Coat",hands="Theophany Mitts +2",ring1="Freke Ring",ring2="Shiva Ring +1",
+		body="Vedic Coat",hands="Theophany Mitts +3",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=gear.alaunus.fc,waist="Refoccilation Stone",legs=gear.chironic.hose.enfeeble,feet="Navon Crackows"}
 
     sets.precast.WS['Mystic Boon'] = set_combine(sets.precast.WS, {head="Inyanga Tiara +2",feet="Theo. Duckbills +3"})
@@ -175,7 +176,7 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Queller Rod",sub="Sors Shield",ammo="Pemphredo Tathlum",
 		head="Vanya Hood",neck="Cleric's Torque",ear1="Glorious Earring",ear2="Mendi. Earring",
-		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Defending Ring",ring2=gear.dark_ring.dt,
+		body="Theo. Briault +2",hands="Theophany Mitts +3",ring1="Defending Ring",ring2=gear.dark_ring.dt,
 		back=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"
 	}
 		
@@ -206,7 +207,7 @@ function init_gear_sets()
 	sets.midcast.MeleeCure = {
 		ammo="Psilomene",
 		head="Vanya Hood",neck="Cleric's Torque",ear1="Glorious Earring",ear2="Mendi. Earring",
-		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Defending Ring",ring2=gear.dark_ring.dt,
+		body="Theo. Briault +2",hands="Theophany Mitts +3",ring1="Defending Ring",ring2=gear.dark_ring.dt,
 		body=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"
 	}
 		

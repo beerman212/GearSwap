@@ -8,7 +8,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT','MDT_HP','BDT','BDT_HP')
 	state.ResistDefenseMode:options('MEVA','MEVA_HP','Charm')
 	state.IdleMode:options('Normal','Tank','KiteTank','Sphere')
-	state.Weapons:options('Epeolatry','Aettir','Zulfiqar')
+	state.Weapons:options('Epeolatry','Lionheart','Aettir','Zulfiqar')
 	state.CompoundRuneMode = M{['description'] = 'Compound Rune Mode', 'Normal', 'Bashmu'}
 	
 	state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None','MP'}
@@ -286,7 +286,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Epeolatry = {main="Epeolatry",sub="Utu Grip"}
 	sets.weapons.Aettir = {main="Aettir",sub="Utu Grip"}
-	--sets.weapons.Lionheart = {main="Lionheart",sub="Utu Grip"}
+	sets.weapons.Lionheart = {main="Lionheart",sub="Utu Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	--sets.weapons.Montante = {main="Montante +1",sub="Utu Grip"}
 	

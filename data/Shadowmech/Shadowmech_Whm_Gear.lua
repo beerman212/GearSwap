@@ -7,6 +7,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('None','Club','Staff')
+	state.AutoCaress = M(false, 'Auto Caress Mode')
 
 	gear.obi_cure_waist = ""
 	gear.obi_cure_back = ""
@@ -51,6 +52,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
 		head="Nahtirah Hat",ear2="Moonshade Earring",
+		body="Inyanga Jubbah +1",ring1="Kishar Ring",
 		back=gear.alaunus.fc,waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps"
 	}
 		
@@ -130,7 +132,7 @@ function init_gear_sets()
 		main="Iridal Staff",
 		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring",ear2="Lifestorm Earring",
 		hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
-		feet="Vanya Clogs"
+		legs="Orsn. Pantaln. +1",feet="Vanya Clogs"
 	}
 		
 	sets.midcast.CureSolace = sets.midcast.Cure
@@ -192,7 +194,7 @@ function init_gear_sets()
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
 	sets.midcast['Enhancing Magic'] = {}
 	sets.midcast['Enhancing Magic'].skill = {
-		head="Umuthi Hat",ear2="Andoaa Earring",feet="Regal Pumps"
+		head="Umuthi Hat",ear2="Andoaa Earring",hands="Inyan. Dastanas +2",feet="Regal Pumps"
 	}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -201,7 +203,10 @@ function init_gear_sets()
 
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
 
-	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {})
+	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
+		main="Bolelabunga",sub="Dullahan Shield",
+		head="Inyanga Tiara +1",
+	})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
 	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
@@ -237,9 +242,9 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Eminent Staff",sub="Mephitis Grip",
-		head="Aya. Zucchetto",neck="Imbodla Necklace",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-		body="Ayanmo Corazza",hands="Kaykaus Cuffs",ring1="Ayanmo Ring",ring2="Sangoma Ring",
-		back="Kumbira Cape",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
+		head="Inyanga Tiara +1",neck="Imbodla Necklace",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+		body="Inyanga Jubbah +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Sangoma Ring",
+		back=gear.alaunus.fc,legs="Inyanga Shalwar +1",feet="Inyanga Crackows +1"
 	}
 
 	sets.midcast['Enfeebling Magic'].Resistant = {}
@@ -266,9 +271,9 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		main="Bolelabunga",sub=empty,
+		main="Bolelabunga",sub="Dullahan Shield",
 		head="Aya. Zucchetto",ear1="Infused Earring",ear2="Moonshade Earring",
-		body="Artsieq Jubbah",hands="Aya. Manopolas",ring1="Ayanmo Ring",ring2="Beeline Ring",
+		body="Artsieq Jubbah",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
 	
@@ -318,7 +323,7 @@ function init_gear_sets()
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 	sets.weapons = {}
-	sets.weapons.Club = {main="Bolelabunga",sub=empty}
+	sets.weapons.Club = {main="Bolelabunga",sub="Dullahan Shield"}
 	sets.weapons.Staff = {main="Eminent Staff",sub="Willpower Grip"}
 end
 

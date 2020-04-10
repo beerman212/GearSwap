@@ -1,7 +1,7 @@
 --Gearsets your character will use among multiple jobs.
 
 sets.Sheltered = {ring2="Sheltered Ring"}
-sets.Capacity = {back="Mecisto. Mantle"}
+sets.Capacity = {back="Aptitude Mantle"}
 
 sets.buff.Doom = {waist="Gishdubar Sash"}
 sets.TreasureHunter = {waist="Chaac Belt"}

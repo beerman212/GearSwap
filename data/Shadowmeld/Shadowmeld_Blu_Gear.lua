@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Sequence','MaxentiusTP','NaeglingTP','MagicWeapons','Learning','None')
+	state.Weapons:options('NaeglingTPBonus','MaxentiusTPBonus','NaeglingFullAcc','MaxentiusFullAcc','MagicWeapons','Learning','None','MagicWeaponsSword')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','TreasureHunter'}
 	
@@ -73,27 +73,33 @@ function init_gear_sets()
 	sets.precast.JA['Azure Lore'] = {hands="Luh. Bazubands +1"}
 
 	-- Waltz set (chr and vit)
-	sets.precast.Waltz = {legs="Dashing Subligar"}
+	sets.precast.Waltz = {--[[legs="Dashing Subligar"]]}
 
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = {}
 
-	sets.precast.Step = {ammo="Aurgelmir Orb",
+	sets.precast.Step = {
+		ammo="Aurgelmir Orb",
 		head="Carmine Mask +1",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Chirich Ring",ring2="Ayanmo Ring",
-		back=gear.rosmerta.stp,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Jhakri Pigaches +2"}
+		back=gear.rosmerta.stp,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Jhakri Pigaches +2"
+	}
 
-	sets.precast.Flourish1 = {ammo="Aurgelmir Orb",
+	sets.precast.Flourish1 = {
+		ammo="Aurgelmir Orb",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Etana Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
 
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {main="Colada",sub="Vampirism",ammo="Impatiens",
+	sets.precast.FC = {
+		main="Colada",sub="Vampirism",ammo="Impatiens",
 		head="Amalric Coif +1",neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
+		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
+	}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
@@ -102,10 +108,12 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {ammo="Aurgelmir Orb",
+	sets.precast.WS = {
+		ammo="Aurgelmir Orb",
 		head=gear.herculean.helm.strwsd,neck="Fotia Gorget",ear1="Telos Earring",ear2="Cessance Earring",
 		body=gear.herculean.vest.dexwsd,hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Ilabrat Ring",
-		back=gear.rosmerta.wsd,waist="Fotia Belt",legs=gear.herculean.trousers.strwsd,feet="Jhakri Pigaches +2"}
+		back=gear.rosmerta.wsd,waist="Fotia Belt",legs=gear.herculean.trousers.strwsd,feet="Jhakri Pigaches +2"
+	}
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {body="Adhemar Jacket +1",legs="Carmine Cuisses +1"})
 	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS.Acc, {head="Carmine Mask +1"})
@@ -250,10 +258,12 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Magical = {
+		main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"}
+		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs="Amalric Slops +1",feet="Amalric Nails +1"
+	}
 		
 	sets.midcast['Blue Magic'].Magical.Proc = sets.midcast.FastRecast
 	
@@ -273,20 +283,26 @@ function init_gear_sets()
 		waist="Luminary Sash",legs="Malignance Tights",feet="Jhakri Pigaches +2"
 	})
 
-	sets.midcast['Enfeebling Magic'] = {main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
+	sets.midcast['Enfeebling Magic'] = {
+		main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
 		head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ayanmo Ring",ring2="Stikini Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Skaoi Boots"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Skaoi Boots"
+	}
 
-	sets.midcast['Dark Magic'] = {mmain="Naegling",sub="Colada",ammo="Pemphredo Tathlum",
+	sets.midcast['Dark Magic'] = {
+		main="Naegling",sub="Colada",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Evanescence Ring",ring2="Archon Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
 
-	sets.midcast['Enhancing Magic'] = {main=gear.colada.enhancing,
+	sets.midcast['Enhancing Magic'] = {
+		main=gear.colada.enhancing,
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Andoaa Earring",ear2="Gifted Earring",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
-		waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing}
+		waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing
+	}
 
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1",waist="Gishdubar Sash"})
 
@@ -302,15 +318,19 @@ function init_gear_sets()
 	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
 	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
 
-	sets.midcast['Divine Magic'] = {ammo="Pemphredo Tathlum",
+	sets.midcast['Divine Magic'] = {
+		ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Incanter's Torque",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring2="Stikini Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
 
-	sets.midcast['Elemental Magic'] = {main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {
+		main="Maxentius",sub="Naegling",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
 
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
 
@@ -321,10 +341,12 @@ function init_gear_sets()
 	sets.element.Earth = {}
 	sets.element.Light = {} --ring2="Weatherspoon Ring"
 
-	sets.midcast.Cure = {ammo="Pemphredo Tathlum",
+	sets.midcast.Cure = {
+		ammo="Pemphredo Tathlum",
 		head="Carmine Mask +1",neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Mendi. Earring",
 		body="Vedic Coat",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Lebeche Ring",
-		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Carmine Greaves +1"}
+		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Carmine Greaves +1"
+	}
 
 	-- Breath Spells --
 
@@ -332,10 +354,12 @@ function init_gear_sets()
 
 	-- Physical Added Effect Spells most notably "Stun" spells --
 
-	sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].Physical, {ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].Physical, {
+		ammo="Pemphredo Tathlum",
 		head="Amalric Coif +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ayanmo Ring",ring2="Stikini Ring",
-		back="Cornflower Cape",waist="Eschan Stone",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"})
+		back="Cornflower Cape",waist="Eschan Stone",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	})
 
 	sets.midcast['Blue Magic'].Stun.Resistant = set_combine(sets.midcast['Blue Magic'].Stun, {})
 
@@ -343,10 +367,12 @@ function init_gear_sets()
 
 	-- Other Specific Spells --
 
-	sets.midcast['Blue Magic']['White Wind'] = {ammo="Mavi Tathlum",
+	sets.midcast['Blue Magic']['White Wind'] = {
+		ammo="Mavi Tathlum",
 		head="Carmine Mask +1",neck="Sanctity Necklace",ear2="Mendi. Earring",
 		body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Supershear Ring",ring2="Lebeche Ring",
-		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Skaoi Boots"}
+		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Skaoi Boots"
+	}
 					
 	sets.midcast['Blue Magic']['Healing Breeze'] = sets.midcast['Blue Magic']['White Wind']
 
@@ -357,15 +383,19 @@ function init_gear_sets()
 	--Overwrite certain spells with these peices even if the day matches, because of resource inconsistancies.
 	sets.NonElementalCure = {back="Solemnity Cape",waist="Luminary Sash"}
 
-	sets.midcast['Blue Magic'].SkillBasedBuff = {main="Iris",sub="Iris",ammo="Mavi Tathlum",
+	sets.midcast['Blue Magic'].SkillBasedBuff = {
+		main="Iris",sub="Iris",ammo="Mavi Tathlum",
 		head="Luhlaza Keffiyeh",neck="Mirage Stole +1",ear2="Loquac. Earring",
 		body="Assim. Jubbah +2",hands="Rawhide Gloves",ring2="Stikini Ring",
-		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs"}
+		back="Cornflower Cape",waist="Witful Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs"
+	}
 
-	sets.midcast['Blue Magic'].Buff = {main="Vampirism",sub=gear.colada.enhancing,ammo="Mavi Tathlum",
+	sets.midcast['Blue Magic'].Buff = {
+		main="Vampirism",sub=gear.colada.enhancing,ammo="Mavi Tathlum",
 		head="Luhlaza Keffiyeh",neck="Incanter's Torque",ear1="Gifted Earring",ear2="Loquac. Earring",
 		body="Assim. Jubbah +2",hands="Hashi. Bazu. +1",ring1="Kishar Ring",ring2="Dark Ring",
-		back=gear.rosmerta.stp,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
+		back=gear.rosmerta.stp,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
+	}
 
 	sets.midcast['Blue Magic']['Battery Charge'] = set_combine(sets.midcast['Blue Magic'].Buff, {head="Amalric Coif +1",waist="Gishdubar Sash"})
 
@@ -381,7 +411,8 @@ function init_gear_sets()
 	sets.Learning = {hands="Assim. Bazu. +2"}
 
 	-- Idle sets
-	sets.idle = {main="Bolelabunga",sub="Medeina Kilij",ammo="Staunch Tathlum",
+	sets.idle = {
+		main="Bolelabunga",sub="Medeina Kilij",ammo="Staunch Tathlum",
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.rosmerta.stp,waist="Flume Belt +1",legs="Malignance Tights",feet=gear.herculean.boots.refresh
@@ -421,10 +452,12 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
 	
 	-- Weapons sets
-	sets.weapons.Sequence = {main="Sequence",sub="Naegling"}
-	sets.weapons.NaeglingTP = {main="Naegling",sub=gear.colada.stp}
-	sets.weapons.MaxentiusTP = {main="Maxentius",sub=gear.colada.stp}
+	sets.weapons.NaeglingTPBonus = {main="Naegling",sub="Machaera +2"}
+	sets.weapons.MaxentiusTPBonus = {main="Maxentius",sub="Machaera +2"}
+	sets.weapons.NaeglingFullAcc = {main="Naegling",sub=gear.colada.stp}
+	sets.weapons.MaxentiusFullAcc = {main="Maxentius",sub=gear.colada.stp}
 	sets.weapons.MagicWeapons = {main="Maxentius",sub="Naegling"}
+	sets.weapons.MagicWeaponsSword = {main="Naegling",sub="Maxentius"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
@@ -455,8 +488,9 @@ function init_gear_sets()
 	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {ammo="Falcon Eye",ear2="Telos Earring",waist="Grunfeld Rope"})
 
 	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {
-		head="Carmine Mask +1",neck="Lissome Necklace",ear2="Telos Earring",
-		waist="Grunfeld Rope",legs="Malignance Tights",feet="Carmine Greaves +1"
+		head="Carmine Mask +1",ear1="Mache Earring +1",ear2="Telos Earring",
+		body="Malignance Tabard",ring2="Ilabrat Ring",
+		waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Aya. Gambieras +2"
 	})
 	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {ammo="Falcon Eye",waist="Grunfeld Rope",feet="Aya. Gambieras +2"})
 	sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.Acc.PDT, {})
