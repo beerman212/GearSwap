@@ -10,9 +10,9 @@ function user_setup()
 	state.AutoBuffMode:options('Off','AutoSavage','AutoCygne','AutoHeal','AutoNuke')
 
 	state.Weapons:options('None','Melee','MeleeBow','MeleeDW','MeleeDWBow')
-	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Kaja Knife','Maxentius'}
+	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Kaja Knife','Maxentius','Vitiation Sword'}
 	state.Shields = M{['description'] = 'Shields', 'Sacro Bulwark', 'Ammurapi Shield', 'Genmei Shield'}
-	state.OffhandWeapons = M{['description'] = 'Offhand Weapons', 'Ternion Dagger +1', 'Kaja Knife', 'Naegling'}
+	state.OffhandWeapons = M{['description'] = 'Offhand Weapons', 'Ternion Dagger +1', 'Kaja Knife', 'Naegling','Daybreak'}
 
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
@@ -200,9 +200,9 @@ function init_gear_sets()
 	sets.Self_Phalanx = {head=gear.taeon.chapeau.phalanx,body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx}
 
 	sets.midcast['Enhancing Magic'] = {main=gear.colada.enhancing,sub="Ammurapi Shield",
-		head=gear.telchine.cap.enhancing,neck="Duelist's Torque",ear1="Andoaa Earring",
+		head=gear.telchine.cap.enhancing,neck="Dls. Torque +2",ear1="Andoaa Earring",
 		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring2="Stikini Ring",
-		back="Ghostfyre Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet="Leth. Houseaux +1"}
+		back="Ghostfyre Cape",waist="Embla Sash",legs=gear.telchine.braconi.enhancing,feet="Leth. Houseaux +1"}
 
 	--Atrophy Gloves are better than Lethargy for me despite the set bonus for duration on others.		
 	sets.buff.ComposureOther = {head="Leth. Chappel +1",
@@ -217,20 +217,21 @@ function init_gear_sets()
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
 	sets.midcast.Protect = {ring2="Sheltered Ring"}
 	sets.midcast.Shell = {ring2="Sheltered Ring"}
-	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +1",legs="Atrophy Tights +2"}
-	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +1",legs="Atrophy Tights +2"}
-	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +1",legs="Atrophy Tights +2"}
+	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
+	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
+	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",waist="Olympus Sash",legs="Atrophy Tights +2"}
 	sets.midcast.Phalanx = {head=gear.taeon.chapeau.phalanx,body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx}
+	sets.midcast.BoostStat = {hands="Viti. Gloves +2"}
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Duelist's Torque",ear1="Regal Earring",ear2="Malignance Earring",
+		head="Atro. Chapeau +2",neck="Dls. Torque +2",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Vitiation Boots +3"
 	}
 
 	sets.midcast['Enfeebling Magic'].PreserveTP = {range=empty,ammo="Regal Gem"}
-	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Duelist's Torque",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,feet="Vitiation Boots +2"}
+	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Dls. Torque +2",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,feet="Vitiation Boots +3"}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +2"})
@@ -253,6 +254,8 @@ function init_gear_sets()
 	sets.midcast.Sleep = sets.midcast['Enfeebling Magic']
 	sets.midcast['Sleep II'] = sets.midcast['Enfeebling Magic']
 	sets.midcast.Sleepga = sets.midcast['Enfeebling Magic']
+	sets.midcast.Dispel = sets.midcast['Enfeebling Magic']
+	sets.midcast.Dispelga = set_combine(sets.midcast.Dispel, {main="Daybreak",sub="Ammurapi Shield"})
 
 	sets.midcast.Dia = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
 	sets.midcast.Diaga = set_combine(sets.midcast.FastRecast, sets.TreasureHunter)
@@ -577,62 +580,62 @@ function user_job_post_midcast(spell, spellMap, eventArgs)
 	end
 end
 
-function user_aftercast(spell, spellMap, eventArgs)
-	if not spell.interrupted then
-		if spell.skill == "Enfeebling Magic" and state.UseCustomTimers.value then
-			local custom_durations = {
-				["Slow"] = 180,
-				["Slow II"] = 180,
-				["Sleep II"] = 90,
-				["Sleepga"] = 60,
-				["Sleepga II"] = 90,
-				["Frazzle"] = 300,
-				["Frazzle II"] = 300,
-				["Frazzle III"] = 300,
-				["Distract"] = 300,
-				["Distract II"] = 300,
-				["Distract III"] = 300,
-				["Addle II"] = 180,
-				["Dia III"] = 180,
-				--["Gravity II"] = 75,
-			}
+-- function user_aftercast(spell, spellMap, eventArgs)
+-- 	if not spell.interrupted then
+-- 		if spell.skill == "Enfeebling Magic" and state.UseCustomTimers.value then
+-- 			local custom_durations = {
+-- 				["Slow"] = 180,
+-- 				["Slow II"] = 180,
+-- 				["Sleep II"] = 90,
+-- 				["Sleepga"] = 60,
+-- 				["Sleepga II"] = 90,
+-- 				["Frazzle"] = 300,
+-- 				["Frazzle II"] = 300,
+-- 				["Frazzle III"] = 300,
+-- 				["Distract"] = 300,
+-- 				["Distract II"] = 300,
+-- 				["Distract III"] = 300,
+-- 				["Addle II"] = 180,
+-- 				["Dia III"] = 180,
+-- 				--["Gravity II"] = 75,
+-- 			}
 
-			local spell_info = res.spells[spell.recast_id]
-			local casting_set = get_midcast_set(spell, spellMap)
+-- 			local spell_info = res.spells[spell.recast_id]
+-- 			local casting_set = get_midcast_set(spell, spellMap)
 
-			if buffactive["Saboteur"] then
-				casting_set = set_combine(casting_set, sets.buff.Saboteur)
-			end
+-- 			if buffactive["Saboteur"] then
+-- 				casting_set = set_combine(casting_set, sets.buff.Saboteur)
+-- 			end
 
-			--casting_set = standardize_set(casting_set)
+-- 			--casting_set = standardize_set(casting_set)
 			
-			local duration = custom_durations[spell.name] or spell_info.duration or 0
-			local saboteur_modifier = get_saboteur_modifier(casting_set)
-			local composure_modifier = get_composure_modifier(casting_set)
-			local duration_modifier = get_enfeebling_modifier(casting_set)
-			local aug_duration_modifier = get_duelist_torque_modifier(casting_set)
-			local duration_bonus = get_enfeebling_duration_from_merits(casting_set) + get_enfeebling_duration_from_jp()
+-- 			local duration = custom_durations[spell.name] or spell_info.duration or 0
+-- 			local saboteur_modifier = get_saboteur_modifier(casting_set)
+-- 			local composure_modifier = get_composure_modifier(casting_set)
+-- 			local duration_modifier = get_enfeebling_modifier(casting_set)
+-- 			local aug_duration_modifier = get_duelist_torque_modifier(casting_set)
+-- 			local duration_bonus = get_enfeebling_duration_from_merits(casting_set) + get_enfeebling_duration_from_jp()
 
-			windower.add_to_chat("Spell: " .. spell.name)
-			windower.add_to_chat("Base Duration: " .. duration)
-			windower.add_to_chat("Saboteur Bonus: " .. saboteur_modifier)
-			windower.add_to_chat("Base Duration Increase: " .. duration_bonus)
-			windower.add_to_chat("Duration Bonus From Gear: " .. duration_modifier)
-			windower.add_to_chat("Duration Bonus From Augmented Gear: " .. aug_duration_modifier)
-			windower.add_to_chat("Duration Bonus From Composure: " .. composure_modifier)
+-- 			-- windower.add_to_chat("Spell: " .. spell.name)
+-- 			-- windower.add_to_chat("Base Duration: " .. duration)
+-- 			-- windower.add_to_chat("Saboteur Bonus: " .. saboteur_modifier)
+-- 			-- windower.add_to_chat("Base Duration Increase: " .. duration_bonus)
+-- 			-- windower.add_to_chat("Duration Bonus From Gear: " .. duration_modifier)
+-- 			-- windower.add_to_chat("Duration Bonus From Augmented Gear: " .. aug_duration_modifier)
+-- 			-- windower.add_to_chat("Duration Bonus From Composure: " .. composure_modifier)
 
-			if duration > 0 then
-				local calculated_duration = math.floor(math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100) * aug_duration_modifier / 100)
-				local debuff_icon = "spells/00220.png"
+-- 			if duration > 0 then
+-- 				local calculated_duration = math.floor(math.floor(math.floor((math.floor((duration * saboteur_modifier / 100)) + duration_bonus) * duration_modifier / 100) * composure_modifier / 100) * aug_duration_modifier / 100)
+-- 				local debuff_icon = "spells/00220.png"
 
-				windower.add_to_chat("Calculated Duration: " .. calculated_duration)
-				send_command('@timers c "'..spell.english..' ['..spell.target.name..']" ' .. calculated_duration .. ' down '.. debuff_icon)
-			end
+-- 				windower.add_to_chat("Calculated Duration: " .. calculated_duration)
+-- 				send_command('@timers c "'..spell.english..' ['..spell.target.name..']" ' .. calculated_duration .. ' down '.. debuff_icon)
+-- 			end
 
-			eventArgs.handled = true
-		end
-	end
-end
+-- 			eventArgs.handled = true
+-- 		end
+-- 	end
+-- end
 
 function get_saboteur_modifier(casting_set)
 	local saboteur_modifier = 100
@@ -739,9 +742,9 @@ end
 
 function get_duelist_torque_modifier(casting_set)
 	if type(casting_set.neck) == "table" then
-		return casting_set.neck.name == "Duelist's Torque" and 114 or 100
+		return casting_set.neck.name == "Dls. Torque +2" and 116 or 100
 	else
-		return casting_set.neck == "Duelist's Torque" and 114 or 0
+		return casting_set.neck == "Dls. Torque +2" and 116 or 100
 	end
 end
 

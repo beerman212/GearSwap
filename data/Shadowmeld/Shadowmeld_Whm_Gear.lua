@@ -76,7 +76,7 @@ function init_gear_sets()
 		main=gear.grioavolr.nuke,sub="Clerisy Strap",ammo="Sapience Orb",
 		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
 		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back=gear.alaunus.fc,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Navon Crackows"
+		back=gear.alaunus.fc,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Regal Pumps +1"
 	}
 	
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {})
@@ -87,7 +87,7 @@ function init_gear_sets()
 
 	sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pant. +1"})
 
-	sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
+	sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'], {main="Yagrush",sub="Ammurapi Shield"})
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {})
 	
@@ -98,6 +98,8 @@ function init_gear_sets()
 	sets.precast.FC.CureSolace = sets.precast.FC.Cure
 
 	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
+
+	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Ammurapi Shield"})
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Benediction = {body="Piety Briault +3"}
@@ -128,7 +130,7 @@ function init_gear_sets()
 	sets.precast.WS['Dagan'] = {ammo="Psilomene",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Mendi. Earring",
 		body="Ebers Bliaud +1",hands="Theophany Mitts +3",ear1="Ilabrat Ring",ear2="Mephitas's Ring",
-		back="Twilight Cape",waist="Luminary Sash",legs="Piety Pantaln. +1",feet="Theo. Duckbills +3"}
+		back="Twilight Cape",waist="Luminary Sash",legs="Piety Pantaln. +2",feet="Theo. Duckbills +3"}
 		
 	sets.precast.WS['Flash Nova'] = {ammo="Pemphredo Tathlum",
 		head="Befouled Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
@@ -148,7 +150,7 @@ function init_gear_sets()
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	sets.Sublimation = {}
+	sets.Sublimation = {waist="Embla Sash"}
 	
 	--Situational sets: Gear that is equipped on certain targets
 	sets.Self_Healing = {waist="Gishdubar Sash"}
@@ -253,7 +255,7 @@ function init_gear_sets()
 		main=gear.gada.enhancing,sub="Ammurapi Shield",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Andoaa Earring",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
-		back="Mending Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet="Theo. Duckbills +3"
+		back="Mending Cape",waist="Embla Sash",legs=gear.telchine.braconi.enhancing,feet="Theo. Duckbills +3"
 	}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget",waist="Siegel Sash"})
@@ -276,7 +278,7 @@ function init_gear_sets()
 		main="Beneficus",
 		head="Ebers Cap +1",
 		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
-		back=gear.alaunus.fc,legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"
+		back=gear.alaunus.fc,legs="Piety Pantaln. +2",feet="Ebers Duckbills +1"
 	})
 		
 	sets.midcast['Elemental Magic'] = {
@@ -339,6 +341,8 @@ function init_gear_sets()
 	sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
+
+	sets.midcast.Dispel = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak",sub="Ammurapi Shield"})
 
 	sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})

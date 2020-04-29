@@ -49,7 +49,7 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Bolster = {body="Bagua Tunic"}
+	sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
 	sets.precast.JA['Life Cycle'] = {body="Geo. Tunic +2",back=gear.nantosuelta.idle}
 	sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals"}
 	sets.precast.JA['Mending Halation'] = {legs="Bagua Pants"}
@@ -101,11 +101,11 @@ function init_gear_sets()
 
 
 	--Extra Indi duration as long as you can keep your 900 skill cap.
-	sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {legs="Bagua Pants",feet="Azimuth Gaiters"})
+	sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {legs="Bagua Pants",feet="Azimuth Gaiters +1"})
 		
     sets.midcast.Cure = {main="Serenity",sub="Enki Strap",
         head="Vanya Hood",neck="Incanter's Torque",ear1="Regal Earring",ear2="Mendi. Earring",
-        body="Zendik Robe",hands="Telchine Gloves",
+        body="Annoint. Kalasiris",hands="Telchine Gloves",
         waist="Luminary Sash",legs="Geo. Pants +2",feet="Vanya Clogs"}
 		
     sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {back="Twilight Cape",waist="Hachirin-no-Obi"})
@@ -207,16 +207,16 @@ function init_gear_sets()
 		back=gear.nantosuelta.idle,waist="Fucho-no-Obi",legs="Assid. Pants +1",feet=gear.merlinic.crackows.refresh}
 		
 	sets.idle.PDT = set_combine(sets.idle, 
-		{body="Mallquis Saio +2",hands="Geo. Mitaines +2",back="Solemnity Cape",legs=gear.merlinic.shalwar.magical,feet="Azimuth Gaiters"})
+		{body="Mallquis Saio +2",hands="Geo. Mitaines +2",back="Solemnity Cape",legs=gear.merlinic.shalwar.magical,feet="Azimuth Gaiters +1"})
 		
 	--sets.idle.TPEat = set_combine(sets.idle, {neck="Chrys. Torque"})
 
 	-- .Pet sets are for when Luopan is present.
 	sets.idle.Pet = set_combine(sets.idle, 
-		{main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters"})
+		{main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters +1"})
 
 	sets.idle.PDT.Pet = set_combine(sets.idle.PDT, 
-		{main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters"})
+		{main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters +1"})
 
 	-- .Indi sets are for when an Indi-spell is active.
 	sets.idle.Indi = set_combine(sets.idle, {})
@@ -244,7 +244,7 @@ function init_gear_sets()
 	sets.defense.GeoLock = sets.midcast.Geomancy.Indi
 
 	sets.Kiting = {
-		--feet="Herald's Gaiters"
+		feet="Geo. Sandals +2"
 	}
 	sets.latent_refresh = {waist="Fucho-no-obi"}
 	sets.DayIdle = {}

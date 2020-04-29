@@ -272,7 +272,7 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
 		main="Bolelabunga",sub="Dullahan Shield",
-		head="Aya. Zucchetto",ear1="Infused Earring",ear2="Moonshade Earring",
+		head="Befouled Crown",ear1="Infused Earring",ear2="Moonshade Earring",
 		body="Artsieq Jubbah",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
@@ -324,7 +324,7 @@ function init_gear_sets()
 
 	sets.weapons = {}
 	sets.weapons.Club = {main="Bolelabunga",sub="Dullahan Shield"}
-	sets.weapons.Staff = {main="Eminent Staff",sub="Willpower Grip"}
+	sets.weapons.Staff = {main="Nilgal Pole",sub="Willpower Grip"}
 end
 
 -- Select default macro book on initial load or subjob change.

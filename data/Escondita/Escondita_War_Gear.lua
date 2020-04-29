@@ -9,7 +9,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None','Twilight'}
-	state.Weapons:options('Ragnarok','Chango','Zulfiqar','Naegling','NaeglingDW','ProcSword','ProcClub','ProcStaff','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatsword')
+	state.Weapons:options('Chango','Zulfiqar','Ragnarok','Naegling','NaeglingDW','ProcSword','ProcClub','ProcStaff','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatsword')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name="Cichol's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
@@ -288,7 +288,7 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
 	-- Weapons sets
-	sets.weapons.Chango = {main=gear.aganoshe.main,sub="Duplus Grip"}
+	sets.weapons.Chango = {main="Chango",sub="Duplus Grip"}
 	sets.weapons.Ragnarok = {main="Ragnarok",sub="Duplus Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Duplus Grip"}
 	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield"}

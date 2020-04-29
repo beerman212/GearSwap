@@ -7,7 +7,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Karambit','Suwaiyas','Godhands')
+	state.Weapons:options('Godhands')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	
@@ -233,21 +233,14 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Godhands = {main="Godhands"}
 	sets.weapons.Karambit = {main="Kaja Knuckles"}
-	sets.weapons.Suwaiyas = {main="Suwaiyas"}
 end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
 	-- Default macro set/book
-	if player.sub_job == 'DNC' then
-		set_macro_page(5, 20)
-	elseif player.sub_job == 'NIN' then
-		set_macro_page(4, 20)
-	elseif player.sub_job == 'THF' then
-		set_macro_page(6, 20)
-	elseif player.sub_job == 'RUN' then
-		set_macro_page(7, 20)
-	else
-		set_macro_page(1, 20)
-	end
+	set_macro_page(1, 20)
+end
+
+function lockstyle()
+	windower.chat.input("/lockstyleset 009")
 end
