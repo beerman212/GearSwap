@@ -1,4 +1,4 @@
-function user_setup()
+function user_job_setup()
 	-- Options: Override default values
     state.OffenseMode:options('Normal','SomeAcc','Acc','FullAcc', 'Fodder')
     state.WeaponskillMode:options('Match','Normal', 'SomeAcc', 'Acc', 'FullAcc', 'Fodder')
@@ -32,6 +32,7 @@ function init_gear_sets()
 	-- Precast sets to enhance JAs on use
 	sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +1"}
 	sets.precast.JA['Boost'] = {} --hands="Anchorite's Gloves +1"
+	sets.precast.JA['Boost'].OutOfCombat = {} --hands="Anchorite's Gloves +1", Remove Haste and Add Slow Gear.
 	sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +1"}
 	sets.precast.JA['Focus'] = {head="Anchorite's Crown +1"}
 	sets.precast.JA['Counterstance'] = {} --feet="Hesychast's Gaiters +1"
@@ -77,7 +78,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Ginsen",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Sherida Earring",
-		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Regal Ring",
+		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Gere Ring",
 		back="Segomo's Mantle",waist="Fotia Belt",legs="Hiza. Hizayoroi +2",feet=gear.herculean_ta_feet}
 	sets.precast.WSSomeAcc = {ammo="Falcon Eye",head="Dampening Tam",legs="Hiza. Hizayoroi +2"}
 	sets.precast.WSAcc = {ammo="Falcon Eye",head="Dampening Tam",neck="Combatant's Torque",ear1="Cessance Earring",ring2="Ramuh Ring +1",body="Malignance Tabard",waist="Olseni Belt",legs="Hiza. Hizayoroi +2",feet="Malignance Boots"}
@@ -211,11 +212,11 @@ function init_gear_sets()
 	-- Normal melee sets
 	sets.engaged = {ammo="Ginsen",
 		head="Dampening Tam",neck="Moonbeam Nodowa",ear1="Brutal Earring",ear2="Sherida Earring",
-		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Epona's Ring",
+		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Gere Ring",
 		back="Segomo's Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_ta_feet}
 	sets.engaged.SomeAcc = {ammo="Falcon Eye",
 		head="Dampening Tam",neck="Moonbeam Nodowa",ear1="Brutal Earring",ear2="Sherida Earring",
-		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Epona's Ring",
+		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Gere Ring",
 		back="Segomo's Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_ta_feet}
 	sets.engaged.Acc = {ammo="Falcon Eye",
 		head="Dampening Tam",neck="Moonbeam Nodowa",ear1="Cessance Earring",ear2="Sherida Earring",
@@ -227,7 +228,7 @@ function init_gear_sets()
 		back="Segomo's Mantle",waist="Olseni Belt",legs="Hiza. Hizayoroi +2",feet="Malignance Boots"}
 	sets.engaged.Fodder = {ammo="Ginsen",
 		head="Dampening Tam",neck="Moonbeam Nodowa",ear1="Brutal Earring",ear2="Sherida Earring",
-		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Epona's Ring",
+		body="Ken. Samue",hands="Adhemar Wrist. +1",ring1="Niqmaddu Ring",ring2="Gere Ring",
 		back="Segomo's Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_ta_feet}
 
 	-- Defensive melee hybrid sets

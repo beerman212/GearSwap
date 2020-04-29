@@ -1,5 +1,5 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
-function user_setup()
+function user_job_setup()
 	-- Options: Override default values
     state.OffenseMode:options('Normal','SomeAcc','Acc','FullAcc','Fodder')
     state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','FullAcc','Fodder')
@@ -59,7 +59,7 @@ function init_gear_sets()
 	sets.precast.JA['Restoring Breath'] = {back="Brigantia's Mantle"}
 	sets.precast.JA['Smiting Breath'] = {back="Brigantia's Mantle"}
 	sets.HealingBreath = {back="Brigantia's Mantle"}
-	sets.SmitingBreath = {back="Brigantia's Mantle"}
+	--sets.SmitingBreath = {back="Brigantia's Mantle"}
 
 	-- Fast cast sets for spells
 	

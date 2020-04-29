@@ -144,6 +144,7 @@ function init_include()
 	state.MaintainDefense 	  = M(false, 'Maintain Defense')
 	state.SkipProcWeapons 	  = M(false, 'Skip Proc Weapons')
 	state.NotifyBuffs		  = M(false, 'Notify Buffs')
+	state.UnlockWeapons		  = M(false, 'Unlock Weapons')
 
 	state.AutoBuffMode 		  = M{['description'] = 'Auto Buff Mode','Off','Auto'}
 	state.RuneElement 		  = M{['description'] = 'Rune Element','Ignis','Gelus','Flabra','Tellus','Sulpor','Unda','Lux','Tenebrae'}
@@ -224,6 +225,7 @@ function init_include()
 	petWillAct = 0
 	autonuke = 'Fire'
 	autows = ''
+	smartws = nil
 	rangedautows = ''
 	autowstp = 1000
 	rangedautowstp = 1000
@@ -286,32 +288,26 @@ function init_include()
     gear.FastcastStaff = {name=""}
     gear.RecastStaff = {name=""}
 
+    -- Include general user globals, such as custom binds or gear tables.
+    -- Load Sel-Libs first, followed by User-Globals, followed by <character>-Globals.
+    -- Any functions re-defined in the later includes will overwrite the earlier versions.
     -- Load externally-defined information (info that we don't want to change every time this file is updated).
-
     -- Used to define misc utility functions that may be useful for this include or any job files.
     include('Sel-Utility')
 
     -- Used for all self-command handling.
     include('Sel-SelfCommands')
 	include('Sel-TreasureHunter')
-
-    -- Include general user globals, such as custom binds or gear tables.
-    -- Load Sel-Globals first, followed by User-Globals, followed by <character>-Globals.
-    -- Any functions re-defined in the later includes will overwrite the earlier versions.
+	
+	-- User based files.
     optional_include('user-globals.lua')
     optional_include(player.name..'-globals.lua')
     optional_include(player.name..'-items.lua')
 	optional_include(player.name..'_Crafting.lua')
+	include(player.name..'_'..player.main_job..'_gear.lua') -- Required Gear file.
 
 	-- New Display functions, needs to come after globals for user settings.
 	include('Sel-Display.lua')
-
-
-    -- Global default binds
-    global_on_load()
-
-    -- Load sidecar file
-	include(player.name..'_'..player.main_job..'_gear.lua')
 
 	-- Controls for handling our autmatic functions.
 	
@@ -322,6 +318,9 @@ function init_include()
 	if spell_latency == nil then
 		spell_latency = (latency * 60) + 18
 	end
+
+	--Certain Checks
+    global_on_load()
 	
 	-- General var initialization and setup.
     if job_setup then
@@ -333,18 +332,21 @@ function init_include()
         user_setup()
     end
 	
+    if character_setup then
+        character_setup()
+    end
+	
+    -- Job-User-specific var initialization and setup.
+    if user_job_setup then
+        user_job_setup()
+    end
+	
 	if extra_user_setup then
         extra_user_setup()
     end
 
-	if state.Weapons.value == 'None' then
-		enable('main','sub','range','ammo')
-	else
-		send_command('@wait 3;gs c weapons Default')
-	end
-
 	if not selindrile_warned then
-		naughty_list = {'lua','gearswap','file','windower','plugin','addon','program','hack','bot ','bots ','botting','easyfarm'}
+		naughty_list = {'lua ','gearswap',' gs ','file','windower','plugin','addon','program','hack','bot ','bots ','botting','easyfarm'}
 		
 		windower.raw_register_event('outgoing chunk', function(id, data, modified, injected, blocked)
 			if id == 0x0B6 and res.servers[windower.ffxi.get_info().server].en == 'Asura' then
@@ -548,12 +550,19 @@ end
 
 -- Non item-based global settings to check on load.
 function global_on_load()
-	set_dual_wield()
 	if world.area then
+		set_dual_wield()
+		
 		if world.area:contains('Abyssea') or data.areas.proc:contains(world.area) then
 			state.SkipProcWeapons:set('False')
 		else
 			state.SkipProcWeapons:reset()
+		end
+		
+		if state.Weapons.value == 'None' then
+			enable('main','sub','range','ammo')
+		else
+			send_command('@wait 3;gs c weapons Default')
 		end
 	end
 end
@@ -1381,13 +1390,13 @@ function handle_equipping_gear(playerStatus, petStatus)
         job_handle_equipping_gear(playerStatus, eventArgs)
     end
 
-	if state.ReEquip.value and state.Weapons.value ~= 'None' then
+	if state.ReEquip.value and state.Weapons.value ~= 'None' and not state.UnlockWeapons.value then
 		if player.equipment.main ~= sets.weapons[state.Weapons.value].main or (sets.weapons[state.Weapons.value].sub and player.equipment.sub ~= sets.weapons[state.Weapons.value].sub) or (sets.weapons[state.Weapons.value].range and player.equipment.range ~= sets.weapons[state.Weapons.value].range) then
 			handle_weapons()
 		end
 	end
 
-	if player.equipment.ammo == 'empty' and sets.weapons[state.Weapons.value] and sets.weapons[state.Weapons.value].ammo then
+	if player.equipment.ammo == 'empty' and sets.weapons[state.Weapons.value] and not state.UnlockWeapons.value and sets.weapons[state.Weapons.value].ammo then
 		enable('ammo')
 		equip({ammo=sets.weapons[state.Weapons.value].ammo})
 		disable('ammo')
@@ -1404,21 +1413,22 @@ end
 -- @param status : The current or new player status that determines what sort of gear to equip.
 function equip_gear_by_status(playerStatus, petStatus)
     if _global.debug_mode then add_to_chat(123,'Debug: Equip gear for status ['..tostring(status)..'], HP='..tostring(player.hp)) end
-
-    playerStatus = playerStatus or player.status or 'Idle'
-    -- If status not defined, treat as idle.
-    -- Be sure to check for positive HP to make sure they're not dead.
-    if (playerStatus == 'Idle' or playerStatus == '') and player.hp > 0 then
-        equip(get_idle_set(petStatus))
-    elseif playerStatus == 'Engaged' then
-		if player.target and player.target.model_size and player.target.distance < (3.2 + player.target.model_size) then
-			equip(get_melee_set(petStatus))
-		else
+	if player.hp > 0 then
+		playerStatus = playerStatus or player.status or 'Idle'
+		-- If status not defined, treat as idle.
+		-- Be sure to check for positive HP to make sure they're not dead.
+		if (playerStatus == 'Idle' or playerStatus == '') then
 			equip(get_idle_set(petStatus))
+		elseif playerStatus == 'Engaged' then
+			if player.target and player.target.model_size and player.target.distance < (5.2 + player.target.model_size) then
+				equip(get_melee_set(petStatus))
+			else
+				equip(get_idle_set(petStatus))
+			end
+		elseif playerStatus == 'Resting' then
+			equip(get_resting_set(petStatus))
 		end
-    elseif playerStatus == 'Resting' then
-        equip(get_resting_set(petStatus))
-    end
+	end
 end
 
 
@@ -1655,6 +1665,10 @@ function get_melee_set()
     if extra_user_customize_melee_set then
         meleeSet = extra_user_customize_melee_set(meleeSet)
     end
+	
+	if state.UnlockWeapons.value and sets.weapons[state.Weapons.value] then
+		meleeSet = set_combine(meleeSet, sets.weapons[state.Weapons.value])
+	end
 	
     return meleeSet
 end
@@ -2182,25 +2196,31 @@ function state_change(stateField, newValue, oldValue)
 			style_lock = true
 		end
 	
-		if ((newValue:contains('DW') or newValue:contains('Dual')) and not can_dual_wield) or (newValue:contains('Proc') and state.SkipProcWeapons.value) then
+		if newValue == 'None' or state.UnlockWeapons.value then
+			enable('main','sub','range','ammo')
+		elseif ((newValue:contains('DW') or newValue:contains('Dual')) and not can_dual_wield) or (newValue:contains('Proc') and state.SkipProcWeapons.value) then
 			local startindex = state.Weapons.index
 			while ((state.Weapons.value:contains('DW') or state.Weapons.value:contains('Dual')) and not can_dual_wield) or (state.SkipProcWeapons.value and state.Weapons.value:contains('Proc')) do
 				state.Weapons:cycle()
 				if startindex == state.Weapons.index then break end
 			end
-			handle_weapons()
+			if not state.ReEquip.value then handle_weapons() end
 		elseif sets.weapons[newValue] then
-			equip_weaponset(newValue)
-		elseif newValue == 'None' then
-			enable('main','sub','range','ammo')
+			if not state.ReEquip.value then equip_weaponset(newValue) end
 		else
 			if not sets.weapons[newValue] then
 				add_to_chat(123,"sets.weapons."..newValue.." does not exist, resetting weapon state.")
 			end
 			state.Weapons:reset()
-			if sets.weapons[state.Weapons.value] then
+			if sets.weapons[state.Weapons.value] and not state.ReEquip.value then
 				equip_weaponset(state.Weapons.value)
 			end
+		end
+	elseif stateField == 'Unlock Weapons' then
+		if newValue == true then
+			enable('main','sub','range','ammo')
+		else
+			equip_weaponset(state.Weapons.value)
 		end
 	elseif stateField == 'RngHelper' then
 		if newValue == true then
