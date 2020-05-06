@@ -52,7 +52,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
 		head="Nahtirah Hat",ear2="Moonshade Earring",
-		body="Inyanga Jubbah +1",ring1="Kishar Ring",
+		body="Inyanga Jubbah +1",hands="Gende. Gages +1",ring1="Kishar Ring",
 		back=gear.alaunus.fc,waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps"
 	}
 		
@@ -103,7 +103,8 @@ function init_gear_sets()
     -- Midcast Sets
 
     sets.Kiting = {}
-    sets.latent_refresh = {waist="Fucho-no-Obi"}
+	sets.latent_refresh = {waist="Fucho-no-Obi"}
+	sets.Sublimation = {waist="Embla Sash"}
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
@@ -129,9 +130,9 @@ function init_gear_sets()
 	sets.midcast['Full Cure'] = sets.midcast.FastRecast
 	
 	sets.midcast.Cure = {
-		main="Iridal Staff",
+		main="Iridal Staff",sub="Achaq Grip",
 		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring",ear2="Lifestorm Earring",
-		hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
+		body="Theo. Briault",hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
 		legs="Orsn. Pantaln. +1",feet="Vanya Clogs"
 	}
 		
@@ -186,15 +187,19 @@ function init_gear_sets()
 
 	sets.midcast.Cursna = {
 		ring1="Ephedra Ring",
-		feet="Vanya Clogs"
+		legs="Theo. Pantaloons",feet="Vanya Clogs"
 	}
 
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 
-    -- 110 total Enhancing Magic Skill; caps even without Light Arts
-	sets.midcast['Enhancing Magic'] = {}
+	sets.midcast['Enhancing Magic'] = {
+		waist="Embla Sash"
+	}
 	sets.midcast['Enhancing Magic'].skill = {
-		head="Umuthi Hat",ear2="Andoaa Earring",hands="Inyan. Dastanas +2",feet="Regal Pumps"
+		main="Beneficus",sub="Sors Shield",
+		head="Umuthi Hat",ear1="Mimir Earring",ear2="Andoaa Earring",
+		hands="Inyan. Dastanas +2",
+		legs="Piety Pantaloons",feet="Regal Pumps"
 	}
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -204,8 +209,9 @@ function init_gear_sets()
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
 
 	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
-		main="Bolelabunga",sub="Dullahan Shield",
-		head="Inyanga Tiara +1",
+		main="Bolelabunga",sub="Sors Shield",
+		head="Inyanga Tiara +1",body="Piety Bliaud",
+		legs="Theo. Pantaloons"
 	})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
@@ -213,7 +219,7 @@ function init_gear_sets()
 	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
 	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
 	
-	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'].skill, {})
+	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'].skill, {main="Beneficus",legs="Piety Pantaloons"})
 	sets.midcast.BarStatus = set_combine(sets.midcast['Enhancing Magic'].skill, {})
 	sets.midcast.BoostStat = set_combine(sets.midcast['Enhancing Magic'].skill, {})
 
@@ -242,9 +248,9 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Eminent Staff",sub="Mephitis Grip",
-		head="Inyanga Tiara +1",neck="Imbodla Necklace",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+		head="Befouled Crown",neck="Erra Pendant",ear1="Psystorm Earring",ear2="Lifestorm Earring",
 		body="Inyanga Jubbah +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Sangoma Ring",
-		back=gear.alaunus.fc,legs="Inyanga Shalwar +1",feet="Inyanga Crackows +1"
+		back=gear.alaunus.fc,legs=gear.chironic.hose.enfeeble,feet="Inyanga Crackows +1"
 	}
 
 	sets.midcast['Enfeebling Magic'].Resistant = {}
@@ -271,7 +277,7 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		main="Bolelabunga",sub="Dullahan Shield",
+		main="Bolelabunga",sub="Sors Shield",
 		head="Befouled Crown",ear1="Infused Earring",ear2="Moonshade Earring",
 		body="Artsieq Jubbah",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
@@ -303,9 +309,8 @@ function init_gear_sets()
 
     -- Basic set for if no TP weapon is defined.
 	sets.engaged = {
-		main="Eminent Staff",sub="Willpower Grip",
 		head="Aya. Zucchetto",neck="Focus Collar",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-		body="Ayanmo Corrazza",hands="Aya. Manopolas",ring1="Petrov Ring",ring2="K'ayres Ring",
+		body="Ayanmo Corazza",hands="Aya. Manopolas +1",ring1="Petrov Ring",ring2="K'ayres Ring",
 		waist="Grunfeld Rope",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
@@ -323,7 +328,7 @@ function init_gear_sets()
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 	sets.weapons = {}
-	sets.weapons.Club = {main="Bolelabunga",sub="Dullahan Shield"}
+	sets.weapons.Club = {main="Aedold +2",sub="Sors Shield"}
 	sets.weapons.Staff = {main="Nilgal Pole",sub="Willpower Grip"}
 end
 

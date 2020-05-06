@@ -7,7 +7,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT', 'MDTReraise')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
-	state.Weapons:options('Montante','Anguta')
+	state.Weapons:options('Ragnarok','Zulfiqar')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None','MP','Twilight'}
 	state.DrainSwapWeaponMode = M{'Always','Never','300','1000'}
@@ -210,7 +210,7 @@ function init_gear_sets()
 	sets.weapons.Ragnarok = {main="Ragnarok",sub="Duplus Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Duplus Grip"}
 	
-    end
+end
 	
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

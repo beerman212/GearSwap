@@ -93,7 +93,7 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {ammo="Falcon Eye",
+	sets.precast.WS = {ammo="Aurgelmir Orb",
 		head=gear.herculean.helm.dexwsd,neck="Fotia Gorget",ear1="Cessance Earring",ear2="Brutal Earring",
 		body="Assim. Jubbah +3",hands="Jhakri Cuffs +2",ring1="Rajas Ring",ring2="Apate Ring",
 		back=gear.rosmerta.wsd,waist="Fotia Belt",legs="Jhakri Slops +1",feet=gear.herculean.boots.wsd}
@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.precast.WS['Realmrazer'].Fodder = set_combine(sets.precast.WS['Realmrazer'], {})
 
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
-		head="Aya. Zucchetto +2",ear2="Moonshade Earring",
+		head="Aya. Zucchetto +2",ear1="Odr Earring",ear2="Moonshade Earring",
 		body="Adhemar Jacket +1",hands="Adhemar Wristbands",ring1="Ilabrat Ring",ring2="Rajas Ring",
 		back=gear.rosmerta.cdc,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -386,7 +386,7 @@ function init_gear_sets()
 
 	-- Engaged sets
 
-	sets.engaged = {ammo="Falcon Eye",
+	sets.engaged = {ammo="Aurgelmir Orb",
 		head="Aya. Zucchetto +2",neck="Clotharius Torque",ear1="Suppanomimi",ear2="Cessance Earring",
 		body="Adhemar Jacket +1",hands=gear.herculean.gloves.ma,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet="Aya. Gambieras +2"}

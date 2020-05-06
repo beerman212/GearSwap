@@ -133,7 +133,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Aurgelmir Orb",
-		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Mache Earring +1",ear2="Mache Earring +1",
+		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Odr Earring",ear2="Mache Earring +1",
 		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.cdc,waist="Fotia Belt",legs="Samnuha Tights",feet="Thereoid Greaves"
 	}
@@ -567,7 +567,7 @@ buff_spell_lists = {
 		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	When='Idle'},
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Idle'},
 		{Name='Nat. Meditation',	Buff='Attack Boost',	SpellID=700,	When='Engaged'},
-		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		--{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
 	},
 	
 	Default = {

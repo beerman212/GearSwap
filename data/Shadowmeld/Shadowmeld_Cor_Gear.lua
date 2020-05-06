@@ -194,7 +194,7 @@ function init_gear_sets()
 
 	--[[ Dagger WS ]]
 	sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS, {
-		head="Adhemar Bonnet +1",ear1="Mache Earring +1",
+		head="Adhemar Bonnet +1",ear1="Odr Earring",
 		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_b,ring1="Mummu Ring",ring2="Ilabrat Ring",
 		back=gear.camulus.stp.melee,legs="Samnuha Tights",feet="Mummu Gamash. +2"
 	})

@@ -18,5 +18,6 @@ gear.chironic.hat = {}
 gear.chironic.gloves = {}
 
 gear.chironic.hose ={}
+gear.chironic.hose.enfeeble = {name="Chironic Hose",augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Mag. Acc.+15','"Mag.Atk.Bns."+4'}}
 
 gear.chironic.slippers = {}

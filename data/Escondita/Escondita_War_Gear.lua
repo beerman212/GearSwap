@@ -252,7 +252,7 @@ function init_gear_sets()
 			-- Engaged sets
 	sets.engaged = {
 		ammo="Aurgelmir Orb",
-		head="Flamm. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
+		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}

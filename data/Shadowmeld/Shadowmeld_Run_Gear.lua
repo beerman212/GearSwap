@@ -60,8 +60,8 @@ function init_gear_sets()
 
 	sets.Enmity.SIRD = {
 		ammo="Staunch Tathlum",
-		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Halasz Earring",ear2="Friomisi Earring",
-		body=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Supershear Ring",ring2="Evanescence Ring",
+		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Odnowa Earring +1",ear2="Friomisi Earring",
+		body=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Petrov Ring",ring2="Supershear Ring",
 		back=gear.ogma.enmity,waist="Rumination Sash",legs="Carmine Cuisses +1",feet=gear.taeon.boots.phalanx
 	}
 
@@ -177,7 +177,7 @@ function init_gear_sets()
 	sets.precast.WS['Resolution'] = {
 		ammo="Knobkierrie",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Niqmaddu Ring",ring2="Regal Ring",
 		back=gear.ogma.resolution,waist="Fotia Belt",legs="Samnuha Tights",feet="Lustra. Leggings +1"
 	}
 	sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'].HighAcc,{})

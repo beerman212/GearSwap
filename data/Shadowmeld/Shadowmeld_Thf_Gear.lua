@@ -9,7 +9,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('TauretSari')
+	state.Weapons:options('TauretSari','ProcClub','ProcStaff')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.AmbushMode = M(false, 'Ambush Mode')
@@ -59,9 +59,9 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.AeneasSari = {main="Aeneas",sub="Taming Sari"}
-	sets.weapons.AeneasKaja = {main="Aeneas",sub="Kaja Knife"}
+	sets.weapons.AeneasKaja = {main="Aeneas",sub="Tauret"}
 	sets.weapons.AeneasCento = {main="Aeneas",sub="Fusetto +1"}
-	sets.weapons.TauretSari = {main="Kaja Knife",sub="Taming Sari"}
+	sets.weapons.TauretSari = {main="Tauret",sub="Taming Sari"}
 	
 	-- Actions we want to use to tag TH.
 	sets.precast.Step = set_combine(sets.TreasureHunter, {
@@ -173,7 +173,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Evisceration'] = {
 		ammo="Yetshila",
-		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Moonshade Earring",
+		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Odr Earring",ear2="Moonshade Earring",
 		body="Plunderer's Vest +3",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Ilabrat Ring",
 		back=gear.toutatis.crit,waist="Fotia Belt",legs="Pill. Culottes +2",feet="Mummu Gamash. +2"
 	}
