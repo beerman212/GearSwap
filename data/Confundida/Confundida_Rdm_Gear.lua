@@ -269,9 +269,9 @@ function init_gear_sets()
 	-- Normal melee group
 
 	sets.engaged = {
-		head="Aya. Zucchetto +1",neck="Clotharius Torque",ear1="Assuage Earring",ear2="",
-		body="Ayanmo Corazza +1",hands="Aya. Manopolas +1",ring1="Petrov Ring",ring2="",
-		back="",waist="Olseni Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +1"
+		head="Aya. Zucchetto +2",neck="Clotharius Torque",ear1="Assuage Earring",ear2="",
+		body="Ayanmo Corazza +2",hands="Aya. Manopolas +1",ring1="Petrov Ring",ring2="",
+		back="Atheling Mantle",waist="Olseni Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +1"
 	}
 
 	sets.engaged.DW = {}
