@@ -10,6 +10,7 @@ function user_setup()
 	state.Weapons:options('None')
 
 	gear.sucellos = {}
+	gear.sucellos.enfeeble = {name="Sucellos's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10'}}
 
 	gear.obi_cure_back = "Tempered Cape +1"
 	gear.obi_cure_waist = "Witful Belt"
@@ -60,7 +61,12 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {}
+	sets.precast.FC = {
+		main="Marin Staff",sub="Clerisy Strap",
+		head="Atrophy Chapeau",ear1="Moonshade Earring",ear2="Loquac. Earring",
+		body="Vitiation Tabard",
+		back=gear.sucellos.enfeeble,waist="Embla Sash",legs="Aya. Cosciales +1"
+	}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
 		
@@ -80,7 +86,7 @@ function init_gear_sets()
 
 	-- Midcast Sets
 
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {feet=gear.chironic_treasure_feet})
+	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 
 	-- Gear that converts elemental damage done to recover MP.	
 	sets.RecoverMP = {}
@@ -96,7 +102,12 @@ function init_gear_sets()
 
 	sets.midcast.FastRecast = {}
 
-	sets.midcast.Cure = {}
+	sets.midcast.Cure = {
+		main="Iridal Staff",sub="Clerisy Strap",
+		head="Vanya Hood",
+		ring1="Janniston Ring",
+		legs=gear.chironic.hose.refresh,feet="Vanya Clogs"
+	}
 		
 	sets.midcast.LightWeatherCure = {}
 		
@@ -108,11 +119,15 @@ function init_gear_sets()
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 		
 	sets.midcast.Curaga = sets.midcast.Cure
-	sets.Self_Healing = {waist="Gishdubar Sash"}
-	sets.Cure_Received = {waist="Gishdubar Sash"}
-	sets.Self_Refresh = {waist="Gishdubar Sash"}
+	sets.Self_Healing = {--[[waist="Gishdubar Sash"]]}
+	sets.Cure_Received = {--[[waist="Gishdubar Sash"]]}
+	sets.Self_Refresh = {--[[waist="Gishdubar Sash"]]}
 
-	sets.midcast['Enhancing Magic'] = {}
+	sets.midcast['Enhancing Magic'] = {
+		head=gear.telchine.cap.enhancing,
+		--[[body="Vitiation Tabard +2",]]hands="Atrophy Gloves",
+		back=gear.sucellos.enfeeble,waist="Embla Sash",legs=gear.telchine.braconi.enhancing,feet="Estq. Houseaux +1"
+	}
 
 	--Atrophy Gloves are better than Lethargy for me despite the set bonus for duration on others.		
 	sets.buff.ComposureOther = {}
@@ -120,13 +135,23 @@ function init_gear_sets()
 	--Red Mage enhancing sets are handled in a different way from most, layered on due to the way Composure works
 	--Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
 	sets.midcast.Refresh = {}
-	sets.midcast.Aquaveil = {}
-	sets.midcast.BarElement = {}
+	sets.midcast.Aquaveil = {
+		head="Chironic Hat"
+	}
+	sets.midcast.BarElement = {head="Umuthi Hat",body="Vitiation Tabard",legs="Atrophy Tights"}
 	sets.midcast.Stoneskin = {}
 	sets.midcast.Protect = sets.Sheltered
 	sets.midcast.Shell = sets.Sheltered
+	sets.midcast["Phalanx II"] = {}
+	sets.midcast.Phalanx = {}
+	sets.midcast.Temper = {}
 
-	sets.midcast['Enfeebling Magic'] = {}
+	sets.midcast['Enfeebling Magic'] = {
+		main="Marin Staff",sub="Clerisy Strap",ammo="Hydrocera",
+		head="Vitiation Chapeau",neck="Imbodla Necklace",ear1="",ear2="",
+		body="Atrophy Tabard",hands="Aya. Manopolas +1",ring1="Perception Ring",ring2="Ayanmo Ring",
+		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.chironic.hose.enfeeble,feet="Aya. Gambieras +1"
+	}
 		
 	sets.midcast['Enfeebling Magic'].Resistant = {}
 		
@@ -144,7 +169,7 @@ function init_gear_sets()
 	sets.midcast['Frazzle III'] = set_combine(sets.midcast.MndEnfeebles, {})
 	sets.midcast['Frazzle III'].Resistant = set_combine(sets.midcast.MndEnfeebles.Resistant, {})
 
-	sets.midcast.Silence = set_combine(sets.midcast['Enfeebling Magic'], {body="Atrophy Tabard +3"})
+	sets.midcast.Silence = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast.Silence.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})	
 
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
@@ -200,7 +225,12 @@ function init_gear_sets()
 
 
 	-- Idle sets
-	sets.idle = {}
+	sets.idle = {
+		main="Bolelabunga",sub="Sors Shield",ammo="Hydrocera",
+		head="Vitiation Chapeau",neck="Warder's Charm",ear1="Bloodgem Earring",ear2="Loquac. Earring",
+		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Ayanmo Ring",
+		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.chironic.hose.refresh,feet=gear.chironic.slippers.refresh
+	}
 		
 	sets.idle.PDT = {}
 		
@@ -227,7 +257,7 @@ function init_gear_sets()
 	sets.NightIdle = {}
 
 	-- Weapons sets
-
+	
 
 	-- Engaged sets
 
@@ -238,7 +268,11 @@ function init_gear_sets()
 
 	-- Normal melee group
 
-	sets.engaged = {}
+	sets.engaged = {
+		head="Aya. Zucchetto +1",neck="Clotharius Torque",ear1="Assuage Earring",ear2="",
+		body="Ayanmo Corazza +1",hands="Aya. Manopolas +1",ring1="Petrov Ring",ring2="",
+		back="",waist="Olseni Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +1"
+	}
 
 	sets.engaged.DW = {}
 		

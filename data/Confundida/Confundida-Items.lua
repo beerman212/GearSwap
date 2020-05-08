@@ -25,3 +25,17 @@ gear.chironic.hose.enfeeble = {name="Chironic Hose",augments={'Mag. Acc.+29','Ac
 
 gear.chironic.slippers = {}
 gear.chironic.slippers.refresh = {name="Chironic Slippers",augments={'DEX+5','Chance of successful block +3','"Refresh"+2','Accuracy+7 Attack+7','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
+
+gear.telchine = {}
+
+gear.telchine.cap = {}
+gear.telchine.cap.enhancing = {name="Telchine Cap",augments={'Enh. Mag. eff. dur. +5'}}
+
+gear.telchine.chasuble = {}
+
+gear.telchine.gloves = {}
+
+gear.telchine.braconi = {}
+gear.telchine.braconi.enhancing = {name="Telchine Braconi",augments={'Enh. Mag. eff. dur. +10'}}
+
+gear.telchine.pigaches = {}
