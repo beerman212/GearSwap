@@ -65,8 +65,7 @@ function job_setup()
 	state.DeathMode = M{['description'] = 'Death Mode', 'Off', 'Single', 'Lock'}
 	state.AutoManawell = M(true, 'Auto Manawell Mode')
 	state.RecoverMode = M('35%', '60%', 'Always', 'Never')
-	state.SelfWarp2Block = M(true, 'Block Warp2 on Self')
-	
+
 	autows = 'Vidohunir'
 	autofood = 'Pear Crepe'
 	
@@ -85,12 +84,7 @@ end
 
 function job_pretarget(spell, spellMap, eventArgs)
 	if spell.action_type == 'Magic' then
-		if spell.english == 'Warp II' and spell.target.name == player.name and state.SelfWarp2Block.value then
-			eventArgs.cancel = true
-			cancel_spell()
-			add_to_chat(123,'Blocking Warp2 on self, use Warp instead or disable the SelfWarp2Block state.')
-			return
-		elseif state.AutoManawell.value and (AutoManawellSpells:contains(spell.english) or (state.CastingMode.value == 'OccultAcumen' and AutoManawellOccultSpells:contains(spell.english) and actual_cost(spell) > player.mp)) then
+		if state.AutoManawell.value and (AutoManawellSpells:contains(spell.english) or (state.CastingMode.value == 'OccultAcumen' and AutoManawellOccultSpells:contains(spell.english) and actual_cost(spell) > player.mp)) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 
 			if abil_recasts[35] < latency and not buffactive['amnesia'] then
@@ -300,16 +294,19 @@ function job_customize_idle_set(idleSet)
 				idleSet = set_combine(idleSet, sets.latent_refresh)
 			end
 			
-			local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
-			if available_ws:contains(176) and sets.latent_refresh_grip then
-				idleSet = set_combine(idleSet, sets.latent_refresh_grip)
+			if (state.Weapons.value == 'None' or state.UnlockWeapons.value) and idleSet.main then
+				local main_table = get_item_table(idleSet.main)
+
+				if  main_table and main_table.skill == 12 and sets.latent_refresh_grip then
+					idleSet = set_combine(idleSet, sets.latent_refresh_grip)
+				end
+				
+				if player.tp > 10 and sets.TPEat then
+					idleSet = set_combine(idleSet, sets.TPEat)
+				end
 			end
 		end
-		
-		if player.tp > 10 and state.Weapons.value == 'None' and sets.TPEat then
-			idleSet = set_combine(idleSet, sets.TPEat)
-		end
-    end
+   end
 	
 	if state.DeathMode.value ~= 'Off' then
         idleSet = set_combine(idleSet, sets.idle.Death)

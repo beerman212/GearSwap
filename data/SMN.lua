@@ -103,7 +103,7 @@ function job_setup()
         ['Water']="Water Spirit", ['Wind']="Air Spirit", ['Ice']="Ice Spirit", ['Lightning']="Thunder Spirit"}
 
     magicalRagePacts = S{
-		'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Diamond Dust','Judgment Bolt','Searing Light','Howling Moon','Ruinous Omen','Clarsach Call',
+		'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Diamond Dust','Judgment Bolt','Searing Light','Howling Moon','Ruinous Omen','Clarsach Call','Impact',
 		'Fire II','Stone II','Water II','Aero II','Blizzard II','Thunder II',
 		'Fire IV','Stone IV','Water IV','Aero IV','Blizzard IV','Thunder IV',
 		'Thunderspark','Burning Strike','Meteorite','Nether Blast','Flaming Crush',
@@ -416,16 +416,19 @@ function job_customize_idle_set(idleSet)
 				idleSet = set_combine(idleSet, sets.latent_refresh)
 			end
 			
-			local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
-			if available_ws:contains(176) and sets.latent_refresh_grip then
-				idleSet = set_combine(idleSet, sets.latent_refresh_grip)
+			if (state.Weapons.value == 'None' or state.UnlockWeapons.value) and idleSet.main then
+				local main_table = get_item_table(idleSet.main)
+
+				if  main_table and main_table.skill == 12 and sets.latent_refresh_grip then
+					idleSet = set_combine(idleSet, sets.latent_refresh_grip)
+				end
+				
+				if player.tp > 10 and sets.TPEat then
+					idleSet = set_combine(idleSet, sets.TPEat)
+				end
 			end
 		end
-		
-		if player.tp > 10 and state.Weapons.value == 'None' and sets.TPEat then
-			idleSet = set_combine(idleSet, sets.TPEat)
-		end
-    end
+   end
 
     if pet.isvalid then
         if pet.element == world.day_element then

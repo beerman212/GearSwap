@@ -195,8 +195,12 @@ function job_customize_idle_set(idleSet)
 			idleSet = set_combine(idleSet, sets.latent_refresh)
 		end
 		
-		if not main_weapon_is_one_handed() and sets.latent_refresh_grip then
-			idleSet = set_combine(idleSet, sets.latent_refresh_grip)
+		if (state.Weapons.value == 'None' or state.UnlockWeapons.value) and idleSet.main then
+			local main_table = get_item_table(idleSet.main)
+
+			if  main_table and (main_table.skill == 12 or main_table.skill == 4) and sets.latent_refresh_grip then
+				idleSet = set_combine(idleSet, sets.latent_refresh_grip)
+			end
 		end
     end
 
@@ -245,6 +249,8 @@ function job_self_command(commandArgs, eventArgs)
 				windower.chat.input('/ma "Geist Wall" <t>')
 			elseif spell_recasts[575] < spell_latency then
 				windower.chat.input('/ma "Jettatura" <t>')
+			elseif spell_recasts[537] < spell_latency then
+				windower.chat.input('/ma "Stinking Gas" <t>')
 			elseif spell_recasts[592] < spell_latency then
 				windower.chat.input('/ma "Blank Gaze" <t>')
 			elseif not check_auto_tank_ws() then
