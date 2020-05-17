@@ -355,13 +355,13 @@ function init_gear_sets()
 	sets.weapons.RangedLastStand = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLeaden = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.SavageTPBonus = {main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
-	sets.weapons.EviscerationTPBonus = {main="Kaja Knife",sub="Nusku Shield",range="Anarchy +2"}
+	sets.weapons.EviscerationTPBonus = {main="Tauret",sub="Nusku Shield",range="Anarchy +2"}
 	
-	sets.weapons.DefaultDW = {main="Naegling",sub="Kaja Knife",range="Fomalhaut",ammo=RAbullet}
+	sets.weapons.DefaultDW = {main="Naegling",sub="Tauret",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLastStandDW = {main="Kustawi +1",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLeadenDW = {main="Naegling",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.SavageDW = {main="Naegling",sub="Blurred Knife +1",range="Anarchy +2"}
-	sets.weapons.EviscerationDW = {main="Kaja Knife",sub="Blurred Knife +1",range="Anarchy +2"}
+	sets.weapons.EviscerationDW = {main="Tauret",sub="Blurred Knife +1",range="Anarchy +2"}
 	
 	-- Engaged sets
 

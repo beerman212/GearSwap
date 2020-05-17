@@ -9,7 +9,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('TauretSari','ProcClub','ProcStaff')
+	state.Weapons:options('TauretSari','AeneasSari')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.AmbushMode = M(false, 'Ambush Mode')

@@ -334,7 +334,7 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
-		main="Bolelabunga",sub="Sacro Bulwark",ammo="Homiliary",
+		main="Daybreak",sub="Sacro Bulwark",ammo="Homiliary",
 		head="Viti. Chapeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Dark Ring",
 		back="Moonbeam Cape",waist="Flume Belt +1",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh

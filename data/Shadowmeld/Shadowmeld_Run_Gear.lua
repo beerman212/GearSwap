@@ -82,10 +82,10 @@ function init_gear_sets()
 	sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
 	sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet="Runeist's Boots +2"})
 	sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{})
-	sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +1"})
+	sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +3"})
 	sets.precast.JA['Gambit'] = set_combine(sets.Enmity,{hands="Runeist's Mitons +2"})
 	sets.precast.JA['Rayke'] = set_combine(sets.Enmity,{})
-	sets.precast.JA['Elemental Sforzo'] = set_combine(sets.Enmity,{body="Futhark Coat +1"})
+	sets.precast.JA['Elemental Sforzo'] = set_combine(sets.Enmity,{body="Futhark Coat +3"})
 	sets.precast.JA['Swordplay'] = set_combine(sets.Enmity,{hands="Futhark Mitons +1"})
 	sets.precast.JA['Embolden'] = set_combine(sets.Enmity,{})
 	sets.precast.JA['One For All'] = set_combine(sets.Enmity,{})
@@ -101,10 +101,10 @@ function init_gear_sets()
 	sets.precast.JA['Valiance'].DT = sets.precast.JA['Vallation'].DT
 	sets.precast.JA['Pflug'].DT = set_combine(sets.Enmity.DT,{feet="Runeist's Boots +2"})
 	sets.precast.JA['Battuta'].DT = set_combine(sets.Enmity.DT,{})
-	sets.precast.JA['Liement'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat +1"})
+	sets.precast.JA['Liement'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat +3"})
 	sets.precast.JA['Gambit'].DT = set_combine(sets.Enmity.DT,{hands="Runeist's Mitons +2"})
 	sets.precast.JA['Rayke'].DT = set_combine(sets.Enmity.DT,{})
-	sets.precast.JA['Elemental Sforzo'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat +1"})
+	sets.precast.JA['Elemental Sforzo'].DT = set_combine(sets.Enmity.DT,{body="Futhark Coat +3"})
 	sets.precast.JA['Swordplay'].DT = set_combine(sets.Enmity.DT,{})
 	sets.precast.JA['Embolden'].DT = set_combine(sets.Enmity.DT,{})
 	sets.precast.JA['One For All'].DT = set_combine(sets.Enmity.DT,{})
@@ -303,7 +303,7 @@ function init_gear_sets()
 				
 	sets.defense.MDT = {ammo="Yamarang",
 		head="Dampening Tam",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Futhark Coat +1",hands="Leyline Gloves",ring1="Purity Ring",ring2="Moonbeam Ring",
+		body="Futhark Coat +3",hands="Leyline Gloves",ring1="Purity Ring",ring2="Moonbeam Ring",
 		back="Moonbeam Cape",waist="Engraved Belt",legs="Eri. Leg Guards +1",feet="Erilaz Greaves +1"
 	}
 	
@@ -342,7 +342,7 @@ function init_gear_sets()
 	sets.engaged.Tank = {
 		ammo="Staunch Tathlum",
 		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
-		body="Futhark Coat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Futhark Coat +3",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.da,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Turms Leggings"
 	}
 

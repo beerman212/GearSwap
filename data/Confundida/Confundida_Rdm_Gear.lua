@@ -63,7 +63,7 @@ function init_gear_sets()
 
 	sets.precast.FC = {
 		main="Marin Staff",sub="Clerisy Strap",
-		head="Atrophy Chapeau",ear1="Moonshade Earring",ear2="Loquac. Earring",
+		head="Atro. Chapeau +1",ear1="Moonshade Earring",ear2="Loquac. Earring",
 		body="Vitiation Tabard",
 		back=gear.sucellos.enfeeble,waist="Embla Sash",legs="Aya. Cosciales +1"
 	}
@@ -128,6 +128,10 @@ function init_gear_sets()
 		--[[body="Vitiation Tabard +2",]]hands="Atrophy Gloves",
 		back=gear.sucellos.enfeeble,waist="Embla Sash",legs=gear.telchine.braconi.enhancing,feet="Estq. Houseaux +1"
 	}
+	sets.midcast['Enhancing Magic'].skill500 = set_combine(sets.midcast['Enhancing Magic'], {
+		head="Umuthi Hat",body="Vitiation Tabard",hands="Vitiation Gloves",legs="Atrophy Tights"
+	})
+	sets.midcast['Enhancing Magic'].skillmax = set_combine(sets.midcast['Enhancing Magic'])
 
 	--Atrophy Gloves are better than Lethargy for me despite the set bonus for duration on others.		
 	sets.buff.ComposureOther = {}
@@ -138,7 +142,7 @@ function init_gear_sets()
 	sets.midcast.Aquaveil = {
 		head="Chironic Hat"
 	}
-	sets.midcast.BarElement = {head="Umuthi Hat",body="Vitiation Tabard",legs="Atrophy Tights"}
+	sets.midcast.BarElement = {head="Umuthi Hat",body="Vitiation Tabard",hands="Vitiation Gloves",legs="Atrophy Tights"}
 	sets.midcast.Stoneskin = {}
 	sets.midcast.Protect = sets.Sheltered
 	sets.midcast.Shell = sets.Sheltered
@@ -149,7 +153,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {
 		main="Marin Staff",sub="Clerisy Strap",ammo="Hydrocera",
 		head="Vitiation Chapeau",neck="Imbodla Necklace",ear1="",ear2="",
-		body="Atrophy Tabard",hands="Aya. Manopolas +1",ring1="Perception Ring",ring2="Ayanmo Ring",
+		body="Atrophy Tabard +1",hands="Aya. Manopolas +1",ring1="Perception Ring",ring2="Ayanmo Ring",
 		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.chironic.hose.enfeeble,feet="Aya. Gambieras +1"
 	}
 		
@@ -185,6 +189,8 @@ function init_gear_sets()
 
 	sets.midcast['Slow II'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 	sets.midcast['Slow II'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
+
+	sets.midcast.Dispel = set_combine(sets.midcast['Enfeebling Magic'], {neck="Duelist's Torque"})
 
 	sets.midcast['Elemental Magic'] = {}
 		

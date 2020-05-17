@@ -53,7 +53,7 @@ function init_gear_sets()
     sets.precast.FC = {
 		head="Nahtirah Hat",ear2="Moonshade Earring",
 		body="Inyanga Jubbah +1",hands="Gende. Gages +1",ring1="Kishar Ring",
-		back=gear.alaunus.fc,waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps"
+		back=gear.alaunus.fc,waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps +1"
 	}
 		
     sets.precast.FC.DT = {}
@@ -131,9 +131,9 @@ function init_gear_sets()
 	
 	sets.midcast.Cure = {
 		main="Iridal Staff",sub="Achaq Grip",
-		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring",ear2="Lifestorm Earring",
-		body="Theo. Briault",hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
-		legs="Orsn. Pantaln. +1",feet="Vanya Clogs"
+		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
+		body="Theo. Briault +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
+		legs="Ebers Pantaloons",feet="Vanya Clogs"
 	}
 		
 	sets.midcast.CureSolace = sets.midcast.Cure
@@ -195,12 +195,12 @@ function init_gear_sets()
 	sets.midcast['Enhancing Magic'] = {
 		waist="Embla Sash"
 	}
-	sets.midcast['Enhancing Magic'].skill = {
+	sets.midcast['Enhancing Magic'].skill = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Beneficus",sub="Sors Shield",
-		head="Umuthi Hat",ear1="Mimir Earring",ear2="Andoaa Earring",
-		hands="Inyan. Dastanas +2",
-		legs="Piety Pantaloons",feet="Regal Pumps"
-	}
+		head="Befouled Crown",ear1="Mimir Earring",ear2="Andoaa Earring",
+		hands="Inyan. Dastanas +2",ring2="Stikini Ring",
+		legs="Piety Pantaloons",feet="Theo. Duckbills +1"
+	})
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
 
@@ -210,8 +210,9 @@ function init_gear_sets()
 
 	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Bolelabunga",sub="Sors Shield",
-		head="Inyanga Tiara +1",body="Piety Bliaud",
-		legs="Theo. Pantaloons"
+		head="Inyanga Tiara +1",
+		body="Piety Bliaud",
+		legs="Theo. Pant. +1"
 	})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
@@ -278,8 +279,8 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
 		main="Bolelabunga",sub="Sors Shield",
-		head="Befouled Crown",ear1="Infused Earring",ear2="Moonshade Earring",
-		body="Artsieq Jubbah",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
+		head="Befouled Crown",neck="Warder's Charm +1",ear1="Infused Earring",ear2="Moonshade Earring",
+		body="Theo. Briault +1",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
 	
