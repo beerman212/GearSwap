@@ -47,11 +47,11 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Bolster = {}
+	sets.precast.JA.Bolster = {body="Bagua Tunic"}
 	sets.precast.JA['Life Cycle'] = {body="Geomancy Tunic"}
-	sets.precast.JA['Radial Arcana'] = {}
-	sets.precast.JA['Mending Halation'] = {}
-	sets.precast.JA['Full Circle'] = {}
+	sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals"}
+	sets.precast.JA['Mending Halation'] = {legs="Bagua Pants"}
+	sets.precast.JA['Full Circle'] = {head="Azimuth Hood"}
 	
 	-- Indi Duration in slots that would normally have skill here to make entrust more efficient.
 	sets.buff.Entrust = {}
@@ -98,14 +98,14 @@ function init_gear_sets()
 
 	sets.midcast.Geomancy = {
 		range="Dunna",
-		neck="Bagua Charm",
-		hands="Geomancy Mitaines",
+		head="Azimuth Hood",neck="Bagua Charm",
+		body="Bagua Tunic",hands="Geomancy Mitaines",
 		back="Lifestream Cape"
 	}
 
 
 	--Extra Indi duration as long as you can keep your 900 skill cap.
-	sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {})
+	sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {legs="Bagua Pants",feet="Azimuth Gaiters"})
 		
     sets.midcast.Cure = {}
 		
@@ -195,8 +195,8 @@ function init_gear_sets()
 	sets.idle = {
 		main="Bolelabunga",sub="Sors Shield",range="Dunna",ammo=empty,
 		head="",neck="",ear1="",ear2="",
-		body="Jhakri Robe +2",hands="",ring1="",ring2="",
-		back="",waist="",legs="Asiduity Pants",feet=""
+		body="Jhakri Robe +2",hands="Bagua Mitaines",ring1="",ring2="",
+		back="",waist="",legs="Asiduity Pants",feet="Azimuth Gaiters"
 	}
 		
 	sets.idle.PDT = {}
@@ -204,7 +204,9 @@ function init_gear_sets()
 	sets.idle.TPEat = set_combine(sets.idle, {})
 
 	-- .Pet sets are for when Luopan is present.
-	sets.idle.Pet = {}
+	sets.idle.Pet = {
+		head="Azimuth Hood",feet="Bagua Sandals"
+	}
 
 	sets.idle.PDT.Pet = {}
 
