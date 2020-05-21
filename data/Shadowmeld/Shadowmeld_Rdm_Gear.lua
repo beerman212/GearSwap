@@ -483,7 +483,7 @@ buff_spell_lists.AutoHeal = {
 	{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		When='Always'},
 	{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Idle'},
 	{Name='Gain-MND',		Buff='MND Boost',	SpellID=490,	When='Always'},
-	{Name='Reraise',		Buff='Reraise',		SpellID=135,	When='Always'},
+	--{Name='Reraise',		Buff='Reraise',		SpellID=135,	When='Always'},
 }
 
 buff_spell_lists.AutoSavage = {

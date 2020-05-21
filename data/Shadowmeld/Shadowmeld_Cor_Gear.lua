@@ -1,7 +1,7 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Normal','Acc','MaxAcc','Crit')
-	state.HybridMode:options('Normal','HybridDT')
+	state.HybridMode:options('Normal','HybridDT','Unafraid')
 	state.RangedMode:options('Normal', 'MaxAcc')
 	state.WeaponskillMode:options('Match','Normal','Acc','MaxAcc','Proc')
 	state.CastingMode:options('Normal', 'Fodder')
@@ -380,11 +380,19 @@ function init_gear_sets()
 		head="Malignance Chapeau",body="Malignance Tabard",legs="Malignance Tights"
 	})
 
+	sets.engaged.Unafraid = {}
+
 	sets.engaged.DW = set_combine(sets.engaged, {
 		ear2="Suppanomimi"
 	})
 	sets.engaged.DW.HybridDT = set_combine(sets.engaged.HybridDT, {
 		ear2="Suppanomimi",body="Adhemar Jacket +1"
+	})
+
+	sets.engaged.DW.Unafraid = set_combine(sets.engaged.DW, {
+		head="Malignance Chapeau",ear1="Suppanomimi",ear2="Eabani Earring",
+		body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		legs="Malignance Tights"
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {})
