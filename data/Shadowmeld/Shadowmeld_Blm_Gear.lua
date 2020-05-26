@@ -34,6 +34,14 @@ function user_setup()
 	send_command('bind !delete input /ja "Addendum: Black" <me>')
 	send_command('bind @delete input /ja "Manifestation" <me>')
 
+	organizer_items = {
+		"Echo Drops",
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Tropical Crepe",
+	}
+
 	select_default_macro_book()
 end
 

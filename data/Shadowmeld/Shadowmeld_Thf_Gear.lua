@@ -30,6 +30,14 @@ function user_setup()
 	send_command('bind ^\\\\ input /ja "Despoil" <t>')
 	send_command('bind !\\\\ input /ja "Mug" <t>')
 
+	organizer_items = {
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun"
+	}
+
 	select_default_macro_book()
 	--lockstyle:schedule(5)
 end

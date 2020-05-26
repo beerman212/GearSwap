@@ -7,17 +7,18 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Godhands')
+	state.Weapons:options('Godhands','Malignance')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	
 	gear.segomo = {}
 	gear.segomo.tp = {}
-	gear.segomo.tp.da = {name="Segomo's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	gear.segomo.tp.da = {name="Segomo's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%'}}
 
 	gear.segomo.ws = {}
-	gear.segomo.ws.smite = {name="Segomo's Mantle",augments={}}
-	gear.segomo.ws.tornado = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.segomo.ws.smite = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10'}}
+	gear.segomo.ws.tornado = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%'}}
+	
 
     update_melee_groups()
 	
@@ -26,6 +27,14 @@ function user_setup()
 	send_command('bind !` input /ja "Perfect Counter" <me>')
 	send_command('bind ^backspace input /ja "Mantra" <me>')
 	send_command('bind @` gs c cycle SkillchainMode')
+
+	organizer_items = {
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun"
+	}
 	
 	select_default_macro_book()
 end
@@ -39,11 +48,11 @@ function init_gear_sets()
 	
 	-- Precast sets to enhance JAs on use
 	sets.precast.JA['Hundred Fists'] = {legs="Hes. Hose"}
-	sets.precast.JA['Boost'] = {hands="Anch. Gloves +2"}
-	sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +1"}
+	sets.precast.JA['Boost'] = {hands="Anchor. Gloves +2"}
+	sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
 	sets.precast.JA['Focus'] = {head="Anchor. Crown +1"}
 	sets.precast.JA['Counterstance'] = {}
-	sets.precast.JA['Footwork'] = {}
+	sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters"}
 	sets.precast.JA['Formless Strikes'] = {body="Hes. Cyclas"}
 	sets.precast.JA['Mantra'] = {
 		head="Halitus Helm",neck="Sanctity Necklace",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
@@ -93,7 +102,7 @@ function init_gear_sets()
 	-- Specific weaponskill sets.
 
 	sets.precast.WS['Victory Smite'] = set_combine(sets.precast.WS, {
-		body="Abnoba Kaftan",feet="Mummu Gamash. +2"
+		body="Abnoba Kaftan",feet="Mummu Gamash. +2",back=gear.segomo.ws.smite
 	})
 	sets.precast.WS['Victory Smite'].MaxAcc = set_combine(sets.precast.WS['Victory Smite'], {})
 
@@ -108,14 +117,16 @@ function init_gear_sets()
 	sets.precast.WS['Shijin Spiral'].MaxAcc = set_combine(sets.precast.WS['Shijin Spiral'], {})
 
 	sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
-		ear1="Moonshade Earring",hands="Anch. Gloves +2"
+		ear1="Moonshade Earring",hands="Anchor. Gloves +2"
 	})
 	sets.precast.WS['Howling Fist'].MaxAcc = set_combine(sets.precast.WS['Howling Fist'], {})
 
 	sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
-		ear1="Moonshade Earring",hands="Anch. Gloves +2",legs="Hiza. Hizayoroi +2"
+		ear1="Moonshade Earring",hands="Anchor. Gloves +2",legs="Hiza. Hizayoroi +2",feet="Anch. Gaiters +3"
 	})
 	sets.precast.WS['Tornado Kick'].MaxAcc = set_combine(sets.precast.WS['Tornado Kick'], {})
+
+	sets.precast.WS['Dragon Kick'] = sets.precast.WS['Tornado Kick']
 
 	sets.precast.WS['Asuran Fist'] = set_combine(sets.precast.WS, {})
 	sets.precast.WS['Asuran Fist'].MaxAcc = set_combine(sets.precast.WS['Asuran Fist'], {})
@@ -174,12 +185,12 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back=gear.segomo.tp.da,waist="Moonbow Belt",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+		back=gear.segomo.tp.da,waist="Moonbow Belt",legs="Samnuha Tights",feet="Anch. Gaiters +3"
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {
-		head="Malignance Chapeau",neck="Lissome Necklace",
+		head="Malignance Chapeau",neck="Monk's Nodowa",
 		body="Malignance Tabard",ring1="Chirich Ring",
-		legs="Malignance Tights",feet="Mummu Gamash. +2"
+		legs="Malignance Tights"
 	})
 
 	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
@@ -219,7 +230,7 @@ function init_gear_sets()
 
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {}
-	sets.buff.Impetus = {}
+	sets.buff.Impetus = {body="Bhikku Cyclas +1"}
 	sets.buff.Footwork = {}
 	sets.buff.Boost = {}
 	
@@ -232,7 +243,8 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.Godhands = {main="Godhands"}
-	sets.weapons.Karambit = {main="Kaja Knuckles"}
+	sets.weapons.Karambit = {main="Knuckles of Trials"}
+	sets.weapons.Malignance = {main="Malignance Pole"}
 end
 
 -- Select default macro book on initial load or subjob change.

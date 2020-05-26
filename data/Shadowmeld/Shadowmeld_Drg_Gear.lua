@@ -17,6 +17,14 @@ function user_setup()
 	gear.brigantia.stardiver = {name="Brigantia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.brigantia.sonicthrust = {name="Brigantia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
+	organizer_items = {
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun",
+	}
+
 	select_default_macro_book()
 
 	-- Additional local binds

@@ -3,7 +3,7 @@
 sets.Sheltered = {ring2="Sheltered Ring"}
 sets.Capacity = {back="Aptitude Mantle"}
 
-sets.buff.Doom = {waist="Gishdubar Sash"}
+sets.buff.Doom = {}
 sets.TreasureHunter = {waist="Chaac Belt"}
 
 sets.precast.Item['Hallowed Water'] = {}

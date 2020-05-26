@@ -65,7 +65,7 @@ function init_gear_sets()
 		main="Marin Staff",sub="Clerisy Strap",
 		head="Atro. Chapeau +1",ear1="Moonshade Earring",ear2="Loquac. Earring",
 		body="Vitiation Tabard",
-		back=gear.sucellos.enfeeble,waist="Embla Sash",legs="Aya. Cosciales +1"
+		back=gear.sucellos.enfeeble,waist="Embla Sash",legs="Aya. Cosciales +2"
 	}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
@@ -97,8 +97,8 @@ function init_gear_sets()
 
 	-- Gear for specific elemental nukes.
 	sets.element.Wind = {main="Marin Staff"}
-	sets.element.Ice = {main="Ngqoqwanb"}
-	sets.element.Earth = {neck="Quanpur Necklace"}
+	sets.element.Ice = {}
+	sets.element.Earth = {}
 
 	sets.midcast.FastRecast = {}
 
@@ -125,11 +125,11 @@ function init_gear_sets()
 
 	sets.midcast['Enhancing Magic'] = {
 		head=gear.telchine.cap.enhancing,
-		--[[body="Vitiation Tabard +2",]]hands="Atrophy Gloves",
+		--[[body="Vitiation Tabard +2",]]hands="Atrophy Gloves +1",
 		back=gear.sucellos.enfeeble,waist="Embla Sash",legs=gear.telchine.braconi.enhancing,feet="Estq. Houseaux +1"
 	}
 	sets.midcast['Enhancing Magic'].skill500 = set_combine(sets.midcast['Enhancing Magic'], {
-		head="Umuthi Hat",body="Vitiation Tabard",hands="Vitiation Gloves",legs="Atrophy Tights"
+		head="Umuthi Hat",body="Vitiation Tabard",hands="Vitiation Gloves",legs="Atrophy Tights +1"
 	})
 	sets.midcast['Enhancing Magic'].skillmax = set_combine(sets.midcast['Enhancing Magic'])
 
@@ -142,7 +142,7 @@ function init_gear_sets()
 	sets.midcast.Aquaveil = {
 		head="Chironic Hat"
 	}
-	sets.midcast.BarElement = {head="Umuthi Hat",body="Vitiation Tabard",hands="Vitiation Gloves",legs="Atrophy Tights"}
+	sets.midcast.BarElement = {head="Umuthi Hat",body="Vitiation Tabard",hands="Vitiation Gloves",legs="Atrophy Tights +1"}
 	sets.midcast.Stoneskin = {}
 	sets.midcast.Protect = sets.Sheltered
 	sets.midcast.Shell = sets.Sheltered
@@ -235,7 +235,7 @@ function init_gear_sets()
 		main="Bolelabunga",sub="Sors Shield",ammo="Hydrocera",
 		head="Vitiation Chapeau",neck="Warder's Charm",ear1="Bloodgem Earring",ear2="Loquac. Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Ayanmo Ring",
-		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.chironic.hose.refresh,feet=gear.chironic.slippers.refresh
+		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.merlinic.shalwar.refresh,feet=gear.chironic.slippers.refresh
 	}
 		
 	sets.idle.PDT = {}

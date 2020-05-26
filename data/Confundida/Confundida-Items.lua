@@ -1,10 +1,10 @@
 --Gearsets your character will use among multiple jobs.
 
-sets.Sheltered = {ring2="Sheltered Ring"}
+sets.Sheltered = {}
 sets.Capacity = {back="Mecisto. Mantle"}
 
-sets.buff.Doom = {waist="Gishdubar Sash"}
-sets.TreasureHunter = {waist="Chaac Belt"}
+sets.buff.Doom = {}
+sets.TreasureHunter = {}
 
 sets.precast.Item['Hallowed Water'] = {}
 sets.precast.Item['Holy Water'] = {}
@@ -25,6 +25,14 @@ gear.chironic.hose.enfeeble = {name="Chironic Hose",augments={'Mag. Acc.+29','Ac
 
 gear.chironic.slippers = {}
 gear.chironic.slippers.refresh = {name="Chironic Slippers",augments={'DEX+5','Chance of successful block +3','"Refresh"+2','Accuracy+7 Attack+7','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
+
+gear.merlinic = {}
+
+gear.merlinic.hood = {}
+gear.merlinic.hood.refresh = {name="Merlinic Hood",augments={'Accuracy+4','Enmity+1','"Refresh"+1','Accuracy+10 Attack+10'}}
+
+gear.merlinic.shalwar = {}
+gear.merlinic.shalwar.refresh = {name="Merlinic Shalwar",augments={'VIT+1','Pet: VIT+8','"Refresh"+2','Accuracy+5 Attack+5'}}
 
 gear.telchine = {}
 

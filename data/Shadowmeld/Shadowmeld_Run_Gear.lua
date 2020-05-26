@@ -44,6 +44,15 @@ function user_setup()
 	send_command('bind @f10 gs c toggle TankAutoDefense')
 	send_command('bind ^@!` gs c cycle SkillchainMode')
 	send_command('bind !r gs c weapons Montante;gs c update')
+
+	organizer_items = {
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun",
+		"Miso Ramen"
+	}
 	
 	select_default_macro_book()
 	--lockstyle:schedule(5)
@@ -221,7 +230,7 @@ function init_gear_sets()
 		head="Erilaz Galea +1",neck="Incanter's Torque",ear1="Andoaa Earring",hands="Runeist's Mitons +2",waist="Olympus Sash",legs="Futhark Trousers +1"
 	})
 	sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'],{
-		head="Fu. Bandeau +1",body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx
+		head="Fu. Bandeau +2",body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx
 	})
 	sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Rune. Bandeau +2",body=gear.taeon.tabard.fc}) 
 	sets.midcast['Refresh'] = set_combine(sets.midcast['Enhancing Magic'],{}) 

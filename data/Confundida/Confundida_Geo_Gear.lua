@@ -97,7 +97,7 @@ function init_gear_sets()
     sets.midcast.FastRecast = {}
 
 	sets.midcast.Geomancy = {
-		range="Dunna",
+		main="Solstice",range="Dunna",
 		head="Azimuth Hood",neck="Bagua Charm",
 		body="Bagua Tunic",hands="Geomancy Mitaines",
 		back="Lifestream Cape"
@@ -194,9 +194,9 @@ function init_gear_sets()
 
 	sets.idle = {
 		main="Bolelabunga",sub="Sors Shield",range="Dunna",ammo=empty,
-		head="",neck="",ear1="",ear2="",
+		head=gear.merlinic.hood.refresh,neck="",ear1="",ear2="",
 		body="Jhakri Robe +2",hands="Bagua Mitaines",ring1="",ring2="",
-		back="",waist="",legs="Asiduity Pants",feet="Azimuth Gaiters"
+		back="",waist="",legs=gear.merlinic.shalwar.refresh,feet="Azimuth Gaiters"
 	}
 		
 	sets.idle.PDT = {}
@@ -205,6 +205,8 @@ function init_gear_sets()
 
 	-- .Pet sets are for when Luopan is present.
 	sets.idle.Pet = {
+		main="Solstice",sub="Sors Shield",
+		hands="Geomancy Mitaines",
 		head="Azimuth Hood",feet="Bagua Sandals"
 	}
 

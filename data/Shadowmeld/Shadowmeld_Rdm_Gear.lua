@@ -10,9 +10,9 @@ function user_setup()
 	state.AutoBuffMode:options('Off','AutoSavage','AutoCygne','AutoHeal','AutoNuke')
 
 	state.Weapons:options('None','Melee','MeleeBow','MeleeDW','MeleeDWBow')
-	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Kaja Knife','Maxentius','Vitiation Sword'}
+	state.MainHandWeapons = M{['description'] = 'Main Hand Weapons', 'Naegling','Almace','Sequence','Tauret','Maxentius','Vitiation Sword'}
 	state.Shields = M{['description'] = 'Shields', 'Sacro Bulwark', 'Ammurapi Shield', 'Genmei Shield'}
-	state.OffhandWeapons = M{['description'] = 'Offhand Weapons', 'Ternion Dagger +1', 'Kaja Knife', 'Naegling','Daybreak'}
+	state.OffhandWeapons = M{['description'] = 'Offhand Weapons', 'Ternion Dagger +1', 'Tauret', 'Naegling','Daybreak'}
 
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
@@ -54,6 +54,16 @@ function user_setup()
 	send_command('bind @\\\\ input /ma "Shell V" <t>')
 	send_command('bind !\\\\ input /ma "Reraise" <me>')
 	send_command('bind @f10 gs c cycle RecoverMode')
+
+	organizer_items = {
+		"Echo Drops",
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun",
+		"Tropical Crepe",
+	}
 	
 	select_default_macro_book()
 	--lockstyle:schedule(5)
@@ -78,7 +88,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	
 	sets.precast.FC = {ammo="Impatiens",
-		head="Atro. Chapeau +2",neck="Loricate Torque +1",ear1="Malignance Earring",ear2="Etiolation Earring",
+		head="Atrophy Chapeau +3",neck="Loricate Torque +1",ear1="Malignance Earring",ear2="Etiolation Earring",
 		body="Viti. Tabard +3",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"}
 		
@@ -180,7 +190,7 @@ function init_gear_sets()
 
 	sets.midcast.Cure = {ammo="Regal Gem",
 		head="Vanya Hood",neck="Incanter's Torque",ear1="Enchntr. Earring +1",ear2="Mendi. Earring",
-		body="Viti. Tabard +3",hands="Kaykaus Cuffs",ring2="Lebeche Earring",
+		body="Viti. Tabard +3",hands="Kaykaus Cuffs",ring2="Lebeche Ring",
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs="Atrophy Tights +2",feet="Vanya Clogs"}
 	
 	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Chatoyant Staff",sub="Enki Strap",
@@ -211,7 +221,7 @@ function init_gear_sets()
 		
 	--Red Mage enhancing sets are handled in a different way from most, layered on due to the way Composure works
 	--Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
-	sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +2",legs="Leth. Fuseau +1"}
+	sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +3",legs="Leth. Fuseau +1"}
 	sets.midcast.Aquaveil = {head="Amalric Coif +1"}
 	sets.midcast.BarElement = {}
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
@@ -225,8 +235,8 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Dls. Torque +2",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Atrophy Tabard +2",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
+		head="Atrophy Chapeau +3",neck="Dls. Torque +2",ear1="Regal Earring",ear2="Malignance Earring",
+		body="Atrophy Tabard +3",hands="Kaykaus Cuffs",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.sucellos.enfeeble,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Vitiation Boots +3"
 	}
 
@@ -297,8 +307,8 @@ function init_gear_sets()
 		head=empty,body="Twilight Cloak"})
 
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		head="Atro. Chapeau +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Atrophy Tabard +2",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
+		head="Atrophy Chapeau +3",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
+		body="Atrophy Tabard +3",hands="Amalric Gages +1",ring1="Evanescence Ring",ring2="Stikini Ring",
 		back=gear.sucellos.mab,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet=gear.merlinic.crackows.drain
 	}
 
@@ -366,7 +376,7 @@ function init_gear_sets()
 		
 	sets.defense.MDT = {
 		ammo="Staunch Tathlum",
-		head="Malignance Chapeau",neck="Warder's Charm",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
+		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
 		body="Malignance Tabard",hands="",ring1="Defending Ring",ring2="Purity Ring",
 		back="Moonbeam Cape",waist="",legs="Malignance Tights",feet=""
 	}
@@ -390,9 +400,9 @@ function init_gear_sets()
 	sets.weapons.NaeglingAmmurapi = {main="Naegling",sub="Ammurapi Shield"}
 	sets.weapons.NaeglingGenmei = {main="Naegling",sub="Genmei Shield"}
 	sets.weapons.NaeglingSacro = {main="Naegling",sub="Sacro Bulwark"}
-	sets.weapons.DualSequence = {main="Sequence",sub="Kaja Knife"}
-	sets.weapons.DualNaegling = {main="Naegling",sub="Kaja Knife"}
-	sets.weapons.DualTauret = {main="Kaja Knife",sub="Ternion Dagger +1"}
+	sets.weapons.DualSequence = {main="Sequence",sub="Tauret"}
+	sets.weapons.DualNaegling = {main="Naegling",sub="Tauret"}
+	sets.weapons.DualTauret = {main="Tauret",sub="Ternion Dagger +1"}
 
 	sets.weapons.Naegling = {main="Naegling",sub=gear.meleeShield}
 	sets.weapons.NaeglingBow = {main="Naegling",sub=gear.meleeShield,range="Kaja Bow"}
@@ -441,7 +451,7 @@ function init_gear_sets()
 	sets.engaged.MDT.Enspell2 = set_combine(sets.engaged.MDT, {})
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		head="Carmine Mask +1",neck="Lissome Torque",
+		head="Carmine Mask +1",neck="Lissome Necklace",
 		hands="Aya. Manopolas +2",ring1="Chirich Ring",
 		waist="Grunfeld Rope",legs="Carmine Cuisses +1"
 	})
@@ -449,7 +459,7 @@ function init_gear_sets()
 		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
 	})
 	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {
-		hands="Aya.Manopolas +2",waist="Grunfeld Rope"
+		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
 	})
 	
 	sets.engaged.DW = {

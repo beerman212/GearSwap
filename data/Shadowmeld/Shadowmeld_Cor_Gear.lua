@@ -46,6 +46,14 @@ function user_setup()
 	send_command('bind !q gs c weapons SavageWeapons;gs c update')
 	send_command('bind @pause roller roll')
 
+	organizer_items = {
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun"
+	}
+
 	select_default_macro_book()
 	--lockstyle:schedule(5)
 end

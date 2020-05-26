@@ -29,6 +29,14 @@ function user_setup()
 	send_command('bind @` gs c cycle SkillchainMode')
 	send_command('bind !r gs c cycle weapons;gs c update')
 	send_command('bind ^q gs c weapons SingleWeapon;gs c update')
+
+	organizer_items = {
+		"Remedy",
+		"Holy Water",
+		"Panacea",
+		"Sublime Sushi",
+		"Red Curry Bun",
+	}
 	
 	select_default_macro_book()
 
