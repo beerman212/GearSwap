@@ -136,7 +136,7 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Queller Rod",sub="Sors Shield",
 		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
-		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
+		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Ephedra Ring",ring2="Kuchekula Ring",
 		legs="Ebers Pant. +1",feet="Piety Duckbills"
 	}
 		
@@ -198,17 +198,17 @@ function init_gear_sets()
 	sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
 		neck="Malison Medallion",
 		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",
-		legs="Theo. Pant. +1",feet="Vanya Clogs"
+		legs="Theo. Pant. +2",feet="Vanya Clogs"
 	})
 
 	sets.midcast['Enhancing Magic'] = {
-		waist="Embla Sash"
+		waist="Embla Sash",feet="Theo. Duckbills +2"
 	}
 	sets.midcast['Enhancing Magic'].skill = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Beneficus",sub="Sors Shield",
 		head="Befouled Crown",ear1="Mimir Earring",ear2="Andoaa Earring",
 		hands="Inyan. Dastanas +2",ring2="Stikini Ring",
-		back="Mending Cape",legs="Piety Pantaloons",feet="Theo. Duckbills +1"
+		back="Mending Cape",legs="Piety Pantaloons"
 	})
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -221,7 +221,7 @@ function init_gear_sets()
 		main="Bolelabunga",sub="Sors Shield",
 		head="Inyanga Tiara +1",
 		body="Piety Briault",hands="Ebers Mitts +1",
-		legs="Theo. Pant. +1"
+		legs="Theo. Pant. +2"
 	})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
@@ -265,7 +265,7 @@ function init_gear_sets()
 		main="Eminent Staff",sub="Mephitis Grip",
 		head="Befouled Crown",neck="Erra Pendant",ear1="Psystorm Earring",ear2="Lifestorm Earring",
 		body="Inyanga Jubbah +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Sangoma Ring",
-		back=gear.alaunus.fc,legs=gear.chironic.hose.enfeeble,feet="Inyanga Crackows +1"
+		back=gear.alaunus.fc,legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +2"
 	}
 
 	sets.midcast['Enfeebling Magic'].Resistant = {}
@@ -294,7 +294,7 @@ function init_gear_sets()
 	sets.idle = {
 		main="Queller Rod",sub="Sors Shield",
 		head="Befouled Crown",neck="Warder's Charm +1",ear1="Infused Earring",ear2="Moonshade Earring",
-		body="Theo. Briault +1",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
+		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
 	
