@@ -1,6 +1,6 @@
 function user_setup()
 	-- Options: Override default values
-    state.OffenseMode:options('Normal','MaxAcc')
+    state.OffenseMode:options('Normal','Acc','MaxAcc')
     state.WeaponskillMode:options('Match','Normal','MaxAcc')
     state.HybridMode:options('Normal','SubtleBlow','HybridDT','PDT','MDT')
     state.PhysicalDefenseMode:options('PDT', 'HP')
@@ -92,10 +92,10 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		ammo="Knobkierrie",
+		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back=gear.segomo.ws.tornado,waist="Fotia Belt",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
+		back=gear.segomo.ws.tornado,waist="Moonbow Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {})
 
@@ -107,22 +107,22 @@ function init_gear_sets()
 	sets.precast.WS['Victory Smite'].MaxAcc = set_combine(sets.precast.WS['Victory Smite'], {})
 
 	sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
-		ammo="Aurgelmir Orb",ear1="Moonshade Earring",
+		ear1="Moonshade Earring",
 	})
 	sets.precast.WS['Raging Fists'].MaxAcc = set_combine(sets.precast.WS['Raging Fists'], {})
 
 	sets.precast.WS['Shijin Spiral'] = set_combine(sets.precast.WS, {
-		ammo="Aurgelmir Orb",ear1="Mache Earring +1",back=gear.segomo.tp.da
+		ear1="Mache Earring +1",back=gear.segomo.tp.da
 	})
 	sets.precast.WS['Shijin Spiral'].MaxAcc = set_combine(sets.precast.WS['Shijin Spiral'], {})
 
 	sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
-		ear1="Moonshade Earring",hands="Anchor. Gloves +2"
+		ammo="Knobkierrie",ear1="Moonshade Earring",hands="Anchor. Gloves +2"
 	})
 	sets.precast.WS['Howling Fist'].MaxAcc = set_combine(sets.precast.WS['Howling Fist'], {})
 
 	sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
-		ear1="Moonshade Earring",hands="Anchor. Gloves +2",legs="Hiza. Hizayoroi +2",feet="Anch. Gaiters +3"
+		ammo="Knobkierrie",ear1="Moonshade Earring",hands="Anchor. Gloves +2",legs="Hiza. Hizayoroi +2",feet="Anch. Gaiters +3"
 	})
 	sets.precast.WS['Tornado Kick'].MaxAcc = set_combine(sets.precast.WS['Tornado Kick'], {})
 
@@ -157,7 +157,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Eabani Earring",
 		body="Malignance Tabard",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Purity Ring",
-		back="Moonbeam Cape",waist="Moonbow Belt",legs="Malignance Tights",feet="Ahosi Leggings"
+		back="Moonbeam Cape",waist="Moonbow Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 
 	sets.idle.PDT = {}
@@ -182,11 +182,14 @@ function init_gear_sets()
 
 	-- Normal melee sets
 	sets.engaged = {
-		ammo="Aurgelmir Orb",
-		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back=gear.segomo.tp.da,waist="Moonbow Belt",legs="Samnuha Tights",feet="Anch. Gaiters +3"
+		ammo="Aurgelmir Orb +1",
+		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Mache Earring +1",ear2="Sherida Earring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
+		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Samnuha Tights",feet="Anch. Gaiters +3"
 	}
+	sets.engaged.Acc = set_combine(sets.engaged, {
+		neck = "Monk's Nodowa",ring1="Regal Ring",legs="Malignance Tights"
+	})
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {
 		head="Malignance Chapeau",neck="Monk's Nodowa",
 		body="Malignance Tabard",ring1="Chirich Ring",
