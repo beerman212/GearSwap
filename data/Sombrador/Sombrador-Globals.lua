@@ -1,4 +1,5 @@
 --Place for settings and custom functions to work across one characters, all jobs.
+--Extra user functions to change how gearswap functions across jobs.
 
 --Time Related Settings:
 --To determine your offset the first time, uncomment time_offset and set time_test to true,
@@ -21,7 +22,7 @@ state.DisplayMode = M(true, 'Display Mode') --Set this to false if you don't wan
 --Uncomment the settings below and change the values to edit the display's look.
 --displayx = 3
 --displayy = 1062
---displayfont = Times New Roman'
+displayfont = 'Times New Roman'
 --displaysize = 12
 --displaybold = true
 --displaybg = 0
@@ -35,11 +36,11 @@ state.DisplayMode = M(true, 'Display Mode') --Set this to false if you don't wan
 --}
 
 --Options for automation.
-state.ReEquip 		  		= M(true, 'ReEquip Mode')		 --Set this to false if you don't want to equip your current Weapon set when you aren't wearing any weapons.
-state.AutoArts 		  		= M(true, 'AutoArts') 		 --Set this to false if you don't want to automatically try to keep up Solace/Arts.
-state.CancelStoneskin 		= M(true, 'Cancel Stone Skin') --Set this to false if you don't want to automatically cancel stoneskin when you're slept.
-state.SkipProcWeapons 		= M(true, 'Skip Proc Weapons') --Set this to false if you want to display weapon sets fulltime rather than just Aby/Voidwatch.
-state.NotifyBuffs	  		= M(false, 'Notify Buffs') 	 --Set this to true if you want to notify your party when you recieve a specific buff/debuff. (List Below)
+state.ReEquip 		  		= M(true, 'ReEquip Mode')		--Set this to false if you don't want to equip your current Weapon set when you aren't wearing any weapons.
+state.AutoArts 		  		= M(false, 'AutoArts') 		 	--Set this to false if you don't want to automatically try to keep up Solace/Arts.
+state.CancelStoneskin 		= M(true, 'Cancel Stone Skin') 	--Set this to false if you don't want to automatically cancel stoneskin when you're slept.
+state.SkipProcWeapons 		= M(true, 'Skip Proc Weapons') 	--Set this to false if you want to display weapon sets fulltime rather than just Aby/Voidwatch.
+state.NotifyBuffs	  		= M(false, 'Notify Buffs') 	 	--Set this to true if you want to notify your party when you recieve a specific buff/debuff. (List Below)
 
 --[[Binds you may want to change.
 	Bind special characters.
@@ -52,41 +53,42 @@ state.NotifyBuffs	  		= M(false, 'Notify Buffs') 	 --Set this to true if you wan
 	# = Apps Key
 ]]
 
-send_command('bind !@^f7 gs c toggle AutoWSMode') --Turns auto-ws mode on and off.
-send_command('bind !^f7 gs c toggle AutoFoodMode') --Turns auto-ws mode on and off.
-send_command('bind f7 gs c cycle Weapons') --Cycle through weapons sets.
-send_command('bind @f8 gs c toggle AutoNukeMode') --Turns auto-nuke mode on and off.
-send_command('bind ^f8 gs c toggle AutoStunMode') --Turns auto-stun mode off and on.
-send_command('bind !f8 gs c toggle AutoDefenseMode') --Turns auto-defense mode off and on.
-send_command('bind ^@!f8 gs c toggle AutoTrustMode') --Summons trusts automatically.
-send_command('bind @pause gs c toggle AutoBuffMode') --Automatically keeps certain buffs up, job-dependant.
-send_command('bind @scrolllock gs c cycle Passive') --Changes offense settings such as accuracy.
-send_command('bind f9 gs c cycle OffenseMode') --Changes offense settings such as accuracy.
-send_command('bind ^f9 gs c cycle HybridMode') --Changes defense settings for melee such as PDT.
-send_command('bind @f9 gs c cycle RangedMode') --Changes ranged offense settings such as accuracy.
-send_command('bind !f9 gs c cycle WeaponskillMode') --Allows automatic weaponskilling if the job is setup to handle it.
-send_command('bind f10 gs c set DefenseMode Physical') --Turns your physical defense set on.
-send_command('bind ^f10 gs c cycle PhysicalDefenseMode') --Changes your physical defense set.
-send_command('bind !f10 gs c toggle Kiting') --Keeps your kiting gear on..
-send_command('bind f11 gs c set DefenseMode Magical') --Turns your magical defense set on.
-send_command('bind ^f11 gs c cycle MagicalDefenseMode') --Changes your magical defense set.
-send_command('bind @f11 gs c cycle CastingMode') --Changes your castingmode options such as magic accuracy.
-send_command('bind !f11 gs c cycle ExtraMeleeMode') --Adds another set layered on top of your engaged set.
-send_command('bind ^f12 gs c cycle ResistDefenseMode') --Changes your resist defense set.
-send_command('bind f12 gs c set DefenseMode Resist') --Turns your resist defense set on.
-send_command('bind @f12 gs c cycle IdleMode') --Changes your idle mode options such as refresh.
-send_command('bind !f12 gs c reset DefenseMode') --Turns your defensive mode off.
-send_command('bind ^@!f12 gs reload') --Reloads gearswap.
-send_command('bind pause gs c update user') --Runs a quick check to make sure you have the right gear on and checks variables.
-send_command('bind ^@!pause gs org') --Runs organizer.
-send_command('bind ^@!backspace gs c buffup') --Buffup macro because buffs are love.
---send_command('bind ^r gs c weapons Default') --Requips weapons and gear.
-send_command('bind ^z gs c toggle Capacity') --Keeps capacity mantle on and uses capacity rings.
-send_command('bind ^y gs c toggle AutoCleanupMode') --Uses certain items and tries to clean up inventory.
-send_command('bind ^t gs c cycle treasuremode') --Toggles hitting htings with your treasure hunter set.
-send_command('bind !t input /target <bt>') --Targets the battle target.
-send_command('bind ^o fillmode') --Lets you see through walls.
-send_command('bind @m gs c mount Red Crab')
+send_command('bind !@^f7 gs c toggle AutoWSMode') 			--Alt + Windows + Ctrl + F7 			= Turns AutoWSMode On and Off
+send_command('bind !^f7 gs c toggle AutoFoodMode') 			--Alt + Ctrl + F7 						= Turns AutoFoodMode On and Off
+send_command('bind f7 gs c cycle Weapons') 					--F7									= Cycle through Weapons Sets
+send_command('bind @f8 gs c toggle AutoNukeMode') 			--Windows + F8 							= Turns AutoNukeMode On and Off
+send_command('bind ^f8 gs c toggle AutoStunMode') 			--Ctrl + F8								= Turns AutoStunMode On and Off
+send_command('bind !f8 gs c toggle AutoDefenseMode') 		--Alt + F8								= Turns AutoDefenseMode On and Off
+send_command('bind ^@!f8 gs c toggle AutoTrustMode') 		--Ctrl + Windows + Alt + F8				= Turns AutoTrustMode On and Off
+send_command('bind @pause gs c toggle AutoBuffMode') 		--Windows + Pause/Break					= Turns AutoBuffMode On and Off
+send_command('bind @scrolllock gs c cycle Passive') 		--Windows + Scroll Lock					= ???
+send_command('bind f9 gs c cycle OffenseMode') 				--F9									= Cycle through OffenseModes (e.g. Accuracy)
+send_command('bind ^f9 gs c cycle HybridMode') 				--Ctrl + F9								= Cycle through HybridModes (e.g. PDT, Physical Damage Taken)
+send_command('bind @f9 gs c cycle RangedMode') 				--Windows + F9							= Cycle through RangedModes (e.g. Accuracy)
+send_command('bind !f9 gs c cycle WeaponskillMode') 		--Alt + F9								= Allows automatic weaponskilling if the job is setup to handle it
+send_command('bind f10 gs c set DefenseMode Physical') 		--F10									= Turns your physical defense set on
+send_command('bind ^f10 gs c cycle PhysicalDefenseMode') 	--Ctrl + F10							= Changes your physical defense set
+send_command('bind !f10 gs c toggle Kiting') 				--Alt + F10								= Keeps your kiting gear on
+send_command('bind f11 gs c set DefenseMode Magical') 		--F11 									= Turns your magical defense set on
+send_command('bind ^f11 gs c cycle MagicalDefenseMode') 	--Ctrl + F11							= Changes your magical defense set
+send_command('bind @f11 gs c cycle CastingMode') 			--Windows + F11 						= Changes your castingmode options such as magic accuracy
+send_command('bind !f11 gs c cycle ExtraMeleeMode') 		--Alt + F11								= Adds another set layered on top of your engaged set
+send_command('bind ^f12 gs c cycle ResistDefenseMode') 		--Crtl + F12							= Changes your resist defense set
+send_command('bind f12 gs c set DefenseMode Resist') 		--F12									= Turns your resist defense set on
+send_command('bind @f12 gs c cycle IdleMode') 				--Windows + F12							= Changes your idle mode options such as refresh
+send_command('bind !f12 gs c reset DefenseMode') 			--Alt + F12								= Turns your defensive mode off
+send_command('bind ^@!f12 gs reload') 						--Ctrl + Windows + Alt + F12			= Reloads gearswap
+send_command('bind pause gs c update user') 				--Pause/Break							= Runs a quick check to make sure you have the right gear on and checks variables
+send_command('bind ^@!pause gs org') 						--Ctrl + Windows + Alt + Pause/Break	= Runs organizer
+send_command('bind ^@!backspace gs c buffup') 				--Ctrl + Windows + Alt + Backspace		= Buffup macro because buffs are love
+send_command('bind ^r gs c weapons Default') 				--Ctrl + r								= Resets Weapon Sets to Default
+send_command('bind ^z gs c toggle Capacity') 				--Ctrl + z								= Turns CapacityMode On and Off
+send_command('bind ^y gs c toggle AutoCleanupMode') 		--Ctrl + y								= Uses certain items and tries to clean up inventory
+send_command('bind ^t gs c cycle treasuremode') 			--Ctrl + t								= Turns TreasureMode On and Off
+send_command('bind !t input /target <bt>') 					--Alt + t								= Targets the battle target
+send_command('bind ^o fillmode') 							--Ctrl + o 								= Lets you see through walls
+send_command('bind @m gs c mount Red Crab')					--Windows + m							= Mount and Unmount Default Mount
+send_command('bind @~m send @all gs c mount Raptor')		--Windows + Shift + m					= All Logged in Characters Mount and Unmount Default Mount
 
 NotifyBuffs = S{'doom','petrification'}
 

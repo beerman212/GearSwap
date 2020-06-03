@@ -1,53 +1,156 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'SomeAcc','Acc','FullAcc','Fodder')
-    state.HybridMode:options('Normal','DTLite','PDT','MDT')
-    state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','FullAcc','Fodder','Proc')
-	state.IdleMode:options('Normal', 'Sphere')
-    state.PhysicalDefenseMode:options('PDT')
-	state.MagicalDefenseMode:options('MDT')
-	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Aeneas','LowBuff')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','Suppa','DWEarrings','DWMax'}
+    state.HybridMode:options('Normal','DTLite','PDT','MDT')
+    state.IdleMode:options('Default','Sphere')
+    state.MagicalDefenseMode:options('MDT')
+	state.OffenseMode:options('Normal', 'SomeAcc','Acc','FullAcc','Fodder')
+    state.PhysicalDefenseMode:options('PDT')
+	state.ResistDefenseMode:options('MEVA')
+	state.Weapons:options('Default','None')
+    state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','FullAcc','Fodder','Proc')
+	
+    -- Typically on Job Setup file, but adding for sub lvl 99 -- Comment out when maxed
+    state.MainStep = M{['description']='Main Step','Box Step','Quickstep','Feather Step','Stutter Step'}
+    state.AltStep = M{['description']='Alt Step','Quickstep','Stutter Step','Feather Step','Box Step'}
+    state.UseAltStep = M(true, 'Use Alt Step')
+    state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
 
+	state.AutoPrestoMode = M(False, 'Auto Presto Mode')
+	state.DanceStance = M{['description']='Dance Stance','None','Saber Dance','Fan Dance'}
+
+
+	autows = "Rudra's Storm"
+	autofood = 'Sublime Sushi'
 	
-	gear.stp_jse_back = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
-	gear.wsd_jse_back = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-	
-    -- Additional local binds
-    send_command('bind @` gs c step')
-	send_command('bind ^!@` gs c toggle usealtstep')
-	send_command('bind ^@` gs c cycle mainstep')
-	send_command('bind !@` gs c cycle altstep')
-    send_command('bind ^` input /ja "Saber Dance" <me>')
-    send_command('bind !` input /ja "Fan Dance" <me>')
-	send_command('bind ^\\\\ input /ja "Chocobo Jig II" <me>')
-	send_command('bind !\\\\ input /ja "Spectral Jig" <me>')
-	send_command('bind !backspace input /ja "Reverse Flourish" <me>')
-	send_command('bind ^backspace input /ja "No Foot Rise" <me>')
-	send_command('bind %~` gs c cycle SkillchainMode')
+    -- JSE Cape Variants
+	gear.senuna_crit = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10'}}                         -- DEX Mod Multihit with Crit Chance WSs (e.g. Eviseration)
+	gear.senuna_da = {name="Senuna's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10'}}                              -- STR Mod Multihit WSs (e.g. Pyrrhic Kleos)
+	gear.senuna_stp = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%'}} -- TP
+    gear.senuna_wsdp = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%'}}                 -- DEX Mod fTP Modified Physical WSs (e.g. Rudra's Storm)
+    gear.senuna_wsdm = {name="Senuna's Mantle",augments={'DEX+20','Mag. Acc+20 /Mag. Dmg.+20','DEX+10','Weapon skill damage +10%'}}             -- DEX Mod fTP Modified Physical WSs (e.g. Aeolian Edge)
+    
+    --[[ Hot Keys where
+        @ = Windows Key
+        % = Works only when text bar not up.
+        $ = Works only when text bar is up.
+        ^ = Control Key
+        ! = Alt Key
+        ~ = Shift Key
+        # = Apps Key        ]]
+        send_command('bind @` gs c step')                                   -- Windows + `              = 
+        send_command('bind ^!@` gs c toggle usealtstep')                    -- Ctrl + Alt + Windows + ` =
+        send_command('bind ^@` gs c cycle mainstep')                        -- Ctrl + Windows + `       =   
+        send_command('bind !@` gs c cycle altstep')                         -- Alt + Windows + `        =
+        send_command('bind ^` input /ja "Saber Dance" <me>')                -- Crtl + `                 = Use Saber Dance on Myself
+        send_command('bind !` input /ja "Fan Dance" <me>')                  -- Alt + `                  = Use Fan Dance on Myself
+        send_command('bind ^\\\\ input /ja "Chocobo Jig II" <me>')          -- Ctrl + \                 = Use Chocobo Jig II on Myself
+        send_command('bind !\\\\ input /ja "Spectral Jig" <me>')            -- Alt + \                  = Use Spectral Jig on Myself
+        send_command('bind !backspace input /ja "Reverse Flourish" <me>')   -- Alt + Backspace          = Use Reverse Flourish on Myself
+        send_command('bind ^backspace input /ja "No Foot Rise" <me>')       -- Ctrl + Backspace         = Use No Foot Rise on Myself
+        send_command('bind %~` gs c cycle SkillchainMode')                  -- ONLY WITH TEXT BAR NOT UP
+                                                                            -- Shift + `                = Cycle SkillchainMode
 
     select_default_macro_book()
 end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
-    --------------------------------------
-    -- Start defining the sets
-    --------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------
+--[[ Defined Sets
+    Gear can be Defined in 1 of 3 ways
+        1. Referencing a universal set as defined in the [Charactername].Globals.lua
+            e.g. the TreasureHunter set, which usually has the Chaac Belt defined in the Globals because it is equipable by all jobs
+            and other job specific gear with TH like Dark Matter enhanced Reisenjima Equipment
+        2. Referencing a set defined somewhere in the code above the reference in this lua
+            e.g. the Fast Cast Precast sets have been set up by first establishing a baseline Fast Cast set, and then
+            building for specific scenarios by starting with the baseline and modifying gear for those scenarios
+        3. Within the {} entering individualized equipment locations and the name of the equipment
+            simply put, enter the equipment slot name (e.g. Main, Sub, Head, Body...),
+                the equals sign (=) and then
+                in quotes (""), the name of the equipment
+            e.g. {Waist = "Chaac Belt"} as used int the globals for TreasureHunter
+        Complete list of Equipment Slots:
+        main, sub, range, ammo, head, neck, ear1, ear2, body, hands, ring1, ring2, back, waist, legs, feet      ]]
+------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+    --[[ Weapons Sets establish the Main and Sub slots for state.Weapons:options()
+        Can be cycled through using the F7 key in the order defined above in the state.Weapons:options()
+        To define in the state.Weapons:options(), type the value below after sets.weapons. within the parenthesis surrounded by apostrophies (')
+        e.g. sets.weapons.Default = state.Weapons:options('Default')
+        If not defined in the state.Weapons:options() above, it will not be accessible by the F7 cycle hot key          ]]
+        sets.weapons.Aeneas = {main="Aeneas",sub="Twashtar"}
+        sets.weapons.Default = {main="Bone Knife",sub="Bone Knife"}
+        sets.weapons.Tauret = {main="Tauret",sub="Twashtar"}
+        sets.weapons.None = {Main=empty,sub=empty}
+        sets.weapons.Terpsichore = {main="Terpsichore",sub="Twashtar"}
+		
+    --[[ Idle Sets establish the gear that will be equipped when no other action is being taken 
+        The different modes that can be cycled through as defined in the state.IdleMode:options() of the user_setup
+        To define in the state.IdleMode:options(), type the value below after sets.idle. within the parenthesis surrounded by apostrophies (')
+        e.g. sets.idle.Default = state.idle:options('Default')
+        If not defined in the state.idle:options() above, it will not be accessible by the Windows + F12 cycle hot key          ]]
+    sets.idle.Default = {
+		ammo=empty,
+		head="Raptor Helm",neck="Focus Collar",ear1="Amethyst Earring",ear2="Sardonyx Earring",
+		body="Raptor Jerkin",hands="Raptor Gloves",ring1="Bastokan Ring",ring2="Amethyst Ring",
+		back="Nexus Cape",waist="Swordbelt",legs="Raptor Trousers",feet="Raptor Ledelsens"}
+    sets.idle.Sphere = set_combine(sets.idle, {body="Enforcer's Harness"})
     
-	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	
-	
+    -- Defense sets
+    sets.defense.PDT = {}
+    sets.defense.MDT = {}
+    sets.defense.MEVA = {}
+    sets.Kiting = {}
+
+    -- Engaged sets
+
+    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
+    -- sets if more refined versions aren't defined.
+    -- If you create a set with both offense and defense modes, the offense mode should be first.
+    -- EG: sets.engaged.Dagger.Accuracy.Evasion
+    
+    -- Normal melee group
+    sets.engaged = {}
+		
+    sets.engaged.DTLite = {}
+		
+    sets.engaged.SomeAcc = {}
+    
+	sets.engaged.Acc = {}
+		
+    sets.engaged.FullAcc = {}
+
+    sets.engaged.Fodder = {}
+
+    sets.engaged.PDT = {}
+
+    sets.engaged.SomeAcc.PDT = {}
+		
+    sets.engaged.Acc.PDT = {}
+
+    sets.engaged.FullAcc.PDT = {}
+		
+    sets.engaged.Fodder.PDT = {}
+
+    
+    -- Treasure Hunter
+    -- Treasure Hunter Mode can be activated/deactivated (set to Tag) using the Ctrl + T Hot Key
+    -- Treasure Hunter caps at 4 for non-Thief Jobs and 14 on Thief
+    	
+	    sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+    
+    -- Precast Sets
+    -- Precast Sets will assess a command and apply this gear before executing and up to the Midcast point
+    -- Precast Sets are defined as sets.precast.[Precast Specifier]
+    -- [Precast Specifiers]
+    -- You may also define specific spells/abilities with a using an additional .[spellname]
+
     -- Extra Melee sets.  Apply these on top of melee sets.
-	sets.Suppa = {}
-	sets.DWEarrings = {}
-	sets.DWMax = {}
-	
-	-- Weapons sets
-	sets.weapons.Aeneas = {}
-	sets.weapons.LowBuff = {}
-	
+        sets.Suppa = {}
+        sets.DWEarrings = {}
+        sets.DWMax = {}
+     	
     -- Precast Sets
     
     -- Precast sets to enhance JAs
@@ -142,7 +245,7 @@ function init_gear_sets()
     
     -- Midcast Sets
     
-    sets.midcast.FastRecast = {})
+    sets.midcast.FastRecast = {}
 
     
     -- Sets to return to when not performing an action.
