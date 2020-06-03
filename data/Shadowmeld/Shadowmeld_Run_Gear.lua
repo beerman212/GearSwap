@@ -227,7 +227,7 @@ function init_gear_sets()
 	sets.midcast.FastRecast.DT = set_combine(sets.midcast.FastRecast, {neck="Loricate Torque +1",ring1="Defending Ring",ring2="Moonbeam Ring"})
 
 	sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast,{
-		head="Erilaz Galea +1",neck="Incanter's Torque",ear1="Andoaa Earring",hands="Runeist's Mitons +2",waist="Olympus Sash",legs="Futhark Trousers +1"
+		head="Erilaz Galea +1",neck="Incanter's Torque",ear1="Andoaa Earring",hands="Regal Gauntlets",waist="Olympus Sash",legs="Futhark Trousers +1"
 	})
 	sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'],{
 		head="Fu. Bandeau +2",body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx
@@ -264,7 +264,7 @@ function init_gear_sets()
 
 	sets.idle = {ammo='Homiliary',
 		head="Rawhide Mask",neck="Loricate Torque +1",ear1="Eabani Earring",ear2="Ethereal Earring",
-		body="Runeist's Coat +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Runeist's Coat +2",hands="Regal Gauntlets",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.da,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet="Ahosi Leggings"
 	}
 		

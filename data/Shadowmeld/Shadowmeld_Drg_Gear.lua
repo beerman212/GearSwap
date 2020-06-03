@@ -3,13 +3,13 @@ function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal','SomeAcc','Acc','MaxAcc','Fodder')
 	state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','MaxAcc','Fodder')
-	state.HybridMode:options('Normal')
+	state.HybridMode:options('Normal','MaxHaste')
 	state.PhysicalDefenseMode:options('PDT', 'PDTReraise')
 	state.MagicalDefenseMode:options('MDT', 'MDTReraise')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
-	state.Weapons:options('Trishula')
+	state.Weapons:options('Trishula','Shining One','Quint Spear')
 	state.Passive = M{['description'] = 'Passive Mode','None','MP','Twilight'}
 	
 	gear.brigantia = {}
@@ -47,9 +47,9 @@ function init_gear_sets()
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Angon = {ammo="Angon",hands="Ptero. Fin. G. +1"}
 	sets.precast.JA.Jump = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",neck="Anu Torque",ear1="Sherida Earring",ear2="Telos Earring",
-		body="Vishap Mail +2",hands="Vishap F. G. +1",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		body="Vishap Mail +2",hands="Flam. Manopolas +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.brigantia.stp,waist="Ioskeha Belt +1",legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2"
 	}
 	sets.precast.JA['Ancient Circle'] = {}
@@ -107,12 +107,14 @@ function init_gear_sets()
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {
+		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",ear2="Moonshade Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",
 		back=gear.brigantia.stardiver,legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2",
 	})
 
 	sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {
+		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",
 		body="Hjarrandi Breast.",hands="Flam. Manopolas +2",
 		back=gear.brigantia.stardiver,legs="Pelt. Cuissots +1",feet=gear.valorous.greaves.strwsd,
@@ -125,7 +127,7 @@ function init_gear_sets()
 	sets.precast.WS["Leg Sweep"] = set_combine(sets.precast.WS, {
 		ammo="Pemphredo Tathlum",
 		head="Flam. Zucchetto +2",ear1="Digni. Earring",
-		body="Flam. Korazin +2",hands="Flam. Manopolas +2",ring1="Etana Ring",ring2="Flamma Ring",
+		body="Flamma Korazin +2",hands="Flam. Manopolas +2",ring1="Etana Ring",ring2="Flamma Ring",
 		legs="Flamma Dirs +2",feet="Flam. Gambieras +2",
 	})
 
@@ -170,12 +172,14 @@ function init_gear_sets()
 	sets.buff.Sleep = {--[[head="Frenzy Sallet"]]}
 
 	-- Extra defense sets.  Apply these on top of melee or defense sets.
-	sets.passive.MP = {ear2="Ethereal Earring",waist="Flume Belt"}
+	sets.passive.MP = {ear2="Ethereal Earring",waist="Flume Belt +1"}
 	sets.passive.Twilight = sets.Reraise
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.valorous.mask.TH,hands=gear.valorous.mitts.TH})
 
 	-- Weapons sets
 	sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
+	sets.weapons["Shining One"] = {main="Shining One",sub="Utu Grip"}
+	sets.weapons["Quint Spear"] = {main="Quint Spear",sub="Utu Grip"}
 
 	-- Engaged sets
 
@@ -187,7 +191,7 @@ function init_gear_sets()
 	-- Normal melee group
 
 	sets.engaged = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",neck="Anu Torque",ear1="Sherida Earring",ear2="Dedition Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.brigantia.stp,waist="Ioskeha Belt +1",legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2",
@@ -195,7 +199,7 @@ function init_gear_sets()
 
 	sets.engaged.DTHybrid = set_combine(sets.engaged, {})
 
-	sets.engaged.MaxHaste = set_combine(sets.engaged, {body="Hjarrandi Breast.",legs="Sulev. Cuisses +2"})
+	sets.engaged.MaxHaste = set_combine(sets.engaged, {body="Hjarrandi Breast.",legs="Flamma Dirs +2"})
 end
 
 function user_job_aftercast(spell, spellMap, eventArgs)

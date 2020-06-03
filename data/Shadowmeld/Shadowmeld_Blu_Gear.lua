@@ -87,14 +87,14 @@ function init_gear_sets()
 	sets.precast.Waltz['Healing Waltz'] = {}
 
 	sets.precast.Step = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Carmine Mask +1",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Chirich Ring",ring2="Ayanmo Ring",
 		back=gear.rosmerta.stp,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Jhakri Pigaches +2"
 	}
 
 	sets.precast.Flourish1 = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Etana Ring",
 		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
@@ -117,7 +117,7 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head=gear.herculean.helm.strwsd,neck="Fotia Gorget",ear1="Telos Earring",ear2="Cessance Earring",
 		body=gear.herculean.vest.dexwsd,hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Ilabrat Ring",
 		back=gear.rosmerta.wsd,waist="Fotia Belt",legs=gear.herculean.trousers.strwsd,feet="Jhakri Pigaches +2"
@@ -129,7 +129,7 @@ function init_gear_sets()
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Requiescat'] = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Regal Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.req,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
@@ -140,7 +140,7 @@ function init_gear_sets()
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 
 	sets.precast.WS['Chant du Cygne'] = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Odr Earring",ear2="Mache Earring +1",
 		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.cdc,waist="Fotia Belt",legs="Samnuha Tights",feet="Thereoid Greaves"
@@ -151,7 +151,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
 
 	sets.precast.WS['Savage Blade'] = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head=gear.herculean.helm.strwsd,neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Rufescent Ring",
 		back=gear.rosmerta.wsd,waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Jhakri Pigaches +2"
@@ -181,7 +181,7 @@ function init_gear_sets()
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
 	
 	sets.precast.WS['Black Halo'] = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head=gear.herculean.helm.strwsd,neck="Mirage Stole +1",ear1="Regal Earring",ear2="Moonshade Earring",
 		body="Assim. Jubbah +2",hands="Jhakri Cuffs +2",ring1="Shukuyu Ring",ring2="Rufescent Ring",
 		back=gear.rosmerta.wsd,waist="Grunfeld Rope",legs=gear.herculean.trousers.strwsd,feet="Carmine Cuisses +1"
@@ -222,7 +222,7 @@ function init_gear_sets()
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Chirich Ring",
 		back=gear.wsd_jse_back,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet=gear.herculean.boots.ta}
 
-	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'], {sub=gear.colada.stp,ammo="Aurgelmir Orb",head="Jhakri Coronal +2",ear2="Digni. Earring",feet="Jhakri Pigaches +2"})
+	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'], {sub=gear.colada.stp,ammo="Aurgelmir Orb +1",head="Jhakri Coronal +2",ear2="Digni. Earring",feet="Jhakri Pigaches +2"})
 	
 	sets.midcast['Blue Magic'].Physical.Fodder = set_combine(sets.midcast['Blue Magic'].Physical, {})
 
@@ -471,7 +471,7 @@ function init_gear_sets()
 	-- Engaged sets
 
 	sets.engaged = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Suppanomimi",ear2="Cessance Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc

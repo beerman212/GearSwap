@@ -235,7 +235,7 @@ function init_gear_sets()
 	
 	--[[ Requiescat ]]
 	sets.precast.WS["Requiescat"] = set_combine(sets.precast.WS, {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Sulevia's Mask +2",ear1="Brutal Earring",ear2="Telos Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",
 		legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
@@ -323,7 +323,7 @@ function init_gear_sets()
 	-- Engaged sets
 
 	sets.engaged = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
@@ -352,7 +352,7 @@ function init_gear_sets()
 	sets.engaged.Unarmed = {}
 
 	-- sets.engaged = {
-	-- 	ammo="Aurgelmir Orb",
+	-- 	ammo="Aurgelmir Orb +1",
 	-- 	head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Cessance Earring",
 	-- 	body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 	-- 	back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
