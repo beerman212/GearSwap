@@ -7,7 +7,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None')
+	state.Weapons:options('Default','Sword','Dual')
 
 	gear.sucellos = {}
 	gear.sucellos.enfeeble = {name="Sucellos's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10'}}
@@ -263,7 +263,9 @@ function init_gear_sets()
 	sets.NightIdle = {}
 
 	-- Weapons sets
-	
+	sets.weapons.Default = {}
+	sets.weapons.Sword = {main="Nibiru Blade",sub="Sors Shield"}
+	sets.weapons.Dual = {main="Nibiru Blade",sub="Eminent Scimitar"}
 
 	-- Engaged sets
 
