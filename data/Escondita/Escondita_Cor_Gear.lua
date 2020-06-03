@@ -63,7 +63,7 @@ function init_gear_sets()
 
     sets.precast.CorsairRoll = {range="Compensator",
         head="Lanun Tricorne +1",neck="Regal Necklace",ear1="Etiolation Earring",ear2="Sanare Earring",
-        body="Lanun Frac +1",hands="Chasseur's Gants +1",ring1="Defending Ring",ring2="Dark Ring",
+        body="Lanun Frac +1",hands="Chasseur's Gants +1",ring1="Defending Ring",ring2="Barataria Ring",
         back=gear.tp_jse_back,waist="Flume Belt",legs="Desultor Tassets",feet=gear.herculean_dt_feet}
 
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}

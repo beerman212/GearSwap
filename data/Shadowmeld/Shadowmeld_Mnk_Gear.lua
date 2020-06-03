@@ -7,7 +7,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Godhands','Malignance')
+	state.Weapons:options('Godhands','Malignance','Karambit')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	
@@ -128,8 +128,12 @@ function init_gear_sets()
 
 	sets.precast.WS['Dragon Kick'] = sets.precast.WS['Tornado Kick']
 
-	sets.precast.WS['Asuran Fist'] = set_combine(sets.precast.WS, {})
-	sets.precast.WS['Asuran Fist'].MaxAcc = set_combine(sets.precast.WS['Asuran Fist'], {})
+	sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {
+		head="Hiza. Somen　+2",ear1="Telos Earring",
+		body="Hiza. Haramaki +2",hands="Anchor. Gloves +2",ring1="Regal Ring",
+		legs="Hiza. Hizayoroi +2",feet="Hiza. Sune-Ate +2"
+	})
+	sets.precast.WS['Asuran Fists'].MaxAcc = set_combine(sets.precast.WS['Asuran Fist'], {})
 
 	sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS, {
 		body="Abnoba Kaftan",feet="Mummu Gamash. +2"
@@ -188,7 +192,7 @@ function init_gear_sets()
 		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Samnuha Tights",feet="Anch. Gaiters +3"
 	}
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		neck = "Monk's Nodowa",ring1="Regal Ring",legs="Malignance Tights"
+		neck = "Monk's Nodowa"
 	})
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {
 		head="Malignance Chapeau",neck="Monk's Nodowa",

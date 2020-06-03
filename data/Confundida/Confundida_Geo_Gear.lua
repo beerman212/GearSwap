@@ -142,7 +142,12 @@ function init_gear_sets()
 		
 	sets.midcast.Impact = {}
 		
-	sets.midcast['Enfeebling Magic'] = {}
+	sets.midcast['Enfeebling Magic'] = {
+		main="Solstice",sub="Sors Shield",range="Dunna",
+		head=gear.merlinic.hood.mdmg,neck="Bagua Charm",ear1="",ear2="",
+		body="Jhakri Robe +2",hands="Azimuth Gloves",ring1="Perception Ring",ring2="",
+		back="",waist="",legs="Psycloth Lappas",feet="Jhakri Pigaches +1"
+	}
 		
 	sets.midcast['Enfeebling Magic'].Resistant = {}
 		

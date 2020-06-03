@@ -30,6 +30,7 @@ gear.merlinic = {}
 
 gear.merlinic.hood = {}
 gear.merlinic.hood.refresh = {name="Merlinic Hood",augments={'Accuracy+4','Enmity+1','"Refresh"+1','Accuracy+10 Attack+10'}}
+gear.merlinic.hood.mdmg = {name="Merlinic Hood",augments={'Pet: INT+9','CHR+1','"Fast Cast"+3','Accuracy+18 Attack+18','Mag. Acc.+20 "Mag.Atk.Bns."+20'}}
 
 gear.merlinic.shalwar = {}
 gear.merlinic.shalwar.refresh = {name="Merlinic Shalwar",augments={'VIT+1','Pet: VIT+8','"Refresh"+2','Accuracy+5 Attack+5'}}
