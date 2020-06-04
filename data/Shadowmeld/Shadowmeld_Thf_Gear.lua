@@ -182,7 +182,7 @@ function init_gear_sets()
 	sets.precast.WS['Evisceration'] = {
 		ammo="Yetshila",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Odr Earring",ear2="Moonshade Earring",
-		body="Plunderer's Vest +3",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Ilabrat Ring",
+		body="Plunderer's Vest +3",hands=gear.adhemar.wrist.path_a,ring1="Begrudging Ring",ring2="Ilabrat Ring",
 		back=gear.toutatis.crit,waist="Fotia Belt",legs="Pill. Culottes +2",feet="Mummu Gamash. +2"
 	}
 	
@@ -196,7 +196,7 @@ function init_gear_sets()
 	sets.precast.WS['Exenterator'] = {
 		ammo="Seeth. Bomblet +1",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Epona's Ring",
 		back=gear.toutatis.stp,waist="Fotia Gorget",legs="Meg. Chausses +2",feet="Mummu Gamash. +2"
 	}
 	
@@ -312,7 +312,7 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Yamarang",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Sherida Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Epona's Ring",
 		back=gear.toutatis.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.Crit = set_combine(sets.engaged, {
