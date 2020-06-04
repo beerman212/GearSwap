@@ -1,16 +1,16 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','Suppa','DWEarrings','DWMax'}
-    state.HybridMode:options('Normal','DTLite','PDT','MDT')
+    state.HybridMode:options('Default','DT','Crit')
     state.IdleMode:options('Default','Sphere')
     state.MagicalDefenseMode:options('MDT')
-	state.OffenseMode:options('Normal', 'SomeAcc','Acc','FullAcc','Fodder')
+	state.OffenseMode:options('Default','Acc')
     state.PhysicalDefenseMode:options('PDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.Weapons:options('Default','None')
     state.WeaponskillMode:options('Match','Normal','SomeAcc','Acc','FullAcc','Fodder','Proc')
 	
-    -- Typically on Job Setup file, but adding for sub lvl 99 -- Comment out when maxed
+    -- Typically on Job Setup file, but adding for sub lvl 99 -- Comment out when level 99
     state.MainStep = M{['description']='Main Step','Box Step','Quickstep','Feather Step','Stutter Step'}
     state.AltStep = M{['description']='Alt Step','Quickstep','Stutter Step','Feather Step','Box Step'}
     state.UseAltStep = M(true, 'Use Alt Step')
@@ -27,6 +27,8 @@ function user_setup()
 	gear.senuna_crit = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10'}}                         -- DEX Mod Multihit with Crit Chance WSs (e.g. Eviseration)
 	gear.senuna_da = {name="Senuna's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10'}}                              -- STR Mod Multihit WSs (e.g. Pyrrhic Kleos)
 	gear.senuna_stp = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%'}} -- TP
+    gear.senuna_waltz = {name="Senuna's Mantle",augments={'CHR+20','CHR+10','"Waltz potency"+10%'}}                                             -- Waltz Potency CHR
+    gear.senuna_waltz_self = {name="Senuna's Mantle",augments={'VIT+20','VIT+10','"Waltz potency"+10%'}}                                        -- Waltz Potency Received VIT
     gear.senuna_wsdp = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%'}}                 -- DEX Mod fTP Modified Physical WSs (e.g. Rudra's Storm)
     gear.senuna_wsdm = {name="Senuna's Mantle",augments={'DEX+20','Mag. Acc+20 /Mag. Dmg.+20','DEX+10','Weapon skill damage +10%'}}             -- DEX Mod fTP Modified Physical WSs (e.g. Aeolian Edge)
     
@@ -40,8 +42,8 @@ function user_setup()
         # = Apps Key        ]]
         send_command('bind @` gs c step')                                   -- Windows + `              = 
         send_command('bind ^!@` gs c toggle usealtstep')                    -- Ctrl + Alt + Windows + ` =
-        send_command('bind ^@` gs c cycle mainstep')                        -- Ctrl + Windows + `       =   
-        send_command('bind !@` gs c cycle altstep')                         -- Alt + Windows + `        =
+        send_command('bind ^@` gs c cycle mainstep')                        -- Ctrl + Windows + `       = Cycle Main Step  
+        send_command('bind !@` gs c cycle altstep')                         -- Alt + Windows + `        = Cycle Alt Step
         send_command('bind ^` input /ja "Saber Dance" <me>')                -- Crtl + `                 = Use Saber Dance on Myself
         send_command('bind !` input /ja "Fan Dance" <me>')                  -- Alt + `                  = Use Fan Dance on Myself
         send_command('bind ^\\\\ input /ja "Chocobo Jig II" <me>')          -- Ctrl + \                 = Use Chocobo Jig II on Myself
@@ -90,18 +92,26 @@ function init_gear_sets()
         To define in the state.IdleMode:options(), type the value below after sets.idle. within the parenthesis surrounded by apostrophies (')
         e.g. sets.idle.Default = state.idle:options('Default')
         If not defined in the state.idle:options() above, it will not be accessible by the Windows + F12 cycle hot key          ]]
-    sets.idle.Default = {
-		ammo=empty,
-		head="Raptor Helm",neck="Focus Collar",ear1="Amethyst Earring",ear2="Sardonyx Earring",
-		body="Raptor Jerkin",hands="Raptor Gloves",ring1="Bastokan Ring",ring2="Amethyst Ring",
-		back="Nexus Cape",waist="Swordbelt",legs="Raptor Trousers",feet="Raptor Ledelsens"}
-    sets.idle.Sphere = set_combine(sets.idle, {body="Enforcer's Harness"})
+        sets.idle.Default = {
+            ammo=empty,
+            head="Raptor Helm",neck="Focus Collar",ear1="Amethyst Earring",ear2="Sardonyx Earring",
+            body="Raptor Jerkin",hands="Raptor Gloves",ring1="Bastokan Ring",ring2="Amethyst Ring",
+            back="Nexus Cape",waist="Swordbelt",legs="Raptor Trousers",feet="Raptor Ledelsens"}
+        sets.idle.Sphere = set_combine(sets.idle, {body="Enforcer's Harness"})
     
-    -- Defense sets
-    sets.defense.PDT = {}
-    sets.defense.MDT = {}
-    sets.defense.MEVA = {}
-    sets.Kiting = {}
+    --[[ Defense sets
+        Defense Sets fall into one of 3 possible categories: Physical (F10), Magical (F11), and Resistance (F12)
+        These sets are for emergency use to override current gear with Max Defense focus for the given category
+        
+        PhysicalDefenseMode is cycled using the Ctrl + F10 hot key
+        MagicalDefenseMode is cycled using the Ctrl + F11 hot key
+        ResistanceDefenseMode is cycled using the Ctrl + F12 hot key
+        
+        In order to reset the DefenseMode press the Alt + F12 hot key                                                           ]]
+        sets.defense.PDT = {}       
+        sets.defense.MDT = {}
+        sets.defense.MEVA = {}
+        sets.Kiting = {}            -- Toggle using the Alt + F10 hot key
 
     -- Engaged sets
 
@@ -111,40 +121,20 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee group
-    sets.engaged = {}
-		
-    sets.engaged.DTLite = {}
-		
-    sets.engaged.SomeAcc = {}
-    
-	sets.engaged.Acc = {}
-		
-    sets.engaged.FullAcc = {}
+        sets.engaged = {}
+        sets.engaged.Acc = {}
+        sets.engaged.DT = {}
+        sets.engaged.Crit = {}
 
-    sets.engaged.Fodder = {}
-
-    sets.engaged.PDT = {}
-
-    sets.engaged.SomeAcc.PDT = {}
-		
-    sets.engaged.Acc.PDT = {}
-
-    sets.engaged.FullAcc.PDT = {}
-		
-    sets.engaged.Fodder.PDT = {}
-
-    
-    -- Treasure Hunter
-    -- Treasure Hunter Mode can be activated/deactivated (set to Tag) using the Ctrl + T Hot Key
-    -- Treasure Hunter caps at 4 for non-Thief Jobs and 14 on Thief
+    --[[ Treasure Hunter
+        Treasure Hunter Mode can be activated/deactivated (set to Tag) using the Ctrl + T Hot Key
+        Treasure Hunter caps at 4 for non-Thief Jobs and 14 on Thief                                                        ]]
     	
 	    sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
     
-    -- Precast Sets
-    -- Precast Sets will assess a command and apply this gear before executing and up to the Midcast point
-    -- Precast Sets are defined as sets.precast.[Precast Specifier]
-    -- [Precast Specifiers]
-    -- You may also define specific spells/abilities with a using an additional .[spellname]
+    --[[ Precast Sets
+        Precast Sets will assess a command and apply this gear before executing and up to the Midcast point
+        Precast Sets are defined as sets.precast.Spellname (Spellname only requires [] if there is a space in its name)     ]]
 
     -- Extra Melee sets.  Apply these on top of melee sets.
         sets.Suppa = {}
@@ -155,20 +145,27 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
 
-    sets.precast.JA['No Foot Rise'] = {} --body="Horos Casaque +1"
-
-    sets.precast.JA['Trance'] = {} --head="Horos Tiara +1"
+    --sets.precast.JA['No Foot Rise'] = {body="Horos Casaque +1"}
+    --sets.precast.JA['Trance'] = {head="Horos Tiara +1"}
     
 
-    -- Waltz set (chr and vit)
-    sets.precast.Waltz = {}
-		
-	sets.Self_Waltz = {}
+    --[[ Waltz Sets
+            HP Cured = floor((Waltz Potency gear + Waltz Potency Received) × floor(M × (User's CHR + Target's VIT) + B + 2 × (Waltz Job Point Tiers)))
+            Building Walts Sets should:
+            1. Max out Waltz Potency at 50% and IF on Self, Max out Waltz Potency Received at 30%
+            2. Max out CHR and IF casting on self raise VIT where gear allows for higher VIT than CHR                       ]]
+    sets.precast.Waltz = {ammo="Light Sachet",                                          -- 5% P     0% PR
+        head="Maxixi Tiara +3",neck="Etoile Gorget +2",ear1="Handler's Earring +1",ear2="Handler's Earring",
+        body="Maxixi Casaque +3",hands="Regal Gloves",ring1="Carbuncle Ring +1",ring2="Carbuncle Ring +1",
+        back=gear.senuna_waltz,waist="Aristo Belt",legs="Horos Tights +3",feet="Maxixi Toeshoes +3"}                                                   -- 19%      8% PR   33 CHR  34 VIT
+    sets.Self_Waltz = set_combine(sets.precast.Waltz, {ammo="Brigantia Pebble",
+        hands="Horos Bangles +3",ring1="Regal Ring"
+        back=gear.senuna_waltz_self,waist="Caudata Belt"})     -- 
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
     
-    sets.precast.Samba = {back=gear.stp_jse_back} --head="Maxixi Tiara"
+    sets.precast.Samba = {} --head="Maxixi Tiara"
 
     sets.precast.Jig = {} --legs="Horos Tights", feet="Maxixi Toe Shoes"
 
