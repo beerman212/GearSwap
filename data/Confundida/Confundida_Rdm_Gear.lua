@@ -232,7 +232,7 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
-		main="Bolelabunga",sub="Sors Shield",ammo="Hydrocera",
+		main="Bolelabunga",sub="Sors Shield",ammo="Homiliary",
 		head="Vitiation Chapeau",neck="Warder's Charm",ear1="Bloodgem Earring",ear2="Loquac. Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Ayanmo Ring",
 		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.merlinic.shalwar.refresh,feet=gear.chironic.slippers.refresh

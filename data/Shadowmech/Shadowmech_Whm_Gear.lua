@@ -2,7 +2,7 @@
 function user_setup()
     state.OffenseMode:options('Normal','MaxAcc')
     state.CastingMode:options('Normal','Resistant')
-    state.IdleMode:options('Normal','MEva')
+    state.IdleMode:options('Normal','DT','MEva')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
@@ -292,11 +292,13 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		main="Queller Rod",sub="Sors Shield",
+		main="Queller Rod",sub="Sors Shield",ammo="Homiliary",
 		head="Befouled Crown",neck="Warder's Charm +1",ear1="Infused Earring",ear2="Moonshade Earring",
 		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
 		legs="Assiduity Pants",feet="Aya. Gambieras +1"
 	}
+
+	sets.idle.DT = set_combine(sets.idle, {main="Malignance Pole",sub="Kupayopl"})
 	
 	sets.idle.MEva = {}
 

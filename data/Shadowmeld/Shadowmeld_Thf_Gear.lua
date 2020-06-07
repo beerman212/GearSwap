@@ -182,7 +182,7 @@ function init_gear_sets()
 	sets.precast.WS['Evisceration'] = {
 		ammo="Yetshila",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Odr Earring",ear2="Moonshade Earring",
-		body="Plunderer's Vest +3",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Ilabrat Ring",
+		body="Plunderer's Vest +3",hands=gear.adhemar.wrist.path_a,ring1="Begrudging Ring",ring2="Ilabrat Ring",
 		back=gear.toutatis.crit,waist="Fotia Belt",legs="Pill. Culottes +2",feet="Mummu Gamash. +2"
 	}
 	
@@ -196,7 +196,7 @@ function init_gear_sets()
 	sets.precast.WS['Exenterator'] = {
 		ammo="Seeth. Bomblet +1",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Epona's Ring",
 		back=gear.toutatis.stp,waist="Fotia Gorget",legs="Meg. Chausses +2",feet="Mummu Gamash. +2"
 	}
 	
@@ -266,7 +266,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Malignance Tabard",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.toutatis.stp,waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
 	}
 
@@ -285,21 +285,21 @@ function init_gear_sets()
 	sets.defense.PDT = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
-		body="Malignance Tabard",hands="Meg. Gloves +2",ring1="Moonbeam Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
 		back=gear.toutatis.stp,waist="Flume Belt +1",legs="Malignance Tights"
 	}
 
 	sets.defense.MDT = {
 		ammo="Yamarang",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Eabani Earring",ear2="Odnowa Earring +1",
-		body="Malignance Tabard",hands="Leyline Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
 		back="Moonbeam Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
 	}
 
 	sets.defense.MEVA = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Malignance Tabard",hands="Leyline Gloves",ring1="Defending Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
 		back="Solemnity Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
 	}
 
@@ -312,7 +312,7 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Yamarang",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Sherida Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Gere Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Epona's Ring",
 		back=gear.toutatis.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.Crit = set_combine(sets.engaged, {
@@ -328,12 +328,12 @@ function init_gear_sets()
 	})
 	sets.engaged.PDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.toutatis.stp,legs="Malignance Tights",feet=gear.herculean.boots.ta_low_acc
 	})
 	sets.engaged.MDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
 		legs="Malignance Tights",
 	})
 

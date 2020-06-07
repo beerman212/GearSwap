@@ -38,7 +38,7 @@ gear.merlinic.shalwar.refresh = {name="Merlinic Shalwar",augments={'VIT+1','Pet:
 gear.telchine = {}
 
 gear.telchine.cap = {}
-gear.telchine.cap.enhancing = {name="Telchine Cap",augments={'Enh. Mag. eff. dur. +5'}}
+gear.telchine.cap.enhancing = {name="Telchine Cap",augments={'Enh. Mag. eff. dur. +10'}}
 
 gear.telchine.chasuble = {}
 

@@ -160,7 +160,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Eabani Earring",
-		body="Malignance Tabard",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
 		back="Moonbeam Cape",waist="Moonbow Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 
@@ -204,7 +204,7 @@ function init_gear_sets()
 	sets.engaged.SubtleBlow.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
 
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",legs="Malignance Tights",
+		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",legs="Malignance Tights",
 	})
 	sets.engaged.HybridDT.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
 
