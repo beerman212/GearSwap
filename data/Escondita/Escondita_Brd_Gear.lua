@@ -40,8 +40,8 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Weapons sets
-	sets.weapons.Melee = {main="Kaja Knife",sub="Genbu's Shield"}
-	sets.weapons.MeleeDW = {main="Kaja Knife",sub="Taming Sari"}
+	sets.weapons.Melee = {main="Tauret",sub="Genbu's Shield"}
+	sets.weapons.MeleeDW = {main="Tauret",sub="Taming Sari"}
 	sets.weapons.Savage = {main="Naegling",sub="Genbu's Shield"}
 	sets.weapons.SavageDW = {main="Naegling",sub="Taming Sari"}
 	sets.weapons.Refresh = {main="Sangoma",sub="Genbu's Shield"}
@@ -164,7 +164,7 @@ function init_gear_sets()
 	-- Song-specific recast reduction
 	sets.midcast.SongRecast = set_combine(sets.midcast.FastRecast, {range="Daurdabla",ammo=empty})
 		
-	sets.midcast.SongDebuff.DW = {main="Naegling",sub="Kaja Knife"}
+	sets.midcast.SongDebuff.DW = {main="Naegling",sub="Tauret"}
 
 	-- Cast spell with normal gear, except using Daurdabla instead
     sets.midcast.Daurdabla = {range=info.ExtraSongInstrument}
