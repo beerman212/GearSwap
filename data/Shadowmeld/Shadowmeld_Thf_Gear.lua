@@ -266,7 +266,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Malignance Tabard",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.toutatis.stp,waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
 	}
 
@@ -285,21 +285,21 @@ function init_gear_sets()
 	sets.defense.PDT = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
-		body="Malignance Tabard",hands="Meg. Gloves +2",ring1="Moonbeam Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
 		back=gear.toutatis.stp,waist="Flume Belt +1",legs="Malignance Tights"
 	}
 
 	sets.defense.MDT = {
 		ammo="Yamarang",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Eabani Earring",ear2="Odnowa Earring +1",
-		body="Malignance Tabard",hands="Leyline Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
 		back="Moonbeam Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
 	}
 
 	sets.defense.MEVA = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Malignance Tabard",hands="Leyline Gloves",ring1="Defending Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
 		back="Solemnity Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
 	}
 
@@ -328,12 +328,12 @@ function init_gear_sets()
 	})
 	sets.engaged.PDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.toutatis.stp,legs="Malignance Tights",feet=gear.herculean.boots.ta_low_acc
 	})
 	sets.engaged.MDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",ring1="Defending Ring",ring2="Moonbeam Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
 		legs="Malignance Tights",
 	})
 
