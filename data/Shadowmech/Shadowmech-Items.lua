@@ -21,3 +21,17 @@ gear.chironic.hose ={}
 gear.chironic.hose.enfeeble = {name="Chironic Hose",augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Mag. Acc.+15','"Mag.Atk.Bns."+4'}}
 
 gear.chironic.slippers = {}
+
+gear.telchine = {}
+
+gear.telchine.cap = {}
+
+gear.telchine.chasuble = {}
+
+gear.telchine.gloves = {}
+gear.telchine.gloves.enhancing = {name="Telchine Gloves",augments={'Enh. Mag. eff. dur. +9'}}
+
+gear.telchine.braconi = {}
+
+gear.telchine.pigaches = {}
+gear.telchine.pigaches.enhancing = {name="Telchine Pigaches",augments={'Enh. Mag. eff. dur. +9'}}

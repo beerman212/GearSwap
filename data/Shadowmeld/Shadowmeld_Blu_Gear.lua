@@ -89,7 +89,7 @@ function init_gear_sets()
 	sets.precast.Step = {
 		ammo="Aurgelmir Orb +1",
 		head="Carmine Mask +1",neck="Sanctity Necklace",ear1="Digni. Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Chirich Ring",ring2="Ayanmo Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Chirich Ring",ring2="Ayanmo Ring",
 		back=gear.rosmerta.stp,waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Jhakri Pigaches +2"
 	}
 
@@ -142,7 +142,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'] = {
 		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Odr Earring",ear2="Mache Earring +1",
-		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_b,ring1="Begrudging Ring",ring2="Epona's Ring",
+		body="Abnoba Kaftan",hands=gear.adhemar.wrist.path_a,ring1="Begrudging Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.cdc,waist="Fotia Belt",legs="Samnuha Tights",feet="Thereoid Greaves"
 	}
 	
@@ -226,7 +226,7 @@ function init_gear_sets()
 	
 	sets.midcast['Blue Magic'].Physical.Fodder = set_combine(sets.midcast['Blue Magic'].Physical, {})
 
-	sets.midcast['Blue Magic'].PhysicalAcc = set_combine(sets.midcast['Blue Magic'].Physical, {head="Dampening Tam",ear2="Digni. Earring",body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b})
+	sets.midcast['Blue Magic'].PhysicalAcc = set_combine(sets.midcast['Blue Magic'].Physical, {head="Dampening Tam",ear2="Digni. Earring",body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a})
 
 	sets.midcast['Blue Magic'].PhysicalAcc.Resistant = set_combine(sets.midcast['Blue Magic'].PhysicalAcc, {})
 	sets.midcast['Blue Magic'].PhysicalAcc.Fodder = sets.midcast['Blue Magic'].Fodder
@@ -473,7 +473,7 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Mirage Stole +1",ear1="Suppanomimi",ear2="Cessance Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Petrov Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {

@@ -117,7 +117,7 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",
 		body="Hjarrandi Breast.",hands="Flam. Manopolas +2",
-		back=gear.brigantia.stardiver,legs="Pelt. Cuissots +1",feet=gear.valorous.greaves.strwsd,
+		back=gear.brigantia.stardiver,legs="Pelt. Cuissots +1",feet="Thereoid Greaves",
 	})
 	
 	sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS, {ear2="Moonshade Earring"})

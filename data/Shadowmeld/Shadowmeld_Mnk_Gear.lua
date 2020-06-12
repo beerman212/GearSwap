@@ -187,7 +187,7 @@ function init_gear_sets()
 	-- Normal melee sets
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
-		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Mache Earring +1",ear2="Sherida Earring",
+		head="Adhemar Bonnet +1",neck="Monk's Nodowa",ear1="Mache Earring +1",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
 		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Samnuha Tights",feet="Anch. Gaiters +3"
 	}
