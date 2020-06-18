@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Almace', 'Naegling','MagicWeapons','MagicMelee','Learning','None')
+	state.Weapons:options('TizonaTPBonus','TizonaAcc','Almace','NaeglingTPBonus','NaeglingAcc','MagicWeapons','Club','Learning','None')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
@@ -18,6 +18,9 @@ function user_setup()
 	gear.rosmerta.wsd = {name="Rosmerta's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.rosmerta.mab = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 	gear.rosmerta.fc = {name = "Rosmerta's Cape", augments = {'"Fast Cast"+10',}}
+
+	gear.colada = {}
+	gear.colada.da = {name="Colada",augments={'"Dbl.Atk."+4','STR+3','Accuracy+4','Attack+18','DMG:+11'}}
 
 	gear.obi_cure_waist = "Luminary Sash"
 	gear.obi_nuke_waist = "Yamabuki-no-Obi"
@@ -74,10 +77,12 @@ function init_gear_sets()
 
 	sets.precast.Step = {}
 
-	sets.precast.Flourish1 = {ammo="Falcon Eye",
-			       head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
-                   body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Stikini Ring",
-			       back="Cornflower Cape",waist="Olseni Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+	sets.precast.Flourish1 = {
+		ammo="Falcon Eye",
+		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Digni. Earring",
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Stikini Ring",ring2="Stikini Ring",
+		back="Cornflower Cape",waist="Olseni Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
+	}
 
 	-- Fast cast sets for spells
 
@@ -159,10 +164,12 @@ function init_gear_sets()
 
 	-- Physical Spells --
 
-	sets.midcast['Blue Magic'].Physical = {main="Naegling",sub="Colada",ammo="Falcon Eye",
+	sets.midcast['Blue Magic'].Physical = {
+		main="Naegling",sub="Colada",ammo="Falcon Eye",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Assuage Earring",
 		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",ring1="Ramuh Ring",ring2="Apate Ring",
-		back=gear.rosmerta.wsd,waist="Eschan Stone",legs="Samnuha Tights",feet="Jhakri Pigaches +1"}
+		back=gear.rosmerta.wsd,waist="Eschan Stone",legs="Samnuha Tights",feet="Jhakri Pigaches +1"
+	}
 
 	sets.midcast['Blue Magic'].Physical.Resistant = set_combine(sets.midcast['Blue Magic'].Physical, {
 		body="Assim. Jubbah +3",back=gear.rosmerta.stp,legs="Jhakri Slops +1"})
@@ -340,10 +347,12 @@ function init_gear_sets()
 	sets.Learning = {hands="Assim. Bazu. +2"}
 	
 	-- Idle sets
-	sets.idle = {ammo="Staunch Tathlum",
+	sets.idle = {
+		ammo="Staunch Tathlum +1",
 		head=gear.herculean.helm.refresh,neck="Twilight Torque",ear1="Etiolation Earring",
 		body="Jhakri Robe +2",hands=gear.herculean.gloves.refresh,ring1="Defending Ring",ring2="Warden's Ring",
-		back=gear.rosmerta.stp,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet=gear.herculean.boots.refresh}
+		back=gear.rosmerta.stp,waist="Flume Belt +1",legs="Aya. Cosciales +2",feet=gear.herculean.boots.refresh
+	}
 
 	sets.idle.Sphere = set_combine(sets.idle, {})
 
@@ -377,50 +386,29 @@ function init_gear_sets()
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
 	-- Weapons sets
+	sets.weapons.TizonaTPBonus = {main="Tizona",sub="Thibron"}
+	sets.weapons.TizonaAcc = {main="Tizona",sub="Naegling"}
 	sets.weapons.Almace = {main="Almace",sub="Naegling"}
-	sets.weapons.Naegling = {main="Naegling",sub="Thibron"}
+	sets.weapons.NaeglingTPBonus = {main="Naegling",sub="Thibron"}
 	sets.weapons.NaeglingAcc = {main="Naegling",sub="Almace"}
-	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Nibiru Cudgel"}
-	sets.weapons.MagicMelee = {main="Naegling",sub="Kaja Rod"}
+	sets.weapons.MagicWeapons = {main="Naegling",sub="Kaja Rod"}
+	sets.weapons.Club = {main="Kaja Rod",sub="Naegling"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
 
-	sets.engaged = {ammo="Aurgelmir Orb",
-		head="Aya. Zucchetto +2",neck="Clotharius Torque",ear1="Suppanomimi",ear2="Cessance Earring",
-		body="Adhemar Jacket +1",hands=gear.herculean.gloves.ma,ring1="Petrov Ring",ring2="Epona's Ring",
-		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet="Aya. Gambieras +2"}
+	sets.engaged = {
+		ammo="Aurgelmir Orb",
+		head="Adhemar Bonnet +1",neck="Clotharius Torque",ear1="Suppanomimi",ear2="Cessance Earring",
+		body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Petrov Ring",ring2="Epona's Ring",
+		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet="Aya. Gambieras +2"
+	}
 
-	sets.engaged.Acc = set_combine(sets.engaged, {ear1="Regal Earring",ring2="Ayanmo Ring",feet="Assim. Charuqs +2"})
+	sets.engaged.AM = set_combine(sets.engaged, {})
 
 	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {
-		hands="Adhemar Wristbands",ring1="Ilabrat Ring",legs="Carmine Cuisses +1"})
-
-	sets.engaged.Fodder = set_combine(sets.engaged, {})
-
-	sets.engaged.DTLite = set_combine(sets.engaged, {ring1="Defending Ring",ring2="Warden's Ring",waist="Flume Belt +1"})
-
-	sets.engaged.PDT = set_combine(sets.engaged, {})
-
-	sets.engaged.Acc.DTLite = set_combine(sets.engaged.Acc, {ring1="Defending Ring",ring2="Warden's Ring",waist="Flume Belt +1"})
-
-	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {})
-
-	sets.engaged.FullAcc.DTLite = set_combine(sets.engaged.FullAcc, {ring1="Defending Ring",ring2="Warden's Ring",waist="Flume Belt +1"})
-
-	sets.engaged.FullAcc.PDT = set_combine(sets.engaged.FullAcc, {})
-
-	sets.engaged.Fodder.DTLite = set_combine(sets.engaged.Fodder, {ring1="Defending Ring",ring2="Warden's Ring",waist="Flume Belt +1"})
-
-	sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, {})
-
-	sets.engaged.MDT = set_combine(sets.engaged, {})
-
-	sets.engaged.Acc.MDT = set_combine(sets.engaged.Acc, {})
-
-	sets.engaged.FullAcc.MDT = set_combine(sets.engaged.FullAcc, {})
-
-	sets.engaged.Fodder.MDT = set_combine(sets.engaged.Fodder, {})
+		hands="Adhemar Wristbands",ring1="Ilabrat Ring",legs="Carmine Cuisses +1"
+	})
 
 	sets.Self_Healing = {waist="Gishdubar Sash"}
 	sets.Self_Healing_Club = {waist="Gishdubar Sash"}
@@ -430,6 +418,7 @@ function init_gear_sets()
 	sets.Cure_Received = {waist="Gishdubar Sash"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
 	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1"}
+	sets.Phalanx_Recieved = {legs=gear.herculean.trousers.phalanx}
 
 end
 

@@ -112,7 +112,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Telos Earring",ear2="Ishvara Earring",
-		body="Piety Briault +3",hands="Aya. Manopolas +2",ring1="Shukuyu Ring",ring2="Ayanmo Ring",
+		body="Piety Briault +3",hands="Aya. Manopolas +2",ring1="Rufescent Ring",ring2="Ayanmo Ring",
 		back=gear.alaunus.stp,waist="Fotia Belt",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
 	}
 		

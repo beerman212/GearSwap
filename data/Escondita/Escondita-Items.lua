@@ -43,6 +43,7 @@ gear.herculean.gloves.refresh = {name = "Herculean Gloves", augments = {'Attack+
 gear.herculean.trousers = {}
 gear.herculean.trousers.ma = {name = "Herculean Trousers", augments = {'Accuracy+12 Attack+12','"Triple Atk."+2','DEX+2','Accuracy+13','Attack+10',}}
 gear.herculean.trousers.magical = {name = "Herculean Trousers", augments = {'Mag. Acc.+27','"Mag.Atk.Bns."+14','Accuracy+4 Attack+4','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
+gear.herculean.trousers.phalanx = {name="Herculean Trousers",augments={'"Dbl.Atk."+2','Accuracy+27','Phalanx +4','Accuracy+2 Attack+2'}}
 
 gear.herculean.boots = {}
 gear.herculean.boots.wsd = {name = "Herculean Boots", augments = {'Pet: Accuracy+18 Pet: Rng. Acc.+18','Weapon skill damage +6%','Accuracy+19 Attack+19',}}
