@@ -15,7 +15,7 @@ sets.weapons.ProcStaff = {main="Ram Staff",sub="Duplus Grip"}
 sets.weapons.ProcGreatKatana = {main="Lotus Katana",sub="Duplus Grip"}
 sets.weapons.ProcDagger = {main="Qutrub Knife",sub="Trainee Burin"}
 sets.weapons.ProcScythe = {main="Hoe",sub="Duplus Grip"}
-sets.weapons.ProcKatana = {main="Trainee Burin",sub="Ark Saber"}
+sets.weapons.ProcKatana = {main="Trainee Burin",sub="Excalipoor II"}
 sets.weapons.ProcPolearm = {main="Pitchfork +1",sub="Duplus Grip"}
 sets.weapons.ProcGreatsword = {main="Lament",sub="Duplus Grip"}
 

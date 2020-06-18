@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Almace', 'Naegling','MagicWeapons','MagicMelee','Learning','None')
+	state.Weapons:options('Almace', 'Naegling','MagicWeapons','MagicMelee','TizTrials','Learning','None')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
@@ -382,6 +382,7 @@ function init_gear_sets()
 	sets.weapons.NaeglingAcc = {main="Naegling",sub="Almace"}
 	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Nibiru Cudgel"}
 	sets.weapons.MagicMelee = {main="Naegling",sub="Kaja Rod"}
+	sets.weapons.TizTrials = {main="Tizona",sub="Excalipoor II"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets
