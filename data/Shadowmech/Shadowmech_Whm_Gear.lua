@@ -17,7 +17,7 @@ function user_setup()
 	gear.obi_nuke_back = ""
 
 	gear.alaunus = {}
-	gear.alaunus.fc = {name="Alaunus's Cape",augments={'Mag. Acc+16 /Mag. Dmg.+16','"Fast Cast"+10'}}
+	gear.alaunus.fc = {name="Alaunus's Cape",augments={'MND+20','Mag. Acc+19 /Mag. Dmg.+19','MND+4','"Fast Cast"+10'}}
 
 		-- Additional local binds
 	send_command('bind ^` input /ma "Arise" <t>')
@@ -48,13 +48,13 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons = {}
 	sets.weapons.Club = {main="Queller Rod",sub="Sors Shield"}
-	sets.weapons.Staff = {main="Nilgal Pole",sub="Willpower Grip"}
+	sets.weapons.Staff = {main="Malignance Pole",sub="Kupayopl"}
 
     -- Precast Sets
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-		head="Nahtirah Hat",neck="Baetyl Pendant",ear2="Moonshade Earring",
+		head="Nahtirah Hat",neck="Cleric's Torque",ear1="Etiolation Earring",ear2="Moonshade Earring",
 		body="Inyanga Jubbah +1",hands="Gende. Gages +1",ring1="Kishar Ring",
 		back=gear.alaunus.fc,waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps +1"
 	}
@@ -70,7 +70,7 @@ function init_gear_sets()
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 	
     sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {
-		main="Queller Rod",sub="Sors Shield",feet="Hygieia Clogs"
+		feet="Hygieia Clogs"
 	})
 	
 	sets.precast.FC.Cure.DT = {
@@ -135,9 +135,9 @@ function init_gear_sets()
 	
 	sets.midcast.Cure = {
 		main="Queller Rod",sub="Sors Shield",
-		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
-		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Ephedra Ring",ring2="Kuchekula Ring",
-		legs="Ebers Pant. +1",feet="Piety Duckbills"
+		head="Vanya Hood",neck="Cleric's Torque",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
+		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Janniston Ring",ring2="Kuchekula Ring",
+		back=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Piety Duckbills +1"
 	}
 		
 	sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaud +1",back=gear.alaunus.fc})
@@ -160,9 +160,9 @@ function init_gear_sets()
 		
 	--Melee Curesets are used whenever your Weapons state is set to anything but None.
 	sets.midcast.MeleeCure = {
-		head="Vanya Hood",neck="Imbodla Necklace",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
-		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",ring2="Kuchekula Ring",
-		legs="Ebers Pant. +1",feet="Piety Duckbills"
+		head="Vanya Hood",neck="Cleric's Torque",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
+		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Janniston Ring",ring2="Kuchekula Ring",
+		waist=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Piety Duckbills +1"
 	}
 		
 	sets.midcast.MeleeCureSolace = set_combine(sets.midcast.MeleeCure, {})
@@ -193,12 +193,12 @@ function init_gear_sets()
 	sets.midcast.MeleeLightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
 	sets.midcast.MeleeLightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, {})
 
-	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {main="Nilgal Pole",sub="Clerisy Strap",head="Ebers Cap +1"})
+	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {head="Ebers Cap +1"})
 
 	sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
 		neck="Malison Medallion",
 		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",
-		legs="Theo. Pant. +2",feet="Vanya Clogs"
+		legs="Th. Pantaloons +2",feet="Vanya Clogs"
 	})
 
 	sets.midcast['Enhancing Magic'] = {
@@ -222,7 +222,7 @@ function init_gear_sets()
 		main="Bolelabunga",sub="Sors Shield",
 		head="Inyanga Tiara +1",
 		body="Piety Briault",hands="Ebers Mitts +1",
-		legs="Theo. Pant. +2"
+		legs="Th. Pantaloons +2"
 	})
 	
 	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], sets.Sheltered, {})
@@ -263,10 +263,10 @@ function init_gear_sets()
 	sets.midcast.Stun.Resistant = {}
 
 	sets.midcast['Enfeebling Magic'] = {
-		main="Eminent Staff",sub="Mephitis Grip",
-		head="Befouled Crown",neck="Erra Pendant",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-		body="Inyanga Jubbah +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Sangoma Ring",
-		back=gear.alaunus.fc,legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +2"
+		main="Ajja Staff",sub="Mephitis Grip",
+		head="Theophany Cap +2",neck="Erra Pendant",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
+		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +2"
 	}
 
 	sets.midcast['Enfeebling Magic'].Resistant = {}
@@ -294,12 +294,12 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
 		main="Queller Rod",sub="Sors Shield",ammo="Homiliary",
-		head="Befouled Crown",neck="Warder's Charm +1",ear1="Infused Earring",ear2="Moonshade Earring",
+		head=gear.chironic.hat.refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
 		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
-		legs="Assiduity Pants",feet="Aya. Gambieras +1"
+		back="Moonbeam Cape",legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +1"
 	}
 
-	sets.idle.DT = set_combine(sets.idle, {main="Malignance Pole",sub="Kupayopl"})
+	sets.idle.DT = set_combine(sets.idle, {main="Malignance Pole",sub="Kupayopl",ammo="Staunch Tathlum"})
 	
 	sets.idle.MEva = {}
 
@@ -327,9 +327,9 @@ function init_gear_sets()
 
     -- Basic set for if no TP weapon is defined.
 	sets.engaged = {
-		head="Aya. Zucchetto",neck="Focus Collar",ear1="Steelflash Earring",ear2="Bladeborn Earring",
+		head="Aya. Zucchetto",ear1="Steelflash Earring",ear2="Bladeborn Earring",
 		body="Ayanmo Corazza",hands="Aya. Manopolas +1",ring1="Petrov Ring",ring2="K'ayres Ring",
-		waist="Grunfeld Rope",legs="Ayanmo Cosciales",feet="Aya. Gambieras +1"
+		waist="Grunfeld Rope",legs="Ayanmo Cosciales",feet="Aya. Gambieras +2"
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
 

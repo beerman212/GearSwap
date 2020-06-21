@@ -14,11 +14,13 @@ sets.precast.Item['Holy Water'] = {}
 gear.chironic = {}
 
 gear.chironic.hat = {}
+gear.chironic.hat.refresh = {name="Chironic Hat",augments={'Attack+7','"Refresh"+1','Accuracy+12 Attack+12','Mag. Acc.+19 "Mag.Atk.Bns."+19'}}
 
 gear.chironic.gloves = {}
 
 gear.chironic.hose ={}
 gear.chironic.hose.enfeeble = {name="Chironic Hose",augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Mag. Acc.+15','"Mag.Atk.Bns."+4'}}
+gear.chironic.hose.refresh = {name="Chironic Hose",augments={'AGI+2','Pet: AGI+3','"Refresh"+1','Accuracy+7 Attack+7','Mag. Acc.+11 "Mag.Atk.Bns."+11'}}
 
 gear.chironic.slippers = {}
 

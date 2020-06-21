@@ -302,7 +302,7 @@ function init_gear_sets()
 	sets.midcast.RA = {
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
-		body="Malignance Tabard",hands=gear.adhemar.wrist.path_c,ring1="Petrov Ring",ring2="Ilabrat Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Petrov Ring",ring2="Ilabrat Ring",
 		back=gear.camulus.stp.ranged,waist="Yemaya Belt",legs="Malignance Tights",feet="Adhe. Gamashes +1"
 	}
 
@@ -324,7 +324,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
-		body="Malignance Tabard",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
 		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 		
@@ -381,7 +381,7 @@ function init_gear_sets()
 	-- Normal melee group
 	sets.engaged = {
 		head="Adhemar Bonnet +1",neck="Iskur Gorget",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_b,ring1="Petrov Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Petrov Ring",ring2="Epona's Ring",
 		back=gear.camulus.stp.melee,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
