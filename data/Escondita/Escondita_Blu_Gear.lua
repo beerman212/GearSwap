@@ -125,7 +125,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
 		head="Aya. Zucchetto +2",ear1="Odr Earring",ear2="Moonshade Earring",
-		body="Adhemar Jacket +1",hands="Adhemar Wristbands",ring1="Ilabrat Ring",ring2="Rajas Ring",
+		body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Ilabrat Ring",ring2="Rajas Ring",
 		back=gear.rosmerta.cdc,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {})
 	sets.precast.WS['Chant du Cygne'].FullAcc = set_combine(sets.precast.WS['Chant du Cygne'].Acc, {})
@@ -391,8 +391,6 @@ function init_gear_sets()
 	sets.weapons.Almace = {main="Almace",sub="Naegling"}
 	sets.weapons.NaeglingTPBonus = {main="Naegling",sub="Thibron"}
 	sets.weapons.NaeglingAcc = {main="Naegling",sub="Almace"}
-	sets.weapons.MagicWeapons = {main="Kaja Rod",sub="Nibiru Cudgel"}
-	sets.weapons.MagicMelee = {main="Naegling",sub="Kaja Rod"}
 	sets.weapons.TizTrials = {main="Tizona",sub="Excalipoor II"}
 	sets.weapons.MagicWeapons = {main="Naegling",sub="Kaja Rod"}
 	sets.weapons.Club = {main="Kaja Rod",sub="Naegling"}
@@ -410,7 +408,7 @@ function init_gear_sets()
 	sets.engaged.AM = set_combine(sets.engaged, {})
 
 	sets.engaged.FullAcc = set_combine(sets.engaged.Acc, {
-		hands="Adhemar Wristbands",ring1="Ilabrat Ring",legs="Carmine Cuisses +1"
+		hands="Adhemar Wrist. +1",ring1="Ilabrat Ring",legs="Carmine Cuisses +1"
 	})
 
 	sets.Self_Healing = {waist="Gishdubar Sash"}
