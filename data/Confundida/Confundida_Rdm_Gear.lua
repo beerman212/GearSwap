@@ -265,7 +265,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.Default = {}
 	sets.weapons.Sword = {main="Nibiru Blade",sub="Sors Shield"}
-	sets.weapons.Dual = {main="Nibiru Blade",sub="Eminent Scimitar"}
+	sets.weapons.Dual = {main="Nibiru Blade",sub="Buramenk'ah"}
 
 	-- Engaged sets
 
