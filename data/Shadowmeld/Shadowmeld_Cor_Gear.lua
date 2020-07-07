@@ -77,17 +77,17 @@ function init_gear_sets()
 	sets.precast.CorsairRoll = {
 		range="Compensator",
 		head="Lanun Tricorne +2",neck="Regal Necklace",ear2="Genmei Earring",
-		body="Malignance Tabard",hands="Chasseur's Gants",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		body="Malignance Tabard",hands="Chasseur's Gants +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 
 	sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
 
-	sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chas. Culottes"})
+	sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chas. Culottes +1"})
 	sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +1"})
 	sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +1"})
 	sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +1"})
-	sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants"})
+	sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +1"})
 	
 	sets.precast.CorsairShot = {
 		ammo=gear.QDbullet,

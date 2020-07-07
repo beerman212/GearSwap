@@ -17,14 +17,14 @@ function user_setup()
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	
 	gear.sucellos = {}
-	gear.sucellos.stp = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10',}}
-	gear.sucellos.wsd = {name = "Sucellos's Cape", augments = {'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-	gear.sucellos.cdc = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
-	gear.sucellos.enfeeble = {name = "Sucellos's Cape", augments = {'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
-	gear.sucellos.mab = {name = "Sucellos's Cape", augments = {'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+	gear.sucellos.stp = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Damage taken-5%'}}
+	gear.sucellos.wsd = {name = "Sucellos's Cape", augments = {'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%'}}
+	gear.sucellos.cdc = {name = "Sucellos's Cape", augments = {'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10'}}
+	gear.sucellos.enfeeble = {name = "Sucellos's Cape", augments = {'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10'}}
+	gear.sucellos.mab = {name = "Sucellos's Cape", augments = {'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10'}}
 
 	gear.colada = {}
-	gear.colada.enhancing = {name = "Colada", augments = {'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18',}}
+	gear.colada.enhancing = {name = "Colada", augments = {'Enh. Mag. eff. dur. +4','MND+2','Mag. Acc.+15','"Mag.Atk.Bns."+18'}}
 	gear.colada.refresh1 = {name="Colada",augments={}}
 	gear.colada.refresh2 = {name="Colada",augments={}}
 	
@@ -100,36 +100,36 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Aurgelmir Orb +1",
-		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Sherida Earring",
+		head="Viti. Chapeau +3",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Sherida Earring",
 		body="Viti. Tabard +3",hands="Jhakri Cuffs +2",ring1="Rufescent Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS['Requiescat'] = {
+	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
 		ammo="Regal Gem",
-		head="Viti. Chapeau +2",neck="Fotia Gorget",ear1="Regal Earring",ear2="Moonshade Earring",
-		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring1="Hetairoi Ring",ring2="Shukuyu Ring",
-		back=gear.sucellos.enfeeble,waist="Fotia Belt",legs="Jhakri Slops +2",feet="Carmine Greaves +1"
-	}
-		
+		ear1="Moonshade Earring",
+		hands="Viti. Gloves +3",ring2="Ilabrat Ring",
+		back=gear.sucellos.enfeeble,legs="Viti. Tights +3",feet="Carmine Greaves +1"
+	})
+	
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {ammo="Aurgelmir Orb +1",head="Carmine Mask +1",ring1="Chirich Ring",ring2="Ilabrat Ring",back=gear.sucellos.stp})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
 		
-	sets.precast.WS['Chant du Cygne'] = {
+	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
 		ammo="Yetshila",
-		head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
-		body="Viti. Tabard +3",hands=gear.taeon.gloves.cdc,ring1="Begrudging Ring",ring2="Ilabrat Ring",
-		back=gear.sucellos.cdc,waist="Fotia Belt",legs=gear.taeon.tights.cdc,feet="Jhakri Pigaches +2"
-	}
+		ear1="Mache Earring +1",
+		body="Malignance Tabard",hands=gear.taeon.gloves.cdc,ring1="Begrudging Ring",ring2="Ilabrat Ring",
+		back=gear.sucellos.cdc,legs="Viti. Tights +3",feet="Thereoid Greaves"
+	})
 		
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {ammo="Aurgelmir Orb +1",head="Carmine Mask +1",hands="Jhakri Cuffs +2",legs="Carmine Cuisses +1"})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
 		
 	sets.precast.WS['Savage Blade'] = {
 		ammo="Regal Gem",
-		head="Viti. Chapeau +2",neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",
+		head="Viti. Chapeau +3",neck="Caro Necklace",ear1="Regal Earring",ear2="Moonshade Earring",
 		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring1="Rufescent Ring",ring2="Shukuyu Ring",
 		back=gear.sucellos.wsd,waist="Grunfeld Rope",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"
 	}
@@ -158,7 +158,7 @@ function init_gear_sets()
 	sets.precast.WS['Empyreal Arrow'] = {
 		ammo="",
 		head="Malignance Chapeau",neck="Marked Gorget",ear1="Telos Earring",ear2="Enervating Earring",
-		body="Malignance Tabard",hands="",ring1="",ring2="",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="",ring2="",
 		back=gear.sucellos.stp,waist="Yemaya Belt",legs="Malignance Tights",feet=""
 	}
 	
@@ -227,11 +227,11 @@ function init_gear_sets()
 	sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
 	sets.midcast.Protect = {ring2="Sheltered Ring"}
 	sets.midcast.Shell = {ring2="Sheltered Ring"}
-	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
-	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",legs="Atrophy Tights +2"}
-	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +2",waist="Olympus Sash",legs="Atrophy Tights +2"}
+	sets.midcast.Enspell = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +3",legs="Atrophy Tights +2"}
+	sets.midcast.Temper = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +3",legs="Atrophy Tights +2"}
+	sets.midcast['Temper II'] = {head="Befouled Crown",neck="Incanter's Torque",hands="Viti. Gloves +3",waist="Olympus Sash",legs="Atrophy Tights +2"}
 	sets.midcast.Phalanx = {head=gear.taeon.chapeau.phalanx,body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx}
-	sets.midcast.BoostStat = {hands="Viti. Gloves +2"}
+	sets.midcast.BoostStat = {hands="Viti. Gloves +3"}
 
 	sets.midcast['Enfeebling Magic'] = {
 		main="Naegling",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
@@ -244,7 +244,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'].Potency = {range=empty,ammo="Regal Gem",neck="Dls. Torque +2",body="Lethargy Sayon +1",back=gear.sucellos.enfeeble,feet="Vitiation Boots +3"}
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
 
-	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +2"})
+	sets.midcast['Enfeebling Magic'].MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {head="Viti. Chapeau +3"})
 	sets.midcast['Enfeebling Magic'].MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles, sets.midcast['Enfeebling Magic'].Potency, {})
 
 	sets.midcast['Enfeebling Magic'].IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {hands="Jhakri Cuffs +2",back=gear.sucellos.mab})
@@ -275,8 +275,8 @@ function init_gear_sets()
 	
 	sets.midcast['Poison'] = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {})
 	sets.midcast['Poison'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, sets.midcast['Enfeebling Magic'].Potency, {})
-	sets.midcast['Poison II'] = set_combine(sets.midcast['Poison'], {head="Viti. Chapeau +2"})
-	sets.midcast['Poison II'].Resistant = set_combine(sets.midcast['Poison'].Resistant, {head="Viti. Chapeau +2"})
+	sets.midcast['Poison II'] = set_combine(sets.midcast['Poison'], {head="Viti. Chapeau +3"})
+	sets.midcast['Poison II'].Resistant = set_combine(sets.midcast['Poison'].Resistant, {head="Viti. Chapeau +3"})
 
 	sets.midcast.Gravity = set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].Potency, {})
 	sets.midcast.Gravity.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, sets.midcast['Enfeebling Magic'].Potency, {})
@@ -345,9 +345,9 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle = {
 		main="Daybreak",sub="Sacro Bulwark",ammo="Homiliary",
-		head="Viti. Chapeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
+		head="Viti. Chapeau +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Genmei Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Dark Ring",
-		back="Moonbeam Cape",waist="Flume Belt +1",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh
+		back=gear.sucellos.stp,waist="Flume Belt +1",legs=gear.chironic.hose.refresh,feet=gear.merlinic.crackows.refresh
 	}
 	
 	sets.idle.PDT = set_combine(sets.idle, {
@@ -378,7 +378,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
 		body="Malignance Tabard",hands="",ring1="Defending Ring",ring2="Purity Ring",
-		back="Moonbeam Cape",waist="",legs="Malignance Tights",feet=""
+		back=gear.sucellos.stp,waist="",legs="Malignance Tights",feet=""
 	}
 		
 	sets.defense.MEVA = set_combine(sets.defense.MDT, {head="Ea Hat",body="Ea Houppelande"})
@@ -683,7 +683,7 @@ function get_enfeebling_duration_from_merits(casting_set)
 	if enfeebling_duration_merits > 0 then
 		duration_bonus = enfeebling_duration_merits * 6
 
-		if S{"Viti. Chapeau +3","Viti. Chapeau +2","Viti. Chapeau +1","Vitiation Chapeau"}:contains(casting_set.head) then
+		if S{"Viti. Chapeau +3","Viti. Chapeau +3","Viti. Chapeau +1","Vitiation Chapeau"}:contains(casting_set.head) then
 			duration_bonus = duration_bonus + (enfeebling_duration_merits * 3)
 		end
 	end

@@ -62,20 +62,20 @@ function init_gear_sets()
 
 	sets.Enmity = {
 		ammo="Sapience Orb",
-		head="Halitus Helm",neck="Moonbeam Necklace",ear2="Friomisi Earring",
+		head="Halitus Helm",neck="Moonbeam Necklace",ear1="Odnowa Earring +1",ear2="Cryptic Earring",
 		body="Emet Harness +1",hands="Futhark Mitons +1",ring1="Petrov Ring",ring2="Supershear Ring",
 		back=gear.ogma.enmity,waist="Kasiri Belt",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
 	sets.Enmity.SIRD = {
 		ammo="Staunch Tathlum",
-		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Odnowa Earring +1",ear2="Friomisi Earring",
+		head=gear.taeon.chapeau.phalanx,neck="Moonbeam Necklace",ear1="Odnowa Earring +1",ear2="Cryptic Earring",
 		body=gear.taeon.tabard.phalanx,hands="Rawhide Gloves",ring1="Petrov Ring",ring2="Supershear Ring",
 		back=gear.ogma.enmity,waist="Rumination Sash",legs="Carmine Cuisses +1",feet=gear.taeon.boots.phalanx
 	}
 
 	sets.Enmity.DT = {ammo="Staunch Tathlum",
-		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Emet Harness +1",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.enmity,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
@@ -241,6 +241,7 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'] = set_combine(sets.midcast.FastRecast, sets.Enmity, {})
 	sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast.FastRecast, sets.Enmity.SIRD, {})
 	sets.midcast.Cocoon = set_combine(sets.midcast.FastRecast, sets.Enmity.SIRD, {})
+	sets.midcast.Poisonga = sets.midcast.Flash
 
 	sets.midcast.Cure = {ammo="Staunch Tathlum",
 		neck="Incanter's Torque",ear1="Mendi. Earring",ear2="Gwati Earring",
@@ -272,12 +273,12 @@ function init_gear_sets()
 	
 	sets.idle.Tank = {
 		ammo="Staunch Tathlum",
-		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Erilaz Surcoat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
-	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Meghanada Visor +2",legs="Carmine Cuisses +1"})
+	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Fu. Bandeau +2",legs="Carmine Cuisses +1"})
 
 	sets.idle.Weak = set_combine(sets.idle, {})
 
@@ -303,7 +304,7 @@ function init_gear_sets()
 	
 	sets.defense.PDT = {
 		ammo="Staunch Tathlum",
-		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Erilaz Surcoat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
@@ -350,7 +351,7 @@ function init_gear_sets()
 	sets.engaged.HybridDT = set_combine(sets.engaged, {})
 	sets.engaged.Tank = {
 		ammo="Staunch Tathlum",
-		head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
+		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
 		body="Futhark Coat +3",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.da,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Turms Leggings"
 	}

@@ -99,7 +99,7 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head=gear.valorous.mask.strwsd,neck="Fotia Gorget",ear1="Sherida Earring",ear2="Thrud Earring",
 		body=gear.valorous.mail.strwsd,hands=gear.valorous.mitts.vitwsd,ring1="Niqmaddu Ring",ring2="Regal Ring",
-		back=gear.brigantia.sonicthrust,waist="Fotia Belt",legs="Vishap Brais +2",feet="Sulev. Leggings +2",
+		back=gear.brigantia.sonicthrust,waist="Fotia Belt",legs="Vishap Brais +3",feet="Sulev. Leggings +2",
 	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {})
@@ -130,6 +130,8 @@ function init_gear_sets()
 		body="Flamma Korazin +2",hands="Flam. Manopolas +2",ring1="Etana Ring",ring2="Flamma Ring",
 		legs="Flamma Dirs +2",feet="Flam. Gambieras +2",
 	})
+
+	sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS, {})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {}
@@ -224,51 +226,4 @@ function select_default_macro_book()
 	else
 		set_macro_page(5, 11)
 	end
-end
-
-function check_haste_level()
-	local haste_level = 0
-	local ja_haste_level = 0
-
-	if buffactive[33] then -- Haste Spell
-		haste_level = 15 * lasthaste
-	end
-
-	if buffactive["March"] then
-		if buffactive["March"] == 1 then
-			haste_level = haste_level + 16
-		else
-			haste_level = haste_level + 44
-		end
-	end
-
-	if buffactive[580] then --Geo Haste
-		haste_level = haste_level + 30
-	end
-
-	haste_level = math.min(43.75, haste_level)
-
-	if pet.isvalid then
-		ja_haste_level = ja_haste_level + 10
-	end
-
-	if buffactive["Hasso"] then
-		ja_haste_level = ja_haste_level + 10
-	end
-
-	if buffactive["Last Resort"] then
-		ja_haste_level = ja_haste_level + 15
-	end
-
-	if buffactive["Haste Samba"] then
-		ja_haste_level = ja_haste_level + 5
-	end
-
-	if buffactive["Spirit Surge"] then
-		ja_haste_level = ja_haste_level + 25
-	end
-
-	ja_haste_level = math.min(25, ja_haste_level)
-
-	return ja_haste_level + haste_level
 end

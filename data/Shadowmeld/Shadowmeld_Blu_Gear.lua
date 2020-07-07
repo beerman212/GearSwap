@@ -477,7 +477,7 @@ function init_gear_sets()
 		back=gear.rosmerta.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",legs="Malignance Tights"
+		head="Malignance Chapeau",hands="Malignance Gloves",ring1="Defending Ring",legs="Malignance Tights"
 	})
 	sets.engaged.PDT = set_combine(sets.engaged.HybridDT, {
 		ammo="Staunch Tathlum",hands="Assim. Bazu. +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",

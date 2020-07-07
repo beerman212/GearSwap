@@ -49,6 +49,7 @@ function init_gear_sets()
 	sets.weapons = {}
 	sets.weapons.Club = {main="Queller Rod",sub="Sors Shield"}
 	sets.weapons.Staff = {main="Malignance Pole",sub="Kupayopl"}
+	sets.weapons.ProcClub = {main="Relic Maul",sub="Sors Shield"}
 
     -- Precast Sets
 
