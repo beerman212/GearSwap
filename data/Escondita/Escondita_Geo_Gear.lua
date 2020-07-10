@@ -60,10 +60,12 @@ function init_gear_sets()
 	
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {main=gear.grioavolr.nuke,sub="Clerisy Strap",range="Dunna",ammo=empty,
+	sets.precast.FC = {
+		main=gear.grioavolr.nuke,sub="Clerisy Strap",range="Dunna",ammo=empty,
 		head="Nahtirah Hat",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		hands="Volte Gloves",ring2="Kishar Ring",
-		back="Lifestream Cape",waist="Channeler's Stone",legs="Geo. Pants +2",feet=gear.merlinic.crackows.refresh}
+		back="Lifestream Cape",waist="Channeler's Stone",legs="Geo. Pants +2",feet=gear.merlinic.crackows.refresh
+	}
 
 	sets.precast.FC.Geomancy = set_combine(sets.precast.FC, {range="Dunna",ammo=empty})
 	
@@ -92,21 +94,25 @@ function init_gear_sets()
 	-- Midcast sets
 	--------------------------------------
 
-    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Mallquis Saio +2",ring1="Defending Ring"})
+    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Mallquis Saio +1",ring1="Defending Ring"})
 
-	sets.midcast.Geomancy = {main="Idris",sub="Genbu's Shield",range="Dunna",
+	sets.midcast.Geomancy = {
+		main="Idris",sub="Genbu's Shield",range="Dunna",
 		head="Vanya Hood",neck="Incanter's Torque",ear1="Mendi. Earring",
 		body="Vedic Coat",hands="Geo. Mitaines +2",ring1="Defending Ring",ring2="Dark Ring",
-		back="Lifestream Cape",waist="Luminary Sash",legs="Vanya Slops",feet="Amalric Nails"}
+		back="Lifestream Cape",waist="Luminary Sash",legs="Vanya Slops",feet="Amalric Nails +1"
+	}
 
 
 	--Extra Indi duration as long as you can keep your 900 skill cap.
 	sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {legs="Bagua Pants",feet="Azimuth Gaiters +1"})
 		
-    sets.midcast.Cure = {main="Serenity",sub="Enki Strap",
+    sets.midcast.Cure = {
+		main="Serenity",sub="Enki Strap",
         head="Vanya Hood",neck="Incanter's Torque",ear1="Regal Earring",ear2="Mendi. Earring",
         body="Annoint. Kalasiris",hands="Telchine Gloves",
-        waist="Luminary Sash",legs="Geo. Pants +2",feet="Vanya Clogs"}
+		waist="Luminary Sash",legs="Geo. Pants +2",feet="Vanya Clogs"
+	}
 		
     sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {back="Twilight Cape",waist="Hachirin-no-Obi"})
 		
@@ -119,10 +125,12 @@ function init_gear_sets()
 	
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 	
-    sets.midcast['Elemental Magic'] = {main=gear.grioavolr.nuke,sub="Enki Grip",ammo="Pemphredo Tathlum",
+    sets.midcast['Elemental Magic'] = {
+		main="Kaja Rod",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
         head=gear.merlinic.hood.magical,neck="Sanctity Necklace",ear1="Regal Earring",ear2="Barkaro. Earring",
         body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Jhakri Ring",ring2="Snow Ring",
-        back=gear.nantosuelta.mab,waist=gear.ElementalObi,legs=gear.merlinic.shalwar.magical,feet="Amalric Nails"}
+		back=gear.nantosuelta.mab,waist=gear.ElementalObi,legs=gear.merlinic.shalwar.magical,feet="Amalric Nails +1"
+	}
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
 		
@@ -132,12 +140,16 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
 	sets.midcast['Elemental Magic'].HighTierNuke.Fodder = set_combine(sets.midcast['Elemental Magic'].Fodder, {})
 		
-	sets.midcast['Dark Magic'] = {head="Geo. Galero +2",neck="Erra Pendant",ear2="Regal Earring",
+	sets.midcast['Dark Magic'] = {
+		main="Kaja Rod",sub="Ammurapi Shield",
+		head="Geo. Galero +2",neck="Erra Pendant",ear2="Regal Earring",
 		body="Geomancy Tunic +2",hands="Geo. Mitaines +2",ring1="Evanescence Ring",
-		back=gear.nantosuelta.mab,waist="Luminary Sash",legs="Azimuth Tights",feet="Geo. Sandals +2"}
+		back=gear.nantosuelta.mab,waist="Luminary Sash",legs="Azimuth Tights",feet="Geo. Sandals +2"
+	}
 
-	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], 
-		{head="Pixie Hairpin +1",ring1="Evanescence Ring",ring2="Archon Ring",waist="Fucho-no-Obi",feet=gear.merlinic.crackows.drain})
+	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
+		head="Pixie Hairpin +1",ring1="Evanescence Ring",ring2="Archon Ring",waist="Fucho-no-Obi",feet=gear.merlinic.crackows.drain
+	})
 
 	sets.midcast.Aspir = sets.midcast.Drain
 		
@@ -149,9 +161,11 @@ function init_gear_sets()
 	sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'].Resistant, {head=empty,body="Twilight Cloak"})
 		
 	sets.midcast['Enfeebling Magic'] = {
+		main="Kaja Rod",sub="Ammurapi Shield",range="Dunna",
 		head="Geo. Galero +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Barkaro. Earring",
 		body="Geomancy Tunic +2",hands="Regal Cuffs",ring1="Jhakri Ring",ring2="Kishar Ring",
-		back=gear.nantosuelta.mab,waist="Luminary Sash",legs="Psycloth Lappas",feet="Geo. Sandals +2"}
+		back=gear.nantosuelta.mab,waist="Luminary Sash",legs="Psycloth Lappas",feet="Geo. Sandals +2"
+	}
 		
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {hands="Geo. Mitaines +2"})
 		
@@ -172,10 +186,12 @@ function init_gear_sets()
 	
 	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 		
-	sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast, {ammo="Pemphredo Tathlum",
+	sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.FastRecast, {
+		main="Idris",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Mendi. Earring",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,
-		waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing})
+		waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing
+	})
 		
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 	
@@ -201,22 +217,26 @@ function init_gear_sets()
 
 	-- Idle sets
 
-	sets.idle = {main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
+	sets.idle = {
+		main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
 		head="Befouled Crown",neck="Twilight Torque",ear1="Enchntr. Earring +1",ear2="Eabani Earring",
 		body="Jhakri Robe +2",hands=gear.merlinic.dastanas.refresh,ring1="Defending Ring",ring2="Warden's Ring",
 		back=gear.nantosuelta.idle,waist="Fucho-no-Obi",legs="Assid. Pants +1",feet=gear.merlinic.crackows.refresh}
 		
-	sets.idle.PDT = set_combine(sets.idle, 
-		{body="Mallquis Saio +2",hands="Geo. Mitaines +2",back="Solemnity Cape",legs=gear.merlinic.shalwar.magical,feet="Azimuth Gaiters +1"})
+	sets.idle.PDT = set_combine(sets.idle, {
+		body="Mallquis Saio +1",hands="Geo. Mitaines +2",back="Solemnity Cape",legs=gear.merlinic.shalwar.magical,feet="Azimuth Gaiters +1"
+	})
 		
 	--sets.idle.TPEat = set_combine(sets.idle, {neck="Chrys. Torque"})
 
 	-- .Pet sets are for when Luopan is present.
-	sets.idle.Pet = set_combine(sets.idle, 
-		{main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters +1"})
+	sets.idle.Pet = set_combine(sets.idle, {
+		main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters +1"
+	})
 
-	sets.idle.PDT.Pet = set_combine(sets.idle.PDT, 
-		{main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters +1"})
+	sets.idle.PDT.Pet = set_combine(sets.idle.PDT, {
+		main="Idris",head="Azimuth Hood",hands="Geo. Mitaines +2",back=gear.nantosuelta.idle,feet="Azimuth Gaiters +1"
+	})
 
 	-- .Indi sets are for when an Indi-spell is active.
 	sets.idle.Indi = set_combine(sets.idle, {})
@@ -251,9 +271,11 @@ function init_gear_sets()
 	sets.NightIdle = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
-	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendicant's Earring",ear2="Evans Earring",
+	sets.HPDown = {
+		head="Pixie Hairpin +1",ear1="Mendicant's Earring",ear2="Evans Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",
-		legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"}
+		legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"
+	}
 	
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
