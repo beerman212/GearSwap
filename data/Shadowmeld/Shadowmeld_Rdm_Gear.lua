@@ -138,9 +138,14 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'].Fodder = set_combine(sets.precast.WS['Savage Blade'], {})
 		
 	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
-		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Malignance Earring",
+		head="Pixie Hairpin +1",neck="Baetyl Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 		body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Freke Ring",ring2="Archon Ring",
 		back=gear.sucellos.mab,waist="Refoccilation Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+
+	sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS["Sanguine Blade"], {
+		head=gear.merlinic.hood.magical,ear1="Moonshade Earring",
+		ring2="Rufescent Ring",
+	})
 
 	sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS['Chant du Cygne'], {})
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Chant du Cygne'].Acc, {})

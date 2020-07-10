@@ -51,7 +51,7 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 	sets.precast.FC = {
-		main="Kali",sub="Genbu's Shield",
+		main="Kali",sub="Ammurapi Shield",
 		head="Nahtirah Hat",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Inyanga Jubbah +2",hands="Leyline Gloves",ring1="Kishar Ring",
 		back=gear.intarabus.macc,waist="Channeler's Stone",legs="Aya. Cosciales +2"}
@@ -137,7 +137,7 @@ function init_gear_sets()
 
 	-- For song buffs (duration and AF3 set bonus)
 	sets.midcast.SongEffect = {
-		main="Kali",sub="Genmei Shield",range="Gjallarhorn",ammo=empty,
+		main="Kali",sub="Ammurapi Shield",range="Gjallarhorn",ammo=empty,
 		head="Fili Calot +1",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Fili Hongreline +1",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.intarabus.macc,legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"
@@ -147,7 +147,7 @@ function init_gear_sets()
 
 	-- For song defbuffs (duration primary, accuracy secondary)
 	sets.midcast.SongDebuff = {
-		main="Grioavolr",sub="Enki Strap",range="Marsyas",ammo=empty,
+		main="Kali",sub="Ammurapi Shield",range="Marsyas",ammo=empty,
 		head="Brioso Roundlet +2",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Regal Earring",
 		body="Fili Hongreline +1",hands="Brioso Cuffs +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.intarabus.macc,waist="Luminary Sash",legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"
@@ -155,7 +155,7 @@ function init_gear_sets()
 
 	-- For song defbuffs (accuracy primary, duration secondary)
 	sets.midcast.SongDebuff.Resistant = {
-		main="Naegling",sub="Culminus",range="Gjallarhorn",ammo=empty,
+		main="Naegling",sub="Ammurapi Shield",range="Gjallarhorn",ammo=empty,
 		head="Brioso Roundlet +2",neck="Mnbw. Whistle +1",ear1="Enchntr. Earring +1",ear2="Regal Earring",
 		body="Brioso Justau. +3",hands="Brioso Cuffs +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.intarabus.macc,waist="Luminary Sash",legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"
@@ -185,7 +185,7 @@ function init_gear_sets()
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
 		
 	sets.midcast['Enhancing Magic'] = {
-		main="Serenity",sub="Clerisy Grip",
+		main="Kali",sub="Ammurapi Shield",
 		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
 		back="Perimede Cape",waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing
@@ -214,11 +214,13 @@ function init_gear_sets()
 	sets.idle = {
 		main="Sangoma",sub="Genbu's Shield",range=gear.linos.multiattack,ammo=empty,
 		head="Inyanga Tiara +2",neck="Twilight Torque",
-		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Dark Ring",
+		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.intarabus.tp,waist="Flume Belt +1",legs="Inyanga Shalwar +2",feet=gear.chironic.slippers.refresh
 	}
 
-	sets.idle.PDT = set_combine(sets.idle, {})
+	sets.idle.PDT = set_combine(sets.idle, {
+		main="Mafic Cudgel",
+	})
 	
 	-- Defense sets
 

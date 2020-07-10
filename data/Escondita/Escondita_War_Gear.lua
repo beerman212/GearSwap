@@ -14,7 +14,8 @@ function user_setup()
 	gear.cichol = {}
 	gear.cichol.tp = {name="Cichol's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
 	gear.cichol.resolution = {name="Cichol's Mantle",augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
-	gear.cichol.upheaval = {name="Cichol's Mantle",augments={'VIT+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+	gear.cichol.upheaval = {name="Cichol's Mantle",augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%'}}
+	gear.cichol.justice = {name="Cichol's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%'}}
 
 	gear.aganoshe = {}
 	gear.aganoshe.main = {name="Aganoshe",augments={'"Store TP"+5','VIT+14','Accuracy+13','Attack+25','DMG:+20',}}
@@ -87,33 +88,29 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		ammo="Seething Bomblet",
+		ammo="Seeth. Bomblet +1",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
 		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS["Resolution"] = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
-	}
 
-	sets.precast.WS["Scourge"] = {
-		ammo="Knobkierrie",
-		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Brutal Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
-		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
-	}
+	-- Great Sword
+	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS, {
+		ear2="Moonshade Earring",
+	})
 
-	sets.precast.WS["Ground Strike"] = {
+	sets.precast.WS["Scourge"] = set_combine(sets.precast.WS, {
 		ammo="Knobkierrie",
-		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
-		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
-	}
+		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear2="Ishvara Earring",
+		ring2="Apate Ring",
+		back=gear.cichol.upheaval,waist="Caudata Belt",feet="Sulev. Leggings +2"
+	})
+
+	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS["Scourge"], {
+		ear1="Moonshade Earring"
+	})
 
 	sets.precast.WS["Shockwave"] = {
 		ammo="Knobkierrie",
@@ -129,18 +126,18 @@ function init_gear_sets()
 		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
 	}
 
-	sets.precast.WS["Upheaval"] = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
-	}
+	-- Great Axe
+	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {
+		ammo="Knobkierrie",
+		head="Flam. Zucchetto +2",ear1="Thrud Earring",ear2="Moonshade Earring",
+		back=gear.cichol.upheaval,feet="Sulev. Leggings +2"
+	})
 
 	sets.precast.WS["King's Justice"] = {
 		ammo="Seething Bomblet",
 		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
 		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
+		back=gear.cichol.justice,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
 	}
 
 	sets.precast.WS["Full Break"] = {
@@ -288,9 +285,9 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
 	-- Weapons sets
-	sets.weapons.Chango = {main="Chango",sub="Duplus Grip"}
-	sets.weapons.Ragnarok = {main="Ragnarok",sub="Duplus Grip"}
-	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Duplus Grip"}
+	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
+	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
+	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield"}
 	sets.weapons.NaeglingDW = {main="Kaja Sword",sub="Firangi"}
 end

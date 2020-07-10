@@ -75,7 +75,7 @@ function init_gear_sets()
 	}
 
 	sets.Enmity.DT = {ammo="Staunch Tathlum",
-		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Fu. Bandeau +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Emet Harness +1",hands="Meg. Gloves +2",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.enmity,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
@@ -230,7 +230,7 @@ function init_gear_sets()
 		head="Erilaz Galea +1",neck="Incanter's Torque",ear1="Andoaa Earring",hands="Regal Gauntlets",waist="Olympus Sash",legs="Futhark Trousers +1"
 	})
 	sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'],{
-		head="Fu. Bandeau +2",body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx
+		head="Fu. Bandeau +3",body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx
 	})
 	sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Rune. Bandeau +2",body=gear.taeon.tabard.fc}) 
 	sets.midcast['Refresh'] = set_combine(sets.midcast['Enhancing Magic'],{}) 
@@ -273,12 +273,12 @@ function init_gear_sets()
 	
 	sets.idle.Tank = {
 		ammo="Staunch Tathlum",
-		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Fu. Bandeau +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Erilaz Surcoat +1",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
 
-	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Fu. Bandeau +2",legs="Carmine Cuisses +1"})
+	sets.idle.KiteTank = set_combine(sets.idle.Tank, {head="Fu. Bandeau +3",legs="Carmine Cuisses +1"})
 
 	sets.idle.Weak = set_combine(sets.idle, {})
 
@@ -304,7 +304,7 @@ function init_gear_sets()
 	
 	sets.defense.PDT = {
 		ammo="Staunch Tathlum",
-		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
+		head="Fu. Bandeau +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Erilaz Surcoat +1",hands="Aya. Manopolas +2",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back="Moonbeam Cape",waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Ahosi Leggings"
 	}
@@ -351,7 +351,7 @@ function init_gear_sets()
 	sets.engaged.HybridDT = set_combine(sets.engaged, {})
 	sets.engaged.Tank = {
 		ammo="Staunch Tathlum",
-		head="Fu. Bandeau +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
+		head="Fu. Bandeau +3",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
 		body="Futhark Coat +3",hands="Turms Mittens",ring1="Defending Ring",ring2="Moonbeam Ring",
 		back=gear.ogma.da,waist="Flume Belt +1",legs="Eri. Leg Guards +1",feet="Turms Leggings"
 	}

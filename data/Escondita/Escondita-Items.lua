@@ -69,6 +69,9 @@ gear.odyssean = {}
 gear.odyssean.helm = {}
 gear.odyssean.helm.wsd = {name="Odyssean Helm",augments={'Accuracy+24','Weapon skill damage +2%','STR+11','Attack+12',}}
 
+gear.odyssean.cuisses = {}
+gear.odyssean.cuisses.ta = {name="Odyssean Cuisses",augments={'"Triple Atk."+3','AGI+6','Accuracy+20 Attack+20','Mag. Acc.+13 "Mag.Atk.Bns."+13'}}
+
 gear.taeon = {}
 gear.taeon.chapeau = {}
 gear.taeon.chapeau.pup = {name="Taeon Chapeau",augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+3','Pet: Damage taken -3%',}}
