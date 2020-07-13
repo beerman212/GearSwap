@@ -15,10 +15,10 @@ function user_setup()
 	gear.obi_cure_waist = ""
 
 	gear.obi_low_nuke_back = ""
-	gear.obi_low_nuke_waist = ""
+	gear.obi_low_nuke_waist = "Refoccilation Stone"
 
 	gear.obi_high_nuke_back = ""
-	gear.obi_high_nuke_waist = ""
+	gear.obi_high_nuke_waist = "Refoccilation Stone"
 	
 	autoindi = "Haste"
 	autogeo = "Frailty"
@@ -120,7 +120,11 @@ function init_gear_sets()
 	
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {main="Marin Staff",sub="Clemency Grip"})
 	
-    sets.midcast['Elemental Magic'] = {}
+    sets.midcast['Elemental Magic'] = {
+		head=gear.merlinic.hood.mdmg,neck="Bagua Charm",ear1="Hecate's Earring",
+		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Acumen Ring",ring2="Mephitas's Ring",
+		back="",waist=gear.ElementalObi,legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"
+	}
 
     sets.midcast['Elemental Magic'].Resistant = {}
 		

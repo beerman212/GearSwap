@@ -98,7 +98,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Knobkierrie",
 		head=gear.valorous.mask.strwsd,neck="Fotia Gorget",ear1="Sherida Earring",ear2="Thrud Earring",
-		body=gear.valorous.mail.strwsd,hands=gear.valorous.mitts.vitwsd,ring1="Niqmaddu Ring",ring2="Regal Ring",
+		body=gear.valorous.mail.strwsd,hands="Ptero. Fin. G. +2",ring1="Niqmaddu Ring",ring2="Regal Ring",
 		back=gear.brigantia.sonicthrust,waist="Fotia Belt",legs="Vishap Brais +3",feet="Sulev. Leggings +2",
 	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -131,7 +131,7 @@ function init_gear_sets()
 		legs="Flamma Dirs +2",feet="Flam. Gambieras +2",
 	})
 
-	sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS, {body="Hjarrandi Breast."})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {}

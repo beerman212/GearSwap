@@ -120,7 +120,7 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
 		ammo="Yetshila",
 		ear1="Mache Earring +1",
-		body="Malignance Tabard",hands=gear.taeon.gloves.cdc,ring1="Begrudging Ring",ring2="Ilabrat Ring",
+		body="Viti. Tabard +3",hands="Malignance Gloves",ring1="Begrudging Ring",ring2="Ilabrat Ring",
 		back=gear.sucellos.cdc,legs="Viti. Tights +3",feet="Thereoid Greaves"
 	})
 		
