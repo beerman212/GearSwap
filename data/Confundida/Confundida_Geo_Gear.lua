@@ -121,6 +121,7 @@ function init_gear_sets()
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {main="Marin Staff",sub="Clemency Grip"})
 	
     sets.midcast['Elemental Magic'] = {
+		main="Grioavolr",sub="Clerisy Strap",
 		head=gear.merlinic.hood.mdmg,neck="Bagua Charm",ear1="Hecate's Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Acumen Ring",ring2="Mephitas's Ring",
 		back="",waist=gear.ElementalObi,legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"
