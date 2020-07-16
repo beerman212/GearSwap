@@ -64,7 +64,8 @@ function init_gear_sets()
 	sets.precast.FC = {
 		main="Marin Staff",sub="Clerisy Strap",range="Dunna",ammo=empty,
 		head="Haruspex Hat",ear1="Moonshade Earring",ear2="Loquac. Earring",
-		back="Lifestream Cape",waist="Embla Sash",legs="Geomancy Pants",
+		ring1="Kishar Ring",
+		back="Lifestream Cape",waist="Embla Sash",legs="Geomancy Pants"
 	}
 
 	sets.precast.FC.Geomancy = set_combine(sets.precast.FC, {range="Dunna",ammo=empty})

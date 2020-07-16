@@ -17,7 +17,7 @@ function user_setup()
 	gear.obi_nuke_back = ""
 
 	gear.alaunus = {}
-	gear.alaunus.fc = {name="Alaunus's Cape",augments={'MND+20','Mag. Acc+19 /Mag. Dmg.+19','MND+4','"Fast Cast"+10'}}
+	gear.alaunus.fc = {name="Alaunus's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+5','"Fast Cast"+10'}}
 
 		-- Additional local binds
 	send_command('bind ^` input /ma "Arise" <t>')
@@ -47,9 +47,9 @@ function init_gear_sets()
 
 	-- Weapons sets
 	sets.weapons = {}
-	sets.weapons.Club = {main="Queller Rod",sub="Sors Shield"}
+	sets.weapons.Club = {main="Queller Rod",sub="Ammurapi Shield"}
 	sets.weapons.Staff = {main="Malignance Pole",sub="Kupayopl"}
-	sets.weapons.ProcClub = {main="Relic Maul",sub="Sors Shield"}
+	sets.weapons.ProcClub = {main="Relic Maul",sub="Ammurapi Shield"}
 
     -- Precast Sets
 
@@ -83,6 +83,8 @@ function init_gear_sets()
 	sets.precast.FC.CureSolace = sets.precast.FC.Cure
 
 	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {})
+
+	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Ammurapi Shield"})
 
     -- Precast sets to enhance JAs
 	sets.precast.JA.Benediction = {body="Piety Briault"}
@@ -203,11 +205,11 @@ function init_gear_sets()
 	})
 
 	sets.midcast['Enhancing Magic'] = {
+		main=gear.gada.enhancing,sub="Ammurapi Shield",
 		hands=gear.telchine.gloves.enhancing,
 		waist="Embla Sash",feet="Theo. Duckbills +2"
 	}
 	sets.midcast['Enhancing Magic'].skill = set_combine(sets.midcast['Enhancing Magic'], {
-		main="Beneficus",sub="Sors Shield",
 		head="Befouled Crown",ear1="Mimir Earring",ear2="Andoaa Earring",
 		hands="Inyan. Dastanas +2",ring2="Stikini Ring",
 		back="Mending Cape",legs="Piety Pantaloons"
@@ -220,7 +222,7 @@ function init_gear_sets()
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {head="Chironic Hat"})
 
 	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
-		main="Bolelabunga",sub="Sors Shield",
+		main="Bolelabunga",
 		head="Inyanga Tiara +1",
 		body="Piety Briault",hands="Ebers Mitts +1",
 		legs="Th. Pantaloons +2"
@@ -264,7 +266,7 @@ function init_gear_sets()
 	sets.midcast.Stun.Resistant = {}
 
 	sets.midcast['Enfeebling Magic'] = {
-		main="Ajja Staff",sub="Mephitis Grip",
+		main="Daybreak",sub="Ammurapi Shield",
 		head="Theophany Cap +2",neck="Erra Pendant",ear1="Psystorm Earring",ear2="Lifestorm Earring",
 		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +2"
@@ -277,6 +279,8 @@ function init_gear_sets()
 	sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 	sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
+
+	sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak",sub="Ammurapi Shield"})
 
     sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
     sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
@@ -294,10 +298,10 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		main="Queller Rod",sub="Sors Shield",ammo="Homiliary",
+		main="Daybreak",sub="Ammurapi Shield",ammo="Homiliary",
 		head=gear.chironic.hat.refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
 		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
-		back="Moonbeam Cape",legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +1"
+		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +1"
 	}
 
 	sets.idle.DT = set_combine(sets.idle, {main="Malignance Pole",sub="Kupayopl",ammo="Staunch Tathlum"})

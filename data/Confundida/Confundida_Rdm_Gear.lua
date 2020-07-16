@@ -64,7 +64,7 @@ function init_gear_sets()
 	sets.precast.FC = {
 		main="Marin Staff",sub="Clerisy Strap",
 		head="Atro. Chapeau +1",ear1="Moonshade Earring",ear2="Loquac. Earring",
-		body="Vitiation Tabard",
+		body="Vitiation Tabard",ring1="Kishar Ring",
 		back=gear.sucellos.enfeeble,waist="Embla Sash",legs="Aya. Cosciales +2"
 	}
 		
@@ -151,9 +151,9 @@ function init_gear_sets()
 	sets.midcast.Temper = {}
 
 	sets.midcast['Enfeebling Magic'] = {
-		main="Marin Staff",sub="Clerisy Strap",ammo="Hydrocera",
-		head="Vitiation Chapeau",neck="Imbodla Necklace",ear1="",ear2="",
-		body="Atrophy Tabard +1",hands="Aya. Manopolas +1",ring1="Perception Ring",ring2="Ayanmo Ring",
+		main="Marin Staff",sub="Clerisy Strap",ammo="Regal Gem",
+		head="Vitiation Chapeau",neck="Imbodla Necklace",ear1="Moonshade Earring",ear2="Snotra Earring",
+		body="Atrophy Tabard +1",hands="Aya. Manopolas +1",ring1="Kishar Ring",ring2="Ayanmo Ring",
 		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.chironic.hose.enfeeble,feet="Aya. Gambieras +1"
 	}
 		

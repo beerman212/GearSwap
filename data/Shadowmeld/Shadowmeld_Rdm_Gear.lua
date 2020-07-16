@@ -309,7 +309,11 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
 		
 	sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'].Resistant, {
-		head=empty,body="Twilight Cloak"})
+		main="Maxentius",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
+		head=empty,neck="Dls. Torque +2",ear1="Regal Earring",
+		body="Twilight Cloak",hands="Malignance Gloves",ring1="Kishar Ring",ring2="Stikini Ring",
+		waist="Luminary Sash",legs=gear.chironic.hose.enfeeble
+	})
 
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		head="Atrophy Chapeau +3",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",

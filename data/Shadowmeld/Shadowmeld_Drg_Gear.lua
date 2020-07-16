@@ -98,7 +98,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Knobkierrie",
 		head=gear.valorous.mask.strwsd,neck="Fotia Gorget",ear1="Sherida Earring",ear2="Thrud Earring",
-		body=gear.valorous.mail.strwsd,hands="Ptero. Fin. G. +2",ring1="Niqmaddu Ring",ring2="Regal Ring",
+		body=gear.valorous.mail.strwsd,hands="Ptero. Fin. G. +2",ring1="Regal Ring",ring2="Niqmaddu Ring",
 		back=gear.brigantia.sonicthrust,waist="Fotia Belt",legs="Vishap Brais +3",feet="Sulev. Leggings +2",
 	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -109,7 +109,7 @@ function init_gear_sets()
 	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {
 		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",ear2="Moonshade Earring",
-		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",
+		body="Dagon Breast.",hands="Sulev. Gauntlets +2",
 		back=gear.brigantia.stardiver,legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2",
 	})
 
@@ -195,7 +195,7 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2",neck="Anu Torque",ear1="Sherida Earring",ear2="Dedition Earring",
-		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
+		body="Dagon Breast.",hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.brigantia.stp,waist="Ioskeha Belt +1",legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2",
 	}
 

@@ -11,6 +11,9 @@ sets.precast.Item['Holy Water'] = {}
 
 --Augmented items that you'll use among multiple jobs.
 
+gear.gada = {}
+gear.gada.enhancing = {name="Gada",augments={}}
+
 gear.chironic = {}
 
 gear.chironic.hat = {}
