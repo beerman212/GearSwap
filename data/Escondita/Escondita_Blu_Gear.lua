@@ -59,9 +59,11 @@ function init_gear_sets()
 	sets.buff.Efflux = {back=gear.rosmerta.stp}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
-	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendicant's Earring",ear2="Evans Earring",
+	sets.HPDown = {
+		head="Pixie Hairpin +1",ear1="Mendicant's Earring",ear2="Evans Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",
-		back=gear.rosmerta.stp,legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"}
+		back=gear.rosmerta.stp,legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"
+	}
 
 	-- Precast Sets
 
@@ -86,10 +88,12 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {ammo="Sapience Orb",
+	sets.precast.FC = {
+		ammo="Sapience Orb",
 		head=gear.herculean.helm.dexwsd,neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		hands="Leyline Gloves",ring1="Kishar Ring",
-		back=gear.rosmerta.fc,waist="Channeler's Stone",legs="Aya. Cosciales +2",feet="Amalric Nails"}
+		back=gear.rosmerta.fc,waist="Channeler's Stone",legs="Aya. Cosciales +2",feet="Amalric Nails"
+	}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
@@ -98,10 +102,12 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {ammo="Aurgelmir Orb",
+	sets.precast.WS = {
+		ammo="Aurgelmir Orb",
 		head=gear.herculean.helm.dexwsd,neck="Fotia Gorget",ear1="Cessance Earring",ear2="Brutal Earring",
 		body="Assim. Jubbah +3",hands="Jhakri Cuffs +2",ring1="Rajas Ring",ring2="Apate Ring",
-		back=gear.rosmerta.wsd,waist="Fotia Belt",legs="Jhakri Slops +1",feet=gear.herculean.boots.wsd}
+		back=gear.rosmerta.wsd,waist="Fotia Belt",legs="Jhakri Slops +1",feet=gear.herculean.boots.wsd
+	}
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
@@ -113,7 +119,8 @@ function init_gear_sets()
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
 		head="Jhakri Coronal +2",ear2="Regal Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring="Ilabrat Ring",ring2="Ayanmo Ring",
-		back=gear.rosmerta.stp,legs="Jhakri Slops +1",feet="Aya. Gambieras +2"})
+		back=gear.rosmerta.stp,legs="Jhakri Slops +1",feet="Aya. Gambieras +2"
+	})
 	sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {})
 	sets.precast.WS['Requiescat'].FullAcc = set_combine(sets.precast.WS['Requiescat'].Acc, {})
 	sets.precast.WS['Requiescat'].Fodder = set_combine(sets.precast.WS['Requiescat'], {})
@@ -126,7 +133,8 @@ function init_gear_sets()
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
 		head="Aya. Zucchetto +2",ear1="Odr Earring",ear2="Moonshade Earring",
 		body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Ilabrat Ring",ring2="Rajas Ring",
-		back=gear.rosmerta.cdc,legs="Samnuha Tights",feet="Aya. Gambieras +2"})
+		back=gear.rosmerta.cdc,legs="Samnuha Tights",feet="Aya. Gambieras +2"
+	})
 	sets.precast.WS['Chant du Cygne'].Acc = set_combine(sets.precast.WS['Chant du Cygne'], {})
 	sets.precast.WS['Chant du Cygne'].FullAcc = set_combine(sets.precast.WS['Chant du Cygne'].Acc, {})
 	sets.precast.WS['Chant du Cygne'].Fodder = set_combine(sets.precast.WS['Chant du Cygne'], {})
@@ -146,10 +154,12 @@ function init_gear_sets()
 	sets.precast.WS['Expiacion'].FullAcc = set_combine(sets.precast.WS['Expiacion'].Acc, {})
 	sets.precast.WS['Expiacion'].Fodder = set_combine(sets.precast.WS['Expiacion'], {})
 
-	sets.precast.WS['Sanguine Blade'] = {ammo="Pemphredo Tathlum",
+	sets.precast.WS['Sanguine Blade'] = {
+		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Assim. Jubbah +3",hands="Amalric Gages +1",ring1="",ring2="",
-		back=gear.rosmerta.wsd,waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet="Jhakri Pigaches +1"}
+		back=gear.rosmerta.wsd,waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet="Jhakri Pigaches +1"
+	}
 
 	sets.precast.WS['Flash Nova'] = {}
 
@@ -216,10 +226,12 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Magical = {
+		main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs=gear.herculean.trousers.magical,feet="Amalric Nails"}
+		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs=gear.herculean.trousers.magical,feet="Amalric Nails"
+	}
 					 
 	sets.midcast['Blue Magic'].Magical.Proc = set_combine(sets.midcast['Blue Magic'].Magical, sets.midcast.FastRecast, {})
 					 
@@ -238,15 +250,19 @@ function init_gear_sets()
 		hands="Jhakri Cuffs +2",ring2="Stikini Ring",
 		feet="Jhakri Pigaches +1"})
 
-	sets.midcast['Enfeebling Magic'] = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Enfeebling Magic'] = {
+		main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Assim. Keffiyeh +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Hermetic Earring",
 		body="Assim. Jubba +3",hands="Regal Cuffs",ring1="Etana Ring",ring2="Stikini Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Psycloth Lappas",feet="Aya. Gambieras +2"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Psycloth Lappas",feet="Aya. Gambieras +2"
+	}
 
-	sets.midcast['Dark Magic'] = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Dark Magic'] = {
+		main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Evanescense Ring",ring2="Stikini Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Aya. Cosciales +2",feet="Aya. Gambieras +2"
+	}
 
 	sets.midcast['Enhancing Magic'] = {
 		head=gear.telchine.cap.enhancing,
@@ -266,15 +282,19 @@ function init_gear_sets()
 	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
 	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
 
-	sets.midcast['Divine Magic'] = {ammo="Pemphredo Tathlum",
+	sets.midcast['Divine Magic'] = {
+		ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Incanter's Torque",ear1="Regal Earring",ear2="Hermetic Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Shiva Ring +1",ring2="Stikini Ring",
-		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"}
+		back=gear.rosmerta.mab,waist="Luminary Sash",legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"
+	}
 
-	sets.midcast['Elemental Magic'] = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Elemental Magic'] = {
+		main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Friomisi Earring",
 		body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs=gear.herculean.trousers.magical,feet="Jhakri Pigaches +1"}
+		back=gear.rosmerta.mab,waist=gear.ElementalObi,legs=gear.herculean.trousers.magical,feet="Jhakri Pigaches +1"
+	}
 
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
 
@@ -285,24 +305,30 @@ function init_gear_sets()
 	sets.element.Earth = {}
 	sets.element.Light = {} --ring2="Weatherspoon Ring"
 
-	sets.midcast.Cure = {main="Nibiru Cudgel",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast.Cure = {
+		main="Nibiru Cudgel",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Carmine Mask +1",neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Mendi. Earring",
 		body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Janniston Ring",ring2="Haoma's Ring",
-		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Medium's Sabots"}
+		back=gear.ElementalCape,waist=gear.ElementalObi,legs="Carmine Cuisses +1",feet="Medium's Sabots"
+	}
 
 	-- Breath Spells --
 
-	sets.midcast['Blue Magic'].Breath = {ammo="Mavi Tathlum",
+	sets.midcast['Blue Magic'].Breath = {
+		ammo="Mavi Tathlum",
 		head="Luh. Keffiyeh +1",neck="Mavi Scarf",ear1="Regal Earring",ear2="Digni. Earring",
 		body="Assim. Jubbah +3",hands="Luh. Bazubands +1",ring1="Kunaji Ring",ring2="Meridian Ring",
-		back="Cornflower Cape",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs +1"}
+		back="Cornflower Cape",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs +1"
+	}
 
 	-- Physical Added Effect Spells most notably "Stun" spells --
 
-	sets.midcast['Blue Magic'].Stun = {main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
+	sets.midcast['Blue Magic'].Stun = {
+		main="Naegling",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
 		head="Jhakri Coronal +2",neck="Erra Pendant",ear1="Regal Earring",ear2="Hermetic Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Jhakri Ring",ring2="Stikini Ring",
-		back="Cornflower Cape",waist="Luminary Sash",legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"}
+		back="Cornflower Cape",waist="Luminary Sash",legs="Jhakri Slops +1",feet="Jhakri Pigaches +1"
+	}
 
 	sets.midcast['Blue Magic'].Stun.Resistant = set_combine(sets.midcast['Blue Magic'].Stun, {
 		ammo="Falcon Eye"})
@@ -391,7 +417,7 @@ function init_gear_sets()
 	sets.weapons.Almace = {main="Almace",sub="Naegling"}
 	sets.weapons.Club = {main="Kaja Rod",sub="Naegling"}
 	sets.weapons.NaeglingTPBonus = {main="Naegling",sub="Thibron"}
-	sets.weapons.NaeglingAcc = {main="Naegling",sub="Almace"}
+	sets.weapons.NaeglingAcc = {main="Naegling",sub=gear.colada.da}
 	sets.weapons.MagicWeapons = {main="Naegling",sub="Kaja Rod"}
 	sets.weapons.Club = {main="Kaja Rod",sub="Naegling"}
 	sets.weapons.Learning = {main=empty,sub=empty}
@@ -486,7 +512,7 @@ buff_spell_lists = {
 		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	When='Always'},
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Always'},
 		{Name='Nat. Meditation',	Buff='Attack Boost',	SpellID=700,	When='Engaged'},
-		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		--{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
 		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Combat'},
 		{Name='Barrier Tusk',		Buff='Phalanx',			SpellID=685,	When='Combat'},
 		},
@@ -500,7 +526,7 @@ buff_spell_lists = {
 		{Name='Stoneskin',			Buff='Stoneskin',		SpellID=54,		Reapply=false},
 		{Name='Occultation',		Buff='Blink',			SpellID=679,	Reapply=false},
 		{Name='Blink',				Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	Reapply=false},
+		--{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	Reapply=false},
 		{Name='Nat. Meditation',	Buff='Attack Boost',	SpellID=700,	Reapply=false},
 	},
 	
@@ -513,7 +539,7 @@ buff_spell_lists = {
 		{Name='Stoneskin',			Buff='Stoneskin',		SpellID=54,		Reapply=false},
 		{Name='Occultation',		Buff='Blink',			SpellID=679,	Reapply=false},
 		{Name='Blink',				Buff='Blink',			SpellID=53,		Reapply=false},
-		{Name='Carcharian Verve',	Buff='Aquaveil',		SpellID=745,	Reapply=false},
+		--{Name='Carcharian Verve',	Buff='Aquaveil',		SpellID=745,	Reapply=false},
 		{Name='Memento Mori',		Buff='Magic Atk. Boost',SpellID=538,	Reapply=false},
 	},
 }

@@ -30,8 +30,10 @@ gear.chironic.slippers = {}
 gear.telchine = {}
 
 gear.telchine.cap = {}
+gear.telchine.cap.enhancing = {name="Telchine Cap",augments={'Enh. Mag. eff. dur. +9'}}
 
 gear.telchine.chasuble = {}
+gear.telchine.chasuble.enhancing = {name="Telchine Chasuble",augments={'Enh. Mag. eff. dur. +10'}}
 
 gear.telchine.gloves = {}
 gear.telchine.gloves.enhancing = {name="Telchine Gloves",augments={'Enh. Mag. eff. dur. +9'}}

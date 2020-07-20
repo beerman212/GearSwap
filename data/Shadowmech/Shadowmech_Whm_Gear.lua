@@ -206,7 +206,8 @@ function init_gear_sets()
 
 	sets.midcast['Enhancing Magic'] = {
 		main=gear.gada.enhancing,sub="Ammurapi Shield",
-		hands=gear.telchine.gloves.enhancing,
+		head=gear.telchine.cap.enhancing,
+		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,
 		waist="Embla Sash",feet="Theo. Duckbills +2"
 	}
 	sets.midcast['Enhancing Magic'].skill = set_combine(sets.midcast['Enhancing Magic'], {
