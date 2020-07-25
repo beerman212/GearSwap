@@ -131,7 +131,7 @@ function init_gear_sets()
 	sets.precast.WS['Realmrazer'].Fodder = set_combine(sets.precast.WS['Realmrazer'], {})
 
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
-		head="Aya. Zucchetto +2",ear1="Odr Earring",ear2="Moonshade Earring",
+		head="Adhemar Bonnet +1",ear1="Odr Earring",ear2="Moonshade Earring",
 		body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Ilabrat Ring",ring2="Rajas Ring",
 		back=gear.rosmerta.cdc,legs="Samnuha Tights",feet="Aya. Gambieras +2"
 	})

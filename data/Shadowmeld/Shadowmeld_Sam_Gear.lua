@@ -89,7 +89,7 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head=gear.valorous.mask.strwsd,neck="Sam. Nodowa +2",ear1="Thrud Earring",ear2="Moonshade Earring",
 		body="Sakonji Domaru +3",hands=gear.valorous.mitts.vitwsd,ring1="Shukuyu Ring",ring2="Niqmaddu Ring",
-		back=gear.smertrios.wsd,waist="Fotia Belt",legs="Wakido Haidate +3",feet=gear.valorous.greaves.strwsd
+		back=gear.smertrios.wsd,waist="Sailfi Belt +1",legs="Wakido Haidate +3",feet=gear.valorous.greaves.strwsd
 	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS.Acc, {

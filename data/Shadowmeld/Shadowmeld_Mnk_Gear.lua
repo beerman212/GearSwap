@@ -16,7 +16,7 @@ function user_setup()
 	gear.segomo.tp.da = {name="Segomo's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%'}}
 
 	gear.segomo.ws = {}
-	gear.segomo.ws.smite = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10'}}
+	gear.segomo.ws.smite = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10'}}
 	gear.segomo.ws.tornado = {name="Segomo's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%'}}
 	
 
@@ -47,24 +47,24 @@ function init_gear_sets()
 	-- Precast Sets
 	
 	-- Precast sets to enhance JAs on use
-	sets.precast.JA['Hundred Fists'] = {legs="Hes. Hose"}
+	sets.precast.JA['Hundred Fists'] = {legs="Hes. Hose +2"}
 	sets.precast.JA['Boost'] = {hands="Anchor. Gloves +2"}
 	sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
 	sets.precast.JA['Focus'] = {head="Anchor. Crown +1"}
 	sets.precast.JA['Counterstance'] = {}
-	sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters"}
+	sets.precast.JA['Footwork'] = {feet="Bhikku Gaiters +1"}
 	sets.precast.JA['Formless Strikes'] = {body="Hes. Cyclas"}
 	sets.precast.JA['Mantra'] = {
 		head="Halitus Helm",neck="Sanctity Necklace",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
 		body="Malignance Tabard",hands="Rawhide Gloves",ring1="Ilabrat Ring",ring2="Etana Ring",
-		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Hes. Gaiters"
+		back="Moonbeam Cape",waist="Kasiri Belt",legs="Ryuo Hakama",feet="Hes. Gaiters +1"
 	}
 
 	sets.precast.JA['Chi Blast'] = {
-		head="Hes. Crown"
+		head="Hes. Crown +1"
 	}
 	
-	sets.precast.JA['Chakra'] = {body="Anch. Cyclas +1",hands="Hes. Gloves"}
+	sets.precast.JA['Chakra'] = {body="Anch. Cyclas +1",hands="Hes. Gloves +1"}
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
@@ -122,7 +122,7 @@ function init_gear_sets()
 	sets.precast.WS['Howling Fist'].MaxAcc = set_combine(sets.precast.WS['Howling Fist'], {})
 
 	sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
-		ammo="Knobkierrie",ear1="Moonshade Earring",hands="Anchor. Gloves +2",legs="Hiza. Hizayoroi +2",feet="Anch. Gaiters +3"
+		ammo="Knobkierrie",neck="Monk's Nodowa",ear1="Moonshade Earring",hands="Anchor. Gloves +2",legs="Hes. Hose +2",feet="Anch. Gaiters +3"
 	})
 	sets.precast.WS['Tornado Kick'].MaxAcc = set_combine(sets.precast.WS['Tornado Kick'], {})
 
@@ -189,7 +189,7 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Monk's Nodowa",ear1="Mache Earring +1",ear2="Sherida Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
-		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Samnuha Tights",feet="Anch. Gaiters +3"
+		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Hes. Hose +2",feet="Anch. Gaiters +3"
 	}
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		neck = "Monk's Nodowa"

@@ -151,7 +151,7 @@ function init_gear_sets()
 	sets.midcast.Temper = {}
 
 	sets.midcast['Enfeebling Magic'] = {
-		main="Marin Staff",sub="Clerisy Strap",ammo="Regal Gem",
+		main="Grioavolr",sub="Clerisy Strap",ammo="Regal Gem",
 		head="Vitiation Chapeau",neck="Imbodla Necklace",ear1="Moonshade Earring",ear2="Snotra Earring",
 		body="Atrophy Tabard +1",hands="Aya. Manopolas +1",ring1="Kishar Ring",ring2="Ayanmo Ring",
 		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.chironic.hose.enfeeble,feet="Aya. Gambieras +1"
@@ -232,7 +232,7 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
-		main="Bolelabunga",sub="Sors Shield",ammo="Homiliary",
+		main="Daybreak",sub="Sors Shield",ammo="Homiliary",
 		head="Vitiation Chapeau",neck="Warder's Charm",ear1="Bloodgem Earring",ear2="Loquac. Earring",
 		body="Jhakri Robe +2",hands=gear.chironic.gloves.refresh,ring1="Defending Ring",ring2="Ayanmo Ring",
 		back=gear.sucellos.enfeeble,waist="Porous Rope",legs=gear.merlinic.shalwar.refresh,feet=gear.chironic.slippers.refresh
