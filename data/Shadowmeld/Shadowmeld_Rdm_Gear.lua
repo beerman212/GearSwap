@@ -810,3 +810,36 @@ function reset_all_weapon_sets(mainhand, shield, offhand)
 	sets.weapons.MeleeDW = set_combine(sets.weapons.Melee, {main=mainhand,sub=offhand})
 	sets.weapons.MeleeDWBow = set_combine(sets.weapons.Melee, {main=mainhand,sub=offhand})
 end
+
+-- windower.register_event('incoming chunk', function(id, data)
+-- 	if id == 0x029 then
+-- 		local message_id = data:unpack('H',0x19)%32768
+-- 		local param_1 = data:unpack('I',0x0D)
+
+-- 		local buff_map = {
+-- 			[2] = "Sleep",
+-- 			[3] = "Poison",
+-- 			[4] = "Paralyze",
+-- 			[5] = "Blind",
+-- 			[6] = "Silence",
+-- 			[7] = "Break",
+-- 			[11] = "Bind",
+-- 			[12] = "Gravity",
+-- 			[13] = "Slow",
+-- 			[21] = "Addle",
+-- 			[134] = "Dia",
+-- 			[135] = "Bio",
+-- 			[148] = "Distract",
+-- 			[404] = "Frazzle",
+-- 			[597] = "Inundation"
+-- 		}
+		
+-- 		-- id 204 = <target> is no longer <status>
+-- 		-- id 206 = <target>'s <status> effect wears off
+-- 		if message_id == 204 or message_id == 206 then
+-- 			if buff_map[param_1] ~= nil then
+-- 				windower.chat.input('/echo ' .. buff_map[param_1] .. ' Off')
+-- 			end
+-- 		end
+-- 	end
+-- end)

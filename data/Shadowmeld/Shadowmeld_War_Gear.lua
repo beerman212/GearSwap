@@ -63,7 +63,7 @@ function init_gear_sets()
 	
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Berserk'] = {body="Pumm. Lorica +3",back=gear.cichol.tp,feet="Agoge Calligae +1"}
-	sets.precast.JA['Warcry'] = {head="Agoge Mask +2"}
+	sets.precast.JA['Warcry'] = {head="Agoge Mask +3"}
 	sets.precast.JA['Defender'] = {}
 	sets.precast.JA['Aggressor'] = {head="Pummeler's Mask +2",body="Agoge Lorica +1"}
 	sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers +1"}
@@ -110,7 +110,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head="Agoge Mask +2",neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
+		head="Agoge Mask +3",neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
 		body="Pumm. Lorica +3",hands=gear.odyssean.gauntlets.vitwsd,ring1="Regal Ring",ring2="Niqmaddu Ring",
 		back=gear.cichol.wsd.str,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
@@ -119,7 +119,7 @@ function init_gear_sets()
 
 	--[[ Great Axe WS ]]
 	--[[ Upheaval ]]
-	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {back=gear.cichol.wsd.vit,waist="Caudata Belt"})
+	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {neck="War. Beads +2",back=gear.cichol.wsd.vit,waist="Caudata Belt"})
 	
 	sets.precast.WS["Upheaval"].MaxAcc = set_combine(sets.precast.WS["Upheaval"], {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",legs="Pumm. Cuisses +3"})
 
@@ -324,7 +324,7 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
-		head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Cessance Earring",
+		head="Flam. Zucchetto +2",neck="War. Beads +2",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
 	}
