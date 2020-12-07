@@ -71,7 +71,7 @@ function init_gear_sets()
 	sets.buff.Efflux = {back=gear.rosmerta.stp,legs="Hashishin Tayt +1"}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
-	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendi. Earring",ear2="Evans Earring",
+	sets.HPDown = {head="Pixie Hairpin +1",ear1="Mendi. Earring",
 		body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Mephitas's Ring",
 		legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
 
@@ -287,7 +287,7 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].MagicAccuracy = set_combine(sets.midcast['Blue Magic'].Magical, {
 		head="Amalric Coif +1",neck="Mirage Stole +1",ear2="Digni. Earring",
-		hands="Aya. Manopolas +2",ring1="Kishar Ring",ring2="Stikini Ring",
+		hands="Malignance Gloves",ring1="Kishar Ring",ring2="Stikini Ring",
 		waist="Luminary Sash",legs="Malignance Tights",feet="Jhakri Pigaches +2"
 	})
 
@@ -307,7 +307,7 @@ function init_gear_sets()
 
 	sets.midcast['Enhancing Magic'] = {
 		main=gear.colada.enhancing,
-		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Andoaa Earring",ear2="Gifted Earring",
+		head=gear.telchine.cap.enhancing,neck="Incanter's Torque",ear1="Andoaa Earring",
 		body=gear.telchine.chasuble.enhancing,hands=gear.telchine.gloves.enhancing,ring2="Stikini Ring",
 		waist="Olympus Sash",legs=gear.telchine.braconi.enhancing,feet=gear.telchine.pigaches.enhancing
 	}
@@ -400,8 +400,8 @@ function init_gear_sets()
 
 	sets.midcast['Blue Magic'].Buff = {
 		main="Vampirism",sub=gear.colada.enhancing,ammo="Mavi Tathlum",
-		head="Luh. Keffiyeh +1",neck="Incanter's Torque",ear1="Gifted Earring",ear2="Loquac. Earring",
-		body="Assim. Jubbah +2",hands="Hashi. Bazu. +1",ring1="Kishar Ring",ring2="Dark Ring",
+		head="Luh. Keffiyeh +1",neck="Incanter's Torque",ear2="Loquac. Earring",
+		body="Assim. Jubbah +2",hands="Hashi. Bazu. +1",ring1="Kishar Ring",ring2="Gelatinous Ring +1",
 		back=gear.rosmerta.stp,waist="Witful Belt",legs="Aya. Cosciales +2",feet="Carmine Greaves +1"
 	}
 
@@ -518,7 +518,7 @@ function init_gear_sets()
 	sets.Healing_DWClub = {}
 	sets.Cure_Received = {hands="Buremte Gloves",waist="Gishdubar Sash"}
 	sets.Self_Refresh = {head="Amalric Coif +1",hands="Buremte Gloves",waist="Gishdubar Sash"}
-	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1",ring1="Mujin Band",ring2="Locus Ring",feet="Jhakri Pigaches +2"}
+	sets.MagicBurst = {body="Samnuha Coat",hands="Amalric Gages +1",ring1="Mujin Band",feet="Jhakri Pigaches +2"}
 
 end
 
