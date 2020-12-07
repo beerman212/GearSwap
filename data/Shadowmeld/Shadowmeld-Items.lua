@@ -60,7 +60,7 @@ gear.herculean.vest.dexwsd = {name="Herculean Vest", augments={'Accuracy+9','Wea
 gear.herculean.vest.agiwsd = {name = "Herculean Vest", augments = {'Rng.Acc.+20','Weapon skill damage +4%','AGI+5',}}
 
 gear.herculean.gloves = {}
-gear.herculean.gloves.magical = {name = "Herculean Gloves", augments = {'Mag. Acc.+20 "Mag.Atk.Bns."+20','Mag. Acc.+5','"Mag.Atk.Bns."+11'}}
+gear.herculean.gloves.magical = {name = "Herculean Gloves", augments = {'Mag. Acc.+17 "Mag.Atk.Bns."+17','"Dbl.Atk."+1','Mag. Acc.+9','"Mag.Atk.Bns."+11',}}
 gear.herculean.gloves.refresh = {name="Herculean Gloves", augments={'Pet: INT+8','Accuracy+1 Attack+1','"Refresh"+2','Mag. Acc.+8 "Mag.Atk.Bns."+8',}}
 
 gear.herculean.trousers = {}
@@ -155,8 +155,8 @@ gear.valorous.mitts.da = {name = "Valorous Mitts", augments = {'Accuracy+25 Atta
 gear.valorous.mitts.TH = {name = "Valorous Mitts", augments = {'AGI+10','MND+5','"Treasure Hunter"+2','Mag. Acc.+5 "Mag.Atk.Bns."+5',}}
 
 gear.valorous.hose = {}
-gear.valorous.hose.dexwsd = {name = "Valorous Hose", augments = {'Accuracy+24 Attack+24','Weapon skill damage +2%','DEX+9','Accuracy+13','Attack+14',}}
-gear.valorous.hose.critdamage = {name = "Valorous Hose", augments = {'Accuracy+15','Crit. hit damage +5%','Attack+10',}}
+gear.valorous.hose.dexwsd = {name = "Valor. Hose", augments = {'Accuracy+24 Attack+24','Weapon skill damage +2%','DEX+9','Accuracy+13','Attack+14',}}
+gear.valorous.hose.critdamage = {name = "Valor. Hose", augments = {'Accuracy+15','Crit. hit damage +5%','Attack+10',}}
 
 gear.valorous.greaves = {}
 gear.valorous.greaves.strwsd = {name = "Valorous Greaves", augments = {'Accuracy+26','Weapon skill damage +3%','STR+10','Attack+9',}}

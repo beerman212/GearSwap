@@ -9,7 +9,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT')
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None'}
-	state.Weapons:options('Chango','Zulfiqar','Naegling','NaeglingDW','Farsha','FarshaDW')
+	state.Weapons:options('Chango','Zulfiqar','Naegling','NaeglingDW')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name = "Cichol's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -44,17 +44,6 @@ function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
-
-	-- Weapons sets
-	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
-	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
-	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
-	sets.weapons.NaeglingDW = {main="Naegling",sub="Barbarity"}
-	sets.weapons.Dolichenus = {main="Dolichenus",sub="Blurred Shield +1"}
-	sets.weapons.DolichenusDW = {main="Dolichenus",sub="Firangi"}
-	sets.weapons.Farsha = {main="Chopper",sub="Blurred Shield +1"}
-	sets.weapons.FarshaDW = {main="Chopper",sub="Firangi"}
-	
 	-- Precast Sets
 	
 	sets.Enmity = {
@@ -535,7 +524,13 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.valorous.mask.TH,hands=gear.valorous.mitts.TH})
 	sets.MaxDW = {}
 	
-	
+	-- Weapons sets
+	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
+	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
+	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
+	sets.weapons.NaeglingDW = {main="Naegling",sub="Barbarity"}
+	--sets.weapons.KajaAxe = {main="Kaja Axe",sub="Blurred Shield +1"}
+	--sets.weapons.KajaAxeDW = {main="Kaja Axe",sub="Firangi"}
 end
 	
 -- Select default macro book on initial load or subjob change.

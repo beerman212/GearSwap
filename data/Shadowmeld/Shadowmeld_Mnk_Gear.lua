@@ -7,7 +7,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Godhands','Verethragna','Malignance','Karambit')
+	state.Weapons:options('Godhands','Malignance','Karambit')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	
@@ -43,12 +43,7 @@ function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
-	-- Weapons sets
-	sets.weapons.Godhands = {main="Godhands"}
-	sets.weapons.Karambit = {main="Knuckles of Trials"}
-	sets.weapons.Malignance = {main="Malignance Pole"}
-	sets.weapons.Verethragna = {main="Mantis"}
-
+	
 	-- Precast Sets
 	
 	-- Precast sets to enhance JAs on use
@@ -113,7 +108,6 @@ function init_gear_sets()
 
 	sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
 		ear1="Moonshade Earring",
-		legs="Ken. Hakama +1"
 	})
 	sets.precast.WS['Raging Fists'].MaxAcc = set_combine(sets.precast.WS['Raging Fists'], {})
 
@@ -253,6 +247,11 @@ function init_gear_sets()
     sets.Knockback = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
 	sets.Skillchain = {}
+	
+	-- Weapons sets
+	sets.weapons.Godhands = {main="Godhands"}
+	sets.weapons.Karambit = {main="Knuckles of Trials"}
+	sets.weapons.Malignance = {main="Malignance Pole"}
 end
 
 -- Select default macro book on initial load or subjob change.
