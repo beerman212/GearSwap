@@ -288,8 +288,8 @@ function init_gear_sets()
 	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
 	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
-	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield"}
-	sets.weapons.NaeglingDW = {main="Kaja Sword",sub="Firangi"}
+	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield"}
+	sets.weapons.NaeglingDW = {main="Naegling",sub="Firangi"}
 	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield"}
 	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
 end
