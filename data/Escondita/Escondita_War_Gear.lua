@@ -9,7 +9,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None','Twilight'}
-	state.Weapons:options('Chango','Zulfiqar','Ragnarok','Naegling','NaeglingDW','FarshaDW','ProcSword','ProcClub','ProcStaff','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatsword')
+	state.Weapons:options('Chango','Zulfiqar','Ragnarok','Naegling','NaeglingDW','Farsha','FarshaDW','ProcSword','ProcClub','ProcStaff','ProcGreatKatana','ProcDagger','ProcScythe','ProcKatana','ProcPolearm','ProcGreatsword')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name="Cichol's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
@@ -290,8 +290,8 @@ function init_gear_sets()
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield"}
 	sets.weapons.NaeglingDW = {main="Kaja Sword",sub="Firangi"}
-	sets.weapons.Farsha = {main="Chopper",sub="Blurred Shield"}
-	sets.weapons.FarshaDW = {main="Chopper",sub="Firangi"}
+	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield"}
+	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
 end
 	
 -- Select default macro book on initial load or subjob change.
