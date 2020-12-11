@@ -10,6 +10,7 @@ function user_setup()
 	state.Weapons:options('None')
 
 	gear.nantosuelta = {}
+	gear.nantosuelta.petregen = {name="Nantosuelta's Cape",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10'}}
 	
 	gear.obi_cure_back = ""
 	gear.obi_cure_waist = ""
@@ -206,7 +207,7 @@ function init_gear_sets()
 	sets.idle = {
 		main="Daybreak",sub="Sors Shield",range="Dunna",ammo=empty,
 		head=gear.merlinic.hood.refresh,neck="",ear1="",ear2="",
-		body="Jhakri Robe +2",hands="Bagua Mitaines",ring1="",ring2="",
+		body="Jhakri Robe +2",hands="Bagua Mitaines",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back="",waist="",legs=gear.merlinic.shalwar.refresh,feet="Azimuth Gaiters"
 	}
 		
@@ -217,8 +218,9 @@ function init_gear_sets()
 	-- .Pet sets are for when Luopan is present.
 	sets.idle.Pet = {
 		main="Solstice",sub="Sors Shield",
+		head="Azimuth Hood",
 		hands="Geomancy Mitaines",
-		head="Azimuth Hood",feet="Bagua Sandals"
+		back=gear.nantosuelta.petregen,feet="Bagua Sandals"
 	}
 
 	sets.idle.PDT.Pet = {}

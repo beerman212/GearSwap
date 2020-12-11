@@ -15,7 +15,12 @@ function user_setup()
     
     gear.andartia = {}
     gear.andartia.tp = {}
-    gear.andartia.tp.da = {name="Andartia's Mantle",augments={'DEX+20','Accuracy+20 Attack+20'}}
+    gear.andartia.tp.da = {name="Andartia's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%'}}
+
+    gear.andartia.wsd = {}
+    gear.andartia.wsd.str = {name="Andartia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+5','Weapon skill damage +10%'}}
+
+    gear.andartia.fc = {name="Andartia's Mantle",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10'}}
 
     gear.kanaria = {}
     gear.kanaria.ta = {name="Kanaria",augments={'"Triple Atk."+3','STR+7','Accuracy+6','DMG:+13'}}
@@ -73,7 +78,7 @@ function init_gear_sets()
         ammo="Impatiens",
         head=gear.herculean.helm.strwsd,neck="Orunmila's Torque",ear1="Loquac. Earring",ear2="Enchntr. Earring +1",
         body=gear.taeon.tabard.fc,hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-        back="Moonbeam Cape",legs="Arjuna Breeches",feet="Ryuo Sune-Ate +1"
+        back=gear.andartia.fc,legs="Arjuna Breeches",feet="Ryuo Sune-Ate +1"
     }
 		
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -90,9 +95,9 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head="Hachiya Hatsu. +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Lugra Earring",
+        head="Hachiya Hatsu. +2",neck="Fotia Gorget",ear1="Lugra Earring +1",ear2="Moonshade Earring",
         body=gear.herculean.vest.dexwsd,hands=gear.adhemar.wrist.path_b,ring1="Regal Ring",ring2="Ilabrat Ring",
-        gear.andartia.tp.da,waist="Fotia Belt",legs="Hiza. Hizayoroi +2",feet="Hiza. Sune-Ate +2"
+        back=gear.andartia.wsd.str,waist="Fotia Belt",legs="Hiza. Hizayoroi +2",feet="Hiza. Sune-Ate +2"
     }
 	
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -100,28 +105,40 @@ function init_gear_sets()
         ammo="Yetshila",
         head="Adhemar Bonnet +1",ear2="Odr Earring",
         body="Abnoba Kaftan",hands="Mummu Wrists +2",ring2="Mummu Ring",
-        feet="Mummu Gamash. +2"
+        back=gear.andartia.tp.da,legs="Mummu Kecks +2",feet="Mummu Gamash. +2"
     })
+
+    sets.precast.WS["Blade: Jin"].Acc = set_combine(sets.precast.WS["Blade: Jin"], {body="Adhemar Jacket +1"})
 	
 	sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS['Blade: Jin'], {
-        neck="Caro Necklace",ear2="Odr Earring",waist="Sailfi Belt +1"
+        neck="Caro Necklace",waist="Sailfi Belt +1"
     })
+
+    sets.precast.WS["Blade: Hi"].Acc = set_combine(sets.precast.WS["Blade: Hi"], {body="Adhemar Jacket +1"})
 
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, {
         head="Adhemar Bonnet +1",ear2="Moonshade Earring",
         body="Adhemar Jacket +1",
-        legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+        back=gear.andartia.tp.da,legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
+    })
+
+    sets.precast.WS["Blade: Shun"].Acc = set_combine(sets.precast.WS["Blade: Shun"], {
+        hands=gear.adhemar.wrist.path_a,feet="Mummu Gamash. +2"
     })
 
     sets.precast.WS['Blade: Ten'] = set_combine(sets.precast.WS, {
         neck="Caro Necklace",ear2="Moonshade Earring",waist="Sailfi Belt +1"
     })
 
+    sets.precast.WS["Blade: Ten"].Acc = set_combine(sets.precast.WS["Blade: Ten"], {
+        head="Hiza. Somen　+2",body="Adhemar Jacket +1"
+    })
+
     sets.precast.WS['Blade: Chi'] = set_combine(sets.precast.WS, {
         ammo="Seeth. Bomblet +1",
         head=gear.herculean.helm.magical,neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Moonshade Earring",
         body="Samnuha Coat",hands=gear.herculean.gloves.magical,ring1="Dingir Ring",ring2="Shiva Ring +1",
-        legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.magical
+        back=gear.andartia.fc,legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.magical
     })
 
     sets.precast.WS['Blade: To'] = sets.precast.WS['Blade: Chi']
@@ -134,24 +151,32 @@ function init_gear_sets()
     sets.precast.WS['Aeolian Edge'] = sets.precast.WS['Blade: Chi']
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {}
-	sets.AccMaxTP = {}
-	sets.AccDayMaxTPWSEars = {}
-	sets.DayMaxTPWSEars = {}
-	sets.AccDayWSEars = {}
-    sets.DayWSEars = {}
+	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.AccMaxTP = {ear1="Lugra Earring +1",ear2="Mache Earring +1"}
+	sets.AccDayMaxTPWSEars = {ear1="Mache Earring +1",ear2="Odr Earring"}
+	sets.DayMaxTPWSEars = {ear1="Ishvara Earring",ear2="Telos Earring"}
+	sets.AccDayWSEars = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
+    sets.DayWSEars = {ear1="Ishvara Earring",ear2="Moonshade Earring"}
     
     sets.DayWSEars["Blade: Jin"] = {ear1="Mache Earring +1",ear2="Odr Earring"}
+    sets.AccDayWSEars["Blade: Jin"] = {ear1="Mache Earring +1",ear2="Odr Earring"}
     
     sets.DayWSEars["Blade: Hi"] = {ear1="Ishvara Earring",ear2="Odr Earring"}
+    sets.AccDayWSEars["Blade: Hi"] = {ear1="Mache Earring +1",ear2="Odr Earring"}
 
     sets.MaxTP["Blade: Shun"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
-    sets.DayWSEars["Blade: Shun"] = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
+    sets.AccMaxTP["Blade: Shun"] = {ear1="Lugra Earring +1",ear2="Mache Earring +1"}
+    sets.AccDayMaxTPWSEars["Blade: Shun"] = {ear1="Mache Earring +1",ear2="Odr Earring"}
     sets.DayMaxTPWSEars["Blade: Shun"] = {ear1="Mache Earring +1",ear2="Odr Earring"}
+    sets.AccDayWSEars["Blade: Shun"] = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
+    sets.DayWSEars["Blade: Shun"] = {ear1="Odr Earring",ear2="Moonshade Earring"}
 
     sets.MaxTP["Blade: Ten"] = {ear1="Lugra Earring +1",ear2="Ishvara Earring"}
-    sets.DayWSEars["Blade: Ten"] = {ear1="Ishvara Earring",ear2="Moonshade Earring"}
+    sets.AccMaxTP["Blade: Ten"] = {ear1="Lugra Earring +1",ear2="Mache Earring +1"}
+    sets.AccDayMaxTPWSEars["Blade: Ten"] = {ear1="Mache Earring +1",ear2="Odr Earring"}
     sets.DayMaxTPWSEars["Blade: Ten"] = {ear1="Ishvara Earring",ear2="Odr Earring"}
+    sets.AccDayWSEars["Blade: Ten"] = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
+    sets.DayWSEars["Blade: Ten"] = {ear1="Ishvara Earring",ear2="Moonshade Earring"}
 
     sets.MaxTP["Blade: Chi"] = {ear1="Friomisi Earring",ear2="Ishvara Earring"}
 

@@ -156,7 +156,12 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
-    sets.idle = {}
+    sets.idle = {
+        ammo="Staunch Tathlum",
+        head="Meghanada Visor +1",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Assuage Earring",
+        body="Meg. Cuirie +1",hands="Meg. Gloves +1",ring1="Meghanada Ring",ring2="Gelatinous Ring +1",
+        legs="Meg. Chausses +1",feet="Meg. Jam. +1"
+    }
 		
     sets.idle.Sphere = set_combine(sets.idle, {})
 

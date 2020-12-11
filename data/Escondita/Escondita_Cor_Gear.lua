@@ -50,6 +50,10 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
+	-- Weapons sets
+    sets.weapons.Default = {main="Naegling",sub="Nusku Shield",range="Fomalhaut",ammo=gear.RAbullet}
+    sets.weapons.DefaultDW = {main="Naegling",sub="Tauret",range="Fomalhaut",ammo=gear.RAbullet}
+
     -- Precast Sets
 
     -- Precast sets to enhance JAs
@@ -95,7 +99,7 @@ function init_gear_sets()
     
     sets.precast.FC = {
         head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Loquac. Earring",ear2="",
-        body="",hands="Leyline Gloves",ring1="Kishar Ring",
+        body="Taeon Tabard",hands="Leyline Gloves",ring1="Kishar Ring",
         feet="Carmine Greaves +1",
     }
 
@@ -121,14 +125,18 @@ function init_gear_sets()
 
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {})
 	
-	sets.precast.WS['Savage Blade'] = {}
+	sets.precast.WS['Savage Blade'] = {
+        head=gear.herculean.helm.dexwsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        body=gear.herculean.vest.wsd,hands="Adhemar Wrist +1",ring1="Petrov Ring",ring2="Ilabrat Ring",
+        waist="Fotia Belt",legs=gear.herculean.trousers.ma,feet=gear.herculean.boots.wsd
+    }
 	
     sets.precast.WS['Last Stand'] = {}
 	
     sets.precast.WS['Leaden Salute'] = {
         head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-        body="",hands="Carmine Fin. Ga. +1",ring1="Dingir Ring",ring2="Archon Ring",
-        waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.mburst
+        body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Dingir Ring",ring2="Archon Ring",
+        waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
     }
 
     sets.precast.WS['Wildfire'] = {}
@@ -140,7 +148,7 @@ function init_gear_sets()
     sets.precast.WS['Burning Blade'] = {}
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {}
+	sets.MaxTP = {ear1="Ishvara Earring",ear2="Telos Earring"}
 	sets.AccMaxTP = {}
         
     -- Midcast Sets
@@ -192,12 +200,8 @@ function init_gear_sets()
 
     sets.Kiting = {legs="Carmine Cuisses +1"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	sets.DWMax = {}
-
-	-- Weapons sets
-    sets.weapons.Default = {main="Naegling",sub="Nusku Shield",range="Fomalhaut"}
-    sets.weapons.DefaultDW = {main="Naegling",sub="Tauret",range="Fomalhaut"}
-	
+    sets.DWMax = {}
+    
     -- Engaged sets
 
     -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
@@ -207,12 +211,12 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-        head="Adhemar Bonnet +1",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
+        head="Adhemar Bonnet +1",neck="Clotharius Torque",ear1="Telos Earring",ear2="Cessance Earring",
         body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Petrov Ring",ring2="Epona's Ring",
-        waist="Windbuffet Belt +1",legs="Samnuha Tights",feet="Carmine Greaves +1"
+        back="Solemnity Cape",waist="Windbuffet Belt +1",legs="Malignance Tights",feet=gear.herculean.boots.qa
     }
 
-    sets.engaged.DW = set_combine(sets.engaged, {ear2="Suppanomi"})
+    sets.engaged.DW = set_combine(sets.engaged, {ear2="Suppanomimi"})
 
 end
 

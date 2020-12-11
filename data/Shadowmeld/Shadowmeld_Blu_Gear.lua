@@ -200,13 +200,16 @@ function init_gear_sets()
 	
 	sets.MaxTP["Requiescat"] = {ear1="Telos Earring",ear2="Regal Earring"}
 	sets.AccMaxTP["Requiescat"] = {ear1="Mache Earring +1",ear2="Regal Earring"}
+
 	sets.MaxTP["Savage Blade"] = {ear1="Ishvara Earring",ear2="Regal Earring"}
-	sets.AccMaxTP["Savage Blade"] = {ear1="Telos Earring",ear2="Mache Earring +1"}
+	sets.AccMaxTP["Savage Blade"] = {ear1="Odr Earring",ear2="Mache Earring +1"}
+
 	sets.MaxTP["Expiacion"] = {ear1="Ishvara Earring",ear2="Regal Earring"}
 	sets.AccMaxTP["Expiacion"] = {ear1="Mache Earring +1",ear2="Regal Earring"}
 	
-	sets.MaxTP["Realmrazer"] = {}
-	sets.AccMaxTP["Realmrazer"] = {}
+	sets.MaxTP["Realmrazer"] = sets.MaxTP["Requiescat"]
+	sets.AccMaxTP["Realmrazer"] = sets.AccMaxTP["Requiescat"]
+
 	sets.MaxTP["Black Halo"] = {ear1="Ishvara Earring",ear2="Regal Earring"}
 	sets.AccMaxTP["Black Halo"] = {ear1="Telos Earring",ear2="Regal Earring"}
 

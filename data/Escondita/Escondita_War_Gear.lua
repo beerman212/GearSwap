@@ -290,6 +290,8 @@ function init_gear_sets()
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	sets.weapons.Naegling = {main="Kaja Sword",sub="Blurred Shield"}
 	sets.weapons.NaeglingDW = {main="Kaja Sword",sub="Firangi"}
+	sets.weapons.Farsha = {main="Chopper",sub="Blurred Shield"}
+	sets.weapons.FarshaDW = {main="Chopper",sub="Firangi"}
 end
 	
 -- Select default macro book on initial load or subjob change.

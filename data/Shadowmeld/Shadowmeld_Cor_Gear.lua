@@ -105,8 +105,8 @@ function init_gear_sets()
 	sets.precast.CorsairShot.Proc = {
 		ammo=gear.RAbullet,
 		head="Wh. Rarab Cap +1",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Sanare Earring",
-		body="Emet Harness +1",hands="Leyline Gloves",ring1="Defending Ring",ring2="Dark Ring",
-		back="Moonlight Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Chass. Bottes +1"
+		body="Emet Harness +1",hands="Leyline Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back="Moonbeam Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Chass. Bottes +1"
 	}
 
 	sets.precast.CorsairShot['Light Shot'] = set_combine(sets.precast.CorsairShot, {
@@ -120,7 +120,7 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
 	sets.precast.Waltz = {
 		head="Carmine Mask +1",neck="Loricate Torque +1",ear2="Genmei Earring",
-		body="Lanun Frac +3",hands="Carmine Fin. Ga. +1",ring1="Defending Ring",ring2="Dark Ring",
+		body="Lanun Frac +3",hands="Carmine Fin. Ga. +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Mummu Kecks +2",feet="Rawhide Boots"}
 		
 	sets.Self_Waltz = {head="Mummu Bonnet +2",}
@@ -188,7 +188,7 @@ function init_gear_sets()
 
 	sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Dedition Earring",
-		body="Malignance Tabard",hands=gear.adhemar.wrist.path_c,ring1="Chirich Ring",ring2="Ilabrat Ring",
+		body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Chirich Ring",ring2="Ilabrat Ring",
 		back=gear.camulus.stp.melee,waist="Yemaya Belt",legs="Malignance Tights",feet="Ahosi Leggings"
 	})
 	sets.precast.WS["Shining Blade"] = sets.precast.WS["Burning Blade"]

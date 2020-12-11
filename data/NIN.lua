@@ -576,7 +576,8 @@ end
 
 buff_spell_lists = {
 	Auto = {	
-		{Name='Migawari: Ichi',Buff='Migawari',SpellID=510,When='Combat'},
+		--{Name='Migawari: Ichi',Buff='Migawari',SpellID=510,When='Combat'},
+		{Name='Kakka: Ichi',Buff='Store TP',SpellID=509,When='Combat'},
 	},
 	
 	Default = {

@@ -302,7 +302,7 @@ function init_gear_sets()
 		main="Daybreak",sub="Ammurapi Shield",ammo="Homiliary",
 		head=gear.chironic.hat.refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
 		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
-		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +1"
+		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"
 	}
 
 	sets.idle.DT = set_combine(sets.idle, {main="Malignance Pole",sub="Kupayopl",ammo="Staunch Tathlum"})
@@ -334,7 +334,7 @@ function init_gear_sets()
     -- Basic set for if no TP weapon is defined.
 	sets.engaged = {
 		head="Aya. Zucchetto",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-		body="Ayanmo Corazza",hands="Aya. Manopolas +1",ring1="Petrov Ring",ring2="K'ayres Ring",
+		body="Ayanmo Corazza",hands="Aya. Manopolas +2",ring1="Petrov Ring",ring2="K'ayres Ring",
 		waist="Grunfeld Rope",legs="Ayanmo Cosciales",feet="Aya. Gambieras +2"
 	}
 	sets.engaged.MaxAcc = set_combine(sets.engaged, {})
