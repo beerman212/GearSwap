@@ -17,9 +17,6 @@ function user_setup()
 	gear.cichol.upheaval = {name="Cichol's Mantle",augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%'}}
 	gear.cichol.justice = {name="Cichol's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%'}}
 
-	gear.aganoshe = {}
-	gear.aganoshe.main = {name="Aganoshe",augments={'"Store TP"+5','VIT+14','Accuracy+13','Attack+25','DMG:+20',}}
-
 	-- Additional local binds
 	send_command('bind ^` input /ja "Hasso" <me>')
 	send_command('bind !` input /ja "Seigan" <me>')
@@ -34,6 +31,16 @@ function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
+	
+	-- Weapons sets
+	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
+	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
+	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
+	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield"}
+	sets.weapons.NaeglingDW = {main="Naegling",sub="Firangi"}
+	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield"}
+	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
+
 	-- Precast Sets
 
 	sets.Enmity = {
@@ -88,130 +95,181 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		ammo="Seeth. Bomblet +1",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
+		ammo="Knobkierrie",
+		head=gear.odyssean.helm.wsd,neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
+		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Ilabrat Ring",
+		back=gear.cichol.justice,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
+
+	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.DayWSEars = {ear1="Thrud Earring",ear2="Moonshade Earring"} -- I think this needs to be in here even though it's the same as the base set.
+	sets.DayMaxTPWSEars = {ear1="Thrud Earring",ear2="Ishvara Earring"}
+
+	-- sets.precast.WS = {
+	-- 	ammo="Seeth. Bomblet +1",
+	-- 	head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
+	-- 	body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
+	-- 	back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
+	-- }
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
 	-- Great Sword
-	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS, {
-		ear2="Moonshade Earring",
+	sets.precast.WS.Resolution = set_combine(sets.precast.WS, {
+		ammo="Aurgelmir Orb",
+		head="Flam. Zucchetto +2",ear1="Lugra Earring +1",
+		body="Dagon Breast.",ring2="Flamma Ring",
+		back=gear.cichol.resolution,legs="Argosy Breeches +1",feet="Pumm. Calligae +3"
 	})
 
-	sets.precast.WS["Scourge"] = set_combine(sets.precast.WS, {
-		ammo="Knobkierrie",
-		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear2="Ishvara Earring",
-		ring2="Apate Ring",
-		back=gear.cichol.upheaval,waist="Caudata Belt",feet="Sulev. Leggings +2"
+	sets.MaxTP.Resolution = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.DayWSEars.Resolution = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars.Resolution = {ear1="Brutal Earring",ear2="Thrud Earring"}
+
+	sets.precast.WS.Scourge = set_combine(sets.precast.WS, {
+		neck="Caro Necklace",ear1="Lugra Earring +1",ear2="Thrud Earring",
+		waist="Caudata Belt"
 	})
+
+	sets.DayWSEars.Scourge = {ear1="Thrud Earring",ear2="Ishvara Earring"}
 
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS["Scourge"], {
-		ear1="Moonshade Earring"
+		ear1="Thrud Earring",ear2="Moonshade Earring"
 	})
 
-	sets.precast.WS["Shockwave"] = {
-		ammo="Knobkierrie",
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Assuage Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Etana Ring",
-		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
-	}
+	sets.precast.WS.Shockwave = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",
+		hands="Flam. Manopolas +2",ring1="Stikini Ring",ring2="Flamma Ring",
+		waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
 
-	sets.precast.WS["Herculean Slash"] = {
-		ammo="Pemphredo Tathlum",
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Shiva Ring +1",ring2="Shiva Ring",
-		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
-	}
+	sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Friomisi Earring",
+		hands="Flam. Manopolas +2",ring1="Shiva Ring +1",ring2="Gelatinous Ring +1",
+		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+	})
+
+	sets.MaxTP["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
 
 	-- Great Axe
-	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {
-		ammo="Knobkierrie",
-		head="Flam. Zucchetto +2",ear1="Thrud Earring",ear2="Moonshade Earring",
-		back=gear.cichol.upheaval,feet="Sulev. Leggings +2"
+	sets.precast.WS.Upheaval = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",neck="Caro Necklace",ear1="Lugra Earring +1",
+		back=gear.cichol.upheaval,waist="Caudata Belt"
 	})
 
-	sets.precast.WS["King's Justice"] = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.justice,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
-	}
+	sets.MaxTP.Upheaval = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.DayWSEars.Upheaval = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars.Upheaval = {ear1="Thrud Earring",ear2="Ishvara Earring"}
 
-	sets.precast.WS["Full Break"] = {
-		ammo="Knobkierrie",
-		head="Flam. Zucchetto +2",neck="Sanctity Necklace",ear1="Assuage Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Etana Ring",
-		back=gear.cichol.upheaval,waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
-	}
+	sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS.Upheaval, {back=gear.cichol.justice})
 
-	sets.precast.WS["Fell Cleave"] = {
-		ammo="Knobkierrie",
-		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Brutal Earring",ear2="Ishvara Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
-		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
-	}
+	sets.MaxTP["King's Justice"] = sets.MaxTP.Upheaval
+	sets.DayWSEars["King's Justice"] = sets.DayWSEars.Upheaval
+	sets.DayMaxTPWSEars["King's Justice"] = sets.DayMaxTPWSEars.Upheaval
 
-	sets.precast.WS["Ukko's Fury"] = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Cessance Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
-	}
+	sets.precast.WS["Raging Rush"] = set_combine(sets.precast.WS.Resolution, {
+		--ammo="Yetshila",
+		head=gear.valorous.mask.crit,ear1="Lugra Earring +1"
+		hands="Flam. Manopolas +2",
+		feet="Boii Calligae +1"
+	})
 
-	sets.precast.WS["Steel Cyclone"] = {
-		ammo="Knobkierrie",
-		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
-		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
-	}
+	sets.MaxTP["Raging Rush"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.DayWSEars["Raging Rush"] = {ear1="Brutal Earring",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars["Raging Rush"] = {ear1="Brutal Earring",ear2="Thrud Earring"}
 
-	sets.precast.WS["Savage Blade"] = {
-		ammo="Knobkierrie",
-		head=gear.odyssean.helm.wsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
-		back=gear.cichol.upheaval,waist="Caudata Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
-	}
+	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
+		head="Flam. Zucchetto +2",neck="Caro Necklace +2",ear1="Lugra Earring +1",
+		body="Dagon Breast.",hands="Flam. Manopolas +2",
+		back=gear.cichol.justice,feet="Boii Calligae +1"
+	})
 
-	sets.precast.WS["Vorpal Blade"] = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
-	}
+	sets.MaxTP["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.DayWSEars["Ukko's Fury"] = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars["Ukko's Fury"] = {ear1="Brutal Earring",ear2="Thrud Earring"}
 
-	sets.precast.WS["Sanguine Blade"] = {
-		ammo="Pemphredo Tathlum",
-		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Shiva Ring +1",ring2="Archon Ring",
-		back=gear.cichol.resolution,waist="Eschan Stone",legs=gear.valorous.hose.mab,feet="Founder's Greaves"
-	}
+	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS, {
+		neck="Caro Necklace",waist="Caudata Belt"
+	})
 
-	sets.precast.WS["Requiescat"] = {
-		ammo="Seething Bomblet",
-		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Brutal Earring",ear2="Moonshade Earring",
-		body="Pumm. Lorica +2",hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Flamma Ring",
-		back=gear.cichol.resolution,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Pumm. Calligae +3"
-	}
+	sets.MaxTP["Steel Cyclone"] = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.DayWSEars["Steel Cyclone"] = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars["Steel Cylcone"] = {ear1="Thrud Earring",ear2="Ishvara Earring"}
+
+	sets.precast.WS["Fell Cleave"] = set_combine(sets.precast.WS, {
+		neck="Caro Necklace",ear1="Lugra Earring +1",ear2="Thrud Earring",
+		waist="Caudata Belt"
+	})
+
+	sets.DayWSEars = {ear1="Thrud Earring",ear2="Ishvara Earring"}
+
+	sets.precast.WS["Full Break"] = set_combine(sets.precast.WS.Shockwave, {})
+
+	sets.MaxTP["Full Break"] = sets.MaxTP.Shockwave
+	sets.DayWSEars["Full Break"] = sets.DayWSEars.Shockwave
+	sets.DayMaxTPWSEars["Full Break"] = sets.DayMaxTPWSEars.Shockwave
+
+	sets.precast.WS["Armor Break"] = sets.precast.WS["Full Break"]
+	sets.precast.WS["Shield Break"] = sets.precast.WS["Full Break"]
+	sets.precast.WS["Weapon Break"] = sets.precast.WS["Full Break"]
+
+	-- Sword
+	sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
+		neck="Caro Necklace",ring2="Apate Ring",
+		waist="Caudata Belt"
+	})
+
+	sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Raging Rush"], {})
+
+	sets.MaxTP["Vorpal Blade"] = sets.MaxTP["Raging Rush"]
+	sets.DayWSEars["Vorpal Blade"] = sets.DayWSEars["Raging Rush"]
+	sets.DayMaxTPWSEars["Vorpal Blade"] = sets.DayMaxTPWSEars["Raging Rush"]
+
+	sets.precast.WS.Requiescat = set_combine(sets.precast.WS.Resolution, {
+		ammo="Seeth. Bomblet +1",
+	})
+
+	sets.MaxTP.Requiescat = sets.MaxTP.Resolution
+	sets.DayWSEars.Requiescat = sets.DayWSEars.Resolution
+	sets.DayMaxTPWSEars.Requiescat = sets.DayMaxTPWSEars.Resolution
+	
+	sets.precast.WS["Sanguine Blade"] = set_combine(sets.precast.WS["Herculean Slash"], {
+		head="Pixie Hairpin +1",ear2="Thrud Earring",
+		ring2="Archon Ring"
+	})
+
+	-- Axe
+	sets.precast.WS.Decimation = set_combine(sets.precast.WS.Resolution, {})
+
+	sets.MaxTP.Decimation = sets.MaxTP.Resolution
+	sets.DayWSEars.Decimation = sets.DayWSEars.Resolution
+	sets.DayMaxTPWSEars.Decimation = sets.DayMaxTPWSEars.Resolution
+
+	sets.precast.WS.Ruinator = set_combine(sets.precast.WS.Resolution, {})
+
+	sets.MaxTP.Ruinator = sets.MaxTP.Resolution
+	sets.DayWSEars.Ruinator = sets.DayWSEars.Resolution
+	sets.DayMaxTPWSEars.Ruinator = sets.DayMaxTPWSEars.Resolution
+
+	sets.precast.WS.Cloudsplitter = set_combine(sets.precast.WS["Herculean Slash"], {})
+
+	sets.MaxTP.Cloudsplitter = sets.MaxTP["Herculean Slash"]
+	
+	sets.precast.WS["Mistral Axe"] = set_combine(sets.precast.WS["Savage Blade"], {})
+	sets.precast.WS.Calamity = sets.precast.WS["Mistral Axe"]
+	
+	-- Polearm
+	sets.precast.WS["Impulse Drive"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS.Stardiver = set_combine(sets.precast.WS.Resolution, {})
+	sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS, {})
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {ear1="Brutal Earring",ear2="Cessance Earring"}
-	sets.MaxTP["Resolution"] = {ear1="Brutal Earring",ear2="Cessance Earring"}
-	sets.MaxTP["Ground Strike"] = {ear1="Brutal Earring",ear2="Ishvara"}
-	sets.MaxTP["Upheaval"] = {ear1="Brutal Earring",ear2="Cessance Earring"}
-	sets.MaxTP["King's Justice"] = {ear1="Brutal Earring",ear2="Cessance Earring"}
-	sets.MaxTP["Steel Cyclone"] = {ear1="Brutal Earring",ear2="Ishvara Earring"}
-	sets.MaxTP["Savage Blade"] = {ear1="Brutal Earring",ear2="Ishvara Earring"}
-	sets.MaxTP["Vorpal Blade"] = {ear1="Brutal Earring",ear2="Cessance Earring"}
-	sets.MaxTP["Requiescat"] = {ear1="Brutal Earring",ear2="Cessance Earring"}
-
-	sets.AccMaxTP = {}
-	sets.AccDayMaxTPWSEars = {}
-	sets.DayMaxTPWSEars = {}
-	sets.AccDayWSEars = {}
-	sets.DayWSEars = {}
+	-- sets.MaxTP = {}
+	-- sets.AccMaxTP = {}
+	-- sets.AccDayMaxTPWSEars = {}
+	-- sets.DayMaxTPWSEars = {}
+	-- sets.AccDayWSEars = {}
+	-- sets.DayWSEars = {}
 
 	-- Sets to return to when not performing an action.
 		
@@ -246,7 +304,7 @@ function init_gear_sets()
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {neck="Vim Torque"}
 		
-			-- Engaged sets
+	-- Engaged sets
 	sets.engaged = {
 		ammo="Aurgelmir Orb",
 		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",

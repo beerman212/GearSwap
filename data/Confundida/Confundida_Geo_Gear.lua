@@ -42,6 +42,9 @@ function user_setup()
 end
 
 function init_gear_sets()
+
+	-- Weapons sets
+	sets.weapons.default = {}
 	
 	--------------------------------------
 	-- Precast sets
@@ -64,7 +67,7 @@ function init_gear_sets()
 
 	sets.precast.FC = {
 		main="Marin Staff",sub="Clerisy Strap",range="Dunna",ammo=empty,
-		head="Haruspex Hat",ear1="Moonshade Earring",ear2="Loquac. Earring",
+		head=gear.merlinic.hood.mdmg,ear1="Moonshade Earring",ear2="Loquac. Earring",
 		ring1="Kishar Ring",
 		back="Lifestream Cape",waist="Embla Sash",legs="Geomancy Pants"
 	}
@@ -281,9 +284,6 @@ function init_gear_sets()
 	-- Gear for Magic Burst mode.
     sets.MagicBurst = {}
 	sets.RecoverBurst = {}
-
-	-- Weapons sets
-	sets.weapons.default = {}
 
 end
 
