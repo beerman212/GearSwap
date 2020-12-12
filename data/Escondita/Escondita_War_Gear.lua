@@ -169,7 +169,7 @@ function init_gear_sets()
 
 	sets.precast.WS["Raging Rush"] = set_combine(sets.precast.WS.Resolution, {
 		--ammo="Yetshila",
-		head=gear.valorous.mask.crit,ear1="Lugra Earring +1"
+		head=gear.valorous.mask.crit,ear1="Lugra Earring +1",
 		hands="Flam. Manopolas +2",
 		feet="Boii Calligae +1"
 	})
