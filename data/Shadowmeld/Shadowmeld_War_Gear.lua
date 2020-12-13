@@ -52,15 +52,15 @@ function init_gear_sets()
 	sets.weapons.NaeglingDW = {main="Naegling",sub="Barbarity"}
 	sets.weapons.Dolichenus = {main="Dolichenus",sub="Blurred Shield +1"}
 	sets.weapons.DolichenusDW = {main="Dolichenus",sub="Firangi"}
-	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield +1"}
-	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
+	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield +1"}
+	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
 	
 	-- Precast Sets
 	
 	sets.Enmity = {
 		ammo="Aqreqaq Bomblet",
 		head="Pummeler's Mask +2",neck="Moonbeam Necklace",ear1="Friomisi Earring",
-		body="Souveran Cuirass",hands="Souv. Handsch. +1",ring1="Petrov Ring",ring2="Supershear Ring",
+		body="Souv. Cuirass +1",hands="Souv. Handsch. +1",ring1="Petrov Ring",ring2="Supershear Ring",
 		legs=gear.odyssean.cuisses.stp,feet="Souveran Schuhs +1"
 	}
 	sets.SIRD = {
@@ -121,37 +121,39 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head="Agoge Mask +3",neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
+		head="Agoge Mask +3",neck="War. Beads +2",ear1="Thrud Earring",ear2="Moonshade Earring",
 		body="Pumm. Lorica +3",hands=gear.odyssean.gauntlets.vitwsd,ring1="Regal Ring",ring2="Niqmaddu Ring",
-		back=gear.cichol.wsd.str,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
+		back=gear.cichol.wsd.str,waist="Sailfi Belt +1",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
 
-	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",legs="Pumm. Cuisses +3"})
+	sets.precast.WS.Acc = set_combine(sets.precast.WS, {hands="Flam. Manopolas +2"})
+
+	sets.precast.WS.MaxAcc = set_combine(sets.precast.WS.Acc, {head="Pummeler's Mask +2",legs="Pumm. Cuisses +3"})
+
+	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.AccMaxTP = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.DayWSEars = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.AccDayWSEars = {ear1="Thrud Earring",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.AccDayMaxTPWSEars = {ear1="Thrud Earring",ear2="Mache Earring +1"}
 
 	--[[ Great Axe WS ]]
 	--[[ Upheaval ]]
-	sets.precast.WS["Upheaval"] = set_combine(sets.precast.WS, {neck="War. Beads +2",back=gear.cichol.wsd.vit,waist="Caudata Belt"})
-	
-	sets.precast.WS["Upheaval"].MaxAcc = set_combine(sets.precast.WS["Upheaval"], {head="Pummeler's Mask +2",hands="Flam. Manopolas +2",legs="Pumm. Cuisses +3"})
+	sets.precast.WS.Upheaval = set_combine(sets.precast.WS, {back=gear.cichol.wsd.vit})
+	sets.precast.WS.Upheaval.Acc = set_combine(sets.precast.WS.Upheaval, {hands="Sulev. Gauntlets +2"})
+	sets.precast.WS.Upheaval.MaxAcc = set_combine(sets.precast.WS.Upheaval.Acc, {})
 
 	--[[ King's Justice ]]
-	sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS, {
-		neck="Caro Necklace",waist="Caudata Belt"
-	})
-	
-	sets.precast.WS["King's Justice"].MaxAcc = set_combine(sets.precast.WS["King's Justice"], {
-		ammo="Seeth. Bomblet +1",head="Pummeler's Mask +2",hands="Flam. Manopolas +2",legs="Pumm. Cuisses +3"
-	})
+	sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS["King's Justice"].Acc = set_combine(sets.precast.WS["King's Justice"], {hands="Sulev. Gauntlets +2"})
+	sets.precast.WS["King's Justice"].MaxAcc = set_combine(sets.precast.WS["King's Justice"].Acc, {})
 
 	--[[ Full Break ]]
 	sets.precast.WS["Full Break"] = set_combine(sets.precast.WS, {
-		ammo="Pemphredo Tathlum",
-		neck="Sanctity Necklace",ear2="Digni. Earring",
-		hands="Flam. Manopolas +2",
-		legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+		neck="Sanctity Necklace",hands="Flam. Manopolas +2",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
 	})
-	
-	sets.precast.WS["Full Break"].MaxAcc = set_combine(sets.precast.WS["Full Break"], {})
+	sets.precast.WS["Full Break"].Acc = set_combine(sets.precast.WS["Full Break"], {})
+	sets.precast.WS["Full Break"].MaxAcc = set_combine(sets.precast.WS["Full Break"].Acc, {})
 
 	--[[ Breaks ]]
 	sets.precast.WS["Armor Break"] = sets.precast.WS["Full Break"]
@@ -160,122 +162,185 @@ function init_gear_sets()
 
 	--[[ Ukko's Fury ]]
 	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
-		ammo="Yetshila",
-		head="Flam. Zucchetto +2",ear1="Thrud Earring",ear2="Lugra Earring +1",
-		body="Hjarrandi Breast.",hands="Flam. Manopolas +2",
-		waist="Grunfeld Rope",legs="Pumm. Cuisses +3",feet=gear.valorous.greaves.strwsd
+		ammo="Yetshila",ear1="Lugra Earring +1",body="Hjarrandi Breast.",hands="Flam. Manopolas +2",feet="Boii Calligae +1"
 	})
-	
-	sets.precast.WS["Ukko's Fury"].MaxAcc = set_combine(sets.precast.WS["Ukko's Fury"], {})
+	sets.precast.WS["Ukko's Fury"].Acc = set_combine(sets.precast.WS["Ukko's Fury"], {})
+	sets.precast.WS["Ukko's Fury"].MaxAcc = set_combine(sets.precast.WS["Ukko's Fury"].Acc, {})
+
+	sets.MaxTP["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.AccMaxTP["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.DayWSEars["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Moonshade Earring"}
+	sets.AccDayWSEars["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.AccDayMaxTPWSEars["Ukko's Fury"] = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
 
 	--[[ Raging Rush ]]
 	sets.precast.WS["Raging Rush"] = sets.precast.WS["Ukko's Fury"]
 
+	sets.MaxTP["Raging Rush"] = sets.MaxTP["Ukko's Fury"]
+	sets.AccMaxTP["Raging Rush"] = sets.AccMaxTP["Ukko's Fury"]
+	sets.DayWSEars["Raging Rush"] = sets.DayWSEars["Ukko's Fury"]
+	sets.AccDayWSEars["Raging Rush"] = sets.AccDayWSEars["Ukko's Fury"]
+	sets.DayMaxTPWSEars["Raging Rush"] = sets.DayMaxTPWSEars["Ukko's Fury"]
+	sets.AccDayMaxTPWSEars["Raging Rush"] = sets.AccDayMaxTPWSEars["Ukko's Fury"]
+
 	--[[ Fell Cleave ]]
 	sets.precast.WS["Fell Cleave"] = set_combine(sets.precast.WS, {})
-	
-	sets.precast.WS["Fell Cleave"].MaxAcc = set_combine(sets.precast.WS["Fell Cleave"], {})
+	sets.precast.WS["Fell Cleave"].Acc = set_combine(sets.precast.WS["Fell Cleave"], {})	
+	sets.precast.WS["Fell Cleave"].MaxAcc = set_combine(sets.precast.WS["Fell Cleave"].Acc, {})
 
 	--[[ Steel Cyclone ]]
 	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS, {})
-	
-	sets.precast.WS["Steel Cyclone"].MaxAcc = set_combine(sets.precast.WS["Steel Cyclone"], {})
+	sets.precast.WS["Steel Cyclone"].Acc = set_combine(sets.precast.WS["Steel Cyclone"], {})
+	sets.precast.WS["Steel Cyclone"].MaxAcc = set_combine(sets.precast.WS["Steel Cyclone"].Acc, {})
 
 	--[[ Great Sword ]]
 	--[[ Resolution ]]
-	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS, {
+	sets.precast.WS.Resolution = set_combine(sets.precast.WS, {
 		ammo="Seeth. Bomblet +1",
-		head="Flam. Zucchetto +2",
+		head="Flam. Zucchetto +2",neck="Fotia Gorget",ear1="Lugra Earring +1",
 		body="Argosy Hauberk +1",hands="Argosy Mufflers +1",
-		back=gear.cichol.reso,legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
+		back=gear.cichol.reso,waist="Fotia Belt",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
 	})
+	sets.precast.WS.Resolution.Acc = set_combine(sets.precast.WS.Resolution, {})
+	sets.precast.WS.Resolution.MaxAcc = set_combine(sets.precast.WS.Resolution.Acc, {})
 
-	sets.precast.WS["Resolution"].MaxAcc = set_combine(sets.precast.WS["Resolution"], {})
+	sets.MaxTP.Resolution = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.AccMaxTP.Resolution = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.DayWSEars.Resolution = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.AccDayWSEars.Resolution = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.DayMaxTPWSEars.Resolution = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
+	sets.AccDayMaxTPWSEars.Resolution = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
 
 	--[[ Ground Strike ]]
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS, {})
-	sets.precast.WS["Ground Strike"].MaxAcc = set_combine(sets.precast.WS["Ground Strike"], {})
+	sets.precast.WS["Ground Strike"].Acc = set_combine(sets.precast.WS["Ground Strike"], {})
+	sets.precast.WS["Ground Strike"].MaxAcc = set_combine(sets.precast.WS["Ground Strike"].Acc, {})
 
 	--[[ Herculean Slash ]]
 	sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS, {
-		head="Flam. Zucchetto +2",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Digni. Earring",
-		body="Flamma Korazin +2",hands="Flam. Manopolas +2",ring2="Shiva Ring +1",
-		waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
+		neck="Baetyl Pendant",ear1="Friomisi Earring",
+		body="Founder's Breast.",hands=gear.odyssean.gauntlets.magicwsd,ring2="Shiva Ring +1",
+		waist="Eschan Stone",legs="Flamma Dirs +2",gear.valorous.greaves.magicwsd
 	})
-	sets.precast.WS["Herculean Slash"].MaxAcc = set_combine(sets.precast.WS["Herculean Slash"], {})
+	sets.precast.WS["Herculean Slash"].Acc = set_combine(sets.precast.WS["Herculean Slash"], {})
+	sets.precast.WS["Herculean Slash"].MaxAcc = set_combine(sets.precast.WS["Herculean Slash"].Acc, {})
+
+	sets.MaxTP["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
+	sets.AccMaxTP["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
+	sets.DayWSEars["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
+	sets.AccDayWSEars["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
+	sets.DayMaxTPWSEars["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
+	sets.AccDayMaxTPWSEars["Herculean Slash"] = {ear1="Friomisi Earring",ear2="Thrud Earring"}
 
 	--[[ Shockwave ]]
-	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS, {
-		head="Flam. Zucchetto +2",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Digni. Earring",
-		body="Flamma Korazin +2",hands="Flam. Manopolas +2",ring2="Shiva Ring +1",
-		waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
-	})
-	sets.precast.WS["Shockwave"].MaxAcc = set_combine(sets.precast.WS["Shockwave"], {})
+	sets.precast.WS["Shockwave"] = sets.precast.WS["Full Break"]
 
 	--[[ Sword ]]
 	--[[ Savage Blade ]]
-	sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
-		neck="Caro Necklace",waist="Grunfeld Rope"
-	})
-	sets.precast.WS["Savage Blade"].MaxAcc = set_combine(sets.precast.WS["Savage Blade"], {})
+	sets.precast.WS["Savage Blade"] = sets.precast.WS["King's Justice"]
 	
 	--[[ Vorpal Blade ]]
-	sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS, {
-		ammo="Yetshila",
-		head="Flam. Zucchetto +2",ear1="Thrud Earring",ear2="Lugra Earring +1",
-		body="Hjarrandi Breast.",hands="Flam. Manopolas +2",
-		waist="Grunfeld Rope",legs="Pumm. Cuisses +3",feet=gear.valorous.greaves.strwsd
-	})
-	sets.precast.WS["Vorpal Blade"].MaxAcc = set_combine(sets.precast.WS["Vorpal Blade"], {})
-	
-	--[[ Sanguine Blade ]]
-	sets.precast.WS["Sanguine Blade"] = set_combine(sets.precast.WS, {
-		head="Pixie Hairpin +1",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Digni. Earring",
-		body="Flamma Korazin +2",hands="Flam. Manopolas +2",ring1="Archon Ring",ring2="Shiva Ring +1",
-		waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
-	})
-	sets.precast.WS["Sanguine Blade"].MaxAcc = set_combine(sets.precast.WS["Sanguine Blade"], {})
-	
-	--[[ Red Lotus Blade ]]
-	sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS, {
-		head="Flam. Zucchetto +2",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Digni. Earring",
-		body="Flamma Korazin +2",hands="Flam. Manopolas +2",ring2="Shiva Ring +1",
-		waist="Eschan Stone",legs="Flamma Dirs +2",feet="Flam. Gambieras +2"
-	})
-	sets.precast.WS["Red Lotus Blade"].MaxAcc = set_combine(sets.precast.WS["Red Lotus Blade"], {})
-	
-	--[[ Requiescat ]]
-	sets.precast.WS["Requiescat"] = set_combine(sets.precast.WS, {
-		ammo="Aurgelmir Orb +1",
-		head="Sulevia's Mask +2",ear1="Brutal Earring",ear2="Telos Earring",
-		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",
-		legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
-	})
-	sets.precast.WS["Requiescat"].MaxAcc = set_combine(sets.precast.WS["Requiescat"], {})
+	sets.precast.WS["Vorpal Blade"] = sets.precast.WS["Ukko's Fury"]
 
-	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {ear1="Thrud Earring",ear2="Lugra Earring +1",}
-	sets.AccMaxTP = {ear1="Thrud Earring",ear2="Lugra Earring +1"}
-	sets.DayMaxTPWSEars = {ear1="Thrud Earring",ear2="Ishvara Earring"}
-	sets.AccDayMaxTPWSEars = {ear1="Thrud Earring",ear2="Mache Earring +1"}
-	sets.DayWSEars = {}
-	sets.AccDayWSEars = {}
-	
-	sets.DayWSEars["Ukko's Fury"] = {ear1="Thrud Earring",ear2="Ishvara Earring"}
-	sets.AccDayWSEars["Ukko's Fury"] = {ear1="Thrud Earring",ear2="Mache Earring +1"}
-
-	sets.DayWSEars["Raging Rush"] = sets.DayWSEars["Ukko's Fury"]
-	sets.AccDayWSEars["Raging Rush"] = sets.AccDayWSEars["Ukko's Fury"]
-
-	sets.MaxTP["Resolution"] = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
-	sets.AccMaxTP["Resolution"] = {ear1="Lugra Earring +1",ear2="Mache Earring +1"}
-	sets.DayMaxTPWSEars["Resolution"] = {ear1="Brutal Earring",ear2="Thrud Earring"}
-	sets.AccDayMaxTPWSEars["Resolution"] = {ear1="Thrud Earring",ear2="Mache Earring +1"}
-	sets.DayWSEars["Resolution"] = {ear1="Brutal Earring",ear2="Moonshade Earring"}
-	sets.AccDayWSEars["Resolution"] = {ear1="Mache Earring +1",ear2="Moonshade Earring"}
-
+	sets.MaxTP["Vorpal Blade"] = sets.MaxTP["Ukko's Fury"]
+	sets.AccMaxTP["Vorpal Blade"] = sets.AccMaxTP["Ukko's Fury"]
 	sets.DayWSEars["Vorpal Blade"] = sets.DayWSEars["Ukko's Fury"]
 	sets.AccDayWSEars["Vorpal Blade"] = sets.AccDayWSEars["Ukko's Fury"]
+	sets.DayMaxTPWSEars["Vorpal Blade"] = sets.DayMaxTPWSEars["Ukko's Fury"]
+	sets.AccDayMaxTPWSEars["Vorpal Blade"] = sets.AccDayMaxTPWSEars["Ukko's Fury"]
+	
+	--[[ Sanguine Blade ]]
+	sets.precast.WS["Sanguine Blade"] = set_combine(sets.precast.WS["Herculean Slash"], {head="Pixie Hairpin +1",ring2="Archon Ring"})
+	sets.precast.WS["Sanguine Blade"].Acc = set_combine(sets.precast.WS["Sanguine Blade"], {})
+	sets.precast.WS["Sanguine Blade"].MaxAcc = set_combine(sets.precast.WS["Sanguine Blade"].Acc, {})
+
+	sets.MaxTP["Sanguine Blade"] = sets.MaxTP["Herculean Slash"]
+	sets.AccMaxTP["Sanguine Blade"] = sets.AccMaxTP["Herculean Slash"]
+	sets.DayWSEars["Sanguine Blade"] = sets.DayWSEars["Herculean Slash"]
+	sets.AccDayWSEars["Sanguine Blade"] = sets.AccDayWSEars["Herculean Slash"]
+	sets.DayMaxTPWSEars["Sanguine Blade"] = sets.DayMaxTPWSEars["Herculean Slash"]
+	sets.AccDayMaxTPWSEars["Sanguine Blade"] = sets.AccDayMaxTPWSEars["Herculean Slash"]
+	
+	--[[ Red Lotus Blade ]]
+	sets.precast.WS["Red Lotus Blade"] = sets.precast.WS["Herculean Slash"]
+
+	sets.MaxTP["Red Lotus Blade"] = sets.MaxTP["Herculean Slash"]
+	sets.AccMaxTP["Red Lotus Blade"] = sets.AccMaxTP["Herculean Slash"]
+	sets.DayWSEars["Red Lotus Blade"] = sets.DayWSEars["Herculean Slash"]
+	sets.AccDayWSEars["Red Lotus Blade"] = sets.AccDayWSEars["Herculean Slash"]
+	sets.DayMaxTPWSEars["Red Lotus Blade"] = sets.DayMaxTPWSEars["Herculean Slash"]
+	sets.AccDayMaxTPWSEars["Red Lotus Blade"] = sets.AccDayMaxTPWSEars["Herculean Slash"]
+	
+	--[[ Requiescat ]]
+	sets.precast.WS.Requiescat = set_combine(sets.precast.WS, {
+		head="Hharrandi Helm",neck="Fotia Gorget",ear1="Lugra Earring +1",
+		body="Dagon Breast.",hands="Sulev. Gauntlets +2",
+		waist="Fotia Belt",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
+	})
+	sets.precast.WS.Requiescat.Acc = set_combine(sets.precast.WS.Requiescat, {})
+	sets.precast.WS.Requiescat.MaxAcc = set_combine(sets.precast.WS.Requiescat.Acc, {})
+
+	sets.MaxTP.Requiescat = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.AccMaxTP.Requiescat = {ear1="Lugra Earring +1",ear2="Lugra Earring"}
+	sets.DayWSEars.Requiescat = {ear1="Lugra Earring +1",ear2="Moonshade Earring"}
+	sets.AccDayWSEars.Requiescat = {ear1="Lugra Earring +1",ear2="Moonshade Earring"}
+	sets.DayMaxTPWSEars.Requiescat = {ear1="Brutal Earring",ear2="Lugra Earring +1"}
+	sets.AccDayMaxTPWSEars.Requiescat = {ear1="Lugra Earring +1",ear2="Telos Earring"}
+
+	-- Axe
+	--[[ Decimation ]]
+	sets.precast.WS.Decimation = sets.precast.WS.Resolution
+
+	sets.MaxTP.Decimation = sets.MaxTP.Resolution
+	sets.AccMaxTP.Decimation = sets.AccMaxTP.Resolution
+	sets.DayWSEars.Decimation = sets.DayWSEars.Resolution
+	sets.AccDayWSEars.Decimation = sets.AccDayWSEars.Resolution
+	sets.DayMaxTPWSEars.Decimation = sets.DayMaxTPWSEars.Resolution
+	sets.AccDayMaxTPWSEars.Decimation = sets.AccDayMaxTPWSEars.Resolution
+
+	--[[ Ruinator ]]
+	sets.precast.WS.Ruinator = sets.precast.WS.Resolution
+
+	sets.MaxTP.Ruinator = sets.MaxTP.Resolution
+	sets.AccMaxTP.Ruinator = sets.AccMaxTP.Resolution
+	sets.DayWSEars.Ruinator = sets.DayWSEars.Resolution
+	sets.AccDayWSEars.Ruinator = sets.AccDayWSEars.Resolution
+	sets.DayMaxTPWSEars.Ruinator = sets.DayMaxTPWSEars.Resolution
+	sets.AccDayMaxTPWSEars.Ruinator = sets.AccDayMaxTPWSEars.Resolution
+
+	--[[ Calamity ]]
+	sets.precast.WS.Calamity = sets.precast.WS["King's Justice"]
+
+	--[[ Mistral Axe ]]
+	sets.precast.WS["Savage Blade"] = sets.precast.WS["King's Justice"]
+
+	--[[ Cloud Splitter ]]
+	sets.precast.WS.Cloudsplitter = sets.precast.WS["Herculean Slash"]
+
+	sets.MaxTP.Cloudsplitter = sets.MaxTP["Herculean Slash"]
+	sets.AccMaxTP.Cloudsplitter = sets.AccMaxTP["Herculean Slash"]
+	sets.DayWSEars.Cloudsplitter = sets.DayWSEars["Herculean Slash"]
+	sets.AccDayWSEars.Cloudsplitter = sets.AccDayWSEars["Herculean Slash"]
+	sets.DayMaxTPWSEars.Cloudsplitter = sets.DayMaxTPWSEars["Herculean Slash"]
+	sets.AccDayMaxTPWSEars.Cloudsplitter = sets.AccDayMaxTPWSEars["Herculean Slash"]
+
+	-- Shining One
+	--[[ Impulse Drive ]]
+	sets.precast.WS["Impulse Drive"] = sets.precast.WS["King's Justice"]
+
+	--[[ Stardiver ]]
+	sets.precast.WS.Stardiver = sets.precast.WS.Resolution
+
+	sets.MaxTP.Stardiver = sets.MaxTP.Resolution
+	sets.AccMaxTP.Stardiver = sets.AccMaxTP.Resolution
+	sets.DayWSEars.Stardiver = sets.DayWSEars.Resolution
+	sets.AccDayWSEars.Stardiver = sets.AccDayWSEars.Resolution
+	sets.DayMaxTPWSEars.Stardiver = sets.DayMaxTPWSEars.Resolution
+	sets.AccDayMaxTPWSEars.Stardiver = sets.AccDayMaxTPWSEars.Resolution
+
+	--[[ Sonic Thrust ]]
+	sets.precast.WS["Sonic Thrust"] = sets.precast.WS["King's Justice"]
 
 	-- Sets to return to when not performing an action.
 
@@ -333,199 +398,40 @@ function init_gear_sets()
      
 	-- Engaged sets
 
+	-- Default Builds
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
-		head="Flam. Zucchetto +2",neck="War. Beads +2",ear1="Brutal Earring",ear2="Cessance Earring",
+		head="Flam. Zucchetto +2",neck="War. Beads +2",ear1="Brutal Earring",ear2="Dedition Earring",
 		body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
-		back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
+		back=gear.cichol.tp,waist="Sailfi Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
 	}
+	sets.engaged.HybridDT = set_combine(sets.engaged, {})
+	
+	sets.engaged.Acc = set_combine(sets.engaged, {ear2="Telos Earring",waist="Ioskeha Belt +1"})
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
 
-	sets.engaged.HybridDT = set_combine(sets.engaged, {head="Hjarrandi Helm",body="Volte Haubert",ring1="Moonbeam Ring"}) -- 98% DA
+	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {ear1="Cessance Earring",ring1="Regal Ring"})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {})
 
-	sets.engaged.MaxAcc = set_combine(sets.engaged, {
-		ear1="Mache Earring +1",ear2="Telos Earring",
-		body="Pumm. Lorica +3",hands="Pumm. Mufflers +2",ring1="Regal Ring"
-	})
-
-	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.HybridDT, {
-		ear1="Mache Earring +1",ear2="Telos Earring"
-	})
-
-	-- Fencer
+	-- Fencer Builds
 	sets.engaged.Fencer = set_combine(sets.engaged, {})
+	sets.engaged.Fencer.HybridDT = set_combine(sets.engaged.Fencer, {})
+	
+	sets.engaged.Fencer.Acc = set_combine(sets.engaged.Fencer, {})
+	sets.engaged.Fencer.Acc.HybridDT = set_combine(sets.engaged.Fencer.HybridDT, {})
 
-	-- Dual Wield
-	sets.engaged.DW = set_combine(sets.engaged, {
-		ear2="Suppanomimi",hands="Emi. Gauntlets +1"
-	})
+	sets.engaged.Fencer.MaxAcc = set_combine(sets.engaged.Fencer.Acc, {})
+	sets.engaged.Fencer.MaxAcc.HybridDT = set_combine(sets.engaged.Fencer.Acc.HybridDT, {})
 
-	-- Hand to Hand
-	sets.engaged.Unarmed = {}
+	-- DW Builds
+	sets.engaged.DW = set_combine(sets.engaged, {ear1="Suppanomimi",hands="Emi. Gauntlets +1"})
+	sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {})
+	
+	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {})
+	sets.engaged.DW.Acc.HybridDT = set_combine(sets.engaged.DW.HybridDT, {})
 
-	-- sets.engaged = {
-	-- 	ammo="Aurgelmir Orb +1",
-	-- 	head="Flam. Zucchetto +2",neck="Lissome Necklace",ear1="Brutal Earring",ear2="Cessance Earring",
-	-- 	body=gear.valorous.mail.da,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Niqmaddu Ring",
-	-- 	back=gear.cichol.tp,waist="Ioskeha Belt +1",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
-	-- }
-	-- sets.engaged.HybridDT = set_combine(sets.engaged, {
-	-- 	body="Hjarrandi Breast.",hands=gear.valorous.mitts.da,ring1="Moonbeam Ring"
-	-- })
-	-- sets.engaged.HybridMeva = set_combine(sets.engaged, {
-	-- 	head="Hjarrandi Helm",body="Volte haubert",
-	-- })
-	-- sets.engaged.PDT = set_combine(sets.engaged.HybridDT, {
-	-- 	ammo="Staunch Tathlum",head="Hjarrandi Helm",hands="Pumm. Mufflers +2",waist="Tempus Fugit"
-	-- })
-	-- sets.engaged.MDT = set_combine(sets.engaged.HybridDT, {
-	-- 	head="Hjarrandi Helm",ear1="Odnowa Earring +1",ear2="Odnowa Earring",waist="Tempus Fugit"
-	-- })
-
-	-- sets.engaged.Mighty = set_combine(sets.engaged, {ammo="Yetshila",ring1="Begrudging Ring",feet="Boii Calligae +1"})
-	-- sets.engaged.Charge = set_combine(sets.engaged, {
-	-- 	ear1="Telos Earring",body="Hjarrandi Breast.",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2",feet="Flam. Gambieras +2"
-	-- })
-	-- sets.engaged.Charge.Mighty = set_combine(sets.engaged.Mighty, {ear1="Telos Earring",body="Boii Lorica +1",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2"})
-
-	-- -- sets.engaged.HybridDT.Mighty = set_combine(sets.engaged.HybridDT, {})
-	-- -- sets.engaged.HybridDT.Charge = set_combine(sets.engaged.HbyridDT, {})
-	-- -- sets.engaged.HybridDT.Charge.Mighty = set_combine(sets.engaged.HybridDT.Mighty, {})
-
-	-- sets.engaged.HybridDT.Mighty = set_combine(sets.engaged.HybridDT, {ammo="Yetshila",feet="Boii Calligae +1"})
-	-- sets.engaged.HybridDT.Charge = set_combine(sets.engaged.HbyridDT, {ear1="Telos Earring",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2"})
-	-- sets.engaged.HybridDT.Charge.Mighty = set_combine(sets.engaged.HybridDT.Mighty, {ear1="Telos Earring",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2"})
-
-	-- sets.engaged.PDT.Mighty = set_combine(sets.engaged.PDT, {feet="Boii Calligae +1"})
-	-- sets.engaged.PDT.Charge = set_combine(sets.engaged.PDT, {})
-	-- sets.engaged.PDT.Charge.Mighty = set_combine(sets.engaged.PDT.Mighty, {})
-
-	-- sets.engaged.MDT.Mighty = set_combine(sets.engaged.MDT, {})
-	-- sets.engaged.MDT.Charge = set_combine(sets.engaged.MDT, {})
-	-- sets.engaged.MDT.Charge.Mighty = set_combine(sets.engaged.MDT.Mighty, {})
-
-	-- sets.engaged.Acc = sets.engaged
-	-- -- sets.engaged.Acc = set_combine(sets.engaged, {})
-	-- -- sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
-	-- -- sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {})
-	-- -- sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {})
-
-	-- sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {
-	-- 	ammo="Seeth. Bomblet +1",
-	-- 	head="Pummeler's Mask +2",ear1="Telos Earring",ear2="Mache Earring +1",
-	-- 	body="Pumm. Lorica +3",hands="Pumm. Mufflers +2",ring1="Moonbeam Ring"
-	-- })
-	-- sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {
-	-- 	ammo="Seeth. Bomblet +1",
-	-- 	head="Pummeler's Mask +2",ear1="Telos Earring",ear2="Mache Earring +1",
-	-- 	hands="Pumm. Mufflers +2"
-	-- })
-	-- sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.Acc.PDT, {ear1="Telos Earring",ear2="Mache Earring +1"})
-	-- sets.engaged.MaxAcc.MDT = set_combine(sets.engaged.Acc.MDT, {ammo="Seeth. Bomblet +1",hands="Pumm. Mufflers +2"})
-
-	-- sets.engaged.MaxAcc.Mighty = set_combine(sets.engaged.MaxAcc, {})
-	-- sets.engaged.MaxAcc.Charge = set_combine(sets.engaged.MaxAcc, {})
-	-- sets.engaged.MaxAcc.Charge.Mighty = set_combine(sets.engaged.MaxAcc.Mighty, {})
-
-	-- sets.engaged.MaxAcc.HybridDT.Mighty = set_combine(sets.engaged.MaxAcc.HybridDT, {})
-	-- sets.engaged.MaxAcc.HybridDT.Charge = set_combine(sets.engaged.MaxAcc.HybridDT, {})
-	-- sets.engaged.MaxAcc.HybridDT.Charge.Mighty = set_combine(sets.engaged.MaxAcc.HybridDT.Mighty, {})
-
-	-- sets.engaged.MaxAcc.PDT.Mighty = set_combine(sets.engaged.MaxAcc.PDT, {})
-	-- sets.engaged.MaxAcc.PDT.Charge = set_combine(sets.engaged.MaxAcc.PDT, {})
-	-- sets.engaged.MaxAcc.PDT.Charge.Mighty = set_combine(sets.engaged.MaxAcc.PDT.Mighty, {})
-
-	-- sets.engaged.MaxAcc.MDT.Mighty = set_combine(sets.engaged.MaxAcc.MDT, {})
-	-- sets.engaged.MaxAcc.MDT.Charge = set_combine(sets.engaged.MaxAcc.MDT, {})
-	-- sets.engaged.MaxAcc.MDT.Charge.Mighty = set_combine(sets.engaged.MaxAcc.MDT.Mighty, {})
-
-	-- sets.engaged.Fodder = set_combine(sets.engaged, {})
-	-- sets.engaged.Fodder.HybridDT = set_combine(sets.engaged.HybridDT, {})
-	-- sets.engaged.Fodder.PDT = set_combine(sets.engaged.PDT, {})
-	-- sets.engaged.Fodder.MDT = set_combine(sets.engaged.MDT, {})
-
-	-- sets.engaged.Fencer = set_combine(sets.engaged, {})
-	-- sets.engaged.Fencer.HybridDT = set_combine(sets.engaged.Fencer, {
-	-- 	body="Hjarrandi Breast.",hands=gear.valorous.mitts.da,ring1="Moonbeam Ring"
-	-- })
-	-- sets.engaged.Fencer.PDT = set_combine(sets.engaged.Fencer.HybridDT, {
-	-- 	ammo="Staunch Tathlum",head="Hjarrandi Helm",hands="Pumm. Mufflers +2",waist="Tempus Fugit"
-	-- })
-	-- sets.engaged.Fencer.MDT = set_combine(sets.engaged.Fencer.HybridDT, {
-	-- 	head="Hjarrandi Helm",ear1="Odnowa Earring +1",ear2="Odnowa Earring",waist="Tempus Fugit"
-	-- })
-
-	-- sets.engaged.Fencer.Mighty = set_combine(sets.engaged.Fencer, {ammo="Yetshila",ring1="Begrudging Ring",feet="Boii Calligae +1"})
-	-- sets.engaged.Fencer.Charge = set_combine(sets.engaged.Fencer, {
-	-- 	ear1="Telos Earring",body="Hjarrandi Breast.",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2",feet="Flam. Gambieras +2"
-	-- })
-	-- sets.engaged.Fencer.Charge.Mighty = set_combine(sets.engaged.Fencer.Mighty, {ear1="Telos Earring",body="Boii Lorica +1",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2"})
-
-	-- sets.engaged.Fencer.HybridDT.Mighty = set_combine(sets.engaged.Fencer.HybridDT, {ammo="Yetshila",feet="Boii Calligae +1"})
-	-- sets.engaged.Fencer.HybridDT.Charge = set_combine(sets.engaged.Fencer.HbyridDT, {ear1="Telos Earring",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2"})
-	-- sets.engaged.Fencer.HybridDT.Charge.Mighty = set_combine(sets.engaged.Fencer.HybridDT.Mighty, {ear1="Telos Earring",hands="Emi. Gauntlets +1",legs="Agoge Cuisses +2"})
-
-	-- sets.engaged.Fencer.PDT.Mighty = set_combine(sets.engaged.Fencer.PDT, {feet="Boii Calligae +1"})
-	-- sets.engaged.Fencer.PDT.Charge = set_combine(sets.engaged.Fencer.PDT, {})
-	-- sets.engaged.Fencer.PDT.Charge.Mighty = set_combine(sets.engaged.Fencer.PDT.Mighty, {})
-
-	-- sets.engaged.Fencer.MDT.Mighty = set_combine(sets.engaged.Fencer.MDT, {})
-	-- sets.engaged.Fencer.MDT.Charge = set_combine(sets.engaged.Fencer.MDT, {})
-	-- sets.engaged.Fencer.MDT.Charge.Mighty = set_combine(sets.engaged.Fencer.MDT.Mighty, {})
-
-	-- sets.engaged.Fencer.Acc = set_combine(sets.engaged.Fencer, {})
-	-- sets.engaged.Fencer.Acc.HybridDT = set_combine(sets.engaged.Fencer.HybridDT, {})
-	-- sets.engaged.Fencer.Acc.PDT = set_combine(sets.engaged.Fencer.Acc.PDT, {})
-	-- sets.engaged.Fencer.Acc.MDT = set_combine(sets.engaged.Fencer.Acc.MDT, {})
-
-	-- sets.engaged.Fencer.MaxAcc = set_combine(sets.engaged.Fencer.Acc, {
-	-- 	ammo="Seeth. Bomblet +1",
-	-- 	head="Pummeler's Mask +2",ear1="Telos Earring",ear2="Mache Earring +1",
-	-- 	body="Pumm. Lorica +3",hands="Pumm. Mufflers +2",ring1="Moonbeam Ring"
-	-- })
-	-- sets.engaged.Fencer.MaxAcc.HybridDT = set_combine(sets.engaged.Fencer.Acc.HybridDT, {
-	-- 	ammo="Seeth. Bomblet +1",
-	-- 	head="Pummeler's Mask +2",ear1="Telos Earring",ear2="Mache Earring +1",
-	-- 	hands="Pumm. Mufflers +2"
-	-- })
-	-- sets.engaged.Fencer.MaxAcc.PDT = set_combine(sets.engaged.Fencer.Acc.PDT, {ear1="Telos Earring",ear2="Mache Earring +1"})
-	-- sets.engaged.Fencer.MaxAcc.MDT = set_combine(sets.engaged.Fencer.Acc.MDT, {ammo="Seeth. Bomblet +1",hands="Pumm. Mufflers +2"})
-
-	-- sets.engaged.Fencer.Fodder = set_combine(sets.engaged, {})
-	-- sets.engaged.Fencer.Fodder.HybridDT = set_combine(sets.engaged.Fencer.Fodder, {})
-	-- sets.engaged.Fencer.Fodder.PDT = set_combine(sets.engaged.Fencer.Fodder.PDT, {})
-	-- sets.engaged.Fencer.Fodder.MDT = set_combine(sets.engaged.Fencer.Fodder.MDT, {})
-
-	-- sets.engaged.DW = set_combine(sets.engaged, {ear2="Suppanomimi",hands="Emi. Gauntlets +1"})
-	-- sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {
-	-- 	body="Hjarrandi Breast.",ring1="Moonbeam Ring"
-	-- })
-	-- sets.engaged.DW.PDT = set_combine(sets.engaged.DW.HybridDT, {
-	-- 	ammo="Staunch Tathlum",head="Hjarrandi Helm",waist="Tempus Fugit",legs="Souv. Diechlings +1",feet="Souveran Schuhs +1"
-	-- })
-	-- sets.engaged.DW.MDT = set_combine(sets.engaged.DW.HybridDT, {
-	-- 	head="Hjarrandi Helm",ear1="Odnowa Earring +1",waist="Tempus Fugit",legs="Souv. Diechlings +1",feet="Souveran Schuhs +1"
-	-- })
-
-	-- sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {})
-	-- sets.engaged.DW.Acc.HybridDT = set_combine(sets.engaged.DW.HybridDT, {})
-	-- sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc.PDT, {})
-	-- sets.engaged.DW.Acc.MDT = set_combine(sets.engaged.DW.Acc.MDT, {})
-
-	-- sets.engaged.DW.MaxAcc = set_combine(sets.engaged.DW.Acc, {
-	-- 	ammo="Seeth. Bomblet +1",head="Pummeler's Mask +2",body="Pumm. Lorica +3",ring1="Moonbeam Ring"
-	-- })
-	-- sets.engaged.DW.MaxAcc.HybridDT = set_combine(sets.engaged.DW.Acc.HybridDT, {
-	-- 	ammo="Seeth. Bomblet +1",head="Pummeler's Mask +2"
-	-- })
-	-- sets.engaged.DW.MaxAcc.PDT = set_combine(sets.engaged.DW.Acc.PDT, {})
-	-- sets.engaged.DW.MaxAcc.MDT = set_combine(sets.engaged.DW.Acc.MDT, {ammo="Seeth. Bomblet +1",feet="Pumm. Calligae +3"})
-
-	-- sets.engaged.DW.Fodder = set_combine(sets.engaged, {})
-	-- sets.engaged.DW.Fodder.HybridDT = set_combine(sets.engaged.DW.Fodder, {})
-	-- sets.engaged.DW.Fodder.PDT = set_combine(sets.engaged.DW.PDT, {})
-	-- sets.engaged.DW.Fodder.MDT = set_combine(sets.engaged.DW.MDT, {})
-
-	-- sets.engaged.Unarmed = {}
+	sets.engaged.DW.MaxAcc = set_combine(sets.engaged.DW.Acc, {})
+	sets.engaged.DW.MaxAcc.HybridDT = set_combine(sets.engaged.DW.Acc.HybridDT, {})
 	
 	--Extra Special Sets
 	

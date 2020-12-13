@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('TizonaTPBonus','TizonaAcc','Almace','Club','NaeglingTPBonus','NaeglingAcc','MagicWeapons','Learning','None')
+	state.Weapons:options('TizonaTPBonus','TizonaAcc','Almace','Club','TizonaTPBonus','NaeglingTPBonus','NaeglingAcc','MagicWeapons','Learning','None')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
@@ -419,7 +419,6 @@ function init_gear_sets()
 	sets.weapons.NaeglingTPBonus = {main="Naegling",sub="Thibron"}
 	sets.weapons.NaeglingAcc = {main="Naegling",sub=gear.colada.da}
 	sets.weapons.MagicWeapons = {main="Naegling",sub="Kaja Rod"}
-	sets.weapons.Club = {main="Kaja Rod",sub="Naegling"}
 	sets.weapons.Learning = {main=empty,sub=empty}
 
 	-- Engaged sets

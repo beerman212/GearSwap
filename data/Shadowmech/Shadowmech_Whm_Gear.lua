@@ -213,7 +213,7 @@ function init_gear_sets()
 	sets.midcast['Enhancing Magic'].skill = set_combine(sets.midcast['Enhancing Magic'], {
 		head="Befouled Crown",ear1="Mimir Earring",ear2="Andoaa Earring",
 		hands="Inyan. Dastanas +2",ring2="Stikini Ring",
-		back="Mending Cape",legs="Piety Pantaloons"
+		back="Mending Cape",legs="Piety Pantaln. +1"
 	})
 
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -225,7 +225,7 @@ function init_gear_sets()
 	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Bolelabunga",
 		head="Inyanga Tiara +1",
-		body="Piety Briault",hands="Ebers Mitts +1",
+		body="Piety Briault +1",hands="Ebers Mitts +1",
 		legs="Th. Pantaloons +2"
 	})
 	
@@ -238,7 +238,7 @@ function init_gear_sets()
 		main="Beneficus",
 		head="Ebers Cap +1",
 		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
-		legs="Piety Pantaloons",feet="Ebers Duckbills +1"
+		legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"
 	})
 	sets.midcast.BarStatus = set_combine(sets.midcast['Enhancing Magic'].skill, {})
 	sets.midcast.BoostStat = set_combine(sets.midcast['Enhancing Magic'].skill, {})

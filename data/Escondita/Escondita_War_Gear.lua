@@ -38,8 +38,8 @@ function init_gear_sets()
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield"}
 	sets.weapons.NaeglingDW = {main="Naegling",sub="Firangi"}
-	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield"}
-	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
+	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield"}
+	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
 
 	-- Precast Sets
 
@@ -128,7 +128,7 @@ function init_gear_sets()
 
 	sets.precast.WS.Scourge = set_combine(sets.precast.WS, {
 		neck="Caro Necklace",ear1="Lugra Earring +1",ear2="Thrud Earring",
-		waist="Caudata Belt"
+		waist="Sailfi Belt +1"
 	})
 
 	sets.DayWSEars.Scourge = {ear1="Thrud Earring",ear2="Ishvara Earring"}
@@ -154,7 +154,7 @@ function init_gear_sets()
 	-- Great Axe
 	sets.precast.WS.Upheaval = set_combine(sets.precast.WS, {
 		head="Flam. Zucchetto +2",neck="Caro Necklace",ear1="Lugra Earring +1",
-		back=gear.cichol.upheaval,waist="Caudata Belt"
+		back=gear.cichol.upheaval,waist="Sailfi Belt +1"
 	})
 
 	sets.MaxTP.Upheaval = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
@@ -189,7 +189,7 @@ function init_gear_sets()
 	sets.DayMaxTPWSEars["Ukko's Fury"] = {ear1="Brutal Earring",ear2="Thrud Earring"}
 
 	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.WS, {
-		neck="Caro Necklace",waist="Caudata Belt"
+		neck="Caro Necklace",waist="Sailfi Belt +1"
 	})
 
 	sets.MaxTP["Steel Cyclone"] = {ear1="Lugra Earring +1",ear2="Thrud Earring"}
@@ -198,7 +198,7 @@ function init_gear_sets()
 
 	sets.precast.WS["Fell Cleave"] = set_combine(sets.precast.WS, {
 		neck="Caro Necklace",ear1="Lugra Earring +1",ear2="Thrud Earring",
-		waist="Caudata Belt"
+		waist="Sailfi Belt +1"
 	})
 
 	sets.DayWSEars = {ear1="Thrud Earring",ear2="Ishvara Earring"}
@@ -216,7 +216,7 @@ function init_gear_sets()
 	-- Sword
 	sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
 		neck="Caro Necklace",ring2="Apate Ring",
-		waist="Caudata Belt"
+		waist="Sailfi Belt +1"
 	})
 
 	sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Raging Rush"], {})
@@ -307,33 +307,28 @@ function init_gear_sets()
 	-- Engaged sets
 	sets.engaged = {
 		ammo="Aurgelmir Orb",
-		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
+		head="Flam. Zucchetto +2",neck="Ainia Collar",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
 		back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
 	}
-	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		ring1="Defending Ring",ring2="Gelatinous Ring +1"
-	})
 
-	sets.engaged.MaxAcc = set_combine(sets.engaged, {
-		ear1="Zennaroi Earring",body="Pumm. Lorica +2",hands="Pumm. Mufflers +2"
-	})
-	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.HybridDT, {
-		head="Pummeler's Mask +2",ear1="Zennaroi Earring",body="Pumm. Lorica +2",hands="Pumm. Mufflers +2"
-	})
+	sets.engaged.HybridDT = set_combine(sets.engaged, {})
 
-	sets.engaged.Ragnarok = set_combine(sets.engaged, {})
-	sets.engaged.Ragnarok.HybridDT = set_combine(sets.engaged.Ragnarok, {})
+	sets.engaged.Acc = set_combine(sets.engaged, {})
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
 
-	sets.engaged.Ragnarok.MaxAcc = set_combine(sets.engaged.Ragnarok, {})
-	sets.engaged.Ragnarok.MaxAcc.HybridDT = set_combine(sets.engaged.Ragnarok.HybridDT, {})
+	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {})
 
-	-- sets.engaged.Ragnarok = {
-	-- 	ammo="Seething Bomblet",
-	-- 	head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
-	-- 	body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Petrov Ring",ring2="Flamma Ring",
-	-- 	back=gear.cichol.tp,waist="Ioskeha Belt",legs="Pumm. Cuisses +2",feet="Pumm. Calligae +3"
-	-- }
+	sets.engaged.DW = set_combine(sets.engaged, {ear2="Suppanomimi"})
+
+	sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {})
+
+	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {})
+	sets.engaged.DW.Acc.HybridDT = set_combine(sets.engaged.DW.HybridDT, {})
+
+	sets.engaged.DW.MaxAcc = set_combine(sets.engaged.DW.Acc, {})
+	sets.engaged.DW.MaxAcc.HybridDT = set_combine(sets.engaged.DW.Acc.HybridDT, {})
 	
 	--Extra Special Sets
 	
@@ -341,15 +336,6 @@ function init_gear_sets()
 	sets.buff.Retaliation = {}
 	sets.buff.Restraint = {}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	
-	-- Weapons sets
-	sets.weapons.Chango = {main="Chango",sub="Utu Grip"}
-	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
-	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
-	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield"}
-	sets.weapons.NaeglingDW = {main="Naegling",sub="Firangi"}
-	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield"}
-	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
 end
 	
 -- Select default macro book on initial load or subjob change.

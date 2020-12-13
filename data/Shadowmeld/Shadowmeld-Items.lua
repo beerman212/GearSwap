@@ -98,6 +98,7 @@ gear.merlinic.crackows.refresh = {name = "Merlinic Crackows", augments = {'VIT+1
 gear.odyssean = {}
 gear.odyssean.gauntlets = {}
 gear.odyssean.gauntlets.vitwsd = {name = "Odyssean Gauntlets", augments = {'Mag. Acc.+18','Weapon skill damage +5%','VIT+10','Attack+8',}}
+gear.odyssean.gauntlets.magicwsd = {name = "Odyssean Gauntlets", augments = {'Accuracy+2','MND+9','Weapon skill damage +3%','Mag. Acc.+15 "Mag.Atk.Bns."+15'}}
 
 gear.odyssean.cuisses = {}
 gear.odyssean.cuisses.stp = {name = "Odyssean Cuisses", augments = {'Accuracy+25 Attack+25','"Store TP"+3','DEX+9','Attack+6',}}
@@ -160,3 +161,4 @@ gear.valorous.hose.critdamage = {name = "Valorous Hose", augments = {'Accuracy+1
 
 gear.valorous.greaves = {}
 gear.valorous.greaves.strwsd = {name = "Valorous Greaves", augments = {'Accuracy+26','Weapon skill damage +3%','STR+10','Attack+9',}}
+gear.valorous.greaves.magicwsd = {name = "Valorous Greaves", augments = {'Pet: INT+15','"Mag.Atk.Bns."+15','Weapon skill damage +6%','Accuracy+15 Attack+15'}}

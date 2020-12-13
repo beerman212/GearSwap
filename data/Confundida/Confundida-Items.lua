@@ -41,7 +41,7 @@ gear.telchine.cap = {}
 gear.telchine.cap.enhancing = {name="Telchine Cap",augments={'Enh. Mag. eff. dur. +10'}}
 
 gear.telchine.chasuble = {}
-gear.telchine.chasuble = {name="Telchine Chasuble",augments={'Enh. Mag. eff. dur. +9'}}
+gear.telchine.chasuble.enhancing = {name="Telchine Chasuble",augments={'Enh. Mag. eff. dur. +9'}}
 
 gear.telchine.gloves = {}
 
