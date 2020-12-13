@@ -52,8 +52,8 @@ function init_gear_sets()
 	sets.weapons.NaeglingDW = {main="Naegling",sub="Barbarity"}
 	sets.weapons.Dolichenus = {main="Dolichenus",sub="Blurred Shield +1"}
 	sets.weapons.DolichenusDW = {main="Dolichenus",sub="Firangi"}
-	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield +1"}
-	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
+	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield +1"}
+	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
 	
 	-- Precast Sets
 	

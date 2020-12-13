@@ -38,8 +38,8 @@ function init_gear_sets()
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield"}
 	sets.weapons.NaeglingDW = {main="Naegling",sub="Firangi"}
-	sets.weapons.Farsha = {main="Splinter",sub="Blurred Shield"}
-	sets.weapons.FarshaDW = {main="Splinter",sub="Firangi"}
+	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield"}
+	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
 
 	-- Precast Sets
 
