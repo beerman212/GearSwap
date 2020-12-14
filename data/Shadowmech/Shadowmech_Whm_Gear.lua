@@ -309,7 +309,12 @@ function init_gear_sets()
 	
 	sets.idle.MEva = {}
 
-	sets.idle.Weak = {}
+	sets.idle.Weak = {
+		main="Daybreak",sub="Ammurapi Shield",ammo="Homiliary",
+		head=gear.chironic.hat.refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
+		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
+		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"
+	}
 
     -- Defense sets
 

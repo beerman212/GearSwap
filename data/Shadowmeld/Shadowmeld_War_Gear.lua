@@ -220,7 +220,7 @@ function init_gear_sets()
 	--[[ Herculean Slash ]]
 	sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS, {
 		neck="Baetyl Pendant",ear1="Friomisi Earring",
-		body="Founder's Breast.",hands=gear.odyssean.gauntlets.magicwsd,ring2="Shiva Ring +1",
+		body="Found. Breastplate",hands=gear.odyssean.gauntlets.magicwsd,ring2="Shiva Ring +1",
 		waist="Eschan Stone",legs="Flamma Dirs +2",gear.valorous.greaves.magicwsd
 	})
 	sets.precast.WS["Herculean Slash"].Acc = set_combine(sets.precast.WS["Herculean Slash"], {})
@@ -274,7 +274,7 @@ function init_gear_sets()
 	
 	--[[ Requiescat ]]
 	sets.precast.WS.Requiescat = set_combine(sets.precast.WS, {
-		head="Hharrandi Helm",neck="Fotia Gorget",ear1="Lugra Earring +1",
+		head="Hjarrandi Helm",neck="Fotia Gorget",ear1="Lugra Earring +1",
 		body="Dagon Breast.",hands="Sulev. Gauntlets +2",
 		waist="Fotia Belt",legs="Pumm. Cuisses +3",feet="Pumm. Calligae +3"
 	})
