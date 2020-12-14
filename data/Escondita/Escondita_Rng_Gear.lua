@@ -4,7 +4,7 @@ function user_setup()
 	state.RangedMode:options('Normal','Acc')
 	state.WeaponskillMode:options('Match','Normal', 'Acc')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Default','DualWeapons','DualMagicWeapons')
+	state.Weapons:options('Gandiva','GandivaDW','Armageddon','ArmageddonDW')
 	
 	DefaultAmmo = {['Fomalhaut']="Chrono Bullet"}
 	U_Shot_Ammo = {['Fomalhaut']="Animkii Bullet"}
@@ -26,11 +26,20 @@ end
 
 -- Set up all gear sets.
 function init_gear_sets()
+	
+	-- Weapons sets
+	sets.weapons.DualWeapons = {main="Kustawi +1",sub="Kustawi",range="Fomalhaut",ammo="Chrono Bullet"}
+	sets.weapons.Default = {main="Kustawi +1",sub="Nusku Shield",range="Fomalhaut",ammo="Chrono Bullet"}
+	sets.weapons.DualMagicWeapons = {main="Malevolence",sub="Malevolence",range="Fomalhaut",ammo="Chrono Bullet"}
+
+	sets.weapons.Gandiva = {main="Tauret",sub="Nusku Shield",range="Sparrow",ammo=""}
+	sets.weapons.GandivaDW = {main="Tauret",sub="Ternion Dagger",range="Sparrow",ammo=""}
+	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Thunderstick",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Thunderstick",ammo=DefaultAmmo.Fomalhaut}
+
 	--------------------------------------
 	-- Precast sets
-	--------------------------------------
-
-	
+	--------------------------------------	
 	
 	-- Precast sets to enhance JAs
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
@@ -172,11 +181,6 @@ function init_gear_sets()
     sets.Kiting = {legs="Carmine Cuisses +1"}
 	sets.DayIdle = {}
 	sets.NightIdle = {}
-	
-	-- Weapons sets
-	sets.weapons.DualWeapons = {main="Kustawi +1",sub="Kustawi",range="Fomalhaut",ammo="Chrono Bullet"}
-	sets.weapons.Default = {main="Kustawi +1",sub="Nusku Shield",range="Fomalhaut",ammo="Chrono Bullet"}
-	sets.weapons.DualMagicWeapons = {main="Malevolence",sub="Malevolence",range="Fomalhaut",ammo="Chrono Bullet"}
 
 	--------------------------------------
 	-- Engaged sets

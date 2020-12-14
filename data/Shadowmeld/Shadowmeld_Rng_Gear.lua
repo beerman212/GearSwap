@@ -44,11 +44,29 @@ end
 
 -- Set up all gear sets.
 function init_gear_sets()
+	
+	-- Weapons sets	
+	sets.weapons.Default = {main="Perun +1",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.MagicRanged = {main="Malevolence",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.MagicMelee = {main="Kaja Knife",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.Jinshus = {main="Perun +1",sub="Nusku Shield",range="Vijaya Bow",ammo=DefaultAmmo["Fail-Not"]}
+	sets.weapons.DaggerTPBonus = {main="Kaja Knife",sub="Nusku Shield",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.AxeTPBonus = {main="Kaja Axe",sub="Nusku Shield",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
+	
+	sets.weapons.DefaultDW = {main="Perun +1",sub="Perun",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.MagicRangedDW = {main="Malevolence",sub="Malevolence",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.MagicMeleeDW = {main="Kaja Knife",sub="Malevolence",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.DaggerTPBonusDW = {main="Kaja Knife",sub="Ternion Dagger +1",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.AxeTPBonusDW = {main="Kaja Axe",sub="Vampirism",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
+
+	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Thunderstick",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.ArmageddonDW = {main="Perun +1",sub="Kustawi +1",range="Thunderstick",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.Gandiva = {main="Dolichenus",sub="Nusku Shield",range="Sparrow",ammo=DefaultAmmo["Fail-Not"]}
+	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Sparrow",ammo=DefaultAmmo["Fail-Not"]}
+
 	--------------------------------------
 	-- Precast sets
-	--------------------------------------
-
-	
+	--------------------------------------	
 	
 	-- Precast sets to enhance JAs
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {head=gear.herculean.helm.TH,feet=gear.herculean.boots.TH})
@@ -219,20 +237,6 @@ function init_gear_sets()
 	sets.DayIdle = {}
 	sets.NightIdle = {}
 	
-	-- Weapons sets	
-	sets.weapons.Default = {main="Perun +1",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.MagicRanged = {main="Malevolence",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.MagicMelee = {main="Kaja Knife",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.Jinshus = {main="Perun +1",sub="Nusku Shield",range="Vijaya Bow",ammo=DefaultAmmo["Fail-Not"]}
-	sets.weapons.DaggerTPBonus = {main="Kaja Knife",sub="Nusku Shield",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.AxeTPBonus = {main="Kaja Axe",sub="Nusku Shield",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
-	
-	sets.weapons.DefaultDW = {main="Perun +1",sub="Perun",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.MagicRangedDW = {main="Malevolence",sub="Malevolence",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.MagicMeleeDW = {main="Kaja Knife",sub="Malevolence",range="Fomalhaut",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.DaggerTPBonusDW = {main="Kaja Knife",sub="Ternion Dagger +1",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.AxeTPBonusDW = {main="Kaja Axe",sub="Vampirism",range="Anarchy +2",ammo=DefaultAmmo.Fomalhaut}
-
 	--------------------------------------
 	-- Engaged sets
 	--------------------------------------
@@ -271,9 +275,9 @@ end
 
 function select_default_weapons()
 	if not S{"NIN","DNC"}:contains(player.sub_job) then
-		state.Weapons:options('Default','MagicRanged','MagicMelee','DaggerTPBonus')
+		state.Weapons:options('Default','MagicRanged','MagicMelee','DaggerTPBonus','Gandiva','Armageddon')
 	else
-		state.Weapons:options('DefaultDW','MagicRangedDW','MagicMeleeDW','DaggerTPBonusDW')
+		state.Weapons:options('DefaultDW','MagicRangedDW','MagicMeleeDW','DaggerTPBonusDW','GandivaDW','ArmageddonDW')
 	end
 end
 
