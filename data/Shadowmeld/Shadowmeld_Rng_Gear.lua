@@ -211,8 +211,8 @@ function init_gear_sets()
 	})
 	sets.precast.WS.Decimation.Acc = set_combine(sets.precast.WS.Decimation, {feet=gear.herculean.boots.ta})
 	sets.precast.WS.Decimation.MaxAcc = set_combine(sets.precast.WS.Decimation.Acc, {
-		head="Malignance Chapeau",ear2="Telos Earring"
-		,hands=gear.adhemar.wrist.path_a,ring2="Ilabrat Ring",
+		head="Malignance Chapeau",ear2="Telos Earring",
+		hands=gear.adhemar.wrist.path_a,ring2="Ilabrat Ring",
 		feet="Meg. Jam. +2"
 	})
 
