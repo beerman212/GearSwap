@@ -369,7 +369,7 @@ function init_gear_sets()
 	sets.weapons.RangedLastStandDW = {main="Kustawi +1",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.RangedLeadenDW = {main="Naegling",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
 	sets.weapons.SavageDW = {main="Naegling",sub="Blurred Knife +1",range="Anarchy +2"}
-	sets.weapons.EviscerationDW = {main="Tauret",sub="Blurred Knife +1",range="Anarchy +2"}
+	sets.weapons.EviscerationDW = {main="Tauret",sub="Blurred Knife +1",range="Fomalhaut"}
 	
 	-- Engaged sets
 

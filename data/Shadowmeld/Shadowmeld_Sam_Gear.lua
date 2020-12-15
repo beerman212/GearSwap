@@ -281,7 +281,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Staunch Tathlum",
 		head="Wakido Kabuto +3",neck="Loricate Torque +1",ear1="Enchntr. Earring +1",ear2="Genmei Earring",
-		body="Wakido Domaru +3",hands=gear.valorous.mitts.da,ring1="Defending Ring",ring2="Dark Ring",
+		body="Wakido Domaru +3",hands=gear.valorous.mitts.da,ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.smertrios.da,waist="Flume Belt +1",legs="Ryuo Hakama",feet=gear.valorous.greaves.strwsd}
 		
 	sets.idle.Reraise = set_combine(sets.idle, sets.Reraise)
@@ -308,7 +308,7 @@ function init_gear_sets()
 	sets.defense.MDT = {
 		ammo="Staunch Tathlum",
 		neck="Loricate Torque +1",
-		body="Wakido Domaru +3",hands="Leyline Gloves",ring1="Defending Ring",ring2=gear.dark_ring.dt,
+		body="Wakido Domaru +3",hands="Leyline Gloves",ring1="Defending Ring",ring2="Purity Ring",
 		back="Solemnity Cape",legs="Ken. Hakama +1",feet=gear.valorous.greaves.wsd}
 		
 	sets.defense.MDTReraise = set_combine(sets.defense.MDT, sets.Reraise)
