@@ -97,8 +97,8 @@ function init_gear_sets()
 	sets.weapons.FailNot = {main="Perun +1",sub="Nusku Shield",range="Fail-Not",ammo=DefaultAmmo.Bow}
 	sets.weapons.FailNotDW = {main="Perun +1",sub="Kustawi +1",range="Fail-Not",ammo=DefaultAmmo.Bow}
 
-	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Thunderstick",ammo=DefaultAmmo.Gun}
-	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Thunderstick",ammo=DefaultAmmo.Gun}
+	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Gun}
+	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Magnatus",ammo=DefaultAmmo.Gun}
 	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Sparrow",ammo=DefaultAmmo.Bow}
 	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Sparrow",ammo=DefaultAmmo.Bow}
 
@@ -211,8 +211,8 @@ function init_gear_sets()
 	})
 	sets.precast.WS.Decimation.Acc = set_combine(sets.precast.WS.Decimation, {feet=gear.herculean.boots.ta})
 	sets.precast.WS.Decimation.MaxAcc = set_combine(sets.precast.WS.Decimation.Acc, {
-		head="Malignance Chapeau",ear2="Telos Earring"
-		,hands=gear.adhemar.wrist.path_a,ring2="Ilabrat Ring",
+		head="Malignance Chapeau",ear2="Telos Earring",
+		hands=gear.adhemar.wrist.path_a,ring2="Ilabrat Ring",
 		feet="Meg. Jam. +2"
 	})
 

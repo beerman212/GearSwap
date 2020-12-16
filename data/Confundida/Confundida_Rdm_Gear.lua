@@ -303,3 +303,20 @@ function select_default_macro_book()
 		set_macro_page(3, 8)
 	end
 end
+
+buff_spell_lists = {
+	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
+		{Name='Haste II',			Buff='Haste',			SpellID=511,	When='Combat'},
+		{Name='Temper II',			Buff='Multi Strikes',	SpellID=895,	When='Combat'},
+		{Name='Refresh III',		Buff='Refresh',			SpellID=894,	When='Always'},
+		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Combat'},
+		},
+	
+	Default = {
+		{Name='Haste II',			Buff='Haste',			SpellID=511,	Reapply=false},
+		{Name='Temper II',			Buff='Multi Strikes',	SpellID=895,	Reapply=false},
+		{Name='Refresh III',		Buff='Refresh',			SpellID=894,	Reapply=false},
+		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	Reapply=false},
+		},
+	
+}

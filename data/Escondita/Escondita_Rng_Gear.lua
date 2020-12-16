@@ -34,8 +34,8 @@ function init_gear_sets()
 
 	sets.weapons.Gandiva = {main="Tauret",sub="Nusku Shield",range="Sparrow",ammo=""}
 	sets.weapons.GandivaDW = {main="Tauret",sub="Ternion Dagger",range="Sparrow",ammo=""}
-	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Thunderstick",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Thunderstick",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
 
 	--------------------------------------
 	-- Precast sets
