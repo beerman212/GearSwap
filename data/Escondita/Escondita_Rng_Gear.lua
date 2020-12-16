@@ -6,8 +6,44 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT')
 	state.Weapons:options('Gandiva','GandivaDW','Armageddon','ArmageddonDW')
 	
-	DefaultAmmo = {['Fomalhaut']="Chrono Bullet"}
-	U_Shot_Ammo = {['Fomalhaut']="Animkii Bullet"}
+	WeaponType =  {
+		['Fail-Not'] = "Bow",
+		['Fomalhaut'] = "Gun",
+		['Ataktos'] = "Gun",
+	}
+
+	DefaultAmmo = {
+		['Bow']  = {
+			['Default'] = "Eminent Arrow",
+			['WS'] = "Eminent Arrow",
+			['Acc'] = "Eminent Arrow",
+			['Magic'] = "Eminent Arrow",
+			['MagicAcc'] = "Eminent Arrow",
+			['Unlimited'] = "Hauksbok Arrow",
+			['MagicUnlimited'] ="Hauksbok Arrow",
+			['MagicAccUnlimited'] ="Hauksbok Arrow"
+		},					
+		['Gun']  = {
+			['Default'] = "Chrono Bullet",
+			['WS'] = "Chrono Bullet",
+			['Acc'] = "Chrono Bullet",
+			['Magic'] = "Orichalc. Bullet",
+			['MagicAcc'] = "Orichalc. Bullet",
+			['Unlimited'] = "Hauksbok Bullet",
+			['MagicUnlimited'] = "Hauksbok Bullet",
+			['MagicAccUnlimited'] ="Animikii Bullet"
+		},					
+		['Crossbow'] = {
+			['Default'] = "Eminent Bolt",
+			['WS'] = "Eminent Bolt",
+			['Acc'] = "Eminent Bolt",
+			['Magic'] = "Eminent Bolt",
+			['MagicAcc'] = "Eminent Bolt",
+			['Unlimited'] = "Hauksbok Bolt",
+			['MagicUnlimited'] = "Hauksbok Bolt",
+			['MagicAccUnlimited'] ="Hauksbok Bolt"
+		}
+	}
 	
 	gear.tp_ranger_jse_back = {name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
 	gear.wsd_ranger_jse_back = {name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
@@ -34,8 +70,8 @@ function init_gear_sets()
 
 	sets.weapons.Gandiva = {main="Tauret",sub="Nusku Shield",range="Sparrow",ammo=""}
 	sets.weapons.GandivaDW = {main="Tauret",sub="Ternion Dagger",range="Sparrow",ammo=""}
-	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Blue Steel",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Blue Steel",ammo=DefaultAmmo.Fomalhaut}
 
 	--------------------------------------
 	-- Precast sets

@@ -97,8 +97,8 @@ function init_gear_sets()
 	sets.weapons.FailNot = {main="Perun +1",sub="Nusku Shield",range="Fail-Not",ammo=DefaultAmmo.Bow}
 	sets.weapons.FailNotDW = {main="Perun +1",sub="Kustawi +1",range="Fail-Not",ammo=DefaultAmmo.Bow}
 
-	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Gun}
-	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Magnatus",ammo=DefaultAmmo.Gun}
+	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Blue Steel",ammo=DefaultAmmo.Gun}
+	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Blue Steel",ammo=DefaultAmmo.Gun}
 	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Sparrow",ammo=DefaultAmmo.Bow}
 	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Sparrow",ammo=DefaultAmmo.Bow}
 
