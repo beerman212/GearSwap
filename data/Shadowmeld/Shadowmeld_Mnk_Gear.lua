@@ -261,6 +261,24 @@ function select_default_macro_book()
 	set_macro_page(1, 20)
 end
 
+function custom_ws(spell, spellMap, eventArgs)
+	if state.Buff.Impetus and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
+		if sets.buff.ImpetusWS then
+			equip(sets.buff.ImpetusWS)
+		else
+			equip(sets.buff.Impetus)
+		end
+	elseif buffactive.Footwork and (spell.english == "Dragon Kick" or spell.english == "Tornado Kick") then
+		equip(sets.FootworkWS)
+	end
+end
+
+function custom_post_precast(spell, spellMap, eventArgs)
+	if spell.english == 'Boost' and not (player.in_combat or being_attacked or player.status == 'Engaged') and sets.precast.JA.Boost.OutOfCombat then
+		equip(sets.precast.JA.Boost.OutOfCombat)
+	end
+end
+
 function lockstyle()
 	windower.chat.input("/lockstyleset 009")
 end

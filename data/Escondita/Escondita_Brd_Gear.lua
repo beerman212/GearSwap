@@ -16,7 +16,10 @@ function user_setup()
 	gear.intarabus.macc = {name = "Intarabus's Cape", augments = {'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
 	
 	gear.linos = {}
-	gear.linos.multiattack = {name = "Linos", augments = {'Accuracy+20','"Dbl.Atk."+2','DEX+8',}}
+	gear.linos.multiattack = {name = "Linos", augments = {'Accuracy+19','"Dbl.Atk."+2','Quadruple Attack +3'}}
+	gear.linos.wsd = {name = "Linos", augments = {'Accuracy+9 Attack+9','Weapon skill damage +3%','DEX+8'}}
+	gear.linos.pdt = {name = "Linos", augments = {'Mag. Evasion+13','Phys. dmg. taken -4%','HP+20'}}
+
 	
 	-- Set this to false if you don't want to use custom timers.
 	state.UseCustomTimers = M(false, 'Use Custom Timers')
@@ -91,13 +94,14 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		range=gear.linos.multiattack,
+		range=gear.linos.wsd,
 		head="Aya. Zucchetto +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Ayanmo Corazza +2",hands="Aya. Manopolas +2",ring1="Ilabrat Ring",ring2="Apate Ring",
 		back=gear.intarabus.wsd,waist="Fotia Belt",legs="Bihu Cannions +2",feet="Bihu Slippers +2"
 	}
 
 	sets.precast.WS.Evisceration = set_combine(sets.precast.WS, {
+		range=gear.linos.multiattack,
 		ear1="Brutal Earring",ear2="Cessance Earring",
 		back=gear.intarabus.tp,feet="Aya. Gambieras +2",
 	})
@@ -212,7 +216,7 @@ function init_gear_sets()
 	
 	-- Idle sets
 	sets.idle = {
-		main="Sangoma",sub="Genbu's Shield",range=gear.linos.multiattack,ammo=empty,
+		main="Sangoma",sub="Genbu's Shield",range=gear.linos.pdt,ammo=empty,
 		head="Inyanga Tiara +2",neck="Twilight Torque",
 		body="Inyanga Jubbah +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.intarabus.tp,waist="Flume Belt +1",legs="Inyanga Shalwar +2",feet=gear.chironic.slippers.refresh

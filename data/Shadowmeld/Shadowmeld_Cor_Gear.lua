@@ -459,6 +459,39 @@ function select_default_macro_book()
     end   
 end
 
+function custom_post_precast(spell, spellMap, eventArgs)
+	if spell.type ~= 'WeaponSkill' then
+		if spell.type == 'CorsairShot' and not (spell.english == 'Light Shot' or spell.english == 'Dark Shot') then
+			if (state.WeaponSkillMode.value == "Proc" or state.CastingMode.value == "Proc") and sets.precast.CorsairShot.Proc then
+				equip(sets.precast.CorsairShot.Proc)
+			elseif state.CastingMode.value == "Fodder" and sets.precast.CorsairShot.Damage then
+				equip(sets.precast.CorsairShot.Damage)
+			end
+		elseif spell.action_type == 'Ranged Attack' then
+			if buffactive.Flurry then
+				if sets.precast.RA.Flurry and lastFlurry == 1 then
+					equip(sets.precast.RA.Flurry)
+				elseif sets.precast.RA.Flurry2 and lastFlurry == 2 then
+					equip(sets.precast.RA.Flurry2)
+				end
+			end
+		elseif spell.type == 'CorsairRoll' and state.CompensatorMode.value ~= 'Never' and (state.CompensatorMode.value == 'Always' or tonumber(state.CompensatorMode.value) > player.tp) then
+			if item_available("Compensator") then
+				enable('range')
+				equip({range="Compensator"})
+			end
+
+			if sets.precast.CorsairRoll.main and sets.precast.CorsairRoll.main ~= player.equipment.main then
+				enable('main')
+				equip({main=sets.precast.CorsairRoll.main})
+			end
+
+		elseif spell.english == 'Fold' and buffactive['Bust'] and buffactive['Bust'] == 2 and sets.precast.FoldDoubleBust then
+			equip(sets.precast.FoldDoubleBust)
+		end
+	end
+end
+
 function lockstyle()
 	windower.chat.input("/lockstyleset 008")
 end

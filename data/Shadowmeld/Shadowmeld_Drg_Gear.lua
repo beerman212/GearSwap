@@ -227,3 +227,11 @@ function select_default_macro_book()
 		set_macro_page(5, 11)
 	end
 end
+
+function custom_post_precast(spell, spellMap, eventArgs)
+	if spell.type == 'JobAbility' and spell.english:endswith('Jump') then
+		if sets.precast.JA[spell.english] and sets.precast.JA[spell.english][state.OffenseMode.value] then
+			equip(sets.precast.JA[spell.english][state.OffenseMode.value])
+		end
+	end		
+end

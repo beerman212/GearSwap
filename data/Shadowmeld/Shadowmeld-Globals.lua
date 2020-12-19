@@ -233,3 +233,47 @@ function adaptive_cure(spell, eventArgs)
 		end
 	end
 end
+
+function set_has_moonshade(WSset)
+    return WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring"
+end
+
+function set_has_lugra_and_daytime(WSset)
+    return WSset.ear1:startswith("Lugra") or WSset.ear2:startswith("Lugra") and not classes.DuskToDawn
+end
+
+function handle_moonshade(spell, spellMap, eventArgs)
+    local WSset = standardize_set(get_precast_set(spell, spellMap))
+
+    if set_has_moonshade(WSset) and get_effective_player_tp(spell, WSset) > 3200 and WSset.MaxTP then
+        equip(WSset.MaxTP or {})           
+    end
+end
+
+function handle_moonshade_and_lugra(spell, spellMap, eventArgs)
+    local WSset = standardize_set(get_precast_set(spell, spellMap))
+
+    if set_has_moonshade(WSset) and WSset.MaxTP then
+        if get_effective_player_tp(spell, WSset) > 3200 then
+            equip(set_has_lugra_and_daytime(WSset.MaxTP) and WSset.MaxTP.Day or WSset.MaxTP or {})           
+        end
+    elseif set_has_lugra_and_daytime(WSset) and WSset.Day then
+        equip(WSset.Day or {})
+    end
+end
+
+-- function job_post_precast(spell, spellMap, eventArgs)
+-- 	if spell.type == 'WeaponSkill' then 
+--         if data.jobs.lugra_jobs:contains(player.main_job) then
+--             handle_moonshade_and_lugra(spell, spellMap, eventArgs)
+--         else
+--             handle_moonshade(spell, spellMap, eventArgs)
+--         end
+
+--         if custom_ws_precast then
+--             custom_ws_precast(spell, spellMap, eventArgs)
+--         end
+-- 	elseif custom_post_precast then
+-- 		custom_post_precast(spell, spellMap, eventArgs)
+-- 	end
+-- end
