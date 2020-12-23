@@ -151,7 +151,12 @@ function init_gear_sets()
      
 	-- Idle sets
            
-    sets.idle = {}
+    sets.idle = {
+		ammo="Staunch Tathlum +1",
+		head="Valorous Mask",neck="Twilight Torque",ear1="Odnowa Earring +1",ear2="Etiolation Earring",
+		body="Jumalik Mail",hands="Sulev. Gauntlets +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		back=gear.ankou.tp,waist="Flume Belt +1",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
+	}
 		
     sets.idle.PDT = {}
 
