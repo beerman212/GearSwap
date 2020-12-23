@@ -418,9 +418,9 @@ end
 
 function select_default_weapons()
 	if not S{"NIN","DNC"}:contains(player.sub_job) then
-		state.Weapons:options('MeleeSword','MeleeAxe','Fomalhaut','Gastraphetes','FailNot','Armageddon','Gandiva')
+		state.Weapons:options('MeleeSword','MeleeAxe','Fomalhaut','Gastraphetes','FailNot','Armageddon','Gandiva','TPBonusTrial')
 	else
-		state.Weapons:options('MeleeSwordDW','MeleeAxeDW','FomalhautDW','GastraphetesDW','FailNotDW','ArmageddonDW','GandivaDW','TPBonusTrial')
+		state.Weapons:options('MeleeSwordDW','MeleeAxeDW','FomalhautDW','GastraphetesDW','FailNotDW','ArmageddonDW','GandivaDW','TPBonusTrialDW')
 	end
 end
 
