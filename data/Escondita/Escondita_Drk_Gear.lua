@@ -54,7 +54,11 @@ function init_gear_sets()
 		   
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {}
+	sets.precast.FC = {
+		ammo="Sapience Orb",
+		neck="Voltsurge Torque",ear1="Loquac. Earring",ear2="Etiolation Earring",
+		ring1="Kishar Ring"
+	}
 
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
 		
@@ -91,18 +95,35 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
 		ammo="Knobkierrie",
-		head="",neck="Fotia Gorget",ear1="Thrud Earring",ear2="Ishvara Earring",
-		body="",hands="",ring1="",ring2="",
-		back=gear.ankou.reso,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
+		head=gear.odyssean.helm.wsd,neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
+		body=gear.valorous.mail.tp,hands="Sulev. Gauntlets +2",ring1="Ifrit Ring",ring2="Apate Ring",
+		back=gear.ankou.torc,waist="Fotia Belt",legs="Sulev. Cuisses +2",feet="Sulev. Leggings +2"
 	}
+
+	sets.MaxTP = {ear1="Thrud Earring",ear2="Lugra Earring +1"}
+	sets.AccMaxTP = {ear1="Thrud Earring",ear2="Lugra Earring +1"}
+	sets.AccDayMaxTPWSEars = {ear1="Thrud Earring",ear2="Telos Earring"}
+	sets.DayMaxTPWSEars = {ear1="Thrud Earring",ear2="Ishvara Earring"}
+	sets.AccDayWSEars = {ear1="Thrud Earring",ear2="Telos Earring"}
+	sets.DayWSEars = {ear1="Thrud Earring",ear2="Moonshade Earring"}
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	-- Great Sword
 	sets.precast.WS["Torcleaver"] = set_combine(sets.precast.WS, {
-		back=gear.ankou.torc
+		ear2="Moonshade Earring",
+		waist="Sailfi Belt +1"
 	})
 	
-	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS["Resolution"] = set_combine(sets.precast.WS, {
+		ammo="Aurgelmir Orb",
+		head="Flam. Zucchetto +2",ear2="Moonshade Earring",
+		ring2="Flamma Ring",
+		back=gear.ankou.reso,feet="Flam. Gambieras +2"
+	})
+
+	sets.DayMaxTPWSEars.Resolution = {ear1="Brutal Earring",ear2="Thrud Earring"}
+	sets.AccDayWSEars.Resolution = {ear1="Thrud Earring",ear2="Telos Earring"}
+	sets.DayWSEars.Resolution = {ear1="Thrud Earring",ear2="Moonshade Earring"}
 	
 	sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS, {})
 	
@@ -110,6 +131,8 @@ function init_gear_sets()
 	
 	sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS, {})
 	
+	sets.precast.WS.Scourge = set_combine(sets.precast.WS, {ear2="Ishvara Earring",waist="Sailfi Belt +1"})
+
 	-- Scythe
 	sets.precast.WS["Cross Slash"] = set_combine(sets.precast.WS, {})
 	
@@ -125,14 +148,6 @@ function init_gear_sets()
            
      -- Resting sets
      sets.resting = {}
-           
-	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {}
-	sets.AccMaxTP = {}
-	sets.AccDayMaxTPWSEars = {}
-	sets.DayMaxTPWSEars = {}
-	sets.AccDayWSEars = {}
-	sets.DayWSEars = {}
      
 	-- Idle sets
            
@@ -140,23 +155,23 @@ function init_gear_sets()
 		
     sets.idle.PDT = {}
 
-	sets.idle.Weak = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
+	sets.idle.Weak = set_combine(sets.idle, {--[[head="Twilight Helm",body="Twilight Mail"]]})
 		
-	sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
+	sets.idle.Reraise = set_combine(sets.idle, {--[[head="Twilight Helm",body="Twilight Mail"]]})
            
     -- Defense sets
 	sets.defense.PDT = {}
 		
-	sets.defense.PDTReraise = set_combine(sets.defense.PDT, {head="Twilight Helm",body="Twilight Mail"})
+	sets.defense.PDTReraise = set_combine(sets.defense.PDT, {--[[head="Twilight Helm",body="Twilight Mail"]]})
 
 	sets.defense.MDT = {}
 		
-	sets.defense.MDTReraise = set_combine(sets.defense.MDT, {head="Twilight Helm",body="Twilight Mail"})
+	sets.defense.MDTReraise = set_combine(sets.defense.MDT, {--[[head="Twilight Helm",body="Twilight Mail"]]})
 		
 	sets.defense.MEVA = {}
      
 	sets.Kiting = {legs="Carmine Cuisses +1"}
-	sets.passive.Reraise = {head="Twilight Helm",body="Twilight Mail"}
+	sets.passive.Reraise = {--[[head="Twilight Helm",body="Twilight Mail"]]}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {neck="Vim Torque"}
      
@@ -165,7 +180,7 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb",
 		head="Flam. Zucchetto +2",neck="Clotharius Torque",ear1="Brutal Earring",ear2="Cessance Earring",
 		body=gear.valorous.mail.tp,hands="Flam. Manopolas +2",ring1="Petrov Ring",ring2="Flamma Ring",
-		back=gear.ankou.tp,waist="Ioskeha Belt",legs=gear.odyssean.cuisses.ta,feet="Flam. Gambieras +2"
+		back=gear.ankou.tp,waist="Sailfi Belt +1",legs=gear.odyssean.cuisses.ta,feet="Flam. Gambieras +2"
 	}
 
 	--Extra Special Sets

@@ -4,7 +4,7 @@ function user_setup()
 	state.RangedMode:options('Normal','Acc')
 	state.WeaponskillMode:options('Match','Normal', 'Acc')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Gandiva','GandivaDW','Armageddon','ArmageddonDW','TPBonusTrial')
+	state.Weapons:options('Gandiva','GandivaDW','Armageddon','ArmageddonDW','TPBonusTrial','TPBonusTrialDW')
 	
 	WeaponType =  {
 		['Ataktos'] = "Gun",
@@ -66,8 +66,7 @@ function user_setup()
 		}
 	}
 	
-	gear.tp_ranger_jse_back = {name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
-	gear.wsd_ranger_jse_back = {name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
+	gear.belenus = {}
 	
 	    -- Additional local binds
     send_command('bind !` input /ra <t>')
@@ -94,7 +93,8 @@ function init_gear_sets()
 	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
 	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
 
-	sets.weapons.TPBonusTrial = {main="Qutrub Knife",sub="Excalipoor II",range="Sparrowhawk"}
+	sets.weapons.TPBonusTrial = {main="Qutrub Knife",sub="Nusku Shield",range="Sparrowhawk"}
+	sets.weapons.TPBonusTrialDW = {main="Qutrub Knife",sub="Excalipoor II",range="Sparrowhawk"}
 
 	--------------------------------------
 	-- Precast sets
@@ -122,10 +122,7 @@ function init_gear_sets()
 
 	-- Ranged sets (snapshot)
 	
-	sets.precast.RA = {
-		head="Amini Gapette",
-		body="Amini Caban +1",hands="Carmine Fin. Ga. +1",
-		back=gear.tp_ranger_jse_back,waist="Impulse Belt",legs="Nahtirah Trousers",feet="Amini Bottillons"}
+	sets.precast.RA = {feet="Meg. Jam +1"}
 		
 	sets.precast.RA.Flurry = set_combine(sets.precast.RA, {})
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA, {})
@@ -135,40 +132,25 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {}
 
-    sets.precast.WS.Acc = {
-        head="Meghanada Visor +2",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Telos Earring",
-        body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.wsd_ranger_jse_back,waist="Fotia Belt",legs="Meg. Chausses +2",feet="Meg. Jam. +2"}
+    sets.precast.WS.Acc = {}
 
-    sets.precast.WS['Wildfire'] = {
-        head=gear.herculean_nuke_head,neck="Baetyl Pendant",ear1="Crematio Earring",ear2="Friomisi Earring",
-        body="Samnuha Coat",hands="Carmine Fin. Ga. +1",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
+    sets.precast.WS['Wildfire'] = {}
 
-    sets.precast.WS['Wildfire'].Acc = {
-        head=gear.herculean_nuke_head,neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Friomisi Earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
+    sets.precast.WS['Wildfire'].Acc = {}
 		
-    sets.precast.WS['Trueflight'] = {
-        head=gear.herculean_nuke_head,neck="Baetyl Pendant",ear1="Crematio Earring",ear2="Friomisi Earring",
-        body="Samnuha Coat",hands="Carmine Fin. Ga. +1",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
+    sets.precast.WS['Trueflight'] = {}
 
-    sets.precast.WS['Trueflight'].Acc = {
-        head=gear.herculean_nuke_head,neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Friomisi Earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Regal Ring",ring2="Dingir Ring",
-		back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
+    sets.precast.WS['Trueflight'].Acc = {}
 		
-		sets.precast.WS["Dulling Arrow"] = {
-			head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Enervating Earring",
-			body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Earring",
-			waist="Kwahu Kachina Belt",legs="Malignance Tights",feet="Mummu Gamash. +2"
-		}
+	sets.precast.WS["Dulling Arrow"] = {
+		head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Enervating Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Earring",
+		waist="Kwahu Kachina Belt",legs="Malignance Tights",feet="Mummu Gamash. +2"
+	}
 	
-		sets.precast.WS["Blast Arrow"] = sets.precast.WS["Dulling Arrow"]
-		sets.precast.WS["Arching Arrow"] = sets.precast.WS["Dulling Arrow"]
-		sets.precast.WS["Empyreal Arrow"] = sets.precast.WS["Dulling Arrow"]
+	sets.precast.WS["Blast Arrow"] = sets.precast.WS["Dulling Arrow"]
+	sets.precast.WS["Arching Arrow"] = sets.precast.WS["Dulling Arrow"]
+	sets.precast.WS["Empyreal Arrow"] = sets.precast.WS["Dulling Arrow"]
 		
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {}
@@ -183,22 +165,17 @@ function init_gear_sets()
 
 	-- Fast recast for spells
 	
-    sets.midcast.FastRecast = {
-        head="Carmine Mask +1",neck="Baetyl Pendant",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
-        body="Dread Jupon",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Rawhide Trousers",feet="Carmine Greaves +1"}
+    sets.midcast.FastRecast = {}
 		
 	-- Ranged sets
 
     sets.midcast.RA = {
-        head="Meghanada Visor +2",neck="Iskur Gorget",ear1="Enervating Earring",ear2="Telos Earring",
-        body="Meg. Cuirie +2",hands="Carmine Fin. Ga. +1",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.tp_ranger_jse_back,waist="Yemaya Belt",legs="Adhemar Kecks",feet="Meg. Jam. +2"}
+        head="Malignance Chapeau",ear2="Telos Earring",
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Ring",ring2="Dingir Ring",
+		legs="Malignance Tights",feet="Mummu Gamash. +1"
+	}
 	
-    sets.midcast.RA.Acc = {
-        head="Meghanada Visor +2",neck="Iskur Gorget",ear1="Enervating Earring",ear2="Telos Earring",
-        body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.tp_ranger_jse_back,waist="Yemaya Belt",legs="Meg. Chausses +2",feet="Meg. Jam. +2"}
+    sets.midcast.RA.Acc = {}
 		
 	--These sets will overlay based on accuracy level, regardless of other options.
 	sets.buff.Camouflage = {body="Orion Jerkin +1"}
@@ -224,25 +201,17 @@ function init_gear_sets()
 
 	-- Idle sets
     sets.idle = {
-        head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Sanare Earring",
-        body="Meg. Cuirie +2",hands=gear.herculean_dt_hands,ring1="Defending Ring",ring2="Dark Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Carmine Cuisses +1",feet=gear.herculean_dt_feet}
+        head="Malignance Chapeau",neck="Loricate Torque +1",
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		waist="Flume Belt +1",legs="Malignance Tights",feet=gear.herculean.boots.qa
+	}
     
     -- Defense sets
-    sets.defense.PDT = {
-        head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Genmei Earring",ear2="Sanare Earring",
-        body="Meg. Cuirie +2",hands=gear.herculean_dt_hands,ring1="Defending Ring",ring2="Dark Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Meg. Chausses +2",feet=gear.herculean_dt_feet}
+    sets.defense.PDT = {}
 
-    sets.defense.MDT = {
-        head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Sanare Earring",
-        body="Meg. Cuirie +2",hands=gear.herculean_dt_hands,ring1="Defending Ring",ring2="Dark Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Meg. Chausses +2",feet="Ahosi Leggings"}
+    sets.defense.MDT = {}
 		
-    sets.defense.MEVA = {
-        head="Meghanada Visor +2",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Sanare Earring",
-        body="Meg. Cuirie +2",hands=gear.herculean_dt_hands,ring1="Defending Ring",ring2="Dark Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Meg. Chausses +2",feet="Ahosi Leggings"}
+    sets.defense.MEVA = {}
 
     sets.Kiting = {legs="Carmine Cuisses +1"}
 	sets.DayIdle = {}
@@ -254,24 +223,16 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-		head="Dampening Tam",neck="Iskur Gorget",ear1="Cessance Earring",ear2="Brutal Earring",
-		body="Meg. Cuirie +2",hands="Adhemar Wrist. +1",ring1="Epona's Ring",ring2="Petrov Ring",
-		back=gear.tp_ranger_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_ta_feet}
+		head="Adhemar Bonnet +1",neck="Iskur Gorget",ear1="Cessance Earring",ear2="Brutal Earring",
+		body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Epona's Ring",ring2="Petrov Ring",
+		waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.qa
+	}
     
-    sets.engaged.Acc = {
-		head="Dampening Tam",neck="Combatant's Torque",ear1="Cessance Earring",ear2="Telos Earring",
-		body="Meg. Cuirie +2",hands="Adhemar Wrist. +1",ring1="Epona's Ring",ring2="Petrov Ring",
-		back=gear.tp_ranger_jse_back,waist="Olseni Belt",legs="Samnuha Tights",feet=gear.herculean_acc_feet}
+    sets.engaged.Acc = {}
 
-    sets.engaged.DW = {
-		head="Dampening Tam",neck="Asperity Necklace",ear1="Cessance Earring",ear2="Brutal Earring",
-		body="Adhemar Jacket +1",hands="Floral Gauntlets",ring1="Epona's Ring",ring2="Petrov Ring",
-		back=gear.tp_ranger_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_ta_feet}
+    sets.engaged.DW = {}
     
-    sets.engaged.DW.Acc = {
-		head="Dampening Tam",neck="Combatant's Torque",ear1="Digni. Earring",ear2="Telos Earring",
-		body="Adhemar Jacket +1",hands="Floral Gauntlets",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-		back=gear.tp_ranger_jse_back,waist="Olseni Belt",legs="Meg. Chausses +2",feet=gear.herculean_acc_feet}
+    sets.engaged.DW.Acc = {}
 
 	--------------------------------------
 	-- Custom buff sets
