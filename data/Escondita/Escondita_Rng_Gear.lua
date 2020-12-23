@@ -4,25 +4,46 @@ function user_setup()
 	state.RangedMode:options('Normal','Acc')
 	state.WeaponskillMode:options('Match','Normal', 'Acc')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Gandiva','GandivaDW','Armageddon','ArmageddonDW')
+	state.Weapons:options('Gandiva','GandivaDW','Armageddon','ArmageddonDW','TPBonusTrial')
 	
 	WeaponType =  {
-		['Fail-Not'] = "Bow",
-		['Fomalhaut'] = "Gun",
 		['Ataktos'] = "Gun",
+		['Anarchy +2'] = "Gun",
+		['Armageddon'] = "Gun",
+		['Fomalhaut'] = "Gun",
+		['Magnatus'] = "Gun",
+		['Fail-Not'] = "Bow",
+		['Astrild'] = "Bow",
+		['Gandiva'] = "Bow",
+		['Kestrel'] = "Bow",
+		['Sparrow'] = "Bow",
+		['Sparrowhawk'] = "TPBow",
+		['Sparrowhawk +1'] = "TPBow",
+		['Sparrowhawk +2'] = "TPBow",
+		['Gastraphetes'] = "Crossbow"
 	}
 
 	DefaultAmmo = {
 		['Bow']  = {
-			['Default'] = "Eminent Arrow",
-			['WS'] = "Eminent Arrow",
-			['Acc'] = "Eminent Arrow",
-			['Magic'] = "Eminent Arrow",
-			['MagicAcc'] = "Eminent Arrow",
+			['Default'] = "Chrono Arrow",
+			['WS'] = "Chrono Arrow",
+			['Acc'] = "Chrono Arrow",
+			['Magic'] = "Chrono Arrow",
+			['MagicAcc'] = "Chrono Arrow",
 			['Unlimited'] = "Hauksbok Arrow",
 			['MagicUnlimited'] ="Hauksbok Arrow",
 			['MagicAccUnlimited'] ="Hauksbok Arrow"
-		},					
+		},
+		['TPBow']  = {
+			['Default'] = "Wooden Arrow",
+			['WS'] = "Wooden Arrow",
+			['Acc'] = "Wooden Arrow",
+			['Magic'] = "Wooden Arrow",
+			['MagicAcc'] = "Wooden Arrow",
+			['Unlimited'] = "Wooden Arrow",
+			['MagicUnlimited'] ="Wooden Arrow",
+			['MagicAccUnlimited'] ="Wooden Arrow"
+		},				
 		['Gun']  = {
 			['Default'] = "Chrono Bullet",
 			['WS'] = "Chrono Bullet",
@@ -70,8 +91,10 @@ function init_gear_sets()
 
 	sets.weapons.Gandiva = {main="Tauret",sub="Nusku Shield",range="Sparrow",ammo=""}
 	sets.weapons.GandivaDW = {main="Tauret",sub="Ternion Dagger",range="Sparrow",ammo=""}
-	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Blue Steel",ammo=DefaultAmmo.Fomalhaut}
-	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Blue Steel",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
+	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
+
+	sets.weapons.TPBonusTrial = {main="Qutrub Knife",sub="Excalipoor II",range="Sparrowhawk"}
 
 	--------------------------------------
 	-- Precast sets
@@ -110,10 +133,7 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {
-        head="Meghanada Visor +2",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Telos Earring",
-        body="Meg. Cuirie +2",hands="Meg. Gloves +2",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.wsd_ranger_jse_back,waist="Fotia Belt",legs="Meg. Chausses +2",feet="Meg. Jam. +2"}
+    sets.precast.WS = {}
 
     sets.precast.WS.Acc = {
         head="Meghanada Visor +2",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Telos Earring",
@@ -138,7 +158,17 @@ function init_gear_sets()
     sets.precast.WS['Trueflight'].Acc = {
         head=gear.herculean_nuke_head,neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Friomisi Earring",
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Regal Ring",ring2="Dingir Ring",
-        back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
+		back=gear.wsd_ranger_jse_back,waist="Eschan Stone",legs="Gyve Trousers",feet=gear.herculean_nuke_feet}
+		
+		sets.precast.WS["Dulling Arrow"] = {
+			head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Enervating Earring",
+			body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Earring",
+			waist="Kwahu Kachina Belt",legs="Malignance Tights",feet="Mummu Gamash. +2"
+		}
+	
+		sets.precast.WS["Blast Arrow"] = sets.precast.WS["Dulling Arrow"]
+		sets.precast.WS["Arching Arrow"] = sets.precast.WS["Dulling Arrow"]
+		sets.precast.WS["Empyreal Arrow"] = sets.precast.WS["Dulling Arrow"]
 		
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {}

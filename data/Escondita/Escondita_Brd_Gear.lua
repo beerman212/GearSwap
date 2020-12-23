@@ -205,9 +205,7 @@ function init_gear_sets()
 	sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Fodder
 		
 	sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {
-		neck="Debilis Medallion",hands="Hieros Mittens",
-		ring1="Haoma's Ring",ring2="Haoma's Ring",
-		waist="Witful Belt",feet="Vanya Clogs"
+		feet="Vanya Clogs"
 	})
 		
 	sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})

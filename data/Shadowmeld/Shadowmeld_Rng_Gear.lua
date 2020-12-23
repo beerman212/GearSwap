@@ -8,9 +8,20 @@ function user_setup()
 	select_default_weapons()
 	
 	WeaponType =  {
-		['Fail-Not'] = "Bow",
-		['Fomalhaut'] = "Gun",
 		['Ataktos'] = "Gun",
+		['Anarchy +2'] = "Gun",
+		['Armageddon'] = "Gun",
+		['Fomalhaut'] = "Gun",
+		['Magnatus'] = "Gun",
+		['Fail-Not'] = "Bow",
+		['Astrild'] = "Bow",
+		['Gandiva'] = "Bow",
+		['Kestrel'] = "Bow",
+		['Sparrow'] = "Bow",
+		['Sparrowhawk'] = "TPBow",
+		['Sparrowhawk +1'] = "TPBow",
+		['Sparrowhawk +2'] = "TPBow",
+		['Gastraphetes'] = "Crossbow"
 	}
 
 	DefaultAmmo = {
@@ -23,7 +34,17 @@ function user_setup()
 			['Unlimited'] = "Hauksbok Arrow",
 			['MagicUnlimited'] ="Hauksbok Arrow",
 			['MagicAccUnlimited'] ="Hauksbok Arrow"
-		},					
+		},
+		['TPBow']  = {
+			['Default'] = "Wooden Arrow",
+			['WS'] = "Wooden Arrow",
+			['Acc'] = "Wooden Arrow",
+			['Magic'] = "Wooden Arrow",
+			['MagicAcc'] = "Wooden Arrow",
+			['Unlimited'] = "Wooden Arrow",
+			['MagicUnlimited'] ="Wooden Arrow",
+			['MagicAccUnlimited'] ="Wooden Arrow"
+		},				
 		['Gun']  = {
 			['Default'] = "Chrono Bullet",
 			['WS'] = "Chrono Bullet",
@@ -85,22 +106,24 @@ end
 function init_gear_sets()
 	
 	-- Weapons sets	
-	sets.weapons.MeleeSword = {main="Naegling",sub="Nusku Shield",range="Anarchy +2",ammo=DefaultAmmo.Gun}
-	sets.weapons.MeleeSwordDW = {main="Naegling",sub="Ternion Dagger +1",range="Anarchy +2",ammo=DefaultAmmo.Gun}
-	sets.weapons.MeleeAxe = {main="Dolichenus",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Gun}
-	sets.weapons.MeleeAxeDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Fomalhaut",ammo=DefaultAmmo.Gun}
+	sets.weapons.MeleeSword = {main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
+	sets.weapons.MeleeSwordDW = {main="Naegling",sub="Ternion Dagger +1",range="Anarchy +2"}
+	sets.weapons.MeleeAxe = {main="Dolichenus",sub="Nusku Shield",range="Fomalhaut"}
+	sets.weapons.MeleeAxeDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Fomalhaut"}
 
-	sets.weapons.Fomalhaut = {main="Perun +1",sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Gun}
-	sets.weapons.FomalhautDW = {main="Perun +1",sub="Kustawi +1",range="Fomalhaut",ammo=DefaultAmmo.Gun}
-	sets.weapons.Gastraphetes = {main=gear.malevolence.maxaug1,sub="Nusku Shield",range="Fomalhaut",ammo=DefaultAmmo.Gun}
-	sets.weapons.GastraphetesDW = {main=gear.malevolence.maxaug1,sub=gear.malevolence.maxaug2,range="Fomalhaut",ammo=DefaultAmmo.Gun}
-	sets.weapons.FailNot = {main="Perun +1",sub="Nusku Shield",range="Fail-Not",ammo=DefaultAmmo.Bow}
-	sets.weapons.FailNotDW = {main="Perun +1",sub="Kustawi +1",range="Fail-Not",ammo=DefaultAmmo.Bow}
+	sets.weapons.Fomalhaut = {main="Perun +1",sub="Nusku Shield",range="Fomalhaut"}
+	sets.weapons.FomalhautDW = {main="Perun +1",sub="Kustawi +1",range="Fomalhaut"}
+	sets.weapons.Gastraphetes = {main=gear.malevolence.maxaug1,sub="Nusku Shield"}
+	sets.weapons.GastraphetesDW = {main=gear.malevolence.maxaug1,sub=gear.malevolence.maxaug2}
+	sets.weapons.FailNot = {main="Perun +1",sub="Nusku Shield",range="Fail-Not"}
+	sets.weapons.FailNotDW = {main="Perun +1",sub="Kustawi +1",range="Fail-Not"}
 
-	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Blue Steel",ammo=DefaultAmmo.Gun}
-	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Blue Steel",ammo=DefaultAmmo.Gun}
-	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Sparrow",ammo=DefaultAmmo.Bow}
-	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Sparrow",ammo=DefaultAmmo.Bow}
+	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Magnatus"}
+	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Magnatus"}
+	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Sparrow"}
+	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Sparrow"}
+
+	sets.weapons.TPBonusTrial = {main="Gramk's Axe",sub="Dullahan Axe",range="Sparrowhawk"}
 
 	--------------------------------------
 	-- Precast sets
@@ -202,6 +225,16 @@ function init_gear_sets()
 	sets.precast.WS["Apex Arrow"] = set_combine(sets.precast.WS, {ear1="Ishvara Earring"})
 	sets.precast.WS["Apex Arrow"].Acc = set_combine(sets.precast.WS["Apex Arrow"], {body="Orion Jerkin +2"})
 	sets.precast.WS["Apex Arrow"].MaxAcc = set_combine(sets.precast.WS["Apex Arrow"].Acc, {})
+
+	sets.precast.WS["Dulling Arrow"] = {
+		head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Enervating Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Earring",
+		back=gear.belenus.stp.ranged,waist="Kwahu Kachina Belt",legs="Malignance Tights",feet="Mummu Gamash. +2"
+	}
+
+	sets.precast.WS["Blast Arrow"] = sets.precast.WS["Dulling Arrow"]
+	sets.precast.WS["Arching Arrow"] = sets.precast.WS["Dulling Arrow"]
+	sets.precast.WS["Empyreal Arrow"] = sets.precast.WS["Dulling Arrow"]
 
 	--[[ Axe ]]
 	sets.precast.WS.Decimation = set_combine(sets.precast.WS, {
@@ -378,11 +411,15 @@ function select_default_macro_book()
 	set_macro_page(1, 12)
 end
 
+function lockstyle()
+	windower.chat.input("/lockstyleset 013")
+end
+
 function select_default_weapons()
 	if not S{"NIN","DNC"}:contains(player.sub_job) then
 		state.Weapons:options('MeleeSword','MeleeAxe','Fomalhaut','Gastraphetes','FailNot','Armageddon','Gandiva')
 	else
-		state.Weapons:options('MeleeSwordDW','MeleeAxeDW','FomalhautDW','GastraphetesDW','FailNotDW','ArmageddonDW','GandivaDW')
+		state.Weapons:options('MeleeSwordDW','MeleeAxeDW','FomalhautDW','GastraphetesDW','FailNotDW','ArmageddonDW','GandivaDW','TPBonusTrial')
 	end
 end
 

@@ -188,20 +188,14 @@ function init_gear_sets()
 		body="Adhemar Jacket +1",hands="Adhemar Wristbands",ring1="Petrov Ring",ring2="Epona's Ring",
 		back="Andartia's Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.wsd
     }
-    sets.engaged.SomeAcc = {}
-    sets.engaged.Acc = {}
-    sets.engaged.FullAcc = {}
-    sets.engaged.Fodder = {}
-    sets.engaged.Crit = {}
-    sets.engaged.Evasion = {}
-    sets.engaged.SomeAcc.Evasion = {}
-    sets.engaged.Acc.Evasion = {}
-    sets.engaged.FullAcc.Evasion = {}
-    sets.engaged.PDT = {}
-    sets.engaged.SomeAcc.PDT = {}
-    sets.engaged.Acc.PDT = {}
-    sets.engaged.FullAcc.PDT = {}
-    sets.engaged.Fodder.PDT = {}
+
+    sets.engaged.HybridDT = set_combine(sets.engaged, {})
+
+    sets.engaged.Acc = set_combine(sets.engaged, {})
+    sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+
+    sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {})
+    sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {})
 		
     --------------------------------------
     -- Custom buff sets
