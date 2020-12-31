@@ -120,8 +120,8 @@ function init_gear_sets()
 
 	sets.weapons.Armageddon = {main="Dolichenus",sub="Nusku Shield",range="Magnatus"}
 	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Magnatus"}
-	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Sparrow"}
-	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Sparrow"}
+	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Astrild"}
+	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Astrild"}
 
 	sets.weapons.TPBonusTrial = {main="Gramk's Axe",sub="Nusku Shield",range="Sparrowhawk"}
 	sets.weapons.TPBonusTrialDW = {main="Gramk's Axe",sub="Dullahan Axe",range="Sparrowhawk"}
