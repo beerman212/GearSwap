@@ -107,12 +107,13 @@ function init_gear_sets()
 	-- Specific weaponskill sets.
 
 	sets.precast.WS['Victory Smite'] = set_combine(sets.precast.WS, {
-		body="Abnoba Kaftan",feet="Mummu Gamash. +2",back=gear.segomo.ws.smite
+		body="Ken. Samue +1",feet="Mummu Gamash. +2",back=gear.segomo.ws.smite
 	})
 	sets.precast.WS['Victory Smite'].MaxAcc = set_combine(sets.precast.WS['Victory Smite'], {})
 
 	sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
 		ear1="Moonshade Earring",
+		body="Ken. Samue +1",
 		legs="Ken. Hakama +1"
 	})
 	sets.precast.WS['Raging Fists'].MaxAcc = set_combine(sets.precast.WS['Raging Fists'], {})
@@ -194,7 +195,7 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Monk's Nodowa",ear1="Mache Earring +1",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
+		body="Ken. Samue +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
 		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Hes. Hose +2",feet="Anch. Gaiters +3"
 	}
 	sets.engaged.Acc = set_combine(sets.engaged, {
