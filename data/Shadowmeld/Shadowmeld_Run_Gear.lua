@@ -51,7 +51,8 @@ function user_setup()
 		"Panacea",
 		"Sublime Sushi",
 		"Red Curry Bun",
-		"Miso Ramen"
+		"Miso Ramen",
+		"Grape Daifuku"
 	}
 	
 	select_default_macro_book()

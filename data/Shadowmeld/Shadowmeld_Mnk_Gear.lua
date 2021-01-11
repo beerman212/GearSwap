@@ -2,12 +2,12 @@ function user_setup()
 	-- Options: Override default values
     state.OffenseMode:options('Normal','Acc','MaxAcc')
     state.WeaponskillMode:options('Match','Normal','MaxAcc')
-    state.HybridMode:options('Normal','SubtleBlow','HybridDT','PDT','MDT')
+    state.HybridMode:options('Normal','HybridDT','Crit','SubtleBlow')
     state.PhysicalDefenseMode:options('PDT', 'HP')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT')
-	state.Weapons:options('Godhands','Verethragna','Malignance','Karambit')
+	state.Weapons:options('Godhands','Malignance')
 
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	
@@ -33,7 +33,8 @@ function user_setup()
 		"Holy Water",
 		"Panacea",
 		"Sublime Sushi",
-		"Red Curry Bun"
+		"Red Curry Bun",
+		"Grape Daifuku"
 	}
 	
 	select_default_macro_book()
@@ -45,8 +46,7 @@ function init_gear_sets()
 	--------------------------------------
 	-- Weapons sets
 	sets.weapons.Godhands = {main="Godhands"}
-	sets.weapons.Karambit = {main="Knuckles of Trials"}
-	sets.weapons.Malignance = {main="Malignance Pole"}
+	sets.weapons.Malignance = {main="Malignance Pole",sub="Duplus Grip"}
 	sets.weapons.Verethragna = {main="Mantis"}
 
 	-- Precast Sets
@@ -194,53 +194,95 @@ function init_gear_sets()
 	-- Normal melee sets
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
-		head="Adhemar Bonnet +1",neck="Monk's Nodowa",ear1="Mache Earring +1",ear2="Sherida Earring",
+		head="Adhemar Bonnet +1",neck="Monk's Nodowa",ear1="Brutal Earring",ear2="Sherida Earring",
 		body="Ken. Samue +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
 		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Hes. Hose +2",feet="Anch. Gaiters +3"
 	}
-	sets.engaged.Acc = set_combine(sets.engaged, {
-		neck = "Monk's Nodowa"
-	})
-	sets.engaged.MaxAcc = set_combine(sets.engaged, {
-		head="Malignance Chapeau",neck="Monk's Nodowa",
-		body="Malignance Tabard",ring1="Chirich Ring",
-		legs="Malignance Tights"
-	})
-
-	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
-	sets.engaged.SubtleBlow.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
-
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",legs="Malignance Tights",
+		head="Ken. Jinpachi +1",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
+		legs="Malignance Tights",feet="Ken. Sune-ate +1"
 	})
-	sets.engaged.HybridDT.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
+	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
+	sets.engaged.Crit = set_combine(sets.engaged, {})
 
-	sets.engaged.PDT = set_combine(sets.engaged.HybridDT, {
-		neck="Loricate Torque +1",ring1="Defending Ring",
+	sets.engaged.Acc = set_combine(sets.engaged, {
+		head="Ken. Jinpachi +1",ear1="Telos Earring",
 	})
-	sets.engaged.PDT.MaxAcc = set_combine(sets.engaged.HybridDT.MaxAcc, {})
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
+	sets.engaged.Acc.Crit = set_combine(sets.engaged.Crit, {})
 
-	sets.engaged.MDT = set_combine(sets.engaged.HybridDT, {
-		neck="Warder's Charm +1",ear1="Eabani Earring",ring1="Purity Ring"
-	})
-	sets.engaged.MDT.MaxAcc = set_combine(sets.engaged.HybridDT.MaxAcc, {})
+	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {})
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {})
+	sets.engaged.MaxAcc.SubtleBlow = set_combine(sets.engaged.Acc.SubtleBlow, {})
+	sets.engaged.MaxAcc.Crit = set_combine(sets.engaged.Acc.Crit, {})
+
+	sets.engaged.Godhands = set_combine(sets.engaged, {})
+	sets.engaged.Godhands.HybridDT = set_combine(sets.engaged.Godhands, {})
+	sets.engaged.Godhands.SubtleBlow = set_combine(sets.engaged.Godhands, {})
+	sets.engaged.Godhands.Crit = set_combine(sets.engaged.Godhands, {})
+
+	sets.engaged.Godhands.Acc = set_combine(sets.engaged.Godhands, {})
+	sets.engaged.Godhands.Acc.HybridDT = set_combine(sets.engaged.Godhands.HybridDT, {})
+	sets.engaged.Godhands.Acc.SubtleBlow = set_combine(sets.engaged.Godhands.SubtleBlow, {})
+	sets.engaged.Godhands.Acc.Crit = set_combine(sets.engaged.Godhands.Crit, {})
+
+	sets.engaged.Godhands.MaxAcc = set_combine(sets.engaged.Godhands.Acc, {})
+	sets.engaged.Godhands.MaxAcc.HybridDT = set_combine(sets.engaged.Godhands.Acc.HybridDT, {})
+	sets.engaged.Godhands.MaxAcc.SubtleBlow = set_combine(sets.engaged.Godhands.Acc.SubtleBlow, {})
+	sets.engaged.Godhands.MaxAcc.Crit = set_combine(sets.engaged.Godhands.Acc.Crit, {})
+
+	-- sets.engaged = {
+	-- 	ammo="Aurgelmir Orb +1",
+	-- 	head="Adhemar Bonnet +1",neck="Monk's Nodowa",ear1="Mache Earring +1",ear2="Sherida Earring",
+	-- 	body="Ken. Samue +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Niqmaddu Ring",
+	-- 	back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Hes. Hose +2",feet="Anch. Gaiters +3"
+	-- }
+
+	-- sets.engaged.Acc = set_combine(sets.engaged, {
+	-- 	neck = "Monk's Nodowa"
+	-- })
+	-- sets.engaged.MaxAcc = set_combine(sets.engaged, {
+	-- 	head="Malignance Chapeau",neck="Monk's Nodowa",
+	-- 	body="Malignance Tabard",ring1="Chirich Ring",
+	-- 	legs="Malignance Tights"
+	-- })
+
+	-- sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
+	-- sets.engaged.SubtleBlow.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
+
+	-- sets.engaged.HybridDT = set_combine(sets.engaged, {
+	-- 	head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",legs="Malignance Tights",
+	-- })
+	-- sets.engaged.HybridDT.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
+
+	-- sets.engaged.PDT = set_combine(sets.engaged.HybridDT, {
+	-- 	neck="Loricate Torque +1",ring1="Defending Ring",
+	-- })
+	-- sets.engaged.PDT.MaxAcc = set_combine(sets.engaged.HybridDT.MaxAcc, {})
+
+	-- sets.engaged.MDT = set_combine(sets.engaged.HybridDT, {
+	-- 	neck="Warder's Charm +1",ear1="Eabani Earring",ring1="Purity Ring"
+	-- })
+	-- sets.engaged.MDT.MaxAcc = set_combine(sets.engaged.HybridDT.MaxAcc, {})
 
 	-- Hundred Fists/Impetus melee set mods
 	
-	sets.engaged.HF = set_combine(sets.engaged, {})
-	sets.engaged.MaxAcc.HF = set_combine(sets.engaged.MaxAcc, {})
+	-- sets.engaged.HF = set_combine(sets.engaged, {})
+	-- sets.engaged.MaxAcc.HF = set_combine(sets.engaged.MaxAcc, {})
 
-	sets.engaged.SubtleBlow.HF = set_combine(sets.engaged.SubtleBlow, {})
-	sets.engaged.SubtleBlow.MaxAcc.HF = set_combine(sets.engaged.SubtleBlow.MaxAcc, {})
+	-- sets.engaged.SubtleBlow.HF = set_combine(sets.engaged.SubtleBlow, {})
+	-- sets.engaged.SubtleBlow.MaxAcc.HF = set_combine(sets.engaged.SubtleBlow.MaxAcc, {})
 
-	sets.engaged.HybridDT.HF = set_combine(sets.engaged.HybridDT, {})
-	sets.engaged.HybridDT.MaxAcc.HF = set_combine(sets.engaged.HybridDT.MaxAcc, {})
+	-- sets.engaged.HybridDT.HF = set_combine(sets.engaged.HybridDT, {})
+	-- sets.engaged.HybridDT.MaxAcc.HF = set_combine(sets.engaged.HybridDT.MaxAcc, {})
 
-	sets.engaged.PDT.HF = set_combine(sets.engaged.PDT, {})
-	sets.engaged.PDT.MaxAcc.HF = set_combine(sets.engaged.PDT.MaxAcc, {})
+	-- sets.engaged.PDT.HF = set_combine(sets.engaged.PDT, {})
+	-- sets.engaged.PDT.MaxAcc.HF = set_combine(sets.engaged.PDT.MaxAcc, {})
 
-	sets.engaged.MDT.HF = set_combine(sets.engaged.SubtleBlow, {})
-	sets.engaged.MDT.MaxAcc.HF = set_combine(sets.engaged.MDT.MaxAcc, {})
+	-- sets.engaged.MDT.HF = set_combine(sets.engaged.SubtleBlow, {})
+	-- sets.engaged.MDT.MaxAcc.HF = set_combine(sets.engaged.MDT.MaxAcc, {})
 
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {}

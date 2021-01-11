@@ -35,7 +35,8 @@ function user_setup()
 		"Holy Water",
 		"Panacea",
 		"Sublime Sushi",
-		"Red Curry Bun"
+		"Red Curry Bun",
+		"Grape Daifuku"
 	}
 
 	select_default_macro_book()

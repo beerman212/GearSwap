@@ -55,11 +55,11 @@ function user_setup()
 			['MagicAccUnlimited'] ="Animikii Bullet"
 		},					
 		['Crossbow'] = {
-			['Default'] = "Eminent Bolt",
-			['WS'] = "Eminent Bolt",
-			['Acc'] = "Eminent Bolt",
-			['Magic'] = "Eminent Bolt",
-			['MagicAcc'] = "Eminent Bolt",
+			['Default'] = "Wooden Bolt",
+			['WS'] = "Wooden Bolt",
+			['Acc'] = "Wooden Bolt",
+			['Magic'] = "Wooden Bolt",
+			['MagicAcc'] = "Wooden Bolt",
 			['Unlimited'] = "Hauksbok Bolt",
 			['MagicUnlimited'] = "Hauksbok Bolt",
 			['MagicAccUnlimited'] ="Hauksbok Bolt"
@@ -93,8 +93,8 @@ function init_gear_sets()
 	sets.weapons.Armageddon = {main="Tauret",sub="Nusku Shield",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
 	sets.weapons.ArmageddonDW = {main="Tauret",sub="Ternion Dagger",range="Magnatus",ammo=DefaultAmmo.Fomalhaut}
 
-	sets.weapons.TPBonusTrial = {main="Qutrub Knife",sub="Nusku Shield",range="Sparrowhawk"}
-	sets.weapons.TPBonusTrialDW = {main="Qutrub Knife",sub="Excalipoor II",range="Sparrowhawk"}
+	sets.weapons.TPBonusTrial = {main="Qutrub Knife",sub="Nusku Shield",range="Sparrowhawk +1"}
+	sets.weapons.TPBonusTrialDW = {main="Qutrub Knife",sub="Excalipoor II",range="Sparrowhawk +1"}
 
 	--------------------------------------
 	-- Precast sets
@@ -130,7 +130,11 @@ function init_gear_sets()
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {}
+    sets.precast.WS = {
+		head=gear.herculean.helm.dexwsd,neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		body=gear.herculean.vest.wsd,hands="Adhemar Wrist. +1",ring1="Apate Ring",ring2="Ifrit Ring",
+		waist="Fotia Belt",legs="Malignance Tights",feet=gear.herculean.boots.wsd
+	}
 
     sets.precast.WS.Acc = {}
 
@@ -150,11 +154,11 @@ function init_gear_sets()
 	
 	sets.precast.WS["Blast Arrow"] = sets.precast.WS["Dulling Arrow"]
 	sets.precast.WS["Arching Arrow"] = sets.precast.WS["Dulling Arrow"]
-	sets.precast.WS["Empyreal Arrow"] = sets.precast.WS["Dulling Arrow"]
+	sets.precast.WS["Empyreal Arrow"] = sets.precast.WS
 		
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {}
-	sets.AccMaxTP = {}
+	sets.MaxTP = {ear1="Ishvara Earring",ear2="Telos Earring"}
+	sets.AccMaxTP = {ear1="Ishvara Earring",ear2="Telos Earring"}
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 

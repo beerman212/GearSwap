@@ -51,7 +51,8 @@ function user_setup()
 		"Holy Water",
 		"Panacea",
 		"Sublime Sushi",
-		"Red Curry Bun"
+		"Red Curry Bun",
+		"Grape Daifuku"
 	}
 
 	select_default_macro_book()
@@ -306,10 +307,7 @@ function init_gear_sets()
 		back=gear.camulus.stp.ranged,waist="Yemaya Belt",legs="Malignance Tights",feet="Adhe. Gamashes +1"
 	}
 
-	sets.midcast.RA.MaxAcc = set_combine(sets.midcast.RA, {
-		body="Laksa. Frac +3",ring1="Mummu Ring",
-		waist="Kwahu Kachina Belt",feet="Mummu Gamash. +2"
-	})
+	sets.midcast.RA.MaxAcc = set_combine(sets.midcast.RA, {body="Laksa. Frac +3",ring1="Mummu Ring",feet="Mummu Gamash. +2"})
 		
 	sets.buff['Triple Shot'] = {head="Oshosi Mask",body="Chasseur's Frac +1"}
     

@@ -36,6 +36,7 @@ function user_setup()
 		"Abdhaljs Seal",
 		"Remedy",
 		"Holy Water",
+		"Grape Daifuku"
 	}
 end
 
