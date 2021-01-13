@@ -309,7 +309,7 @@ function init_gear_sets()
 
 	sets.midcast.RA.MaxAcc = set_combine(sets.midcast.RA, {body="Laksa. Frac +3",ring1="Mummu Ring",feet="Mummu Gamash. +2"})
 		
-	sets.buff['Triple Shot'] = {head="Oshosi Mask",body="Chasseur's Frac +1"}
+	sets.buff['Triple Shot'] = {head="Oshosi Mask +1",body="Chasseur's Frac +1",hands="Oshosi Gloves +1",legs="Osh. Trousers +1",feet="Osh. Leggings +1"}
     
 	-- Sets to return to when not performing an action.
 
@@ -357,15 +357,15 @@ function init_gear_sets()
 	sets.resting = sets.idle
 
 	-- Weapons sets
-	sets.weapons.Default = {main="Naegling",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.RangedLastStand = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.RangedLeaden = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut",ammo=RAbullet}
+	sets.weapons.Default = {main="Naegling",sub="Nusku Shield",range="Fomalhaut"}
+	sets.weapons.RangedLastStand = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut"}
+	sets.weapons.RangedLeaden = {main="Fettering Blade",sub="Nusku Shield",range="Fomalhaut"}
 	sets.weapons.SavageTPBonus = {main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
 	sets.weapons.EviscerationTPBonus = {main="Tauret",sub="Nusku Shield",range="Anarchy +2"}
 	
-	sets.weapons.DefaultDW = {main="Naegling",sub="Tauret",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.RangedLastStandDW = {main="Kustawi +1",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
-	sets.weapons.RangedLeadenDW = {main="Naegling",sub="Fettering Blade",range="Fomalhaut",ammo=RAbullet}
+	sets.weapons.DefaultDW = {main="Naegling",sub="Tauret",range="Fomalhaut"}
+	sets.weapons.RangedLastStandDW = {main="Kustawi +1",sub="Fettering Blade",range="Fomalhaut"}
+	sets.weapons.RangedLeadenDW = {main="Naegling",sub="Fettering Blade",range="Fomalhaut"}
 	sets.weapons.SavageDW = {main="Naegling",sub="Blurred Knife +1",range="Anarchy +2"}
 	sets.weapons.EviscerationDW = {main="Tauret",sub="Blurred Knife +1",range="Fomalhaut"}
 	

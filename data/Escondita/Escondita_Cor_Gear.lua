@@ -1,13 +1,14 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal')
+    state.HybridMode:options('None','HybridDT')
     state.RangedMode:options('Normal')
     state.WeaponskillMode:options('Match','Normal')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal')
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 	state.Weapons:options('Default','DefaultDW')
-	state.CompensatorMode:options('300','1000','Never','Always')
+	state.CompensatorMode:options('Always','300','1000','Never','Always')
 	
     gear.RAbullet = "Chrono Bullet"
     gear.WSbullet = "Chrono Bullet"
@@ -51,8 +52,11 @@ function init_gear_sets()
     --------------------------------------
 
 	-- Weapons sets
-    sets.weapons.Default = {main="Naegling",sub="Nusku Shield",range="Fomalhaut",ammo=gear.RAbullet}
-    sets.weapons.DefaultDW = {main="Naegling",sub="Tauret",range="Fomalhaut",ammo=gear.RAbullet}
+    sets.weapons.Fomalhaut = {main="Naegling",sub="Nusku Shield",range="Fomalhaut",ammo=gear.RAbullet}
+    sets.weapons.FomalhautDW = {main="Naegling",sub="Tauret",range="Fomalhaut",ammo=gear.RAbullet}
+
+    -- sets.weapons.Armageddon = {main="Naegling",sub="Nusku Shield",range="Magnatus"}
+    -- sets.weapons.ArmageddonDW = {main="Naegling",sub="Tauret",range="Magnatus"}
 
     -- Precast Sets
 
@@ -64,10 +68,7 @@ function init_gear_sets()
     sets.precast.JA['Random Deal'] = {}
     sets.precast.FoldDoubleBust = {}
 
-    sets.precast.CorsairRoll = {
-        range="Compensator",
-
-    }
+    sets.precast.CorsairRoll = {range="Compensator",ring2="Barataria Ring",back=gear.camulus.meleetp}
 
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
     
@@ -77,13 +78,21 @@ function init_gear_sets()
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {})
     
-    sets.precast.CorsairShot = {}
+    sets.precast.CorsairShot = {
+        head="Malignance Chapeau",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
+        body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Shiva Ring +1",ring2="Ilabrat Ring",
+        waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
+    }
 		
 	sets.precast.CorsairShot.Damage = {}
 	
     sets.precast.CorsairShot.Proc = {}
 
-    sets.precast.CorsairShot['Light Shot'] = {}
+    sets.precast.CorsairShot['Light Shot'] = {
+        head="Malignance Chapeau",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Shiva Ring +1",ring2="Ilabrat Ring",
+        waist="Eschan Stone",legs="Malignance Tights",feet="Mummu Gamash. +2"
+    }
 
     sets.precast.CorsairShot['Dark Shot'] = set_combine(sets.precast.CorsairShot['Light Shot'], {})
 
@@ -134,9 +143,9 @@ function init_gear_sets()
     sets.precast.WS['Last Stand'] = {}
 	
     sets.precast.WS['Leaden Salute'] = {
-        head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-        body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Dingir Ring",ring2="Archon Ring",
-        waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
+        head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Moonshade Earring",
+        body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Shiva Ring +1",ring2="Archon Ring",
+        back=gear.camulus.leaden,waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
     }
 
     sets.precast.WS['Wildfire'] = {}
@@ -149,7 +158,10 @@ function init_gear_sets()
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Ishvara Earring",ear2="Telos Earring"}
-	sets.AccMaxTP = {}
+    sets.AccMaxTP = {ear1="Ishvara Earring",ear2="Telos Earring"}
+    
+    sets.MaxTP["Leaden Salute"] = {ear1="Ishvara Earring",ear2="Hecate's Earring"}
+    sets.AccMaxTP["Leaden Salute"] = {ear1="Ishvara Earring",ear2="Hecate's Earring"}
         
     -- Midcast Sets
     sets.midcast.FastRecast = {}
@@ -165,9 +177,13 @@ function init_gear_sets()
     sets.midcast.Utsusemi = sets.midcast.FastRecast
 
     -- Ranged gear
-    sets.midcast.RA = {}
+    sets.midcast.RA = {
+        head="Malignance Chapeau",neck="Sanctity Necklace",ear1="Telos Earring",ear2="Cessance Earring",
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Petrov Ring",ring2="Ilabrat Ring",
+        waist="",legs="Malignance Tights",feet="Mummu Gamash. +2",
+    }
 
-    sets.midcast.RA.Acc = {}
+    sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {})
 		
 	sets.buff['Triple Shot'] = {}
     
@@ -185,11 +201,11 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {
         head="Meghanada Visor +1",neck="Warder's Charm +1",
-        body="Malignance Tabard",hands="Meg. Gloves +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
         waist="Flume Belt +1",legs="Malignance Tights",feet="Meg. Jam. +1"
     }
 		
-    sets.idle.Refresh = {}
+    sets.idle.Refresh = set_combine(sets.idle, {})
     
     -- Defense sets
     sets.defense.PDT = {}
@@ -216,7 +232,11 @@ function init_gear_sets()
         back="Solemnity Cape",waist="Windbuffet Belt +1",legs="Malignance Tights",feet=gear.herculean.boots.qa
     }
 
+    sets.engaged.HybridDT = set_combine(sets.engaged, {head="Malignance Chapeau",hands="Malignance Gloves",ring1="Defending Ring",legs="Malignance Tights"})
+
     sets.engaged.DW = set_combine(sets.engaged, {ear2="Suppanomimi"})
+
+    sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {head="Malignance Chapeau",hands="Malignance Gloves",ring1="Defending Ring",legs="Malignance Tights"})
 
 end
 

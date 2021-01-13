@@ -29,7 +29,7 @@ gear.chironic.slippers.refresh = {name="Chironic Slippers",augments={'DEX+5','Ch
 gear.merlinic = {}
 
 gear.merlinic.hood = {}
-gear.merlinic.hood.refresh = {name="Merlinic Hood",augments={'Accuracy+4','Enmity+1','"Refresh"+1','Accuracy+10 Attack+10'}}
+gear.merlinic.hood.refresh = {name="Merlinic Hood",augments={'"Store TP"+4','Attack+17','"Refresh"+2','Accuracy+15 Attack+15'}}
 gear.merlinic.hood.mdmg = {name="Merlinic Hood",augments={'Pet: INT+9','CHR+1','"Fast Cast"+3','Accuracy+18 Attack+18','Mag. Acc.+20 "Mag.Atk.Bns."+20'}}
 
 gear.merlinic.shalwar = {}

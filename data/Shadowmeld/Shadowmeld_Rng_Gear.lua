@@ -14,13 +14,11 @@ function user_setup()
 		['Fomalhaut'] = "Gun",
 		['Magnatus'] = "Gun",
 		['Fail-Not'] = "Bow",
+		['Accipiter'] = "Bow",
 		['Astrild'] = "Bow",
 		['Gandiva'] = "Bow",
 		['Kestrel'] = "Bow",
 		['Sparrow'] = "Bow",
-		['Sparrowhawk'] = "TPBow",
-		['Sparrowhawk +1'] = "TPBow",
-		['Sparrowhawk +2'] = "TPBow",
 		['Gastraphetes'] = "Crossbow"
 	}
 
@@ -110,8 +108,8 @@ end
 function init_gear_sets()
 	
 	-- Weapons sets	
-	sets.weapons.MeleeSword = {main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
-	sets.weapons.MeleeSwordDW = {main="Naegling",sub="Ternion Dagger +1",range="Anarchy +2"}
+	sets.weapons.MeleeSword = {main="Naegling",sub="Nusku Shield",range="Accipiter"}
+	sets.weapons.MeleeSwordDW = {main="Naegling",sub="Ternion Dagger +1",range="Accipiter"}
 	sets.weapons.MeleeAxe = {main="Dolichenus",sub="Nusku Shield",range="Fomalhaut"}
 	sets.weapons.MeleeAxeDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Fomalhaut"}
 
@@ -126,9 +124,6 @@ function init_gear_sets()
 	sets.weapons.ArmageddonDW = {main="Dolichenus",sub="Ternion Dagger +1",range="Magnatus"}
 	sets.weapons.Gandiva = {main="Perun +1",sub="Nusku Shield",range="Astrild"}
 	sets.weapons.GandivaDW = {main="Perun +1",sub="Kustawi +1",range="Astrild"}
-
-	sets.weapons.TPBonusTrial = {main="Gramk's Axe",sub="Nusku Shield",range="Sparrowhawk +3"}
-	sets.weapons.TPBonusTrialDW = {main="Gramk's Axe",sub="Dullahan Axe",range="Sparrowhawk +3"}
 
 	--------------------------------------
 	-- Precast sets
@@ -149,7 +144,7 @@ function init_gear_sets()
 	sets.precast.FC = {
 		head="Carmine Mask +1",neck="Orunmila's Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
 		body="Samnuha Coat",hands="Leyline Gloves",ring1="Defending Ring",ring2="Lebeche Ring",
-		back=gear.belenus.stp.melee,waist="Flume Belt",legs="Limbo Trousers",feet="Carmine Greaves +1"
+		back=gear.belenus.stp.melee,waist="Flume Belt +1",legs="Limbo Trousers",feet="Carmine Greaves +1"
 	}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -248,7 +243,7 @@ function init_gear_sets()
 
 	sets.precast.WS["Dulling Arrow"] = {
 		head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Enervating Earring",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Ring",
 		back=gear.belenus.stp.ranged,waist="Kwahu Kachina Belt",legs="Malignance Tights",feet="Mummu Gamash. +2"
 	}
 
@@ -310,7 +305,7 @@ function init_gear_sets()
 	sets.midcast.RA["Double Shot"] = set_combine(sets.midcast.RA, {body="Oshosi Vest",hands="Oshosi Gloves +1",legs="Osh. Trousers +1",feet="Osh. Leggings +1"})
 
 	sets.midcast.RA.AM = set_combine(sets.midcast.RA, {
-		head="Meg. Visor +2",ear2="Odr Earring",
+		head="Meghanada Visor +2",ear2="Odr Earring",
 		body="Meg. Cuirie +2",hands="Mummu Wrists +2",ring2="Begrudging Ring",
 		back=gear.belenus.jishnu,waist="Kwahu Kachina Belt",legs="Darraigner's Brais",feet="Osh. Leggings +1"
 	})
@@ -331,7 +326,7 @@ function init_gear_sets()
 	sets.midcast.RA.EnmityDown.Overkill = set_combine(sets.midcast.RA.EnmityDown, {})
 	sets.midcast.RA.EnmityDown["Double Shot"] = set_combine(sets.midcast.RA.EnmityDown, {hands="Oshosi Gloves +1",legs="Osh. Trousers +1",feet="Osh. Leggings +1"})
 
-	sets.midcast.RA.EnmityDown.AM = set_combine(sets.midcast.RA.EnmityDown, {ear1="Odr Earring",hands="Mummu Wrists +2",back=gear.belenus.jishnu,waist="Kwahu Kachina Belt",legs="Daraigner's Brais"})
+	sets.midcast.RA.EnmityDown.AM = set_combine(sets.midcast.RA.EnmityDown, {ear1="Odr Earring",hands="Mummu Wrists +2",back=gear.belenus.jishnu,waist="Kwahu Kachina Belt",legs="Darraigner's Brais"})
 	sets.midcast.RA.EnmityDown.AM.Overkill = set_combine(sets.midcast.RA.EnmityDown.AM, {})
 	sets.midcast.RA.EnmityDown.AM['Double Shot'] = set_combine(sets.midcast.RA.EnmityDown.AM, {head="Oshosi Mask +1",legs="Osh. Trousers +1"})
 		
@@ -361,7 +356,7 @@ function init_gear_sets()
 	sets.idle = {
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.belenus.stp.melee,waist="Flume Belt",legs="Malignance Tights",feet="Ahosi Leggings"
+		back=gear.belenus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 			
 	-- Defense sets
@@ -435,7 +430,7 @@ function init_gear_sets()
 		waist="Grunfeld Rope",legs="Malignance Tights",feet="Mummu Gamash. +2"
 	})
 	sets.engaged.DW.EnmityDown.HybridDT = set_combine(sets.engaged.DW.Acc.HybridDT, {
-		hands="Malginance Gloves",ring2="Mummu Ring",
+		hands="Malignance Gloves",ring2="Mummu Ring",
 		waist="Grunfeld Rope",legs="Malignance Tights",feet="Mummu Gamash. +2"
 	})
 
@@ -456,9 +451,9 @@ end
 
 function select_default_weapons()
 	if not S{"NIN","DNC"}:contains(player.sub_job) then
-		state.Weapons:options('MeleeSword','MeleeAxe','Fomalhaut','Gastraphetes','FailNot','Armageddon','Gandiva','TPBonusTrial')
+		state.Weapons:options('MeleeSword','MeleeAxe','Fomalhaut','Gastraphetes','FailNot','Armageddon','Gandiva')
 	else
-		state.Weapons:options('MeleeSwordDW','MeleeAxeDW','FomalhautDW','GastraphetesDW','FailNotDW','ArmageddonDW','GandivaDW','TPBonusTrialDW')
+		state.Weapons:options('MeleeSwordDW','MeleeAxeDW','FomalhautDW','GastraphetesDW','FailNotDW','ArmageddonDW','GandivaDW')
 	end
 end
 
