@@ -5,7 +5,7 @@ function user_setup()
     state.WeaponskillMode:options('Match','Normal','Acc','FullAcc','Fodder')
     state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal','PDT','Refresh')
-    state.Weapons:options('None','Ohtas','Denouements')
+    state.Weapons:options('None','Ohtas','Denouements','Verethragna')
 
     -- Default/Automatic maneuvers for each pet mode.  Define at least 3.
 	defaultManeuvers = {
@@ -79,6 +79,13 @@ end
 
 -- Define sets used by this job file.
 function init_gear_sets()
+    
+    -- Weapons sets
+    sets.weapons.Ohtas = {main="Ohtas",range="Animator P"}
+    sets.weapons.Denouements = {main="Denouements",range="Animator P"}
+    sets.weapons.Midnights = {main="Midnights",range="Animator P"}
+    sets.weapons.Godhands = {main="Godhands"}
+	sets.weapons.Verethragna = {main="Mantis"}
     
     -- Precast Sets
 
@@ -277,10 +284,6 @@ function init_gear_sets()
     sets.engaged.FullAcc.Pet = {}
     sets.engaged.Fodder.Pet = {}
 		
-	-- Weapons sets
-    sets.weapons.Ohtas = {main="Ohtas",range="Animator P"}
-    sets.weapons.Denouements = {main="Denouements",range="Animator P"}
-    sets.weapons.Midnights = {main="Midnights",range="Animator P"}
 end
 
 -- Select default macro book on initial load or subjob change.

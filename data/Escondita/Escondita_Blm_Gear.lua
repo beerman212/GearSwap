@@ -3,7 +3,7 @@ function user_setup()
 	state.CastingMode:options('Normal','Resistant','Fodder','Proc','OccultAcumen')
 	state.OffenseMode:options('Normal')
 	state.IdleMode:options('Normal', 'PDT', 'TPEat','DTHippo')
-	state.Weapons:options('None','NukeWeapons','Khatvanga','Malevolence')
+	state.Weapons:options('None','NukeWeapons','Khatvanga','Malevolence','Hvergelmir')
 
 	gear.obi_cure_waist = "Witful Belt"
 	gear.obi_low_nuke_waist = "Sekhmet Corset"
@@ -46,7 +46,8 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.NukeWeapons = {main=gear.grioavolr_nuke_staff,sub="Niobid Strap"}
 	sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
-	sets.weapons.Malevolence = {main="Malevolence",sub="Ammurapi Shield"}
+    sets.weapons.Malevolence = {main="Malevolence",sub="Ammurapi Shield"}
+    sets.weapons.Hvergelmir = {main="Crook",sub="Bloodrain Strap"}
 	
 	-- Treasure Hunter
 	
@@ -342,11 +343,6 @@ function init_gear_sets()
 
     -- Engaged sets
 
-    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
-    -- sets if more refined versions aren't defined.
-    -- If you create a set with both offense and defense modes, the offense mode should be first.
-    -- EG: sets.engaged.Dagger.Accuracy.Evasion
-    
     -- Normal melee group
     sets.engaged = {ammo="Staunch Tathlum",
         head="Jhakri Coronal +2",neck="Combatant's Torque",ear1="Zennaroi Earring",ear2="Telos Earring",

@@ -9,7 +9,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'PDT')
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	state.Passive = M{['description'] = 'Passive Mode','None'}
-	state.Weapons:options('Chango','Zulfiqar','Naegling','NaeglingDW','Farsha','FarshaDW')
+	state.Weapons:options('Chango','Zulfiqar','Naegling','NaeglingDW','Farsha','FarshaDW','Ukonvasara')
 
 	gear.cichol = {}
 	gear.cichol.tp = {name = "Cichol's Mantle", augments = {'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -55,6 +55,7 @@ function init_gear_sets()
 	sets.weapons.DolichenusDW = {main="Dolichenus",sub="Firangi"}
 	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield +1"}
 	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
+	sets.weapons.Ukonvasara = {main="Lumberjack",sub="Utu Grip"}
 	
 	-- Precast Sets
 	

@@ -6,7 +6,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None','DualWeapons','MeleeWeapons')
+	state.Weapons:options('None','DualWeapons','MeleeWeapons','Gambanteinn')
 
 	gear.obi_cure_waist = "Austerity Belt +1"
 	gear.obi_cure_back = "Alaunus's Cape"
@@ -44,6 +44,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.MeleeWeapons = {main="Izcalli",sub="Ammurapi Shield"}
 	sets.weapons.DualWeapons = {main="Izcalli",sub="Nehushtan"}
+	sets.weapons.Gambanteinn = {main="Rageblow",sub="Nehushtan"}
 	
     -- Precast Sets
 

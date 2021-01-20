@@ -3,7 +3,7 @@ function user_setup()
     state.OffenseMode:options('Normal','Acc')
     state.CastingMode:options('Normal','Resistant','OccultAcumen')
     state.IdleMode:options('Normal', 'PDT','TPEat')
-	state.Weapons:options('None','Gridarvor','Khatvanga')
+	state.Weapons:options('None','Gridarvor','Khatvanga','Hvergelmir')
 
     gear.perp_staff = {name="Gridarvor"}
 	
@@ -22,6 +22,12 @@ end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
+    
+    -- Weapons sets
+	sets.weapons.Gridarvor = {main="Gridarvor", sub="Elan Strap +1"}
+    sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
+    sets.weapons.Hvergelmir = {main="Crook",sub="Bloodrain Strap"}
+    
     --------------------------------------
     -- Precast Sets
     --------------------------------------
@@ -338,9 +344,6 @@ function init_gear_sets()
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {neck="Sacrifice Torque"}
 
-	-- Weapons sets
-	sets.weapons.Gridarvor = {main="Gridarvor", sub="Elan Strap +1"}
-	sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
     --------------------------------------
     -- Engaged sets
     --------------------------------------

@@ -7,7 +7,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal')
-	state.Weapons:options('Zulfiqar','Ragnarok')
+	state.Weapons:options('Zulfiqar','Ragnarok','Redemption','Caladbolg')
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 	
 	state.Passive = M{['description'] = 'Passive Mode','None'}
@@ -31,6 +31,12 @@ function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
+	-- Weapons sets
+	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
+	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
+	sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
+	sets.weapons.Redemption = {main="Stigma",sub="Utu Grip"}
+	
 	-- Precast Sets
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Diabolic Eye'] = {}
@@ -196,9 +202,6 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-Obi"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
-	-- Weapons sets
-	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
-	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	
 end
 	

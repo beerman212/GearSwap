@@ -8,7 +8,7 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT','MDTReraise')
 	state.ResistDefenseMode:options('MEVA')
     state.IdleMode:options('Normal', 'Reraise')
-	state.Weapons:options('Dojikiri','ProcWeapon','Bow')
+	state.Weapons:options('Dojikiri','Masamune','ProcWeapon','Bow')
 
 	gear.ws_jse_back = {name="Smertrios's Mantle",augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 	gear.stp_jse_back = {name="Smertrios's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
@@ -31,6 +31,12 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     
+    	-- Weapons sets
+	sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
+	sets.weapons.Masamune = {main="Redennotachi",sub="Utu Grip"}
+	sets.weapons.ProcWeapon = {main="Norifusa +1",sub="Bloodrain Strap"}
+	sets.weapons.Bow = {main="Norifusa +1",sub="Utu Grip",range="Cibitshavore",ammo="Eminent Arrow"}
+	
     -- Precast Sets
     -- Precast sets to enhance JAs
     sets.precast.JA.Meditate = {head="Wakido Kabuto +3",hands="Sakonji Kote +1",back=gear.ws_jse_back}
@@ -298,68 +304,7 @@ function init_gear_sets()
     sets.engaged.Acc.Reraise = set_combine(sets.engaged.Acc, sets.Reraise)		
     sets.engaged.FullAcc.Reraise = set_combine(sets.engaged.FullAcc, sets.Reraise)		
     sets.engaged.Fodder.Reraise = set_combine(sets.engaged.Fodder, sets.Reraise)		
-        
-    -- Melee sets for in Adoulin, which has an extra 10 Save TP for weaponskills.
-    -- Delay 450 GK, 35 Save TP => 89 Store TP for a 4-hit (49 Store TP in gear), 2 Store TP for a 5-hit
---[[Right now Adoulin sets are the same as non-Adoulin.
-	sets.engaged.Adoulin = {ammo="Ginsen",
-        head="Flam. Zucchetto +2",neck="Moonbeam Nodowa",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Kasuga Domaru +1",hands=gear.valorous_wsd_hands,ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
-        back=gear.stp_jse_back,waist="Ioskeha Belt",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
-    sets.engaged.Adoulin.SomeAcc = {ammo="Ginsen",
-        head="Flam. Zucchetto +2",neck="Combatant's Torque",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Kasuga Domaru +1",hands="Flam. Manopolas +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
-        back=gear.stp_jse_back,waist="Windbuffet Belt +1",legs="Wakido Haidate +3",feet="Amm Greaves"}
-	sets.engaged.Adoulin.Acc = {ammo="Ginsen",
-        head="Flam. Zucchetto +2",neck="Combatant's Torque",ear1="Zennaroi Earring",ear2="Telos Earring",
-        body="Kasuga Domaru +1",hands="Flam. Manopolas +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
-        back=gear.stp_jse_back,waist="Olseni Belt",legs="Wakido Haidate +3",feet="Amm Greaves"}
-    sets.engaged.Adoulin.FullAcc = {ammo="Ginsen",
-        head="Flam. Zucchetto +2",neck="Combatant's Torque",ear1="Zennaroi Earring",ear2="Telos Earring",
-        body="Kasuga Domaru +1",hands="Flam. Manopolas +2",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-        back=gear.stp_jse_back,waist="Olseni Belt",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
-    sets.engaged.Adoulin.Fodder = {ammo="Ginsen",
-        head="Flam. Zucchetto +2",neck="Asperity Necklace",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Kasuga Domaru +1",hands="Flam. Manopolas +2",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
-        back=gear.stp_jse_back,waist="Windbuffet Belt +1",legs="Wakido Haidate +3",feet="Flam. Gambieras +2"}
-    sets.engaged.Adoulin.PDT = {ammo="Staunch Tathlum",
-        head="Flam. Zucchetto +2",neck="Loricate Torque +1",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Tartarus Platemail",hands=gear.valorous_wsd_hands,ring1="Defending Ring",ring2="Dark Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Wakido Haidate +3",feet="Amm Greaves"}
-    sets.engaged.Adoulin.SomeAcc.PDT = {ammo="Staunch Tathlum",
-        head="Flam. Zucchetto +2",neck="Loricate Torque +1",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Tartarus Platemail",hands=gear.valorous_wsd_hands,ring1="Defending Ring",ring2="Patricius Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Wakido Haidate +3",feet="Amm Greaves"}	
-		sets.engaged.Adoulin.Acc.PDT = {ammo="Staunch Tathlum",
-        head="Flam. Zucchetto +2",neck="Loricate Torque +1",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Tartarus Platemail",hands=gear.valorous_wsd_hands,ring1="Defending Ring",ring2="Patricius Ring",
-        back="Moonlight Cape",waist="Olseni Belt",legs="Wakido Haidate +3",feet="Amm Greaves"}
-    sets.engaged.Adoulin.FullAcc.PDT = {ammo="Staunch Tathlum",
-        head="Flam. Zucchetto +2",neck="Loricate Torque +1",ear1="Zennaroi Earring",ear2="Telos Earring",
-        body="Tartarus Platemail",hands=gear.valorous_wsd_hands,ring1="Defending Ring",ring2="Patricius Ring",
-        back="Letalis Mantle",waist="Olseni Belt",legs="Wakido Haidate +3",feet="Amm Greaves"}
-    sets.engaged.Adoulin.Fodder.PDT = {ammo="Staunch Tathlum",
-        head="Flam. Zucchetto +2",neck="Loricate Torque +1",ear1="Cessance Earring",ear2="Brutal Earring",
-        body="Tartarus Platemail",hands=gear.valorous_wsd_hands,ring1="Defending Ring",ring2="Dark Ring",
-        back="Moonlight Cape",waist="Flume Belt",legs="Wakido Haidate +3",feet="Amm Greaves"}
-		
-	sets.engaged.Adoulin.DTLite = sets.engaged.DTLite
-    sets.engaged.Adoulin.SomeAcc.DTLite = sets.engaged.SomeAcc.DTLite
-    sets.engaged.Adoulin.Acc.DTLite = sets.engaged.Acc.DTLite
-    sets.engaged.Adoulin.FullAcc.DTLite = sets.engaged.FullAcc.DTLite
-    sets.engaged.Adoulin.Fodder.DTLite = sets.engaged.Fodder.DTLite
-    sets.engaged.Adoulin.Reraise = set_combine(sets.engaged.Adoulin, sets.Reraise)		
-    sets.engaged.Adoulin.SomeAcc.Reraise = set_combine(sets.engaged.Adoulin.SomeAcc, sets.Reraise)		
-    sets.engaged.Adoulin.Acc.Reraise = set_combine(sets.engaged.Adoulin.Acc, sets.Reraise)		
-    sets.engaged.Adoulin.FullAcc.Reraise = set_combine(sets.engaged.Adoulin.FullAcc, sets.Reraise)		
-    sets.engaged.Adoulin.Fodder.Reraise = set_combine(sets.engaged.Adoulin.Fodder, sets.Reraise)
-]]--Right now Adoulin sets are the same as non-Adoulin.
 
-	-- Weapons sets
-	sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
-	sets.weapons.ProcWeapon = {main="Norifusa +1",sub="Bloodrain Strap"}
-	sets.weapons.Bow = {main="Norifusa +1",sub="Utu Grip",range="Cibitshavore",ammo="Eminent Arrow"}
-	
 	-- Buff sets
 	sets.Cure_Received = {hands="Buremte Gloves",waist="Gishdubar Sash",legs="Flamma Dirs +2"}
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})

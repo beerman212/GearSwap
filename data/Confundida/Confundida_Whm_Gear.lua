@@ -6,7 +6,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None')
+	state.Weapons:options('None','Gambanteinn')
 
 	gear.obi_cure_waist = "Porous Rope"
 	gear.obi_cure_back = "Alaunus's Cape"
@@ -45,6 +45,7 @@ function init_gear_sets()
     --------------------------------------
 
 	-- Weapons sets
+	sets.weapons.Gambanteinn = {main="Rageblow",sub="Nehushtan"}
 	
     -- Precast Sets
 

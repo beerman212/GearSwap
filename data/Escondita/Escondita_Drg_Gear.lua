@@ -9,7 +9,7 @@ function user_setup()
 	state.ResistDefenseMode:options('MEVA')
 	state.IdleMode:options('Normal', 'PDT','Refresh','Reraise')
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
-	state.Weapons:options('Trishula')
+	state.Weapons:options('Trishula','Rhongomiant')
 	state.Passive = M{['description'] = 'Passive Mode','None','MP','Twilight'}
 
     select_default_macro_book()
@@ -28,6 +28,10 @@ function init_gear_sets()
 	-- Start defining the sets
 	--------------------------------------
 	
+	-- Weapons sets
+	sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
+	sets.weapons.Rhongomiant = {main="Ranseur",sub="Utu Grip"}
+
 	-- Precast Sets
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Angon = {ammo="Angon"} --hands="Ptero. Fin. G. +1"
@@ -166,9 +170,6 @@ function init_gear_sets()
     sets.passive.Twilight = {head="Twilight Helm", body="Twilight Mail"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
-	-- Weapons sets
-	sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
-
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Lugra Earring +1",ear2="Sherida Earring",}
 	sets.AccMaxTP = {ear1="Zennaroi Earring",ear2="Telos Earring"}
@@ -225,33 +226,6 @@ function init_gear_sets()
     sets.engaged.AM.FullAcc.PDT = {}
     sets.engaged.AM.Fodder.PDT = {}
 		
-	--[[ Melee sets for in Adoulin, which has an extra 2% Haste from Ionis.
-	
-    sets.engaged.Adoulin = {}
-    sets.engaged.Adoulin.SomeAcc = {}
-	sets.engaged.Adoulin.Acc = {}
-    sets.engaged.Adoulin.FullAcc = {}
-    sets.engaged.Adoulin.Fodder = {}
-
-    sets.engaged.Adoulin.AM = {}
-    sets.engaged.Adoulin.AM.SomeAcc = {}
-	sets.engaged.Adoulin.AM.Acc = {}
-    sets.engaged.Adoulin.AM.FullAcc = {}
-    sets.engaged.Adoulin.AM.Fodder = {}
-	
-    sets.engaged.Adoulin.PDT = {}
-    sets.engaged.Adoulin.SomeAcc.PDT = {}
-	sets.engaged.Adoulin.Acc.PDT = {}
-    sets.engaged.Adoulin.FullAcc.PDT = {}
-    sets.engaged.Adoulin.Fodder.PDT = {}
-	
-    sets.engaged.Adoulin.AM.PDT = {}
-    sets.engaged.Adoulin.AM.SomeAcc.PDT = {}
-	sets.engaged.Adoulin.AM.Acc.PDT = {}
-    sets.engaged.Adoulin.AM.FullAcc.PDT = {}
-    sets.engaged.Adoulin.AM.Fodder.PDT = {}
-	]]
-
 end
 
 -- Select default macro book on initial load or subjob change.

@@ -4,7 +4,7 @@ function user_setup()
     state.CastingMode:options('Normal','Resistant','Proc','OccultAcumen')
     state.IdleMode:options('Normal', 'PDT', 'TPEat')
 	state.HybridMode:options('Normal','PDT')
-	state.Weapons:options('None','Akademos','Khatvanga')
+	state.Weapons:options('None','Akademos','Khatvanga','Hvergelmir')
 
 	gear.nuke_jse_back = {name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10'}}
 	
@@ -42,6 +42,11 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
+
+    -- Weapons sets
+	sets.weapons.Akademos = {main="Akademos",sub="Niobid Strap"}
+	sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
+    sets.weapons.Hvergelmir = {main="Crook",sub="Bloodrain Strap"}
 
     -- Precast Sets
 
@@ -361,9 +366,6 @@ function init_gear_sets()
     sets.buff.FullSublimation = {}
     sets.buff.PDTSublimation = {}
 	
-	-- Weapons sets
-	sets.weapons.Akademos = {main="Akademos",sub="Niobid Strap"}
-	sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
 end
 
 -- Select default macro book on initial load or subjob change.
