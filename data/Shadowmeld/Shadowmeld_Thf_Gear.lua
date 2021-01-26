@@ -287,21 +287,21 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
-		back=gear.toutatis.stp,waist="Flume Belt +1",legs="Malignance Tights"
+		back=gear.toutatis.stp,waist="Flume Belt +1",legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.defense.MDT = {
 		ammo="Yamarang",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Eabani Earring",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Purity Ring",
-		back="Moonbeam Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
+		back="Moonbeam Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.defense.MEVA = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
-		back="Solemnity Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Turms Leggings"
+		back="Solemnity Cape",waist="Engraved Belt",legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 
@@ -330,12 +330,12 @@ function init_gear_sets()
 	sets.engaged.PDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back=gear.toutatis.stp,legs="Malignance Tights",feet=gear.herculean.boots.ta_low_acc
+		back=gear.toutatis.stp,legs="Malignance Tights",feet="Malignance Boots"
 	})
 	sets.engaged.MDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
-		legs="Malignance Tights",
+		legs="Malignance Tights",feet="Malignance Boots"
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {

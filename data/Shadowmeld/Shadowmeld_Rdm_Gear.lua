@@ -366,7 +366,8 @@ function init_gear_sets()
 	
 	sets.idle.MDT = set_combine(sets.idle, {
 		neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
-		ring2="Purity Ring",legs="Malignance Tights"
+		hands="Malignance Gloves",ring2="Purity Ring",
+		legs="Malignance Tights"
 	})
 		
 	sets.idle.Weak = set_combine(sets.idle.PDT, {})

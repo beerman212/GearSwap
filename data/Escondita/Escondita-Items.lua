@@ -79,9 +79,11 @@ gear.odyssean.cuisses.ta = {name="Odyssean Cuisses",augments={'"Triple Atk."+3',
 gear.taeon = {}
 gear.taeon.chapeau = {}
 gear.taeon.chapeau.pup = {name="Taeon Chapeau",augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+3','Pet: Damage taken -3%',}}
+gear.taeon.chapeau.snapshot = { name = "Taeon Chapeau", augments = {'"Snapshot"+4','"Snapshot"+5',}}
 
 gear.taeon.tabard = {}
 gear.taeon.tabard.pup = {name="Taeon Tabard",augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+4','Pet: Damage taken -4%',}}
+gear.taeon.tabard.snapshot = { name="Taeon Tabard", augments={'"Snapshot"+4','"Snapshot"+3',}}
 
 gear.taeon.gloves = {}
 gear.taeon.gloves.pup = {name="Taeon Gloves",augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+2','Pet: Damage taken -4%',}}
