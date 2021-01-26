@@ -1,7 +1,7 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Normal','Acc','MaxAcc','Crit')
-	state.HybridMode:options('Normal','HybridDT','Unafraid')
+	state.HybridMode:options('Normal','HybridDT')
 	state.RangedMode:options('Normal', 'MaxAcc')
 	state.WeaponskillMode:options('Match','Normal','Acc','MaxAcc','Proc')
 	state.CastingMode:options('Normal', 'Fodder')
@@ -77,7 +77,7 @@ function init_gear_sets()
 
 	sets.precast.CorsairRoll = {
 		range="Compensator",
-		head="Lanun Tricorne +2",neck="Regal Necklace",ear2="Genmei Earring",
+		head="Lanun Tricorne +3",neck="Regal Necklace",ear2="Genmei Earring",
 		body="Malignance Tabard",hands="Chasseur's Gants +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
@@ -228,7 +228,7 @@ function init_gear_sets()
 	--[[ Ranged WS ]]
 	sets.precast.WS.Ranged = {
 		ammo=gear.WSbullet,
-		head="Lanun Tricorne +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		head="Lanun Tricorne +3",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Laksa. Frac +3",hands="Meg. Gloves +2",ring1="Dingir Ring",ring2="Ilabrat Ring",
 		back=gear.camulus.wsd.ranged,waist="Fotia Belt",legs="Meg. Chausses +2",feet="Lanun Bottes +3"
 	}
@@ -304,12 +304,12 @@ function init_gear_sets()
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Petrov Ring",ring2="Ilabrat Ring",
-		back=gear.camulus.stp.ranged,waist="Yemaya Belt",legs="Malignance Tights",feet="Adhe. Gamashes +1"
+		back=gear.camulus.stp.ranged,waist="Yemaya Belt",legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.midcast.RA.MaxAcc = set_combine(sets.midcast.RA, {body="Laksa. Frac +3",ring1="Mummu Ring",feet="Mummu Gamash. +2"})
 		
-	sets.buff['Triple Shot'] = {head="Oshosi Mask +1",body="Chasseur's Frac +1",hands="Oshosi Gloves +1",legs="Osh. Trousers +1",feet="Osh. Leggings +1"}
+	sets.buff['Triple Shot'] = {head="Oshosi Mask +1",body="Chasseur's Frac +1",hands="Lanun Gants +3",legs="Osh. Trousers +1",feet="Osh. Leggings +1"}
     
 	-- Sets to return to when not performing an action.
 
@@ -323,7 +323,7 @@ function init_gear_sets()
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
-		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
+		back=gear.camulus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Malignance Boots"
 	}
 		
 	sets.idle.Refresh = set_combine(sets.idle, {
@@ -334,24 +334,24 @@ function init_gear_sets()
 	sets.defense.PDT = {
 		head="Malignance Chapeau",neck="Loricate Torque +1",
 		body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		legs="Malignance Tights",feet="Ahosi Leggings"
+		legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.defense.MDT = {
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",
 		body="Malignance Tabard",ring2="Purity Ring",
-		legs="Malignance Tights",feet="Ahosi Leggings"
+		legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.defense.MEVA = {
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Eabani Earring",
 		body="Malignance Tabard",hands="Leyline Gloves",ring2="Purity Ring",
-		legs="Malignance Tights",feet="Ahosi Leggings"
+		legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.Kiting = {legs="Carmine Cuisses +1"}
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
-	sets.DWMax = {ear1="Suppanomimi",body="Adhemar Jacket +1",hands="Floral Gauntlets",legs="Carmine Cuisses +1",feet="Rawhide Boots"}
+	sets.DWMax = {}
 	
 	-- Resting sets
 	sets.resting = sets.idle
@@ -383,7 +383,7 @@ function init_gear_sets()
 		back=gear.camulus.stp.melee,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",legs="Malignance Tights"
+		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",legs="Malignance Tights",feet="Malignance Boots"
 	})
 
 	sets.engaged.Unafraid = {}
@@ -393,12 +393,6 @@ function init_gear_sets()
 	})
 	sets.engaged.DW.HybridDT = set_combine(sets.engaged.HybridDT, {
 		ear2="Suppanomimi",body="Adhemar Jacket +1"
-	})
-
-	sets.engaged.DW.Unafraid = set_combine(sets.engaged.DW, {
-		head="Malignance Chapeau",ear1="Suppanomimi",ear2="Eabani Earring",
-		body="Malignance Tabard",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		legs="Malignance Tights"
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {})

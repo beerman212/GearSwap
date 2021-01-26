@@ -7,7 +7,7 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal')
 	state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
-	state.Weapons:options('Default','DefaultDW')
+	state.Weapons:options('Fomalhaut','FomalhautDW')
 	state.CompensatorMode:options('Always','300','1000','Never','Always')
 	
     gear.RAbullet = "Chrono Bullet"
@@ -20,7 +20,7 @@ function user_setup()
     gear.camulus.meleetp = {}
     gear.camulus.rangedtp = {}
     gear.camulus.laststand = {}
-    gear.camulus.leaden = {}
+    gear.camulus.leaden = {name="Camulus's Mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+5','Weapon skill damage +10%','Phys. dmg. taken-10%'}}
 
     -- Additional local binds
 	send_command('bind ^` gs c cycle ElementalMode')
@@ -68,7 +68,11 @@ function init_gear_sets()
     sets.precast.JA['Random Deal'] = {}
     sets.precast.FoldDoubleBust = {}
 
-    sets.precast.CorsairRoll = {range="Compensator",ring2="Barataria Ring",back=gear.camulus.meleetp}
+    sets.precast.CorsairRoll = {
+        range="Compensator",
+        head="Comm. Tricorne +2",
+        hands="Nvrch. Gants +2",ring2="Barataria Ring",
+        back=gear.camulus.leaden}
 
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
     
@@ -81,7 +85,7 @@ function init_gear_sets()
     sets.precast.CorsairShot = {
         head="Malignance Chapeau",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
         body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Shiva Ring +1",ring2="Ilabrat Ring",
-        waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
+        back=gear.camulus.leaden,waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
     }
 		
 	sets.precast.CorsairShot.Damage = {}
@@ -116,7 +120,11 @@ function init_gear_sets()
 	
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 
-    sets.precast.RA = {}
+    sets.precast.RA = {
+        head=gear.taeon.chapeau.snapshot,
+        body=gear.taeon.tabard.snapshot,hands="Carmine Fin. Ga. +1",
+        waist="Impulse Belt",feet="Meg. Jam. +1"
+    }
 		
 	sets.precast.RA.Flurry = set_combine(sets.precast.RA, {})
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA, {})
@@ -136,15 +144,15 @@ function init_gear_sets()
 	
 	sets.precast.WS['Savage Blade'] = {
         head=gear.herculean.helm.dexwsd,neck="Caro Necklace",ear1="Ishvara Earring",ear2="Moonshade Earring",
-        body=gear.herculean.vest.wsd,hands="Adhemar Wrist +1",ring1="Petrov Ring",ring2="Ilabrat Ring",
-        waist="Fotia Belt",legs=gear.herculean.trousers.ma,feet=gear.herculean.boots.wsd
+        body=gear.herculean.vest.wsd,hands="Meg. Gloves +1",ring1="Petrov Ring",ring2="Ilabrat Ring",
+        waist="Sailfi Belt +1",legs=gear.herculean.trousers.ma,feet=gear.herculean.boots.wsd
     }
 	
     sets.precast.WS['Last Stand'] = {}
 	
     sets.precast.WS['Leaden Salute'] = {
         head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Moonshade Earring",
-        body="Malignance Tabard",hands="Carmine Fin. Ga. +1",ring1="Shiva Ring +1",ring2="Archon Ring",
+        body="Samnuha Coat",hands="Carmine Fin. Ga. +1",ring1="Shiva Ring +1",ring2="Archon Ring",
         back=gear.camulus.leaden,waist="Eschan Stone",legs=gear.herculean.trousers.magical,feet=gear.herculean.boots.refresh
     }
 
@@ -200,9 +208,9 @@ function init_gear_sets()
 
     -- Idle sets
     sets.idle = {
-        head="Meghanada Visor +1",neck="Warder's Charm +1",
+        head="Malignance Chapeau",neck="Warder's Charm +1",
         body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-        waist="Flume Belt +1",legs="Malignance Tights",feet="Meg. Jam. +1"
+        back=gear.camulus.leaden,waist="Flume Belt +1",legs="Malignance Tights",feet="Meg. Jam. +1"
     }
 		
     sets.idle.Refresh = set_combine(sets.idle, {})
@@ -229,14 +237,16 @@ function init_gear_sets()
     sets.engaged = {
         head="Adhemar Bonnet +1",neck="Clotharius Torque",ear1="Telos Earring",ear2="Cessance Earring",
         body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Petrov Ring",ring2="Epona's Ring",
-        back="Solemnity Cape",waist="Windbuffet Belt +1",legs="Malignance Tights",feet=gear.herculean.boots.qa
+        back=gear.camulus.leaden,waist="Windbuffet Belt +1",legs="Malignance Tights",feet=gear.herculean.boots.qa
     }
 
     sets.engaged.HybridDT = set_combine(sets.engaged, {head="Malignance Chapeau",hands="Malignance Gloves",ring1="Defending Ring",legs="Malignance Tights"})
+    sets.engaged.Crit = set_combine(sets.engaged, {legs="Mummu Kecks +1",feet="Mummu Gamash. +2"})
 
     sets.engaged.DW = set_combine(sets.engaged, {ear2="Suppanomimi"})
 
     sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {head="Malignance Chapeau",hands="Malignance Gloves",ring1="Defending Ring",legs="Malignance Tights"})
+    sets.engaged.Crit = set_combine(sets.engaged, {legs="Mummu Kecks +1",feet="Mummu Gamash. +2"})
 
 end
 

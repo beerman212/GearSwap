@@ -78,7 +78,7 @@ function user_setup()
 
 	gear.malevolence = {}
 	gear.malevolence.primary = {name = "Malevolence", augments = {'INT+2','Mag. Acc.+3','"Mag.Atk.Bns."+3'}}
-	gear.malevolence.secondary = {name = "Malevolence", augments = {'INT+5'}}
+	gear.malevolence.secondary = {name = "Malevolence", augments = {'INT+4','Mag. Acc.+10','"Fast Cast"+3'}}
 	
 	-- Additional local binds
 	send_command('bind !` input /ra <t>')
@@ -97,7 +97,6 @@ function user_setup()
 		"Grape Daifuku",
 		"Chrono Bullet",
 		"Chrono Arrow",
-		"Wooden Arrow"
 	}
 	
 	select_default_macro_book()
@@ -161,13 +160,19 @@ function init_gear_sets()
 	sets.precast.RA.Flurry = set_combine(sets.precast.RA, {body="Amini Caban +1",waist="Yemaya Belt"})
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA, sets.precast.RA.Flurry, {head="Arcadian Beret +2",waist="Impulse Belt",feet="Pursuer's Gaiters"})
 
+	sets.precast.RA.MeleeSword = {
+		head=gear.taeon.chapeau.snapshot,
+		body="Oshosi Vest",hands="Carmine Fin. Ga. +1",
+		back=gear.belenus.snapshot,waist="Impulse Belt",legs="Adhemar Kecks"
+	}
+
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		head="Orion Beret +3",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body=gear.herculean.vest.agiwsd,hands="Meg. Gloves +2",ring1="Regal Ring",ring2="Dingir Ring",
-		back=gear.belenus.wsd.ranged,waist="Fotia Belt",legs="Meg. Chausses +2",feet="Meg. Jam. +2"
+		back=gear.belenus.wsd.ranged,waist="Fotia Belt",legs="Arc. Braccae +3",feet="Meg. Jam. +2"
 	}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {body="Orion Jerkin +2"})
 	sets.precast.WS.EnmityDown = set_combine(sets.precast.WS, {})
@@ -241,16 +246,6 @@ function init_gear_sets()
 	sets.precast.WS["Apex Arrow"].Acc = set_combine(sets.precast.WS["Apex Arrow"], {body="Orion Jerkin +2"})
 	sets.precast.WS["Apex Arrow"].EnmityDown = set_combine(sets.precast.WS["Apex Arrow"], {})
 
-	sets.precast.WS["Dulling Arrow"] = {
-		head="Malignance Chapeau",neck="Anu Torque",ear1="Sherida Earring",ear2="Enervating Earring",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Regal Earring",ring2="Mummu Ring",
-		back=gear.belenus.stp.ranged,waist="Kwahu Kachina Belt",legs="Malignance Tights",feet="Mummu Gamash. +2"
-	}
-
-	sets.precast.WS["Blast Arrow"] = sets.precast.WS["Dulling Arrow"]
-	sets.precast.WS["Arching Arrow"] = sets.precast.WS["Dulling Arrow"]
-	sets.precast.WS["Empyreal Arrow"] = sets.precast.WS
-
 	--[[ Axe ]]
 	sets.precast.WS.Decimation = set_combine(sets.precast.WS, {
 		head="Adhemar Bonnet +1",ear1="Sherida Earring",ear2="Brutal Earring",
@@ -298,11 +293,11 @@ function init_gear_sets()
 	sets.midcast.RA = {
 		head="Arcadian Beret +2",neck="Iskur Gorget",ear1="Telos Earring",ear2="Dedition Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Chirich Ring",ring2="Ilabrat Ring",
-		back=gear.belenus.stp.ranged,waist="Yemaya Belt",legs="Malignance Tights",feet="Adhe. Gamashes +1"
+		back=gear.belenus.stp.ranged,waist="Yemaya Belt",legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.midcast.RA.Overkill = set_combine(sets.midcast.RA, {})
-	sets.midcast.RA["Double Shot"] = set_combine(sets.midcast.RA, {body="Oshosi Vest",hands="Oshosi Gloves +1",legs="Osh. Trousers +1",feet="Osh. Leggings +1"})
+	sets.midcast.RA["Double Shot"] = set_combine(sets.midcast.RA, {body="Arc. Jerkin +3",hands="Oshosi Gloves +1",legs="Osh. Trousers +1",feet="Osh. Leggings +1"})
 
 	sets.midcast.RA.AM = set_combine(sets.midcast.RA, {
 		head="Meghanada Visor +2",ear2="Odr Earring",
@@ -310,7 +305,7 @@ function init_gear_sets()
 		back=gear.belenus.jishnu,waist="Kwahu Kachina Belt",legs="Darraigner's Brais",feet="Osh. Leggings +1"
 	})
 	sets.midcast.RA.AM.Overkill = set_combine(sets.midcast.RA.AM, {})
-	sets.midcast.RA.AM["Double Shot"] = set_combine(sets.midcast.RA.AM, {head="Oshosi Mask +1",body="Oshosi Vest",legs="Osh. Trousers +1"})
+	sets.midcast.RA.AM["Double Shot"] = set_combine(sets.midcast.RA.AM, {head="Oshosi Mask +1",body="Arc. Jerkin +3",legs="Osh. Trousers +1"})
 
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {ear2="Enervating Earring",body="Orion Jerkin +2",ring1="Regal Ring",ring2="Mummu Ring",feet="Osh. Leggings +1"})
 
@@ -333,8 +328,8 @@ function init_gear_sets()
 	--These sets will overlay based on accuracy level, regardless of other options.
 	sets.buff.Camouflage = {body="Orion Jerkin +2"}
 	sets.buff.Camouflage.Acc = {}
-	sets.buff['Double Shot'] = {body="Oshosi Vest",back=gear.belenus.stp.ranged}
-	sets.buff['Double Shot'].Acc = {body="Oshosi Vest",back=gear.belenus.stp.ranged}
+	sets.buff['Double Shot'] = {body="Arc. Jerkin +3",back=gear.belenus.stp.ranged}
+	sets.buff['Double Shot'].Acc = {body="Arc. Jerkin +3",back=gear.belenus.stp.ranged}
 	sets.buff.Barrage = {hands="Orion Bracers +2"}
 	
 	sets.Self_Healing = {waist="Gishdubar Sash"}
@@ -356,26 +351,26 @@ function init_gear_sets()
 	sets.idle = {
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.belenus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
+		back=gear.belenus.stp.melee,waist="Flume Belt +1",legs="Malignance Tights",feet="Malignance Boots"
 	}
 			
 	-- Defense sets
 	sets.defense.PDT = {
 		head="Malignance Chapeau",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back=gear.belenus.stp.melee,legs="Malignance Tights"
+		back=gear.belenus.stp.melee,legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.defense.MDT = {
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Tuisto Earring",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Purity Ring",ring2="Gelatinous Ring +1",
-		back=gear.belenus.stp.melee,legs="Malignance Tights"
+		back=gear.belenus.stp.melee,legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.defense.MEVA = {
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Eabani Earring",ear2="Odnowa Earring +1",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Purity Ring",ring2="Gelatinous Ring +1",
-		back=gear.belenus.stp.melee,legs="Malignance Tights",feet="Ahosi Leggings",
+		back=gear.belenus.stp.melee,legs="Malignance Tights",feet="Malignance Boots"
 	}
 
 	sets.Kiting = {legs="Carmine Cuisses +1"}
@@ -397,7 +392,7 @@ function init_gear_sets()
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
-		legs="Malignance Tights"
+		legs="Malignance Tights",feet="Malignance Boots"
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {neck="Lissome Necklace",ear2="Telos Earring",feet=gear.herculean.boots.ta})
@@ -418,7 +413,7 @@ function init_gear_sets()
 	sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {
 		head="Malignance Chapeau",neck="Loricate Torque +1",
 		hands="Malignance Gloves",ring1="Defending Ring",
-		legs="Malignance Tights"
+		legs="Malignance Tights",feet="Malignance Boots"
 	})
 
 	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {head="Malignance Chapeau",neck="Lissome Necklace",feet=gear.herculean.boots.ta})
