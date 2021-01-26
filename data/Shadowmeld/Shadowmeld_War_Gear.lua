@@ -55,7 +55,7 @@ function init_gear_sets()
 	sets.weapons.DolichenusDW = {main="Dolichenus",sub="Firangi"}
 	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield +1"}
 	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
-	sets.weapons.Ukonvasara = {main="Lumberjack",sub="Utu Grip"}
+	sets.weapons.Ukonvasara = {main="Sagaris",sub="Utu Grip"}
 	
 	-- Precast Sets
 	

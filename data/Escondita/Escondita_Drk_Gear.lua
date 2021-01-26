@@ -35,7 +35,7 @@ function init_gear_sets()
 	sets.weapons.Ragnarok = {main="Ragnarok",sub="Utu Grip"}
 	sets.weapons.Zulfiqar = {main="Zulfiqar",sub="Utu Grip"}
 	sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
-	sets.weapons.Redemption = {main="Stigma",sub="Utu Grip"}
+	sets.weapons.Redemption = {main="Ultimatum",sub="Utu Grip"}
 	
 	-- Precast Sets
 	-- Precast sets to enhance JAs

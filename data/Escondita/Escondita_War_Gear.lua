@@ -40,7 +40,7 @@ function init_gear_sets()
 	sets.weapons.NaeglingDW = {main="Naegling",sub="Firangi"}
 	sets.weapons.Farsha = {main="Bonebiter",sub="Blurred Shield"}
 	sets.weapons.FarshaDW = {main="Bonebiter",sub="Firangi"}
-	sets.weapons.Ukonvasara = {main="Lumberjack",sub="Utu Grip"}
+	sets.weapons.Ukonvasara = {main="Sagaris",sub="Utu Grip"}
 	
 	-- Precast Sets
 
