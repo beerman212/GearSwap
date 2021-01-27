@@ -46,7 +46,7 @@ function init_gear_sets()
     -- Weapons sets
 	sets.weapons.Akademos = {main="Akademos",sub="Niobid Strap"}
 	sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
-    sets.weapons.Hvergelmir = {main="Crook",sub="Bloodrain Strap"}
+    sets.weapons.Hvergelmir = {main="Shillelagh",sub="Bloodrain Strap"}
 
     -- Precast Sets
 
