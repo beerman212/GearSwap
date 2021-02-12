@@ -30,7 +30,7 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
-	sets.weapons.Rhongomiant = {main="Copperhead",sub="Utu Grip"}
+	sets.weapons.Rhongomiant = {main="Oathkeeper",sub="Utu Grip"}
 
 	-- Precast Sets
 	-- Precast sets to enhance JAs

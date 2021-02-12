@@ -45,7 +45,7 @@ function init_gear_sets()
     --------------------------------------
 
 	-- Weapons sets
-	sets.weapons.Gambanteinn = {main="Rageblow",sub="Nehushtan"}
+	sets.weapons.Gambanteinn = {main="Culacula",sub="Nehushtan"}
 	
     -- Precast Sets
 

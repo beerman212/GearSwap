@@ -26,7 +26,7 @@ function init_gear_sets()
     -- Weapons sets
 	sets.weapons.Gridarvor = {main="Gridarvor", sub="Elan Strap +1"}
     sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
-    sets.weapons.Hvergelmir = {main="Crook",sub="Bloodrain Strap"}
+    sets.weapons.Hvergelmir = {main="Slaine",sub="Bloodrain Strap"}
     
     --------------------------------------
     -- Precast Sets
