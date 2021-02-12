@@ -71,6 +71,15 @@ function init_gear_sets()
 	
 	sets.precast.JA['Chakra'] = {body="Anch. Cyclas +1",hands="Hes. Gloves +1"}
 
+	sets.precast.JA.Pflug = {
+		ammo="Sapience Orb",
+		head="Halitus Helm",neck="Warder's Charm +1",ear2="Cryptic Earring",
+		body="Emet Harness +1",ring1="Petrov Ring",ring2="Supershear Ring",
+		waist="Kasiri Belt",feet="Ahosi Leggings"
+	}
+	sets.precast.JA.Vallation = sets.precast.JA.Pflug
+	sets.precast.JA.Swordplay = sets.precast.JA.Pflug
+
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {}
 		
@@ -199,9 +208,9 @@ function init_gear_sets()
 		back=gear.segomo.tp.da,waist="Moonbow Belt +1",legs="Hes. Hose +2",feet="Anch. Gaiters +3"
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Ken. Jinpachi +1",
+		head="Malignance Chapeau",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
-		legs="Malignance Tights",feet="Ken. Sune-ate +1"
+		legs="Malignance Tights",feet="Malignance Boots"
 	})
 	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
 	sets.engaged.Crit = set_combine(sets.engaged, {})

@@ -87,7 +87,7 @@ function init_gear_sets()
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Ammurapi Shield"})
 
     -- Precast sets to enhance JAs
-	sets.precast.JA.Benediction = {body="Piety Briault"}
+	sets.precast.JA.Benediction = {body="Piety Briault +1"}
 	sets.precast.JA.Devotion = {head="Piety Cap"}
 
     -- Waltz set (chr and vit)
@@ -300,8 +300,8 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
 		main="Daybreak",sub="Ammurapi Shield",ammo="Homiliary",
-		head=gear.chironic.hat.refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
-		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
+		head="Befouled Crown",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
+		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"
 	}
 
@@ -309,12 +309,7 @@ function init_gear_sets()
 	
 	sets.idle.MEva = {}
 
-	sets.idle.Weak = {
-		main="Daybreak",sub="Ammurapi Shield",ammo="Homiliary",
-		head=gear.chironic.hat.refresh,neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
-		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Ayanmo Ring",ring2="Inyanga Ring",
-		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"
-	}
+	sets.idle.Weak = set_combine(sets.idle, {})
 
     -- Defense sets
 

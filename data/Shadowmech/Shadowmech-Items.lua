@@ -17,7 +17,7 @@ gear.gada.enhancing = {name="Gada",augments={}}
 gear.chironic = {}
 
 gear.chironic.hat = {}
-gear.chironic.hat.refresh = {name="Chironic Hat",augments={'Attack+7','"Refresh"+1','Accuracy+12 Attack+12','Mag. Acc.+19 "Mag.Atk.Bns."+19'}}
+gear.chironic.hat.refresh = {}
 
 gear.chironic.gloves = {}
 
