@@ -1,10 +1,10 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal','Acc','MaxAcc','Fodder')
-	state.HybridMode:options('Normal','PDT','MDT','Crit','STP','SubtleBlow')
+	state.OffenseMode:options('Normal','Acc','MaxAcc')
+	state.HybridMode:options('Normal','HybridDT','Crit')
 	state.RangedMode:options('Normal', 'Acc')
-	state.WeaponskillMode:options('Match','Normal','Acc','MaxAcc','Fodder')
+	state.WeaponskillMode:options('Match','Normal','Acc','MaxAcc')
 	state.IdleMode:options('Normal', 'Sphere')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
@@ -159,10 +159,9 @@ function init_gear_sets()
 	
 	sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {ear1="Mache Earring +1"})
 	sets.precast.WS["Rudra's Storm"].MaxAcc = set_combine(sets.precast.WS["Rudra's Storm"].Acc, {body="Pillager's Vest +2",legs="Pill. Culottes +2"})
-	sets.precast.WS["Rudra's Storm"].Fodder = set_combine(sets.precast.WS["Rudra's Storm"], {})
-	sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
-	sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
-	sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
+	sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"], {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
+	sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"], {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
+	sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"], {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
 
 	sets.precast.WS["Mandalic Stab"] = sets.precast.WS["Rudra's Storm"]
 
@@ -175,10 +174,9 @@ function init_gear_sets()
 	
 	sets.precast.WS["Shark Bite"].Acc = set_combine(sets.precast.WS["Shark Bite"], {})
 	sets.precast.WS["Shark Bite"].MaxAcc = set_combine(sets.precast.WS["Shark Bite"].Acc, {})
-	sets.precast.WS["Shark Bite"].Fodder = set_combine(sets.precast.WS["Shark Bite"], {})
-	sets.precast.WS["Shark Bite"].SA = set_combine(sets.precast.WS["Shark Bite"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
-	sets.precast.WS["Shark Bite"].TA = set_combine(sets.precast.WS["Shark Bite"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
-	sets.precast.WS["Shark Bite"].SATA = set_combine(sets.precast.WS["Shark Bite"].Fodder, {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
+	sets.precast.WS["Shark Bite"].SA = set_combine(sets.precast.WS["Shark Bite"], {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
+	sets.precast.WS["Shark Bite"].TA = set_combine(sets.precast.WS["Shark Bite"], {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
+	sets.precast.WS["Shark Bite"].SATA = set_combine(sets.precast.WS["Shark Bite"], {ammo="Yetshila",body="Plunderer's Vest +3",legs="Pill. Culottes +2"})
 
 	sets.precast.WS['Evisceration'] = {
 		ammo="Yetshila",
@@ -189,10 +187,9 @@ function init_gear_sets()
 	
 	sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
 	sets.precast.WS['Evisceration'].MaxAcc = set_combine(sets.precast.WS['Evisceration'].Acc, {ammo="Seeth. Bomblet +1",ear2="Mache Earring +1",body="Pillager's Vest +2",ring1="Moonbeam Ring"})
-	sets.precast.WS['Evisceration'].Fodder = set_combine(sets.precast.WS['Evisceration'], {})
-	sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Fodder, {})
-	sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].Fodder, {})
-	sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'].Fodder, {})
+	sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'], {})
+	sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'], {})
+	sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'], {})
 
 	sets.precast.WS['Exenterator'] = {
 		ammo="Seeth. Bomblet +1",
@@ -203,10 +200,9 @@ function init_gear_sets()
 	
 	sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {})
 	sets.precast.WS['Exenterator'].MaxAcc = set_combine(sets.precast.WS['Exenterator'].Acc, {})
-	sets.precast.WS['Exenterator'].Fodder = set_combine(sets.precast.WS['Exenterator'], {})
-	sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Fodder, {})
-	sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Fodder, {})
-	sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Fodder, {})
+	sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'], {})
+	sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'], {})
+	sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'], {})
 
 	sets.precast.WS['Last Stand'] = {
 		head="Mummu Bonnet +2",neck="Fotia Gorget",ear1="Enervating Earring",ear2="Telos Earring",
@@ -252,10 +248,10 @@ function init_gear_sets()
 	sets.midcast.RA = {
 		head="Malignance Chapeau",neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
 		body="Malignance Tabard",hands=gear.adhemar.wrist.path_c,ring1="Dingir Ring",ring2="Ilabrat Ring",
-		back=gear.toutatis.stp,waist="Yemaya Belt",legs="Malignance Tights",feet="Adhe. Gamashes +1"}
+		back=gear.toutatis.stp,waist="Yemaya Belt",legs="Malignance Tights",feet="Malignance Boots"}
 
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
-		ring2="Mummu Ring",feet="Mummu Gamash. +2"
+		ring2="Mummu Ring"
 	})
 
 	--------------------------------------
@@ -311,7 +307,7 @@ function init_gear_sets()
 
 	-- Normal melee group
 	sets.engaged = {
-		ammo="Yamarang",
+		ammo="Aurgelmir Orb +1",
 		head="Adhemar Bonnet +1",neck="Anu Torque",ear1="Sherida Earring",ear2="Telos Earring",
 		body="Adhemar Jacket +1",hands=gear.adhemar.wrist.path_a,ring1="Gere Ring",ring2="Epona's Ring",
 		back=gear.toutatis.stp,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
@@ -319,23 +315,12 @@ function init_gear_sets()
 	sets.engaged.Crit = set_combine(sets.engaged, {
 		ammo="Yetshila",ring2="Hetairoi Ring",back=gear.toutatis.crit,feet="Mummu Gamash. +2"
 	})
-	sets.engaged.STP = set_combine(sets.engaged, {
-		head="Malignance Chapeau",neck="Iskur Gorget",ring2="Moonbeam Ring"
-	})
-	sets.engaged.SubtleBlow = set_combine(sets.engaged, {
-		--[[ammo="Expeditious Pinion",]]
-		head="Adhemar Bonnet +1",ear1="Sherida Earring",ear2="Digni. Earring",
-		--[[ring1="Chirich Ring +1",]]ring2="Chirich Ring",feet="Mummu Gamash. +2"
-	})
-	sets.engaged.PDT = set_combine(sets.engaged, {
+
+	sets.engaged.HybridDT = set_combine(sets.engaged, {
+		ammo="Yamarang",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
-		back=gear.toutatis.stp,legs="Malignance Tights",feet="Malignance Boots"
-	})
-	sets.engaged.MDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Moonbeam Ring",
-		legs="Malignance Tights",feet="Malignance Boots"
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
+		waist="Reiki Yotai",legs="Malignance Tights",feet="Malignance Boots"
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
@@ -344,10 +329,8 @@ function init_gear_sets()
 	sets.engaged.Acc.Crit = set_combine(sets.engaged.Crit, {
 		ammo="Yamarang",neck="Lissome Necklace",ring1="Moonbeam Ring",waist="Grunfeld Rope"
 	})
-	sets.engaged.Acc.STP = set_combine(sets.engaged.STP, {neck="Lissome Necklace",ring1="Chirich Ring"})
-	sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
-	sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {})
-	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {})
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	
 
 	sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, {
 		head="Pill. Bonnet +2",neck="Lissome Necklace",
@@ -356,22 +339,7 @@ function init_gear_sets()
 	sets.engaged.MaxAcc.Crit = set_combine(sets.engaged.Acc.Crit, {
 		head="Pill. Bonnet +2",back=gear.toutatis.stp,legs="Pill. Culottes +2"
 	})
-	sets.engaged.MaxAcc.STP = set_combine(sets.engaged.Acc.STP, {legs="Pill. Culottes +2",feet="Mummu Gamash. +2"})
-	sets.engaged.MaxAcc.SubtleBlow = set_combine(sets.engaged.Acc.SubtleBlow, {
-		ammo="Yamarang",
-		head="Pill. Bonnet +2",neck="Lissome Necklace",
-		ring1="Moonbeam Ring",waist="Grunfeld Rope",legs="Pill. Culottes +2"
-	})
-	sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.Acc.PDT, {})
-	sets.engaged.MaxAcc.MDT = set_combine(sets.engaged.Acc.MDT, {})
-
-	sets.engaged.Fodder = set_combine(sets.engaged, {neck="Iskur Gorget",ear2="Dedition Earring"})
-	sets.engaged.Fodder.Crit = set_combine(sets.engaged.Crit, {ear2="Dedition Earring"})
-	sets.engaged.Fodder.STP = set_combine(sets.engaged.STP, {ear2="Dedition Earring"})
-	sets.engaged.Fodder.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
-	sets.engaged.Fodder.PDT = set_combine(sets.engaged.PDT, {})
-	sets.engaged.Fodder.MDT = set_combine(sets.engaged.MDT, {})
-
+	sets.engaged.MaxAcc.HybridDT = set_combine(sets.engaged.Acc.HybridDT, {})
 end
 
 -- Select default macro book on initial load or subjob change.

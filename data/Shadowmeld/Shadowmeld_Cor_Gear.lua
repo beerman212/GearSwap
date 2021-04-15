@@ -383,10 +383,10 @@ function init_gear_sets()
 		back=gear.camulus.stp.melee,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean.boots.ta_low_acc
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",legs="Malignance Tights",feet="Malignance Boots"
+		head="Malignance Chapeau",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
+		legs="Malignance Tights",feet="Malignance Boots"
 	})
-
-	sets.engaged.Unafraid = {}
 
 	sets.engaged.DW = set_combine(sets.engaged, {
 		ear2="Suppanomimi"
@@ -396,7 +396,7 @@ function init_gear_sets()
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {})
-	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {waist="Reiki Yotai"})
 
 	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {})
 	sets.engaged.DW.Acc.HybridDT = set_combine(sets.engaged.DW.HybridDT, {})
@@ -415,12 +415,12 @@ function init_gear_sets()
 	sets.engaged.DW.MaxAcc = set_combine(sets.engaged.DW.Acc, {
 		head="Carmine Mask +1",neck="Lissome Necklace",
 		body="Malignance Tabard",hands="Mummu Wrists +2",ring1="Ilabrat Ring",ring2="Chirich Ring",
-		waist="Grunfeld Rope",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"
+		legs="Carmine Cuisses +1",feet="Carmine Greaves +1"
 	})
 	sets.engaged.DW.MaxAcc.HybridDT = set_combine(sets.engaged.DW.Acc.HybridDT, {
 		neck="Lissome Necklace",
 		hands="Mummu Wrists +2",ring1="Ilabrat Ring",ring2="Chirich Ring",
-		waist="Grunfeld Rope",feet="Mummu Gamash. +2"
+		feet="Mummu Gamash. +2"
 	})
 
 	sets.engaged.Crit = set_combine(sets.engaged, {

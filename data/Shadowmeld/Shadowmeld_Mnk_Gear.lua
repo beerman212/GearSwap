@@ -228,7 +228,11 @@ function init_gear_sets()
 	sets.engaged.MaxAcc.Crit = set_combine(sets.engaged.Acc.Crit, {})
 
 	sets.engaged.Godhands = set_combine(sets.engaged, {})
-	sets.engaged.Godhands.HybridDT = set_combine(sets.engaged.Godhands, {})
+	sets.engaged.Godhands.HybridDT = set_combine(sets.engaged.Godhands, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
+		legs="Malignance Tights",feet="Malignance Boots"
+	})
 	sets.engaged.Godhands.SubtleBlow = set_combine(sets.engaged.Godhands, {})
 	sets.engaged.Godhands.Crit = set_combine(sets.engaged.Godhands, {})
 
@@ -297,7 +301,7 @@ function init_gear_sets()
 	sets.buff.Sleep = {}
 	sets.buff.Impetus = {body="Bhikku Cyclas +1"}
 	sets.buff.Footwork = {}
-	sets.buff.Boost = {}
+	sets.buff.Boost = {waist="Ask Sash"}
 	
 	sets.FootworkWS = {}
 	sets.DayIdle = {}

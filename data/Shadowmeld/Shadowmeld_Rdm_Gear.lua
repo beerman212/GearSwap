@@ -1,8 +1,8 @@
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal','Acc','Fodder')
-	state.HybridMode:options('Normal', 'PDT', 'MDT')
-	state.CastingMode:options('Normal', 'Resistant', 'Fodder', 'Proc')
+	state.OffenseMode:options('Normal','Acc')
+	state.HybridMode:options('Normal','HybridDT')
+	state.CastingMode:options('Normal', 'Resistant', 'Proc')
 	state.IdleMode:options('Normal', 'PDT', 'MDT')
 	state.PhysicalDefenseMode:options('PDT', 'NukeLock')
 	state.MagicalDefenseMode:options('MDT')
@@ -216,7 +216,7 @@ function init_gear_sets()
 	sets.Self_Phalanx = {head=gear.taeon.chapeau.phalanx,body=gear.taeon.tabard.phalanx,hands=gear.taeon.gloves.phalanx,legs=gear.taeon.tights.phalanx,feet=gear.taeon.boots.phalanx}
 
 	sets.midcast['Enhancing Magic'] = {main=gear.colada.enhancing,sub="Ammurapi Shield",
-		head=gear.telchine.cap.enhancing,neck="Dls. Torque +2",ear1="Andoaa Earring",
+		head=gear.telchine.cap.enhancing,neck="Dls. Torque +2",ear1="Andoaa Earring",ear2="Mimir Earring",
 		body="Viti. Tabard +3",hands="Atrophy Gloves +3",ring2="Stikini Ring",
 		back="Ghostfyre Cape",waist="Embla Sash",legs=gear.telchine.braconi.enhancing,feet="Leth. Houseaux +1"}
 
@@ -257,7 +257,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'].IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].IntEnfeebles, {back=gear.sucellos.mab})
 
 	sets.midcast['Distract III'] = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles, {
-		main=gear.grioavolr.enfeeble,sub="Enki Strap",waist="Rumination Sash"
+		main=gear.grioavolr.enfeeble,sub="Enki Strap",ear1="Vor Earring",waist="Rumination Sash"
 	})
 	sets.midcast['Distract III'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].MndEnfeebles.Resistant, {})
 
@@ -442,59 +442,52 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",neck="Anu Torque",ear1="Telos Earring",ear2="Sherida Earring",
-		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
 		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Malignance Tights",feet="Carmine Greaves +1"
 	}
-	sets.engaged.PDT = set_combine(sets.engaged, {
-		neck="Loricate Torque +1",ring1="Defending Ring"
-	})
-	sets.engaged.MDT = set_combine(sets.engaged, {
-		neck="Warder's Charm +1",ring1="Purity Ring"
-	})
 
 	sets.engaged.Enspell = set_combine(sets.engaged, {})
 	sets.engaged.Enspell2 = set_combine(sets.engaged, {})
 
-	sets.engaged.PDT.Enspell = set_combine(sets.engaged.PDT, {})
-	sets.engaged.PDT.Enspell2 = set_combine(sets.engaged.PDT, {})
-
-	sets.engaged.MDT.Enspell = set_combine(sets.engaged.MDT, {})
-	sets.engaged.MDT.Enspell2 = set_combine(sets.engaged.MDT, {})
+	sets.engaged.HybridDT = set_combine(sets.engaged, {ring1="Defending Ring",feet="Malignance Boots"})
+	sets.engaged.HybridDT.Enspell = set_combine(sets.engaged.HybridDT, {})
+	sets.engaged.HybridDT.Enspell2 = set_combine(sets.engaged.HybridDT, {})
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		head="Carmine Mask +1",neck="Lissome Necklace",
-		hands="Aya. Manopolas +2",ring1="Chirich Ring",
-		waist="Grunfeld Rope",legs="Carmine Cuisses +1"
-	})
-	sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
-	sets.engaged.Acc.MDT = set_combine(sets.engaged.MDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
-	
-	sets.engaged.DW = {
-		ammo="Aurgelmir Orb +1",
-		head="Malignance Chapeau", neck="Anu Torque", ear1="Suppanomimi",ear2="Sherida Earring",
-		body="Malignance Tabard",hands="Taeon Gloves",ring1="Hetairoi Ring",ring2="Ilabrat Ring",
-		back=gear.sucellos.stp,waist="Windbuffet Belt +1",legs="Carmine Cuisses +1",feet="Carmine Greaves +1"
-	}
-	sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
-		neck="Loricate Torque +1",ring1="Defending Ring", ring2="Gelatinous Ring +1"
-	})
-	sets.engaged.DW.MDT = set_combine(sets.engaged.DW, {
-		neck="Warder's Charm +1",ring1="Defending Ring",ring2="Purity Ring"
+		neck="Lissome Necklace",ring1="Chirich Ring",feet="Malignance Boots"
 	})
 
+	sets.engaged.Acc.Enspell = set_combine(sets.engaged.Acc, {})
+	sets.engaged.Acc.Enspell2 = set_combine(sets.engaged.Acc, {})
+
+	sets.engaged.Acc.HybridDT = set_combine(sets.engaged.Acc, {ring1="Defending Ring"})
+
+	sets.engaged.Acc.HybridDT.Enspell = set_combine(sets.engaged.Acc.HybridDT, {})
+	sets.engaged.Acc.HybridDT.Enspell2 = set_combine(sets.engaged.Acc.HybridDT, {})
+	
+	sets.engaged.DW = set_combine(sets.engaged, {
+		ear1="Suppanomimi",waist="Reiki Yotai"
+	})
+
+	sets.engaged.DW.Enspell = set_combine(sets.engaged.DW, {})
+	sets.engaged.DW.Enspell2 = set_combine(sets.engaged.DW, {})
+	
+	sets.engaged.DW.HybridDT = set_combine(sets.engaged.DW, {ring1="Defending Ring",feet="Malignance Boots"})
+
+	sets.engaged.DW.HybridDT.Enspell = set_combine(sets.engaged.DW.HybridDT, {})
+	sets.engaged.DW.HybridDT.Enspell2 = set_combine(sets.engaged.DW.HybridDT, {})
+
 	sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
-		neck="Lissome Necklace",hands="Aya. Manopolas +2",ring1="Chirich Ring",waist="Grunfeld Rope"
+		neck="Lissome Necklace",ring1="Chirich Ring",feet="Malignance Boots"
 	})
-	sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.PDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
-	sets.engaged.DW.Acc.MDT = set_combine(sets.engaged.DW.MDT, {
-		hands="Aya. Manopolas +2",waist="Grunfeld Rope"
-	})
+
+	sets.engaged.DW.Acc.Enspell = set_combine(sets.engaged.DW.Acc, {})
+	sets.engaged.DW.Acc.Enspell2 = set_combine(sets.engaged.DW.Acc, {})
+
+	sets.engaged.DW.Acc.HybridDT = set_combine(sets.engaged.DW.Acc, {ring1="Defending Ring"})
+
+	sets.engaged.DW.Acc.HybridDT.Enspell = set_combine(sets.engaged.DW.Acc.HybridDT, {})
+	sets.engaged.DW.Acc.HybridDT.Enspell2 = set_combine(sets.engaged.DW.Acc.HybridDT, {})
 end
 
 buff_spell_lists.AutoHeal = {
