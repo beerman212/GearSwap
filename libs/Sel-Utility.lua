@@ -739,7 +739,7 @@ function can_use(spell)
 			if (spell_jobs[player.sub_job_id] and spell_jobs[player.sub_job_id] <= player.sub_job_level) or state.Buff['Enlightenment'] then
 				return true
 			elseif data.spells.addendum_white:contains(spell.english) and not state.Buff['Addendum: White'] then
-				if state.AutoArts.value and not state.Buff['Addendum: White'] and not silent_check_amnesia() and get_current_strategem_count() > 0 then
+				if state.AutoArts.value and not state.Buff['Addendum: White'] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
 					if state.Buff['Light Arts'] then
 						windower.chat.input('/ja "Addendum: White" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -760,7 +760,7 @@ function can_use(spell)
 				end
 				return false
             elseif data.spells.addendum_black:contains(spell.english) and not state.Buff['Addendum: Black'] then
-				if state.AutoArts.value and not state.Buff['Addendum: Black'] and not silent_check_amnesia() and get_current_strategem_count() > 0 then
+				if state.AutoArts.value and not state.Buff['Addendum: Black'] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
 					if state.Buff['Dark Arts'] then
 						windower.chat.input('/ja "Addendum: Black" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -787,7 +787,7 @@ function can_use(spell)
             (spell_jobs[player.main_job_id] >= 100 and number_of_jps(player.job_points[__raw.lower(res.jobs[player.main_job_id].ens)]) >= spell_jobs[player.main_job_id]) ) ) then
                         
             if data.spells.addendum_white:contains(spell.english) then
-				if state.AutoArts.value and not buffactive["Addendum: White"] and not silent_check_amnesia() and get_current_strategem_count() > 0 then
+				if state.AutoArts.value and not buffactive["Addendum: White"] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
 					if state.Buff['Light Arts'] then
 						windower.chat.input('/ja "Addendum: White" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -804,7 +804,7 @@ function can_use(spell)
 				end
             end
             if data.spells.addendum_black:contains(spell.english) then
-				if state.AutoArts.value and not buffactive["Addendum: Black"] and not silent_check_amnesia() and get_current_strategem_count() > 0 then
+				if state.AutoArts.value and not buffactive["Addendum: Black"] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
 					if buffactive["Dark Arts"] then
 						windower.chat.input('/ja "Addendum: Black" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -911,33 +911,6 @@ end
 -- windower.register_event('time change', time_change)
 --
 -- Variables it sets: classes.Daytime, and classes.DuskToDawn.  They are set to true
--- if their respective descriptors are true, or false otherwise.
-function time_change(new_time, old_time)
-    local was_daytime = classes.Daytime
-    local was_dusktime = classes.DuskToDawn
-    
-    if new_time and (new_time >= 6*60 and new_time < 18*60) then
-        classes.Daytime = true
-    else
-        classes.Daytime = false
-    end
-
-    if new_time and (new_time >= 17*60 or new_time < 7*60) then
-        classes.DuskToDawn = true
-    else
-        classes.DuskToDawn = false
-    end
-    
-    if was_daytime ~= classes.Daytime or was_dusktime ~= classes.DuskToDawn then
-        if job_time_change then
-            job_time_change(new_time, old_time)
-        end
-
-        handle_update({'auto'})
-    end
-end
-
---Selindrile's Functions
 
 function item_available(item)
 	if player.inventory[item] or player.wardrobe[item] or player.wardrobe2[item] or player.wardrobe3[item] or player.wardrobe4[item] or player.satchel[item] then
@@ -1223,7 +1196,7 @@ function check_spell_targets(spell, spellMap, eventArgs)
 			add_to_chat(123,'Target out of range, too far to heal!')
 		elseif spell.english:startswith('Curaga') and not spell.target.in_party then
 			if (state.Buff['Light Arts'] or state.Buff['Addendum: White']) then
-				if get_current_strategem_count() > 0 then
+				if get_current_stratagem_count() > 0 then
 					local number = spell.english:match('Curaga ?%a*'):sub(7) or ''
 					eventArgs.cancel = true
 					if buffactive['Accession'] then
@@ -2335,20 +2308,21 @@ function set_to_item(set)
 end
 
 function item_equipped(item)
+	item = item:lower()
 	for k, v in pairs(player.equipment) do
-		if v == item then
+		if v:lower() == item then
 			return true
 		end
 	end
 	return false
 end
 
-function get_current_strategem_count()
+function get_current_stratagem_count()
     -- returns recast in seconds.
     local allRecasts = windower.ffxi.get_ability_recasts()
     local stratsRecast = allRecasts[231]
 	local StratagemChargeTimer = 240
-	local maxStrategems = 1
+	local maxStratagems = 1
 	
 	if player.sub_job == 'SCH' and player.sub_job_level > 29 then
 		StratagemChargeTimer = 120
@@ -2368,14 +2342,14 @@ function get_current_strategem_count()
 	
 	if player.sub_job == 'SCH' then
 		if player.sub_job_level > 29 then
-			maxStrategems = 2
+			maxStratagems = 2
 		end
 	else
-		maxStrategems = math.floor((player.main_job_level + 10) / 20)
+		maxStratagems = math.floor((player.main_job_level + 10) / 20)
 	end
 
 
-    local currentCharges = math.floor(maxStrategems - (stratsRecast / StratagemChargeTimer))
+    local currentCharges = math.floor(maxStratagems - (stratsRecast / StratagemChargeTimer))
     return currentCharges
 end
 
@@ -2388,20 +2362,15 @@ function arts_active()
 end
 
 -- Movement Handling
-lastlocation = 'fff':pack(0,0,0)
+lastlocation = {X=0,Y=0}
 moving = false
 wasmoving = false
 
 windower.raw_register_event('outgoing chunk',function(id,data,modified,is_injected,is_blocked)
     if id == 0x015 then
-        moving = lastlocation ~= modified:sub(5, 16)
-        lastlocation = modified:sub(5, 16)
-		
-		if wasmoving ~= moving then
-			if not (player.status == 'Event' or (os.clock() < (next_cast + 1)) or pet_midaction() or (os.clock() < (petWillAct + 2))) then
-				send_command('gs c forceequip')
-			end
-		end
+		local currentlocation = {X=modified:sub(5,8), Y=modified:sub(13,16)}
+        moving = currentlocation.X ~= lastlocation.X or currentlocation.Y ~= lastlocation.Y
+        lastlocation = currentlocation
 
 		if moving then
 			if player.movement_speed <= 5 and sets.Kiting and not (player.status == 'Event' or (os.clock() < (next_cast + 1)) or pet_midaction() or (os.clock() < (petWillAct + 2))) then
@@ -2416,9 +2385,14 @@ windower.raw_register_event('outgoing chunk',function(id,data,modified,is_inject
 			end
 			
 			if not state.Uninterruptible.value then delayed_cast = '' end
+		elseif wasmoving then
+			if not (player.status == 'Event' or (os.clock() < (next_cast + 1)) or pet_midaction() or (os.clock() < (petWillAct + 2))) then
+				send_command('gs c forceequip')
+			end
 		end
 		
 		wasmoving = moving
+
     end
 end)
 		
@@ -2446,6 +2420,7 @@ function get_effective_player_tp(spell, WSset)
 	if data.equipment.magian_tp_bonus_ranged_weapons:contains(player.equipment.range) then effective_tp = effective_tp + 1000 end
 	if state.Buff['Warcry'] and player.main_job == "WAR" and lastwarcry == player.name then effective_tp = effective_tp + warcry_tp_bonus end
 	if WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring" then effective_tp = effective_tp + 250 end
+	if WSset.head == "Mpaca's Cap" then effective_tp = effective_tp + 200 end
 	
 	if spell.skill == 25 or spell.skill == 26 then
 		if data.equipment.aeonic_weapons:contains(player.equipment.range) then effective_tp = effective_tp + 500 end
