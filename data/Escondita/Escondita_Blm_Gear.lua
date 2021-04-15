@@ -47,7 +47,7 @@ function init_gear_sets()
 	sets.weapons.NukeWeapons = {main=gear.grioavolr_nuke_staff,sub="Niobid Strap"}
 	sets.weapons.Khatvanga = {main="Khatvanga",sub="Bloodrain Strap"}
     sets.weapons.Malevolence = {main="Malevolence",sub="Ammurapi Shield"}
-    sets.weapons.Hvergelmir = {main="Crook",sub="Bloodrain Strap"}
+    sets.weapons.Hvergelmir = {main="Slaine",sub="Bloodrain Strap"}
 	
 	-- Treasure Hunter
 	

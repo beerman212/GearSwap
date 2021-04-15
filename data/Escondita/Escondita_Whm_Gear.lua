@@ -44,7 +44,7 @@ function init_gear_sets()
 	-- Weapons sets
 	sets.weapons.MeleeWeapons = {main="Izcalli",sub="Ammurapi Shield"}
 	sets.weapons.DualWeapons = {main="Izcalli",sub="Nehushtan"}
-	sets.weapons.Gambanteinn = {main="Rageblow",sub="Nehushtan"}
+	sets.weapons.Gambanteinn = {main="Culacula",sub="Kaja Rod"}
 	
     -- Precast Sets
 
