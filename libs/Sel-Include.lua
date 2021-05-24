@@ -179,6 +179,7 @@ function init_include()
 	state.Buff['Accession'] = buffactive['Accession'] or false
 	state.Buff['Manifestation'] = buffactive['Manifestation'] or false
 	state.Buff['Warcry'] = buffactive['Warcry'] or false
+	state.Buff['SJ Restriction'] = buffactive['SJ Restriction'] or false
 	
     -- Classes describe a 'type' of action.  They are similar to state, but
     -- may have any free-form value, or describe an entire table of mapped values.
@@ -2159,12 +2160,24 @@ function sub_job_change(newSubjob, oldSubjob)
         user_setup()
     end
 	
+    if user_job_setup then
+        user_job_setup()
+    end	
+	
     if extra_user_setup then
         extra_user_setup()
     end
     
     if job_sub_job_change then
         job_sub_job_change(newSubjob, oldSubjob)
+    end
+
+    if user_sub_job_change then
+        user_sub_job_change(newSubjob, oldSubjob)
+    end
+	
+    if user_job_sub_job_change then
+        user_job_sub_job_change(newSubjob, oldSubjob)
     end
     
     send_command('gs c update')
@@ -2287,16 +2300,16 @@ function state_change(stateField, newValue, oldValue)
 		end
     end
 	
-	if user_job_state_change then
-		user_job_state_change(stateField, newValue, oldValue)
-	end
-	
 	if user_state_change then
 		user_state_change(stateField, newValue, oldValue)
 	end
 	
 	if job_state_change then
 		job_state_change(stateField, newValue, oldValue)
+	end
+	
+	if user_job_state_change then
+		user_job_state_change(stateField, newValue, oldValue)
 	end
 	
 	if stateField == 'Rune Element' then
