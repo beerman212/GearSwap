@@ -89,7 +89,7 @@ function init_gear_sets()
 
 	sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'], {main="Yagrush",sub="Ammurapi Shield"})
 
-	sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {})
+	sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {feet="Hygieia Clogs"})
 	
 	sets.precast.FC.Cure.DT = set_combine(sets.precast.FC.DT, {legs="Ebers Pant. +1"})
 

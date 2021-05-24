@@ -176,7 +176,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Staunch Tathlum",
 		head="Malignance Chapeau",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Eabani Earring",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",ring2="Purity Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Gelatinous Ring +1",ring2="Purity Ring",
 		back="Moonbeam Cape",waist="Moonbow Belt +1",legs="Malignance Tights",feet="Ahosi Leggings"
 	}
 
@@ -209,7 +209,7 @@ function init_gear_sets()
 	}
 	sets.engaged.HybridDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Gelatinous Ring +1",
 		legs="Malignance Tights",feet="Malignance Boots"
 	})
 	sets.engaged.SubtleBlow = set_combine(sets.engaged, {})
@@ -230,7 +230,7 @@ function init_gear_sets()
 	sets.engaged.Godhands = set_combine(sets.engaged, {})
 	sets.engaged.Godhands.HybridDT = set_combine(sets.engaged.Godhands, {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Defending Ring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring1="Gelatinous Ring +1",
 		legs="Malignance Tights",feet="Malignance Boots"
 	})
 	sets.engaged.Godhands.SubtleBlow = set_combine(sets.engaged.Godhands, {})
@@ -300,6 +300,7 @@ function init_gear_sets()
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Sleep = {}
 	sets.buff.Impetus = {body="Bhikku Cyclas +1"}
+	sets.buff.Impetus.HybridDT = {body="Bhikku Cyclas +1",ring1="Defending Ring"}
 	sets.buff.Footwork = {}
 	sets.buff.Boost = {waist="Ask Sash"}
 	
@@ -337,4 +338,26 @@ end
 
 function lockstyle()
 	windower.chat.input("/lockstyleset 009")
+end
+
+function job_customize_melee_set(meleeSet)
+	
+	if state.OffenseMode.value ~= 'MaxAcc' then
+		if state.Buff['Impetus'] then
+			if sets.buff.Impetus[state.HybridMode.value] then
+				meleeSet = set_combine(meleeSet, sets.buff.Impetus[state.HybridMode.value])
+			else
+				meleeSet = set_combine(meleeSet, sets.buff.Impetus)
+			end
+		end
+		if buffactive.Footwork then
+			meleeSet = set_combine(meleeSet, sets.buff.Footwork)
+		end
+	end
+	
+	if state.Buff['Boost'] then
+		meleeSet = set_combine(meleeSet, sets.buff.Boost)
+	end
+	
+    return meleeSet
 end
