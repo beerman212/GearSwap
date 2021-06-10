@@ -87,7 +87,7 @@ function init_gear_sets()
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Ammurapi Shield"})
 
     -- Precast sets to enhance JAs
-	sets.precast.JA.Benediction = {body="Piety Briault +1"}
+	sets.precast.JA.Benediction = {body="Piety Bliaut +1"}
 	sets.precast.JA.Devotion = {head="Piety Cap"}
 
     -- Waltz set (chr and vit)
@@ -139,15 +139,15 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Queller Rod",sub="Sors Shield",
 		head="Vanya Hood",neck="Cleric's Torque",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
-		body="Theo. Briault +2",hands="Theophany Mitts +2",ring1="Janniston Ring",ring2="Kuchekula Ring",
+		body="Theo. Bliaut +2",hands="Theophany Mitts +2",ring1="Janniston Ring",ring2="Kuchekula Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Piety Duckbills +1"
 	}
 		
-	sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaud +1",back=gear.alaunus.fc})
+	sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaut +1",back=gear.alaunus.fc})
 
 	sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {main="Iridal Staff",sub="Achaq Grip"})
 
-	sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.LightWeatherCure, {body="Ebers Bliaud +1",back=gear.alaunus.fc})
+	sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.LightWeatherCure, {body="Ebers Bliaut +1",back=gear.alaunus.fc})
 		
 	sets.midcast.LightDayCureSolace = sets.midcast.CureSolace
 
@@ -164,7 +164,7 @@ function init_gear_sets()
 	--Melee Curesets are used whenever your Weapons state is set to anything but None.
 	sets.midcast.MeleeCure = {
 		head="Vanya Hood",neck="Cleric's Torque",ear1="Nourish. Earring +1",ear2="Lifestorm Earring",
-		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Janniston Ring",ring2="Kuchekula Ring",
+		body="Ebers Bliaut +1",hands="Kaykaus Cuffs",ring1="Janniston Ring",ring2="Kuchekula Ring",
 		waist=gear.alaunus.fc,waist="Luminary Sash",legs="Ebers Pant. +1",feet="Piety Duckbills +1"
 	}
 		
@@ -200,7 +200,7 @@ function init_gear_sets()
 
 	sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
 		neck="Malison Medallion",
-		body="Ebers Bliaud +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",
+		body="Ebers Bliaut +1",hands="Kaykaus Cuffs",ring1="Ephedra Ring",
 		legs="Th. Pantaloons +2",feet="Vanya Clogs"
 	})
 
@@ -225,7 +225,7 @@ function init_gear_sets()
 	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Bolelabunga",
 		head="Inyanga Tiara +1",
-		body="Piety Briault +1",hands="Ebers Mitts +1",
+		body="Piety Bliaut +1",hands="Ebers Mitts +1",
 		legs="Th. Pantaloons +2"
 	})
 	
@@ -237,7 +237,7 @@ function init_gear_sets()
 	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'].skill, {
 		main="Beneficus",
 		head="Ebers Cap +1",
-		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
+		body="Ebers Bliaut +1",hands="Ebers Mitts +1",
 		legs="Piety Pantaln. +1",feet="Ebers Duckbills +1"
 	})
 	sets.midcast.BarStatus = set_combine(sets.midcast['Enhancing Magic'].skill, {})
@@ -269,7 +269,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {
 		main="Daybreak",sub="Ammurapi Shield",
 		head="Theophany Cap +2",neck="Erra Pendant",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
+		body="Theo. Bliaut +2",hands="Inyan. Dastanas +2",ring1="Kishar Ring",ring2="Stikini Ring",
 		back=gear.alaunus.fc,waist="Luminary Sash",legs=gear.chironic.hose.enfeeble,feet="Theo. Duckbills +2"
 	}
 
@@ -301,7 +301,7 @@ function init_gear_sets()
 	sets.idle = {
 		main="Daybreak",sub="Ammurapi Shield",ammo="Homiliary",
 		head="Befouled Crown",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Moonshade Earring",
-		body="Theo. Briault +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+		body="Theo. Bliaut +2",hands="Inyan. Dastanas +2",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		legs=gear.chironic.hose.refresh,feet="Inyan. Crackows +2"
 	}
 

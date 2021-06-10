@@ -125,7 +125,7 @@ function init_gear_sets()
 	
 	sets.midcast.Cure = {main="Iridal Staff",sub="Clerisy Strap",
 		head="Vanya Hood",neck="Nodens Gorget",
-		body="Orison Bliaud +2",ring2="Janniston Ring",
+		body="Orison Bliaut +2",ring2="Janniston Ring",
 		back=gear.alaunus.fc,legs="Orsn. Pantaln. +2",feet="Vanya Clogs"}
 		
 	sets.midcast.CureSolace = sets.midcast.Cure
@@ -151,8 +151,8 @@ function init_gear_sets()
 		
 	sets.midcast.MeleeCureSolace = set_combine(sets.midcast.MeleeCure, {})
 	sets.midcast.MeleeLightWeatherCure = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
-	sets.midcast.MeleeLightWeatherCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaud +1",waist="Light Belt"})
-	sets.midcast.MeleeLightDayCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaud +1",waist="Light Belt"})
+	sets.midcast.MeleeLightWeatherCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaut +1",waist="Light Belt"})
+	sets.midcast.MeleeLightDayCureSolace = set_combine(sets.midcast.MeleeCure, {body="Ebers Bliaut +1",waist="Light Belt"})
 	sets.midcast.MeleeLightDayCure = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
 	sets.midcast.MeleeCuraga = set_combine(sets.midcast.MeleeCure, {})
 	sets.midcast.MeleeLightWeatherCuraga = set_combine(sets.midcast.MeleeCure, {waist="Light Belt"})
